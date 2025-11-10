@@ -1056,7 +1056,7 @@ export default function PortfolioWebsite() {
             </a>
           </div>
           <div className="mt-8 text-blue-100">
-            <p className="mb-2">📍 Based in Marburg, Germany</p>
+            <p className="mb-2">📍 Marburg, Germany</p>
             <p>📞 +49 171 5811680</p>
           </div>
         </div>
