@@ -50,7 +50,8 @@ export default function PortfolioWebsite() {
             bullets: { en: [], de: [] },
             highlight: true,
             icon: "briefcase",
-            iconBg: "bg-blue-100"
+            iconBg: "bg-blue-100",
+            image: "/images/drager.png?v=2"
           },
           {
             title: { en: "Web & Instructional Design Intern", de: "Web- & Instruktionsdesign-Praktikant" },
@@ -70,7 +71,8 @@ export default function PortfolioWebsite() {
             },
             highlight: false,
             icon: "briefcase",
-            iconBg: "bg-gray-100"
+            iconBg: "bg-gray-100",
+            image: "/images/tdk.jpg"
           },
           {
             title: { en: "English Language Teacher & Administrative Assistant", de: "Englischlehrer & Verwaltungsassistent" },
@@ -88,26 +90,29 @@ export default function PortfolioWebsite() {
             },
             highlight: false,
             icon: "briefcase",
-            iconBg: "bg-gray-100"
+            iconBg: "bg-gray-100",
+            image: "/images/nss.jpg"
           },
           {
-            title: { en: "English Language Teacher (Working Student)", de: "Englischlehrer (Werkstudent)" },
-            company: { en: "Kovak Hill Educational Centre, Kumasi", de: "Kovak Hill Educational Centre, Kumasi" },
-            date: { en: "January 2020 – June 2020", de: "Januar 2020 – Juni 2020" },
+            title: { en: "English Language Teaching Assistant (Intern)", de: "Englischlehrassistent (Praktikant)" },
+            company: { en: "Ghana Education Service, Kumasi", de: "Ghana Education Service, Kumasi" },
+            date: { en: "June 2021 – Dec 2021", de: "Juni 2021 – Dez 2021" },
             bullets: {
               en: [
-                "Developed and delivered lesson plans aligned to curriculum standards and learner engagement strategies.",
-                "Supported the organisation of general school events."
+                "Researched, wrote, and developed a method (box-part-letter), which helped 40% of first-year students gain legible handwriting.",
+                "Designed and facilitated lessons integrating formative and summative assessment principles."
               ],
               de: [
-                "Lehrpläne entwickelt und durchgeführt, abgestimmt auf Lehrplanstandards und Strategien zur Lernendenbindung.",
-                "Unterstützte die Organisation allgemeiner Schulveranstaltungen."
+                "Forschte, schrieb und entwickelte eine Methode (Box-Part-Letter), die 40% der Erstklässler zu leserlicher Handschrift verhalf.",
+                "Unterrichtseinheiten gestaltet und durchgeführt, die formative und summative Bewertungsprinzipien integrierten."
               ]
             },
             highlight: false,
             icon: "book",
-            iconBg: "bg-gray-100"
-          }
+            iconBg: "bg-gray-100",
+            image: "/images/ges.jpeg"
+          },
+          
         ]
       },
       certifications: {
@@ -118,6 +123,9 @@ export default function PortfolioWebsite() {
         desc: "Looking for an instructional designer who combines learning science with technical expertise? Let's connect and discuss how I can help transform your learning initiatives.",
         email: "Email Me",
         linkedin: "LinkedIn Profile"
+      ,
+        location: "Based in Marburg, Germany",
+        phone: "+49 171 5811680"
       },
       footer: {
         quickLinks: "Quick Links",
@@ -131,9 +139,9 @@ export default function PortfolioWebsite() {
       },
       impact: {
         metrics: "Impact Metrics",
-        improvement: "Average learning improvement across projects",
-        completion: "Completion Rate",
-        usage: "Active Usage"
+        improvement: "Average learning improvement",
+        completion: "Completion",
+        usage: "Active Use"
       },
       aboutCards: [
         {
@@ -211,7 +219,8 @@ export default function PortfolioWebsite() {
             bullets: { en: [], de: [] },
             highlight: true,
             icon: "briefcase",
-            iconBg: "bg-blue-100"
+            iconBg: "bg-blue-100",
+            image: "/images/drager.png?v=2"
           },
           {
             title: { en: "Web & Instructional Design Intern", de: "Web- & Instruktionsdesign-Praktikant" },
@@ -231,7 +240,8 @@ export default function PortfolioWebsite() {
             },
             highlight: false,
             icon: "briefcase",
-            iconBg: "bg-gray-100"
+            iconBg: "bg-gray-100",
+            image: "/images/tdk.jpg"
           },
           {
             title: { en: "English Language Teacher & Administrative Assistant", de: "Englischlehrer & Verwaltungsassistent" },
@@ -249,25 +259,27 @@ export default function PortfolioWebsite() {
             },
             highlight: false,
             icon: "briefcase",
-            iconBg: "bg-gray-100"
+            iconBg: "bg-gray-100",
+            image: "/images/nss.jpg"
           },
           {
-            title: { en: "English Language Teacher (Working Student)", de: "Englischlehrer (Werkstudent)" },
-            company: { en: "Kovak Hill Educational Centre, Kumasi", de: "Kovak Hill Educational Centre, Kumasi" },
-            date: { en: "January 2020 – June 2020", de: "Januar 2020 – Juni 2020" },
+            title: { en: "English Language Teaching Assistant (Intern)", de: "Englischlehrassistent (Praktikant)" },
+            company: { en: "Ghana Education Service, Kumasi", de: "Ghana Education Service, Kumasi" },
+            date: { en: "June 2021 – Dec 2021", de: "Juni 2021 – Dez 2021" },
             bullets: {
               en: [
-                "Developed and delivered lesson plans aligned to curriculum standards and learner engagement strategies.",
-                "Supported the organisation of general school events."
+                "Researched, wrote, and developed a method (box-part-letter), which helped 40% of first-year students gain legible handwriting.",
+                "Designed and facilitated lessons integrating formative and summative assessment principles."
               ],
               de: [
-                "Lehrpläne entwickelt und durchgeführt, abgestimmt auf Lehrplanstandards und Strategien zur Lernendenbindung.",
-                "Unterstützte die Organisation allgemeiner Schulveranstaltungen."
+                "Forschte, schrieb und entwickelte eine Methode (Box-Part-Letter), die 40% der Erstklässler zu leserlicher Handschrift verhalf.",
+                "Unterrichtseinheiten gestaltet und durchgeführt, die formative und summative Bewertungsprinzipien integrierten."
               ]
             },
             highlight: false,
             icon: "book",
-            iconBg: "bg-gray-100"
+            iconBg: "bg-gray-100",
+            image: "/images/ges.jpeg"
           }
         ]
       },
@@ -279,6 +291,9 @@ export default function PortfolioWebsite() {
         desc: "Suchen Sie einen Instruktionsdesigner, der Lernwissenschaft mit technischer Expertise verbindet? Lassen Sie uns sprechen, wie ich Ihre Lerninitiativen verbessern kann.",
         email: "E-Mail senden",
         linkedin: "LinkedIn Profil"
+      ,
+        location: "Standort: Marburg, Deutschland",
+        phone: "+49 171 5811680"
       },
       footer: {
         quickLinks: "Schnellzugriff",
@@ -292,8 +307,8 @@ export default function PortfolioWebsite() {
       },
       impact: {
         metrics: "Wirkungsmetriken",
-        improvement: "Durchschnittliche Lernverbesserung über alle Projekte",
-        completion: "Abschlussrate",
+        improvement: "Durchschnittliche Lernverbesserung",
+        completion: "Abschluss",
         usage: "Aktive Nutzung"
       },
       aboutCards: [
@@ -517,7 +532,8 @@ export default function PortfolioWebsite() {
         en: "Aug 2025",
         de: "Aug 2025"
       },
-      link: "https://www.coursera.org/account/accomplishments/verify/VA2HACXYEOYV"
+      link: "https://www.coursera.org/account/accomplishments/verify/VA2HACXYEOYV",
+      image: "/images/uiuc.png"
     },
     {
       title: {
@@ -532,7 +548,9 @@ export default function PortfolioWebsite() {
         en: "Apr 2025",
         de: "Apr 2025"
       },
-      link: "https://www.coursera.org/account/accomplishments/verify/CDOSFZ44QK27?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+      // Updated to point to Board Infinity partner page per user request
+      link: "https://www.coursera.org/partners/board-infinity",
+      image: "/images/board_infinity.svg"
     },
     {
       title: {
@@ -547,7 +565,8 @@ export default function PortfolioWebsite() {
         en: "Feb 2025",
         de: "Feb 2025"
       },
-      link: "https://cert.efset.org/1uf78L"
+      link: "https://cert.efset.org/1uf78L",
+      image: "/images/efset.png"
     }
   ];
 
@@ -573,18 +592,18 @@ export default function PortfolioWebsite() {
               </div>
               <div className="flex items-center gap-2">
                 <button
-                  className={`px-3 py-1 rounded text-sm font-semibold border flex items-center gap-1 ${language === 'en' ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-blue-600 border-blue-300'}`}
+                  className={`px-2 py-1 rounded text-sm font-semibold border flex items-center gap-1 ${language === 'en' ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-blue-600 border-blue-300'}`}
                   onClick={() => setLanguage('en')}
                   aria-label="Switch to English"
                 >
-                  <span role="img" aria-label="US flag">🇺🇸</span> EN
+                  <img src="/images/us.svg.webp" alt="English" className="w-5 h-5" />
                 </button>
                 <button
-                  className={`px-3 py-1 rounded text-sm font-semibold border flex items-center gap-1 ${language === 'de' ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-blue-600 border-blue-300'}`}
+                  className={`px-2 py-1 rounded text-sm font-semibold border flex items-center gap-1 ${language === 'de' ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-blue-600 border-blue-300'}`}
                   onClick={() => setLanguage('de')}
                   aria-label="Switch to German"
                 >
-                  <span role="img" aria-label="German flag">🇩🇪</span> DE
+                  <img src="/images/ger.svg.png" alt="Deutsch" className="w-5 h-5" />
                 </button>
               </div>
             </div>
@@ -611,7 +630,8 @@ export default function PortfolioWebsite() {
           <div className="md:hidden bg-white border-t border-blue-100">
             <a href="#about" className="block px-4 py-3 text-gray-700 hover:bg-blue-50">{t[language].nav.about}</a>
             <a href="#projects" className="block px-4 py-3 text-gray-700 hover:bg-blue-50">{t[language].nav.projects}</a>
-            <a href="#skills" className="block px-4 py-3 text-gray-700 hover:bg-blue-50">{t[language].nav.skills}</a>
+            <a href="#skills" className="block px-4 py-3 text-gray-700 hover:bg-blue-50">{t[language].nav
+            .skills}</a>
             <a href="#experience" className="block px-4 py-3 text-gray-700 hover:bg-blue-50">{t[language].nav.experience}</a>
             <a href="#contact" className="block px-4 py-3 text-gray-700 hover:bg-blue-50">{t[language].nav.contact}</a>
           </div>
@@ -626,10 +646,11 @@ export default function PortfolioWebsite() {
               <div className="flex items-center gap-6 mb-8">
                 <div className="relative">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full blur opacity-75"></div>
-                  <img 
+                  <img
                     src="/images/profile.jpg"
                     alt={t[language].name}
-                    className="relative w-60 h-60 rounded-full object-cover border-2 border-white shadow-lg"
+                    className="relative rounded-full object-cover border-2 border-white shadow-lg flex-shrink-0"
+                    style={{ width: '240px', height: '240px' }}
                   />
                 </div>
                 <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
@@ -643,13 +664,6 @@ export default function PortfolioWebsite() {
                 {t[language].hero.desc}
               </p>
               <div className="flex flex-wrap gap-4">
-                <a 
-                  href="#projects" 
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg hover:shadow-xl"
-                >
-                  <Layers className="w-5 h-5" />
-                  {t[language].hero.viewProjects}
-                </a>
                 <a 
                   href="#contact" 
                   className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition border-2 border-blue-600"
@@ -750,53 +764,51 @@ export default function PortfolioWebsite() {
               {projects.filter(p => [
                 "Plain Language and Inclusivity",
                 "Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)"
-              ].includes(p.title.en)).map((project, index) => (
-                <div key={index} className="bg-gradient-to-br from-blue-800 to-blue-700 rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden group">
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="px-3 py-1 bg-blue-900 text-white rounded-full text-xs font-semibold">
-                        {project.category[language]}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-200 transition">
-                      {project.title[language]}
-                    </h3>
-                    <p className="text-blue-100 mb-4 leading-relaxed">
-                      {project.description[language]}
-                    </p>
-                    <div className="mb-4">
-                      <p className="text-sm font-semibold text-blue-200 mb-2">{language === 'en' ? 'Tools Used:' : 'Verwendete Tools:'}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tools[language].map((tool, i) => (
-                          <span key={i} className="px-2 py-1 bg-blue-900 text-white rounded text-xs">
-                            {tool}
-                          </span>
-                        ))}
+              ].includes(p.title.en)).map((project, index) => {
+                let imgSrc = "";
+                if (project.title.en === "Plain Language and Inclusivity") imgSrc = "/images/b1.png";
+                else if (project.title.en === "Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)") imgSrc = "/images/b2.png";
+                return (
+                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden group block" style={{width: '100%', maxWidth: '420px', minHeight: '420px', textDecoration: 'none'}}>
+                    <img src={imgSrc} alt={project.title[language]} className="w-full h-64 object-cover rounded-t-2xl" />
+                    <div className="p-6 rounded-b-2xl bg-white">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-3 py-1 bg-blue-900 text-white rounded-full text-xs font-semibold">
+                          {project.category[language]}
+                        </span>
                       </div>
-                    </div>
-                    <div className="mb-4">
-                      <p className="text-sm font-semibold text-blue-200 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
-                      <div className="space-y-1">
-                        {project.results[language].map((result, i) => (
-                          <div key={i} className="flex items-start gap-2">
-                            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                            <span className="text-sm text-blue-100">{result}</span>
-                          </div>
-                        ))}
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition">
+                        {project.title[language]}
+                      </h3>
+                      <p className="text-gray-700 mb-4 leading-relaxed">
+                        {project.description[language]}
+                      </p>
+                      <div className="mb-4">
+                        <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Tools Used:' : 'Verwendete Tools:'}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tools[language].map((tool, i) => (
+                            <span key={i} className="px-2 py-1 bg-blue-100 text-blue-900 rounded text-xs">
+                              {tool}
+                            </span>
+                          ))}
+                        </div>
                       </div>
+                      <div className="mb-4">
+                        <p className="text-sm font-semibold text-blue-200 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
+                        <div className="space-y-1">
+                          {project.results[language].map((result, i) => (
+                            <div key={i} className="flex items-start gap-2">
+                              <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                              <span className="text-sm text-gray-700">{result}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-blue-700 absolute top-4 right-4" />
                     </div>
-                    <a 
-                      href={project.link} 
-                      className="inline-flex items-center gap-2 text-blue-200 hover:text-white font-semibold group"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {language === 'en' ? 'View Project' : 'Projekt ansehen'}
-                      <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition" />
-                    </a>
-                  </div>
-                </div>
-              ))}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -807,53 +819,51 @@ export default function PortfolioWebsite() {
               {projects.filter(p => [
                 "LLMs, Sustainability and Climate Change",
                 "Climate Change Mitigation Guide"
-              ].includes(p.title.en)).map((project, index) => (
-                <div key={index} className="bg-gradient-to-br from-blue-600 to-blue-400 rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden group">
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="px-3 py-1 bg-blue-700 text-white rounded-full text-xs font-semibold">
-                        {project.category[language]}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-100 transition">
-                      {project.title[language]}
-                    </h3>
-                    <p className="text-blue-50 mb-4 leading-relaxed">
-                      {project.description[language]}
-                    </p>
-                    <div className="mb-4">
-                      <p className="text-sm font-semibold text-blue-100 mb-2">{language === 'en' ? 'Tools Used:' : 'Verwendete Tools:'}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tools[language].map((tool, i) => (
-                          <span key={i} className="px-2 py-1 bg-blue-700 text-white rounded text-xs">
-                            {tool}
-                          </span>
-                        ))}
+              ].includes(p.title.en)).map((project, index) => {
+                let imgSrc = "";
+                if (project.title.en === "LLMs, Sustainability and Climate Change") imgSrc = "/images/c1.png";
+                else if (project.title.en === "Climate Change Mitigation Guide") imgSrc = "/images/c2.png";
+                return (
+                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden group block" style={{width: '100%', maxWidth: '420px', minHeight: '420px', textDecoration: 'none'}}>
+                    <img src={imgSrc} alt={project.title[language]} className="w-full h-64 object-cover rounded-t-2xl" />
+                    <div className="p-6 rounded-b-2xl bg-white">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-3 py-1 bg-blue-700 text-white rounded-full text-xs font-semibold">
+                          {project.category[language]}
+                        </span>
                       </div>
-                    </div>
-                    <div className="mb-4">
-                      <p className="text-sm font-semibold text-blue-100 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
-                      <div className="space-y-1">
-                        {project.results[language].map((result, i) => (
-                          <div key={i} className="flex items-start gap-2">
-                            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                            <span className="text-sm text-blue-50">{result}</span>
-                          </div>
-                        ))}
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition">
+                        {project.title[language]}
+                      </h3>
+                      <p className="text-gray-700 mb-4 leading-relaxed">
+                        {project.description[language]}
+                      </p>
+                      <div className="mb-4">
+                        <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Tools Used:' : 'Verwendete Tools:'}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tools[language].map((tool, i) => (
+                            <span key={i} className="px-2 py-1 bg-blue-100 text-blue-900 rounded text-xs">
+                              {tool}
+                            </span>
+                          ))}
+                        </div>
                       </div>
+                      <div className="mb-4">
+                        <p className="text-sm font-semibold text-blue-200 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
+                        <div className="space-y-1">
+                          {project.results[language].map((result, i) => (
+                            <div key={i} className="flex items-start gap-2">
+                              <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                              <span className="text-sm text-gray-700">{result}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-blue-700 absolute top-4 right-4" />
                     </div>
-                    <a 
-                      href={project.link} 
-                      className="inline-flex items-center gap-2 text-blue-100 hover:text-white font-semibold group"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {language === 'en' ? 'View Project' : 'Projekt ansehen'}
-                      <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition" />
-                    </a>
-                  </div>
-                </div>
-              ))}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -864,53 +874,51 @@ export default function PortfolioWebsite() {
               {projects.filter(p => [
                 "Technical Documentation (GitHub)",
                 "Welth Health Platform"
-              ].includes(p.title.en)).map((project, index) => (
-                <div key={index} className="bg-gradient-to-br from-blue-200 to-blue-100 rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden group">
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="px-3 py-1 bg-blue-200 text-blue-900 rounded-full text-xs font-semibold">
-                        {project.category[language]}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-blue-900 mb-3 group-hover:text-blue-600 transition">
-                      {project.title[language]}
-                    </h3>
-                    <p className="text-blue-800 mb-4 leading-relaxed">
-                      {project.description[language]}
-                    </p>
-                    <div className="mb-4">
-                      <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Tools Used:' : 'Verwendete Tools:'}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tools[language].map((tool, i) => (
-                          <span key={i} className="px-2 py-1 bg-blue-100 text-blue-900 rounded text-xs">
-                            {tool}
-                          </span>
-                        ))}
+              ].includes(p.title.en)).map((project, index) => {
+                let imgSrc = "";
+                if (project.title.en === "Technical Documentation (GitHub)") imgSrc = "/images/a1.png";
+                else if (project.title.en === "Welth Health Platform") imgSrc = "/images/a2.png";
+                return (
+                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden group block" style={{width: '100%', maxWidth: '420px', minHeight: '420px', textDecoration: 'none'}}>
+                    <img src={imgSrc} alt={project.title[language]} className="w-full h-64 object-cover rounded-t-2xl" />
+                    <div className="p-6 rounded-b-2xl bg-white">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-3 py-1 bg-blue-200 text-blue-900 rounded-full text-xs font-semibold">
+                          {project.category[language]}
+                        </span>
                       </div>
-                    </div>
-                    <div className="mb-4">
-                      <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
-                      <div className="space-y-1">
-                        {project.results[language].map((result, i) => (
-                          <div key={i} className="flex items-start gap-2">
-                            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                            <span className="text-sm text-blue-800">{result}</span>
-                          </div>
-                        ))}
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition">
+                        {project.title[language]}
+                      </h3>
+                      <p className="text-gray-700 mb-4 leading-relaxed">
+                        {project.description[language]}
+                      </p>
+                      <div className="mb-4">
+                        <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Tools Used:' : 'Verwendete Tools:'}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tools[language].map((tool, i) => (
+                            <span key={i} className="px-2 py-1 bg-blue-100 text-blue-900 rounded text-xs">
+                              {tool}
+                            </span>
+                          ))}
+                        </div>
                       </div>
+                      <div className="mb-4">
+                        <p className="text-sm font-semibold text-blue-200 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
+                        <div className="space-y-1">
+                          {project.results[language].map((result, i) => (
+                            <div key={i} className="flex items-start gap-2">
+                              <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                              <span className="text-sm text-gray-700">{result}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-blue-700 absolute top-4 right-4" />
                     </div>
-                    <a 
-                      href={project.link} 
-                      className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-900 font-semibold group"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {language === 'en' ? 'View Project' : 'Projekt ansehen'}
-                      <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition" />
-                    </a>
-                  </div>
-                </div>
-              ))}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -971,9 +979,25 @@ export default function PortfolioWebsite() {
             {experienceItems.map((item, idx) => (
               <div key={idx} className={`bg-white p-8 rounded-2xl shadow-lg ${item.highlight ? 'border-l-4 border-blue-600' : ''}`}>
                 <div className="flex items-start gap-4">
-                  <div className={`w-12 h-12 ${item.iconBg || 'bg-gray-100'} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                    {item.icon === 'briefcase' && <Briefcase className={`w-6 h-6 ${item.highlight ? 'text-blue-600' : 'text-gray-600'}`} />}
-                    {item.icon === 'book' && <BookOpen className={`w-6 h-6 ${item.highlight ? 'text-blue-600' : 'text-gray-600'}`} />}
+                  <div className={`w-12 h-12 ${item.iconBg || 'bg-gray-100'} rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden`}> 
+                    {item.image ? (
+                      <img
+                        src={item.image}
+                        alt={(item.title && item.title[language]) || ''}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          // fallback if image fails to load
+                          console.warn('Experience image failed to load:', item.image);
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = '/images/profile.jpg';
+                        }}
+                      />
+                    ) : (
+                      <> 
+                        {item.icon === 'briefcase' && <Briefcase className={`w-6 h-6 ${item.highlight ? 'text-blue-600' : 'text-gray-600'}`} />}
+                        {item.icon === 'book' && <BookOpen className={`w-6 h-6 ${item.highlight ? 'text-blue-600' : 'text-gray-600'}`} />}
+                      </>
+                    )}
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-gray-900 mb-1">{(item.title && item.title[language]) || ''}</h3>
@@ -1008,21 +1032,58 @@ export default function PortfolioWebsite() {
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {certifications.map((cert, index) => (
-              <div key={index} className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl border border-blue-200 hover:shadow-lg transition">
-                <div className="flex items-start gap-3 mb-3">
-                  <Award className="w-6 h-6 text-blue-600 flex-shrink-0" />
-                  <div>
+              <a
+                key={index}
+                href={cert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${(cert.title && cert.title[language]) || ''} - ${((cert.issuer && cert.issuer[language]) || '')}`}
+                className="block bg-gradient-to-br from-blue-50 to-white rounded-xl border border-blue-200 hover:shadow-lg transition overflow-hidden"
+              >
+                {cert.image ? (
+                  <img
+                    src={cert.image}
+                    alt={(cert.title && cert.title[language]) || ''}
+                    className="w-full h-32 object-cover"
+                    onError={(e) => {
+                      // If an SVG fails to render, try a PNG with the same name as a fallback, otherwise hide the image
+                      try {
+                        const src = e.currentTarget.src || '';
+                        if (src.endsWith('.svg')) {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = src.replace(/\.svg($|\?)/, '.png$1');
+                        } else {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.style.display = 'none';
+                        }
+                      } catch (err) {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.style.display = 'none';
+                      }
+                    }}
+                  />
+                ) : (
+                  <div className="p-6">
+                    <div className="flex items-start gap-3 mb-3">
+                      <Award className="w-6 h-6 text-blue-600 flex-shrink-0" />
+                      <div>
+                        <h3 className="font-bold text-gray-900 mb-1">{(cert.title && cert.title[language]) || ''}</h3>
+                        <p className="text-sm text-gray-600">{(cert.issuer && cert.issuer[language]) || ''}</p>
+                        {cert.level && <p className="text-sm text-blue-600 font-semibold">{(cert.level && cert.level[language]) || ''}</p>}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <div className="p-6">
+                  <div className="mb-2">
                     <h3 className="font-bold text-gray-900 mb-1">{(cert.title && cert.title[language]) || ''}</h3>
                     <p className="text-sm text-gray-600">{(cert.issuer && cert.issuer[language]) || ''}</p>
                     {cert.level && <p className="text-sm text-blue-600 font-semibold">{(cert.level && cert.level[language]) || ''}</p>}
                   </div>
+                  <p className="text-sm text-gray-500">{(cert.date && cert.date[language]) || ''}</p>
                 </div>
-                <p className="text-sm text-gray-500">{(cert.date && cert.date[language]) || ''}</p>
-                <a href={cert.link} className="inline-flex items-center gap-1 text-blue-600 text-sm font-semibold mt-2 hover:text-blue-700">
-                  {language === 'en' ? 'Verify' : 'Zertifikat ansehen'}
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -1056,8 +1117,8 @@ export default function PortfolioWebsite() {
             </a>
           </div>
           <div className="mt-8 text-blue-100">
-            <p className="mb-2">📍 Marburg, Germany</p>
-            <p>📞 +49 171 5811680</p>
+            <p className="mb-2">📍 {t[language].contact.location}</p>
+            <p>📞 {t[language].contact.phone}</p>
           </div>
         </div>
       </section>
@@ -1085,9 +1146,9 @@ export default function PortfolioWebsite() {
             <div>
               <h3 className="text-lg font-bold mb-4">{t[language].footer.samples}</h3>
               <div className="space-y-2">
-                <a href="#" className="block text-gray-400 hover:text-white transition">{t[language].footer.eLearning}</a>
-                <a href="#" className="block text-gray-400 hover:text-white transition">{t[language].footer.knowledge}</a>
-                <a href="#" className="block text-gray-400 hover:text-white transition">{t[language].footer.techWriting}</a>
+                <a href="#projects" className="block text-gray-400 hover:text-white transition">{t[language].footer.eLearning}</a>
+                <a href="#projects" className="block text-gray-400 hover:text-white transition">{t[language].footer.knowledge}</a>
+                <a href="https://github.com/Samuelsen1/Tech-Writing-Samples" className="block text-gray-400 hover:text-white transition">{t[language].footer.techWriting}</a>
                 <a href="https://github.com/Samuelsen1" className="block text-gray-400 hover:text-white transition">{t[language].footer.github}</a>
               </div>
             </div>
