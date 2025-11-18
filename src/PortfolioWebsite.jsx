@@ -439,8 +439,8 @@ export default function PortfolioWebsite() {
         de: ["Notion", "Figma"]
       },
       results: {
-        en: ["Complete ADDIE framework", "Multi-level strategies", "Evidence-based content"],
-        de: ["Vollständiges ADDIE-Framework", "Mehrstufige Strategien", "Evidenzbasierte Inhalte"]
+        en: ["Complete ADDIE framework", "Multi-level strategies"],
+        de: ["Vollständiges ADDIE-Framework", "Mehrstufige Strategien"]
       },
       link: "https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d?source=copy_link",
       featured: true
@@ -910,7 +910,6 @@ export default function PortfolioWebsite() {
                           ))}
                         </div>
                       </div>
-                      <ExternalLink className="w-4 h-4 text-blue-700 absolute top-4 right-4" />
                     </div>
                   </a>
                 );
@@ -965,7 +964,6 @@ export default function PortfolioWebsite() {
                           ))}
                         </div>
                       </div>
-                      <ExternalLink className="w-4 h-4 text-blue-700 absolute top-4 right-4" />
                     </div>
                   </a>
                 );
@@ -1020,7 +1018,6 @@ export default function PortfolioWebsite() {
                           ))}
                         </div>
                       </div>
-                      <ExternalLink className="w-4 h-4 text-blue-700 absolute top-4 right-4" />
                     </div>
                   </a>
                 );
