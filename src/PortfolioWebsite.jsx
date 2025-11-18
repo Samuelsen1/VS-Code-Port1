@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Award, Globe, FileText, Layers, Zap, CheckCircle, TrendingUp, Users } from 'lucide-react';
+import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Award, Zap, CheckCircle, TrendingUp } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -111,8 +111,7 @@ export default function PortfolioWebsite() {
             icon: "book",
             iconBg: "bg-gray-100",
             image: "/images/ges.jpeg"
-          },
-          
+          }
         ]
       },
       certifications: {
@@ -574,13 +573,15 @@ export default function PortfolioWebsite() {
     || (t.en && t.en.experience && t.en.experience.items)
     || [];
 
+  const metrics = [
+    { label: t[language].impact.improvement, value: "40%" },
+    { label: t[language].impact.completion, value: "96%" },
+    { label: t[language].impact.usage, value: "78%" }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Inter:wght@600;700;800&display=swap');
-        body { font-family: 'Helvetica neue', sans-serif; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
-      `}</style>
+      <style>{`\n        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Inter:wght@600;700;800&display=swap');\n        body { font-family: 'Helvetica neue', sans-serif; }\n        h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }\n      `}</style>
 
       {/* Navigation + Language Switcher */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 border-b border-blue-100">
@@ -683,35 +684,6 @@ export default function PortfolioWebsite() {
                   <Mail className="w-6 h-6" />
                 </a>
               </div>
-            </div>
-            <div className="relative">
-              <div className="relative z-10">
-                <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-8 shadow-2xl">
-                  <div className="bg-white rounded-xl p-6 shadow-lg">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                        <Zap className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-600">{t[language].impact.metrics}</p>
-                        <p className="text-2xl font-bold text-gray-900">40%+</p>
-                      </div>
-                    </div>
-                    <p className="text-gray-600">{t[language].impact.improvement}</p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4 mt-6">
-                    <div className="bg-white rounded-xl p-4 shadow-lg">
-                      <p className="text-3xl font-bold text-blue-600 mb-1">96%</p>
-                      <p className="text-sm text-gray-600">{t[language].impact.completion}</p>
-                    </div>
-                    <div className="bg-white rounded-xl p-4 shadow-lg">
-                      <p className="text-3xl font-bold text-blue-600 mb-1">78%</p>
-                      <p className="text-sm text-gray-600">{t[language].impact.usage}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl transform rotate-3 opacity-20"></div>
             </div>
           </div>
         </div>
@@ -922,15 +894,7 @@ export default function PortfolioWebsite() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <a 
-              href="#" 
-              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-lg"
-            >
-              {t[language].projects.viewAll}
-              <ExternalLink className="w-5 h-5" />
-            </a>
-          </div>
+          {/* ...existing code... (removed 'View Full Portfolio' hyperlink) */}
         </div>
       </section>
 
@@ -1127,13 +1091,7 @@ export default function PortfolioWebsite() {
       <footer className="bg-gray-900 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">{t[language].name}</h3>
-              <p className="text-gray-400">
-                Instructional Designer & E-Learning Developer specializing in evidence-based, 
-                technology-enhanced learning solutions.
-              </p>
-            </div>
+            {/* ...existing code... */}
             <div>
               <h3 className="text-lg font-bold mb-4">{t[language].footer.quickLinks}</h3>
               <div className="space-y-2">
