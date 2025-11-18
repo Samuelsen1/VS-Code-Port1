@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/VS-Code-Port1/static/css/main.aed54d38.css",
+    "main.js": "/VS-Code-Port1/static/js/main.5a28aca6.js",
+    "index.html": "/VS-Code-Port1/index.html",
+    "main.aed54d38.css.map": "/VS-Code-Port1/static/css/main.aed54d38.css.map",
+    "main.5a28aca6.js.map": "/VS-Code-Port1/static/js/main.5a28aca6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aed54d38.css",
+    "static/js/main.5a28aca6.js"
+  ]
+}
