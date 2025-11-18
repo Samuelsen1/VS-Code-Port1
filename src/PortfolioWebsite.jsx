@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Award, Zap, CheckCircle, TrendingUp } from 'lucide-react';
+import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Award, Zap, CheckCircle, TrendingUp, FileText } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +22,8 @@ export default function PortfolioWebsite() {
         subtitle: "& E-Learning Developer",
         desc: "Transforming complex concepts into engaging, high-impact digital learning experiences. Leveraging learning science, multimedia design, and modern web technologies to create scalable, inclusive solutions.",
         viewProjects: "View Projects",
-        getInTouch: "Get In Touch"
+        getInTouch: "Get In Touch",
+        viewCV: "View CV"
       },
       about: {
         title: "About Me",
@@ -190,7 +191,8 @@ export default function PortfolioWebsite() {
         subtitle: "& E-Learning Entwickler",
         desc: "Komplexe Konzepte in ansprechende, wirkungsvolle digitale Lernerfahrungen verwandeln. Lernwissenschaft, Multimediadesign und moderne Webtechnologien für skalierbare, inklusive Lösungen.",
         viewProjects: "Projekte ansehen",
-        getInTouch: "Kontakt aufnehmen"
+        getInTouch: "Kontakt aufnehmen",
+        viewCV: "Lebenslauf ansehen"
       },
       about: {
         title: "Über mich",
@@ -765,6 +767,15 @@ export default function PortfolioWebsite() {
                 >
                   <Mail className="w-5 h-5" />
                   {t[language].hero.getInTouch}
+                </a>
+                <a 
+                  href="/cv.pdf" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                >
+                  <FileText className="w-5 h-5" />
+                  {t[language].hero.viewCV}
                 </a>
               </div>
               <div className="flex gap-4 mt-8">
