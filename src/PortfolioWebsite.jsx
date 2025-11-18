@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Award, Zap, CheckCircle, TrendingUp } from 'lucide-react';
+import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Award, Zap, CheckCircle, TrendingUp, FileText } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +22,8 @@ export default function PortfolioWebsite() {
         subtitle: "& E-Learning Developer",
         desc: "Transforming complex concepts into engaging, high-impact digital learning experiences. Leveraging learning science, multimedia design, and modern web technologies to create scalable, inclusive solutions.",
         viewProjects: "View Projects",
-        getInTouch: "Get In Touch"
+        getInTouch: "Get In Touch",
+        viewCV: "View CV"
       },
       about: {
         title: "About Me",
@@ -190,7 +191,8 @@ export default function PortfolioWebsite() {
         subtitle: "& E-Learning Entwickler",
         desc: "Komplexe Konzepte in ansprechende, wirkungsvolle digitale Lernerfahrungen verwandeln. Lernwissenschaft, Multimediadesign und moderne Webtechnologien für skalierbare, inklusive Lösungen.",
         viewProjects: "Projekte ansehen",
-        getInTouch: "Kontakt aufnehmen"
+        getInTouch: "Kontakt aufnehmen",
+        viewCV: "Lebenslauf ansehen"
       },
       about: {
         title: "Über mich",
@@ -581,6 +583,43 @@ export default function PortfolioWebsite() {
 
   return (
     <div className="min-h-screen bg-white">
+      <style>{`
+        @keyframes float-up-down {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-50px); }
+        }
+        @keyframes orbit-1 {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(80px, -30px); }
+          50% { transform: translate(0, -80px); }
+          75% { transform: translate(-80px, -30px); }
+          100% { transform: translate(0, 0); }
+        }
+        @keyframes orbit-2 {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(-60px, 40px); }
+          50% { transform: translate(0, 80px); }
+          75% { transform: translate(60px, 40px); }
+          100% { transform: translate(0, 0); }
+        }
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-80px); }
+        }
+        @keyframes rotate-slow {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse-bright {
+          0%, 100% { opacity: 0.4; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.2); }
+        }
+        .animate-float-1 { animation: float-up-down 6s ease-in-out infinite; animation-delay: 0s; }
+        .animate-float-2 { animation: orbit-1 8s ease-in-out infinite; animation-delay: 0.5s; }
+        .animate-float-3 { animation: orbit-2 7s ease-in-out infinite; animation-delay: 1s; }
+        .animate-pulse-glow { animation: pulse-bright 4s ease-in-out infinite; animation-delay: 0s; }
+        .animate-rotate { animation: rotate-slow 20s linear infinite; }
+      `}</style>
       <style>{`\n        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Inter:wght@600;700;800&display=swap');\n        body { font-family: 'Helvetica neue', sans-serif; }\n        h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }\n      `}</style>
 
       {/* Navigation + Language Switcher */}
@@ -640,8 +679,65 @@ export default function PortfolioWebsite() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-blue-50 via-white to-blue-50">
-        <div className="max-w-7xl mx-auto">
+      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-blue-50 via-white to-blue-50 relative overflow-hidden">
+        {/* Education-Themed Animated Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Animated Book Icon - Floating upward */}
+          <div className="absolute top-20 left-12 w-20 h-20 animate-float-1 opacity-40">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-full h-full text-blue-600">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" strokeWidth="1.5"/>
+              <path d="M8 7h8M8 11h8M8 15h4" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+          </div>
+          
+          {/* Animated Atom/Molecule Icon - Floating upward */}
+          <div className="absolute top-40 right-20 w-16 h-16 animate-float-2 opacity-40">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-full h-full text-indigo-600">
+              <circle cx="12" cy="12" r="2" fill="currentColor"/>
+              <path d="M12 12c3.5 0 6-1.34 6-3s-2.5-3-6-3-6 1.34-6 3 2.5 3 6 3z"/>
+              <path d="M12 12c3.5 0 6 1.34 6 3s-2.5 3-6 3-6-1.34-6-3 2.5-3 6-3z" transform="rotate(60 12 12)"/>
+              <path d="M12 12c3.5 0 6 1.34 6 3s-2.5 3-6 3-6-1.34-6-3 2.5-3 6-3z" transform="rotate(120 12 12)"/>
+            </svg>
+          </div>
+          
+          {/* Animated Lightbulb Icon - Floating upward */}
+          <div className="absolute bottom-32 left-1/4 w-20 h-20 animate-float-3 opacity-40">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-full h-full text-cyan-600">
+              <path d="M9 18h6M12 2a6 6 0 0 0-6 6c0 2.667 1.5 3.5 1.5 5.5 0 1 .5 1 .5 2H16c0-1 .5-1 .5-2 0-2 1.5-2.833 1.5-5.5a6 6 0 0 0-6-6z" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M10 20a2 2 0 0 0 4 0" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M9 17h6" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+          </div>
+          
+          {/* Orbiting molecules/atoms - SVG based */}
+          <div className="absolute top-1/3 left-1/3 w-32 h-32">
+            <svg viewBox="0 0 100 100" className="w-full h-full animate-rotate">
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#93c5fd" strokeWidth="1" opacity="0.3"/>
+              <circle cx="50" cy="50" r="8" fill="#3b82f6" opacity="0.6"/>
+              <circle cx="50" cy="15" r="4" fill="#60a5fa" className="animate-pulse-glow"/>
+              <circle cx="82" cy="65" r="3.5" fill="#818cf8" className="animate-pulse-glow" style={{ animationDelay: '1s' }}/>
+              <circle cx="18" cy="65" r="3.5" fill="#06b6d4" className="animate-pulse-glow" style={{ animationDelay: '0.5s' }}/>
+            </svg>
+          </div>
+
+          {/* Secondary orbital system - SVG based */}
+          <div className="absolute bottom-1/4 right-1/3 w-40 h-40">
+            <svg viewBox="0 0 100 100" className="w-full h-full animate-rotate" style={{ animationDirection: 'reverse' }}>
+              <circle cx="50" cy="50" r="40" fill="none" stroke="#a78bfa" strokeWidth="1.5" opacity="0.25"/>
+              <circle cx="50" cy="50" r="6" fill="#6366f1"/>
+              <circle cx="50" cy="20" r="3.5" fill="#818cf8" className="animate-pulse-glow" style={{ animationDelay: '1.5s' }}/>
+              <circle cx="75" cy="50" r="3.5" fill="#3b82f6" className="animate-pulse-glow" style={{ animationDelay: '2s' }}/>
+              <circle cx="50" cy="80" r="3" fill="#06b6d4" className="animate-pulse-glow" style={{ animationDelay: '0.75s' }}/>
+            </svg>
+          </div>
+
+          {/* Floating gradient orbs */}
+          <div className="absolute top-1/2 right-10 w-40 h-40 bg-gradient-to-br from-blue-300 to-cyan-200 rounded-full blur-3xl animate-pulse-glow opacity-30" style={{ animationDelay: '0.75s' }}></div>
+          <div className="absolute -top-20 right-1/3 w-32 h-32 bg-gradient-to-br from-indigo-300 to-blue-200 rounded-full blur-2xl animate-float-1 opacity-25"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-6 mb-8">
@@ -672,6 +768,15 @@ export default function PortfolioWebsite() {
                   <Mail className="w-5 h-5" />
                   {t[language].hero.getInTouch}
                 </a>
+                <a 
+                  href="/cv.pdf" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                >
+                  <FileText className="w-5 h-5" />
+                  {t[language].hero.viewCV}
+                </a>
               </div>
               <div className="flex gap-4 mt-8">
                 <a href="https://www.linkedin.com/in/samuel-o-4b9bbb2a8" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition">
@@ -684,6 +789,35 @@ export default function PortfolioWebsite() {
                   <Mail className="w-6 h-6" />
                 </a>
               </div>
+            </div>
+            <div className="relative">
+              <div className="relative z-10">
+                <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-8 shadow-2xl">
+                  <div className="bg-white rounded-xl p-6 shadow-lg">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <Zap className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">{t[language].impact.metrics}</p>
+                        <p className="text-2xl font-bold text-gray-900">40%</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-600">{t[language].impact.improvement}</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 mt-6">
+                    <div className="bg-white rounded-xl p-4 shadow-lg">
+                      <p className="text-3xl font-bold text-blue-600 mb-1">96%</p>
+                      <p className="text-sm text-gray-600">{t[language].impact.completion}</p>
+                    </div>
+                    <div className="bg-white rounded-xl p-4 shadow-lg">
+                      <p className="text-3xl font-bold text-blue-600 mb-1">78%</p>
+                      <p className="text-sm text-gray-600">{t[language].impact.usage}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl transform rotate-3 opacity-20"></div>
             </div>
           </div>
         </div>
@@ -741,21 +875,21 @@ export default function PortfolioWebsite() {
                 if (project.title.en === "Plain Language and Inclusivity") imgSrc = "/images/b1.png";
                 else if (project.title.en === "Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)") imgSrc = "/images/b2.png";
                 return (
-                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden group block" style={{width: '100%', maxWidth: '420px', minHeight: '420px', textDecoration: 'none'}}>
-                    <img src={imgSrc} alt={project.title[language]} className="w-full h-64 object-cover rounded-t-2xl" />
-                    <div className="p-6 rounded-b-2xl bg-white">
-                      <div className="flex items-center gap-2 mb-3">
+                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl transition overflow-hidden group block flex flex-col" style={{width: '100%', maxWidth: '420px', height: '620px', textDecoration: 'none'}}>
+                    <img src={imgSrc} alt={project.title[language]} className="w-full h-64 object-cover rounded-t-2xl flex-shrink-0" />
+                    <div className="p-5 rounded-b-2xl bg-white flex-1 flex flex-col">
+                      <div className="flex items-center gap-2 mb-2">
                         <span className="px-3 py-1 bg-blue-900 text-white rounded-full text-xs font-semibold">
                           {project.category[language]}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition">
+                      <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">
                         {project.title[language]}
                       </h3>
-                      <p className="text-gray-700 mb-4 leading-relaxed">
+                      <p className="text-gray-700 mb-3 leading-relaxed flex-1 text-sm">
                         {project.description[language]}
                       </p>
-                      <div className="mb-4">
+                      <div className="mb-3">
                         <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Tools Used:' : 'Verwendete Tools:'}</p>
                         <div className="flex flex-wrap gap-2">
                           {project.tools[language].map((tool, i) => (
@@ -765,8 +899,8 @@ export default function PortfolioWebsite() {
                           ))}
                         </div>
                       </div>
-                      <div className="mb-4">
-                        <p className="text-sm font-semibold text-blue-200 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
+                      <div className="mb-2">
+                        <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
                         <div className="space-y-1">
                           {project.results[language].map((result, i) => (
                             <div key={i} className="flex items-start gap-2">
@@ -796,21 +930,21 @@ export default function PortfolioWebsite() {
                 if (project.title.en === "LLMs, Sustainability and Climate Change") imgSrc = "/images/c1.png";
                 else if (project.title.en === "Climate Change Mitigation Guide") imgSrc = "/images/c2.png";
                 return (
-                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden group block" style={{width: '100%', maxWidth: '420px', minHeight: '420px', textDecoration: 'none'}}>
-                    <img src={imgSrc} alt={project.title[language]} className="w-full h-64 object-cover rounded-t-2xl" />
-                    <div className="p-6 rounded-b-2xl bg-white">
-                      <div className="flex items-center gap-2 mb-3">
+                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl transition overflow-hidden group block flex flex-col" style={{width: '100%', maxWidth: '420px', height: '620px', textDecoration: 'none'}}>
+                    <img src={imgSrc} alt={project.title[language]} className="w-full h-64 object-cover rounded-t-2xl flex-shrink-0" />
+                    <div className="p-5 rounded-b-2xl bg-white flex-1 flex flex-col">
+                      <div className="flex items-center gap-2 mb-2">
                         <span className="px-3 py-1 bg-blue-700 text-white rounded-full text-xs font-semibold">
                           {project.category[language]}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition">
+                      <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">
                         {project.title[language]}
                       </h3>
-                      <p className="text-gray-700 mb-4 leading-relaxed">
+                      <p className="text-gray-700 mb-3 leading-relaxed flex-1 text-sm">
                         {project.description[language]}
                       </p>
-                      <div className="mb-4">
+                      <div className="mb-3">
                         <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Tools Used:' : 'Verwendete Tools:'}</p>
                         <div className="flex flex-wrap gap-2">
                           {project.tools[language].map((tool, i) => (
@@ -820,8 +954,8 @@ export default function PortfolioWebsite() {
                           ))}
                         </div>
                       </div>
-                      <div className="mb-4">
-                        <p className="text-sm font-semibold text-blue-200 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
+                      <div className="mb-2">
+                        <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
                         <div className="space-y-1">
                           {project.results[language].map((result, i) => (
                             <div key={i} className="flex items-start gap-2">
@@ -851,21 +985,21 @@ export default function PortfolioWebsite() {
                 if (project.title.en === "Technical Documentation (GitHub)") imgSrc = "/images/a1.png";
                 else if (project.title.en === "Welth Health Platform") imgSrc = "/images/a2.png";
                 return (
-                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden group block" style={{width: '100%', maxWidth: '420px', minHeight: '420px', textDecoration: 'none'}}>
-                    <img src={imgSrc} alt={project.title[language]} className="w-full h-64 object-cover rounded-t-2xl" />
-                    <div className="p-6 rounded-b-2xl bg-white">
-                      <div className="flex items-center gap-2 mb-3">
+                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl transition overflow-hidden group block flex flex-col" style={{width: '100%', maxWidth: '420px', height: '620px', textDecoration: 'none'}}>
+                    <img src={imgSrc} alt={project.title[language]} className="w-full h-64 object-cover rounded-t-2xl flex-shrink-0" />
+                    <div className="p-5 rounded-b-2xl bg-white flex-1 flex flex-col">
+                      <div className="flex items-center gap-2 mb-2">
                         <span className="px-3 py-1 bg-blue-200 text-blue-900 rounded-full text-xs font-semibold">
                           {project.category[language]}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition">
+                      <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">
                         {project.title[language]}
                       </h3>
-                      <p className="text-gray-700 mb-4 leading-relaxed">
+                      <p className="text-gray-700 mb-3 leading-relaxed flex-1 text-sm">
                         {project.description[language]}
                       </p>
-                      <div className="mb-4">
+                      <div className="mb-3">
                         <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Tools Used:' : 'Verwendete Tools:'}</p>
                         <div className="flex flex-wrap gap-2">
                           {project.tools[language].map((tool, i) => (
@@ -875,8 +1009,8 @@ export default function PortfolioWebsite() {
                           ))}
                         </div>
                       </div>
-                      <div className="mb-4">
-                        <p className="text-sm font-semibold text-blue-200 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
+                      <div className="mb-2">
+                        <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
                         <div className="space-y-1">
                           {project.results[language].map((result, i) => (
                             <div key={i} className="flex items-start gap-2">
