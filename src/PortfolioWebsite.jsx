@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Award, Zap, CheckCircle, TrendingUp, FileText } from 'lucide-react';
+import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Award, Zap, CheckCircle, TrendingUp } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,8 +22,7 @@ export default function PortfolioWebsite() {
         subtitle: "& E-Learning Developer",
         desc: "Transforming complex concepts into engaging, high-impact digital learning experiences. Leveraging learning science, multimedia design, and modern web technologies to create scalable, inclusive solutions.",
         viewProjects: "View Projects",
-        getInTouch: "Get In Touch",
-        viewCV: "View CV"
+        getInTouch: "Get In Touch"
       },
       about: {
         title: "About Me",
@@ -191,8 +190,7 @@ export default function PortfolioWebsite() {
         subtitle: "& E-Learning Entwickler",
         desc: "Komplexe Konzepte in ansprechende, wirkungsvolle digitale Lernerfahrungen verwandeln. Lernwissenschaft, Multimediadesign und moderne Webtechnologien für skalierbare, inklusive Lösungen.",
         viewProjects: "Projekte ansehen",
-        getInTouch: "Kontakt aufnehmen",
-        viewCV: "Lebenslauf ansehen"
+        getInTouch: "Kontakt aufnehmen"
       },
       about: {
         title: "Über mich",
@@ -768,15 +766,6 @@ export default function PortfolioWebsite() {
                   <Mail className="w-5 h-5" />
                   {t[language].hero.getInTouch}
                 </a>
-                <a 
-                  href="/cv.pdf" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
-                >
-                  <FileText className="w-5 h-5" />
-                  {t[language].hero.viewCV}
-                </a>
               </div>
               <div className="flex gap-4 mt-8">
                 <a href="https://www.linkedin.com/in/samuel-o-4b9bbb2a8" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition">
@@ -875,21 +864,21 @@ export default function PortfolioWebsite() {
                 if (project.title.en === "Plain Language and Inclusivity") imgSrc = "/images/b1.png";
                 else if (project.title.en === "Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)") imgSrc = "/images/b2.png";
                 return (
-                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl transition overflow-hidden group block flex flex-col" style={{width: '100%', maxWidth: '420px', height: '620px', textDecoration: 'none'}}>
+                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl transition overflow-hidden group block flex flex-col relative" style={{width: '100%', maxWidth: '420px', height: '620px', textDecoration: 'none'}}>
                     <img src={imgSrc} alt={project.title[language]} className="w-full h-64 object-cover rounded-t-2xl flex-shrink-0" />
-                    <div className="p-5 rounded-b-2xl bg-white flex-1 flex flex-col">
-                      <div className="flex items-center gap-2 mb-2">
+                    <h3 className="absolute top-40 left-0 right-0 text-lg font-bold text-white px-4 py-2 bg-black/75 group-hover:bg-blue-600/90 transition">
+                      {project.title[language]}
+                    </h3>
+                    <div className="p-6 rounded-b-2xl bg-white flex-1 flex flex-col">
+                      <div className="flex items-center gap-2 mb-3">
                         <span className="px-3 py-1 bg-blue-900 text-white rounded-full text-xs font-semibold">
                           {project.category[language]}
                         </span>
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">
-                        {project.title[language]}
-                      </h3>
                       <p className="text-gray-700 mb-3 leading-relaxed flex-1 text-sm">
                         {project.description[language]}
                       </p>
-                      <div className="mb-3">
+                      <div className="mb-4">
                         <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Tools Used:' : 'Verwendete Tools:'}</p>
                         <div className="flex flex-wrap gap-2">
                           {project.tools[language].map((tool, i) => (
@@ -899,7 +888,7 @@ export default function PortfolioWebsite() {
                           ))}
                         </div>
                       </div>
-                      <div className="mb-2">
+                      <div className="mb-4">
                         <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
                         <div className="space-y-1">
                           {project.results[language].map((result, i) => (
@@ -930,21 +919,21 @@ export default function PortfolioWebsite() {
                 if (project.title.en === "LLMs, Sustainability and Climate Change") imgSrc = "/images/c1.png";
                 else if (project.title.en === "Climate Change Mitigation Guide") imgSrc = "/images/c2.png";
                 return (
-                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl transition overflow-hidden group block flex flex-col" style={{width: '100%', maxWidth: '420px', height: '620px', textDecoration: 'none'}}>
+                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl transition overflow-hidden group block flex flex-col relative" style={{width: '100%', maxWidth: '420px', height: '620px', textDecoration: 'none'}}>
                     <img src={imgSrc} alt={project.title[language]} className="w-full h-64 object-cover rounded-t-2xl flex-shrink-0" />
-                    <div className="p-5 rounded-b-2xl bg-white flex-1 flex flex-col">
-                      <div className="flex items-center gap-2 mb-2">
+                    <h3 className="absolute top-40 left-0 right-0 text-lg font-bold text-white px-4 py-2 bg-black/75 group-hover:bg-blue-600/90 transition">
+                      {project.title[language]}
+                    </h3>
+                    <div className="p-6 rounded-b-2xl bg-white flex-1 flex flex-col">
+                      <div className="flex items-center gap-2 mb-3">
                         <span className="px-3 py-1 bg-blue-700 text-white rounded-full text-xs font-semibold">
                           {project.category[language]}
                         </span>
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">
-                        {project.title[language]}
-                      </h3>
                       <p className="text-gray-700 mb-3 leading-relaxed flex-1 text-sm">
                         {project.description[language]}
                       </p>
-                      <div className="mb-3">
+                      <div className="mb-4">
                         <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Tools Used:' : 'Verwendete Tools:'}</p>
                         <div className="flex flex-wrap gap-2">
                           {project.tools[language].map((tool, i) => (
@@ -954,7 +943,7 @@ export default function PortfolioWebsite() {
                           ))}
                         </div>
                       </div>
-                      <div className="mb-2">
+                      <div className="mb-4">
                         <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
                         <div className="space-y-1">
                           {project.results[language].map((result, i) => (
@@ -985,21 +974,21 @@ export default function PortfolioWebsite() {
                 if (project.title.en === "Technical Documentation (GitHub)") imgSrc = "/images/a1.png";
                 else if (project.title.en === "Welth Health Platform") imgSrc = "/images/a2.png";
                 return (
-                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl transition overflow-hidden group block flex flex-col" style={{width: '100%', maxWidth: '420px', height: '620px', textDecoration: 'none'}}>
+                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl transition overflow-hidden group block flex flex-col relative" style={{width: '100%', maxWidth: '420px', height: '620px', textDecoration: 'none'}}>
                     <img src={imgSrc} alt={project.title[language]} className="w-full h-64 object-cover rounded-t-2xl flex-shrink-0" />
-                    <div className="p-5 rounded-b-2xl bg-white flex-1 flex flex-col">
-                      <div className="flex items-center gap-2 mb-2">
+                    <h3 className="absolute top-40 left-0 right-0 text-lg font-bold text-white px-4 py-2 bg-black/75 group-hover:bg-blue-600/90 transition">
+                      {project.title[language]}
+                    </h3>
+                    <div className="p-6 rounded-b-2xl bg-white flex-1 flex flex-col">
+                      <div className="flex items-center gap-2 mb-3">
                         <span className="px-3 py-1 bg-blue-200 text-blue-900 rounded-full text-xs font-semibold">
                           {project.category[language]}
                         </span>
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">
-                        {project.title[language]}
-                      </h3>
                       <p className="text-gray-700 mb-3 leading-relaxed flex-1 text-sm">
                         {project.description[language]}
                       </p>
-                      <div className="mb-3">
+                      <div className="mb-4">
                         <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Tools Used:' : 'Verwendete Tools:'}</p>
                         <div className="flex flex-wrap gap-2">
                           {project.tools[language].map((tool, i) => (
@@ -1009,7 +998,7 @@ export default function PortfolioWebsite() {
                           ))}
                         </div>
                       </div>
-                      <div className="mb-2">
+                      <div className="mb-4">
                         <p className="text-sm font-semibold text-blue-700 mb-2">{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
                         <div className="space-y-1">
                           {project.results[language].map((result, i) => (
