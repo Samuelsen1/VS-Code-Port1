@@ -1209,7 +1209,7 @@ export default function PortfolioWebsite() {
 
           <div className="max-w-4xl mx-auto space-y-6">
             {experienceItems.map((item, idx) => (
-              <div key={idx} className={`p-8 rounded-2xl hover-lift ${isDarkTheme ? `bg-white/10 backdrop-blur-xl border ${item.highlight ? 'border-l-4 border-l-blue-400 border-t border-r border-b border-white/10' : 'border-white/10'}` : `glass-card border ${item.highlight ? 'border-l-4 border-l-blue-600 border-t border-r border-b border-gray-100' : 'border-gray-100'}`}`}>
+              <div key={idx} className={`p-8 rounded-2xl hover-lift transition-all duration-300 ${isDarkTheme ? `bg-white/10 backdrop-blur-xl border ${item.highlight ? 'border-l-4 border-l-blue-400 border-t border-r border-b border-white/10' : 'border-white/10'}` : `bg-white ${item.highlight ? 'border-l-4 border-l-blue-500 shadow-[0_4px_24px_-4px_rgba(59,130,246,0.25)] border border-blue-100' : 'shadow-[0_4px_20px_-2px_rgba(0,0,0,0.1)] border border-gray-100'}`}`}>
                 <div className="flex items-start gap-5">
                   <div className={`w-14 h-14 ${item.highlight ? 'bg-gradient-to-br from-blue-500 to-indigo-600' : isDarkTheme ? 'bg-white/20' : 'bg-gray-100'} rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden shadow-md`}> 
                     {item.image ? (
