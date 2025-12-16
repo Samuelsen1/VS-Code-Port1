@@ -911,7 +911,11 @@ export default function PortfolioWebsite() {
                 </div>
               </div>
               
-              {/* Mobile Metrics Tile - appears right after job title on mobile only */}
+              <p className={`text-base md:text-lg lg:text-xl mb-6 md:mb-10 leading-relaxed max-w-xl mx-auto md:mx-0 ${isDarkTheme ? 'text-blue-100/90' : 'text-gray-600'}`}>
+                {t[language].hero.desc}
+              </p>
+              
+              {/* Mobile Metrics Tile - after description, before CTA buttons */}
               <div ref={metricsRefMobile} className="md:hidden mb-8 mx-auto max-w-sm animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 <div className={`rounded-2xl p-4 overflow-hidden relative ${isDarkTheme ? 'bg-gradient-to-br from-slate-800/90 via-blue-900/90 to-indigo-900/90 backdrop-blur-xl border border-white/10 shadow-2xl' : 'bg-gradient-to-br from-white via-gray-50 to-slate-50 border border-gray-200 shadow-xl'}`}>
                   {/* Giant 40% watermark */}
@@ -980,10 +984,6 @@ export default function PortfolioWebsite() {
                   </div>
                 </div>
               </div>
-              
-              <p className={`text-base md:text-lg lg:text-xl mb-8 md:mb-10 leading-relaxed max-w-xl mx-auto md:mx-0 ${isDarkTheme ? 'text-blue-100/90' : 'text-gray-600'}`}>
-                {t[language].hero.desc}
-              </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4">
                 <a 
                   href="#contact" 
