@@ -939,9 +939,9 @@ export default function PortfolioWebsite() {
                 </a>
               </div>
             </div>
-            <div ref={metricsRef} className="relative animate-fade-in mt-10 md:mt-0" style={{ animationDelay: '0.2s' }}>
+            <div ref={metricsRef} className="relative animate-fade-in mt-8 md:mt-0 mx-auto md:mx-0 max-w-sm md:max-w-none" style={{ animationDelay: '0.2s' }}>
               <div className="relative z-10">
-                <div className={`rounded-3xl p-4 md:p-6 overflow-hidden relative ${isDarkTheme ? 'bg-gradient-to-br from-slate-800/90 via-blue-900/90 to-indigo-900/90 backdrop-blur-xl border border-white/10 shadow-2xl' : 'bg-gradient-to-br from-white via-gray-50 to-slate-50 border border-gray-200 shadow-xl'}`}>
+                <div className={`rounded-2xl md:rounded-3xl p-4 md:p-6 overflow-hidden relative ${isDarkTheme ? 'bg-gradient-to-br from-slate-800/90 via-blue-900/90 to-indigo-900/90 backdrop-blur-xl border border-white/10 shadow-2xl' : 'bg-gradient-to-br from-white via-gray-50 to-slate-50 border border-gray-200 shadow-xl'}`}>
                   
                   {/* Giant 40% watermark - centered, more visible */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
