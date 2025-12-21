@@ -64,18 +64,18 @@ export default function PortfolioWebsite() {
         available: "Available for Opportunities",
         title: "Digital Learning Designer",
         subtitle: "",
-        desc: "Transforming complex concepts into engaging, high-impact digital learning experiences. Leveraging learning science, multimedia design, and modern web technologies to create scalable, inclusive solutions.",
+        desc: "Transforming complex concepts into engaging, high-impact digital learning experiences. Leveraging learning science and multimedia design to create scalable, inclusive solutions.",
         viewProjects: "View Projects",
         getInTouch: "Get In Touch",
         viewCV: "View CV"
       },
       about: {
         title: "About Me",
-        desc: "Educator-turned-Instructional Designer. I leverage classroom experience to build inclusive, high-impact digital learning solutions. My approach combines learning science (ADDIE, Bloom's Taxonomy, Adult Learning Theory) with modern technology to create engaging courses and technical documentation that drive measurable results."
+        desc: "Educator-turned-Digital Learning Designer. I leverage classroom experience to build inclusive, high-impact digital learning solutions. My approach combines learning science (ADDIE, Bloom's Taxonomy, Adult Learning Theory) with modern technology to create engaging courses and technical documentation that drive measurable results."
       },
       projects: {
         title: "Featured Projects",
-        desc: "Instructional design projects categorized by type and impact",
+        desc: "Digital learning design projects categorized by type and impact",
         viewAll: "View Full Portfolio",
         eLearning: "E-Learning Modules",
         knowledge: "Knowledge Base",
@@ -89,7 +89,7 @@ export default function PortfolioWebsite() {
         title: "Professional Experience",
         items: [
           {
-            title: { en: "Global Academy Internship - Online Training", de: "Praktikum Global Academy - Online Training" },
+            title: { en: "Online Training (Intern)", de: "Online Training (Intern)" },
             company: { en: "Dräger, Lübeck", de: "Dräger, Lübeck" },
             date: { en: "Starting February 2026", de: "Beginn Februar 2026" },
             bullets: { en: [], de: [] },
@@ -99,19 +99,19 @@ export default function PortfolioWebsite() {
             image: "/images/drager.png?v=2"
           },
           {
-            title: { en: "Web & Instructional Design Intern", de: "Web- & Instruktionsdesign-Praktikant" },
+            title: { en: "Digital Learning Designer (Intern)", de: "Digital Learning Designer (Praktikant)" },
             company: { en: "Tanz der Kulturen e.V., Hamburg", de: "Tanz der Kulturen e.V., Hamburg" },
-            date: { en: "June 2025 – October 2025", de: "Juni 2025 – Oktober 2025" },
+            date: { en: "June 2025 – November 2025", de: "Juni 2025 – November 2025" },
             bullets: {
               en: [
-                "Designed and documented instructional materials for both digital and print use",
-                "Contributed to rebuilding the website on an e-commerce platform",
-                "Used AI to translate German brand content into English while preserving its voice and natural flow"
+                "Designed 25+ accessible multimedia learning assets (infographics, promotional materials) in line with WCAG 2.1, expanding reach to diverse learner groups",
+                "Curated and structured 50+ educational resources for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners",
+                "Localized 300+ pages of German instructional content (e.g., <em>Rituelle Tanz Pädagogik</em> book) into English using AI-assisted translation, preserving natural flow"
               ],
               de: [
-                "Gestaltete und dokumentierte Lehrmaterialien für digitale und gedruckte Verwendung",
-                "Wirkte beim Wiederaufbau der Website auf einer E‑Commerce-Plattform mit",
-                "Verwendete KI, um deutsche Markeninhalte ins Englische zu übersetzen und dabei Stimme und natürlichen Ausdruck zu bewahren"
+                "Gestaltete 25+ barrierefreie Multimedia-Lerninhalte (Infografiken, Werbematerialien) gemäß WCAG 2.1 und erreichte diverse Lerngruppen",
+                "Kuratierte und strukturierte 50+ Lernressourcen für transkulturelle Kunstpädagogik und unterstützte 200+ internationale, kommunale und ERASMUS-Lernende",
+                "Lokalisierte 300+ Seiten deutscher Unterrichtsinhalte (z.B. <em>Rituelle Tanz Pädagogik</em> Buch) ins Englische mit KI-gestützter Übersetzung unter Beibehaltung des natürlichen Flusses"
               ]
             },
             highlight: false,
@@ -125,12 +125,14 @@ export default function PortfolioWebsite() {
             date: { en: "January 2023 – October 2023", de: "Januar 2023 – Oktober 2023" },
             bullets: {
               en: [
-                "Designed, delivered and assessed English lessons, improving students' comprehension and speaking skills",
-                "Managed administrative tasks including student records and scheduling"
+                "Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy, enhancing comprehension, writing, and speaking skills",
+                "Assessed student progress using formative and summative methods to inform lesson adaptation",
+                "Managed administrative tasks, including student records, scheduling, and correspondence"
               ],
               de: [
-                "Unterrichtsstunden entworfen, durchgeführt und bewertet, wodurch das Verständnis und die Sprechfertigkeit der Lernenden verbessert wurden",
-                "Verwaltungsaufgaben wie Schülerakten und Zeitplanung verwaltet"
+                "Unterrichtsstunden unter Verwendung von Lernzielen im Einklang mit Blooms Taxonomie entworfen und durchgeführt, um Verständnis, Schreib- und Sprechfähigkeiten zu verbessern",
+                "Schülerfortschritt mittels formativer und summativer Methoden bewertet, um die Unterrichtsanpassung zu informieren",
+                "Verwaltungsaufgaben wie Schülerakten, Zeitplanung und Korrespondenz verwaltet"
               ]
             },
             highlight: false,
@@ -141,21 +143,38 @@ export default function PortfolioWebsite() {
           {
             title: { en: "English Language Teaching Assistant (Intern)", de: "Englischlehrassistent (Praktikant)" },
             company: { en: "Ghana Education Service, Kumasi", de: "Ghana Education Service, Kumasi" },
-            date: { en: "June 2021 – Dec 2021", de: "Juni 2021 – Dez 2021" },
+            date: { en: "June 2021 – December 2021", de: "Juni 2021 – Dezember 2021" },
             bullets: {
               en: [
-                "Researched, wrote, and developed a method (box-part-letter), which helped 40% of first-year students gain legible handwriting.",
-                "Designed and facilitated lessons integrating formative and summative assessment principles."
+                "Developed a box-part-letter handwriting method, improving first-year student performance by 40%",
+                "Facilitated lessons integrating assessment strategies and instructional scaffolding aligned to learning outcomes"
               ],
               de: [
-                "Forschte, schrieb und entwickelte eine Methode (Box-Part-Letter), die 40% der Erstklässler zu leserlicher Handschrift verhalf.",
-                "Unterrichtseinheiten gestaltet und durchgeführt, die formative und summative Bewertungsprinzipien integrierten."
+                "Entwickelte eine Box-Part-Letter-Methode für die Handschrift, die die Leistung von Erstklässlern um 40% verbesserte",
+                "Unterrichtseinheiten mit Bewertungsstrategien und Unterrichtsstützung im Einklang mit Lernzielen durchgeführt"
               ]
             },
             highlight: false,
             icon: "book",
             iconBg: "bg-gray-100",
             image: "/images/ges.jpeg"
+          },
+          {
+            title: { en: "English Language Teacher (Working Student)", de: "Englischlehrer (Arbeitender Student)" },
+            company: { en: "Kovak Hill Educational Centre, Kumasi", de: "Kovak Hill Educational Centre, Kumasi" },
+            date: { en: "January 2020 – June 2020", de: "Januar 2020 – Juni 2020" },
+            bullets: {
+              en: [
+                "Developed and implemented lesson plans following ADDIE principles, ensuring alignment with curriculum standards and learner engagement strategies"
+              ],
+              de: [
+                "Unterrichtspläne nach ADDIE-Prinzipien entwickelt und durchgeführt, um Übereinstimmung mit Lehrplannormen und Lernerbeteiligungsstrategien sicherzustellen"
+              ]
+            },
+            highlight: false,
+            icon: "book",
+            iconBg: "bg-gray-100",
+            image: "/images/kovak.png"
           }
         ]
       },
@@ -164,7 +183,7 @@ export default function PortfolioWebsite() {
       },
       contact: {
         title: "Let's Create Something Great Together",
-        desc: "Looking for an instructional designer who combines learning science with technical expertise? Let's connect and discuss how I can help transform your learning initiatives.",
+        desc: "Looking for a digital learning designer who combines learning science with technical expertise? Let's connect and discuss how I can help transform your learning initiatives.",
         email: "Email Me",
         linkedin: "LinkedIn Profile"
       ,
@@ -178,7 +197,7 @@ export default function PortfolioWebsite() {
         knowledge: "Knowledge Base Design",
         techWriting: "Technical Documentation",
         github: "GitHub Repository",
-        copyright: "© 2025 Samuel Afriyie Opoku • Instructional Designer & E-Learning Developer",
+        copyright: "© 2025 Samuel Afriyie Opoku • Digital Learning Designer & E-Learning Developer",
         built: "Built with React & Tailwind CSS"
       },
       impact: {
@@ -194,7 +213,7 @@ export default function PortfolioWebsite() {
         },
         {
           title: "Technical Skills",
-          desc: "Full-stack toolkit spanning e-learning authoring (Articulate 360), multimedia design (Adobe Suite), and web development (React, Tailwind CSS)."
+          desc: "Full-stack toolkit spanning e-learning authoring (Articulate 360) and multimedia design (Adobe Suite)."
         },
         {
           title: "Measurable Impact",
@@ -203,7 +222,7 @@ export default function PortfolioWebsite() {
       ],
       skillsCategories: [
         {
-          title: "Instructional Design",
+          title: "Digital Learning Design",
           items: ["ADDIE Framework", "Bloom's Taxonomy", "Adult Learning Theory", "Storyboarding", "LXD", "Curriculum Development"]
         },
         {
@@ -211,12 +230,12 @@ export default function PortfolioWebsite() {
           items: ["Articulate 360 (Storyline, Rise)", "Moodle", "SCORM", "Adobe Premiere Pro", "Adobe Photoshop", "Figma"]
         },
         {
-          title: "Web Development",
-          items: ["HTML", "CSS", "Tailwind CSS", "ReactJS", "Markdown", "GitHub", "VS Code", "Responsive Design"]
-        },
-        {
           title: "Content Creation",
           items: ["Technical Writing", "Multimedia Design", "Knowledge Base Documentation", "Cross-Cultural Adaptation"]
+        },
+        {
+          title: "Web & Development Tools",
+          items: ["HTML", "CSS", "Markdown", "GitHub", "VS Code", "Vercel"]
         }
       ]
     },
@@ -233,18 +252,18 @@ export default function PortfolioWebsite() {
         available: "Verfügbar für Möglichkeiten",
         title: "Digital Learning Designer",
         subtitle: "",
-        desc: "Komplexe Konzepte in ansprechende, wirkungsvolle digitale Lernerfahrungen verwandeln. Lernwissenschaft, Multimediadesign und moderne Webtechnologien für skalierbare, inklusive Lösungen.",
+        desc: "Komplexe Konzepte in ansprechende, wirkungsvolle digitale Lernerfahrungen verwandeln. Lernwissenschaft und Multimediadesign für skalierbare, inklusive Lösungen.",
         viewProjects: "Projekte ansehen",
         getInTouch: "Kontakt aufnehmen",
         viewCV: "Lebenslauf ansehen"
       },
       about: {
         title: "Über mich",
-        desc: "Lehrer, jetzt Instruktionsdesigner. Ich nutze meine Unterrichtserfahrung, um inklusive, wirkungsvolle digitale Lernlösungen zu entwickeln. Mein Ansatz kombiniert Lernwissenschaft (ADDIE, Bloom's Taxonomie, Erwachsenenlerntheorie) mit moderner Technologie für ansprechende Kurse und technische Dokumentation, die messbare Ergebnisse liefern."
+        desc: "Lehrer, jetzt Digital Learning Designer. Ich nutze meine Unterrichtserfahrung, um inklusive, wirkungsvolle digitale Lernlösungen zu entwickeln. Mein Ansatz kombiniert Lernwissenschaft (ADDIE, Bloom's Taxonomie, Erwachsenenlerntheorie) mit moderner Technologie für ansprechende Kurse und technische Dokumentation, die messbare Ergebnisse liefern."
       },
       projects: {
         title: "Ausgewählte Projekte",
-        desc: "Instruktionsdesign-Projekte nach Typ und Wirkung kategorisiert",
+        desc: "Digital Learning Design-Projekte nach Typ und Wirkung kategorisiert",
         viewAll: "Gesamtes Portfolio ansehen",
         eLearning: "E-Learning-Module",
         knowledge: "Wissensdatenbank",
@@ -258,7 +277,7 @@ export default function PortfolioWebsite() {
         title: "Berufserfahrung",
         items: [
           {
-            title: { en: "Global Academy Internship - Online Training", de: "Praktikum Global Academy - Online Training" },
+            title: { en: "Online Training (Intern)", de: "Online Training (Praktikant)" },
             company: { en: "Dräger, Lübeck", de: "Dräger, Lübeck" },
             date: { en: "Starting February 2026", de: "Beginn Februar 2026" },
             bullets: { en: [], de: [] },
@@ -268,7 +287,7 @@ export default function PortfolioWebsite() {
             image: "/images/drager.png?v=2"
           },
           {
-            title: { en: "Web & Instructional Design Intern", de: "Web- & Instruktionsdesign-Praktikant" },
+            title: { en: "Web & Digital Learning Design Intern", de: "Digital Learning Designer (Praktikant)" },
             company: { en: "Tanz der Kulturen e.V., Hamburg", de: "Tanz der Kulturen e.V., Hamburg" },
             date: { en: "June 2025 – October 2025", de: "Juni 2025 – Oktober 2025" },
             bullets: {
@@ -333,7 +352,7 @@ export default function PortfolioWebsite() {
       },
       contact: {
         title: "Lassen Sie uns gemeinsam Großartiges schaffen",
-        desc: "Suchen Sie einen Instruktionsdesigner, der Lernwissenschaft mit technischer Expertise verbindet? Lassen Sie uns sprechen, wie ich Ihre Lerninitiativen verbessern kann.",
+        desc: "Suchen Sie einen Digital Learning Designer, der Lernwissenschaft mit technischer Expertise verbindet? Lassen Sie uns sprechen, wie ich Ihre Lerninitiativen verbessern kann.",
         email: "E-Mail senden",
         linkedin: "LinkedIn Profil"
       ,
@@ -347,7 +366,7 @@ export default function PortfolioWebsite() {
         knowledge: "Wissensdatenbank-Design",
         techWriting: "Technische Dokumentation",
         github: "GitHub-Repository",
-        copyright: "© 2025 Samuel Afriyie Opoku • Instruktionsdesigner & E-Learning Entwickler",
+        copyright: "© 2025 Samuel Afriyie Opoku • Digital Learning Designer & E-Learning Entwickler",
         built: "Erstellt mit React & Tailwind CSS"
       },
       impact: {
@@ -363,7 +382,7 @@ export default function PortfolioWebsite() {
         },
         {
           title: "Technische Fähigkeiten",
-          desc: "Full-Stack-Toolkit für E-Learning-Autorentools (Articulate 360), Multimediadesign (Adobe Suite) und Webentwicklung (React, Tailwind CSS)."
+          desc: "Full-Stack-Toolkit für E-Learning-Autorentools (Articulate 360) und Multimediadesign (Adobe Suite)."
         },
         {
           title: "Messbare Wirkung",
@@ -372,7 +391,7 @@ export default function PortfolioWebsite() {
       ],
       skillsCategories: [
         {
-          title: "Instruktionsdesign",
+          title: "Digitales Lerndesign",
           items: ["ADDIE-Framework", "Bloom's Taxonomie", "Erwachsenenlerntheorie", "Storyboarding", "LXD", "Curriculumentwicklung"]
         },
         {
@@ -380,12 +399,12 @@ export default function PortfolioWebsite() {
           items: ["Articulate 360 (Storyline, Rise)", "Moodle", "SCORM", "Adobe Premiere Pro", "Adobe Photoshop", "Figma"]
         },
         {
-          title: "Webentwicklung",
-          items: ["HTML", "CSS", "Tailwind CSS", "ReactJS", "Markdown", "GitHub", "VS Code", "Responsives Design"]
-        },
-        {
           title: "Content-Erstellung",
           items: ["Technisches Schreiben", "Multimediadesign", "Wissensdatenbank-Dokumentation", "Interkulturelle Anpassung"]
+        },
+        {
+          title: "Web & Entwicklungstools",
+          items: ["HTML", "CSS", "Markdown", "GitHub", "VS Code", "Vercel"]
         }
       ]
     }
@@ -566,8 +585,8 @@ export default function PortfolioWebsite() {
   const certifications = [
     {
       title: {
-        en: "Instructional Design Foundations & Applications",
-        de: "Grundlagen & Anwendungen des Instruktionsdesigns"
+        en: "Digital Learning Design Foundations & Applications",
+        de: "Grundlagen & Anwendungen des Digitalen Lerndesigns"
       },
       issuer: {
         en: "University of Illinois Urbana-Champaign",
@@ -1355,15 +1374,15 @@ export default function PortfolioWebsite() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {t[language].skillsCategories.map((cat, index) => (
-              <div key={index} className={`p-8 rounded-2xl hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`}>
-                <h3 className={`text-2xl font-bold mb-6 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>{cat.title}</h3>
-                <div className="flex flex-wrap gap-3">
+              <div key={index} className={`p-6 rounded-2xl hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`}>
+                <h3 className={`text-lg font-bold mb-4 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>{cat.title}</h3>
+                <div className="flex flex-wrap gap-2">
                   {cat.items.map((skill, i) => (
                     <span 
                       key={i} 
-                      className={`px-4 py-2.5 rounded-xl font-medium shadow-sm hover:shadow-md transition-all duration-200 ${isDarkTheme ? 'bg-white/10 text-blue-100 border border-white/20 hover:border-blue-400 hover:text-white' : 'bg-gradient-to-r from-gray-50 to-white text-gray-700 border border-gray-200 hover:border-blue-300 hover:text-blue-600'}`}
+                      className={`px-3 py-1.5 rounded-lg text-sm font-medium shadow-sm hover:shadow-md transition-all duration-200 ${isDarkTheme ? 'bg-white/10 text-blue-100 border border-white/20 hover:border-blue-400 hover:text-white' : 'bg-gradient-to-r from-gray-50 to-white text-gray-700 border border-gray-200 hover:border-blue-300 hover:text-blue-600'}`}
                     >
                       {skill}
                     </span>
@@ -1423,7 +1442,7 @@ export default function PortfolioWebsite() {
                         {item.bullets[language].map((b, i) => (
                           <li key={i} className="flex items-start gap-3">
                             <span className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${isDarkTheme ? 'bg-blue-400' : 'bg-blue-500'}`}></span>
-                            <span className="leading-relaxed">{b}</span>
+                            <span className="leading-relaxed" dangerouslySetInnerHTML={{ __html: b }}></span>
                           </li>
                         ))}
                       </ul>
