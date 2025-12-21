@@ -174,7 +174,7 @@ export default function PortfolioWebsite() {
             highlight: false,
             icon: "book",
             iconBg: "bg-gray-100",
-            image: "/images/kovak.png"
+            image: "/images/Kovak.png"
           }
         ]
       },
