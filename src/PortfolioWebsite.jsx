@@ -62,8 +62,8 @@ export default function PortfolioWebsite() {
       },
       hero: {
         available: "Available for Opportunities",
-        title: "Instructional Designer",
-        subtitle: "& E-Learning Developer",
+        title: "Digital Learning Designer",
+        subtitle: "",
         desc: "Transforming complex concepts into engaging, high-impact digital learning experiences. Leveraging learning science, multimedia design, and modern web technologies to create scalable, inclusive solutions.",
         viewProjects: "View Projects",
         getInTouch: "Get In Touch",
@@ -231,8 +231,8 @@ export default function PortfolioWebsite() {
       },
       hero: {
         available: "Verfügbar für Möglichkeiten",
-        title: "Lerndesigner",
-        subtitle: "& E-Learning Entwickler",
+        title: "Digital Learning Designer",
+        subtitle: "",
         desc: "Komplexe Konzepte in ansprechende, wirkungsvolle digitale Lernerfahrungen verwandeln. Lernwissenschaft, Multimediadesign und moderne Webtechnologien für skalierbare, inklusive Lösungen.",
         viewProjects: "Projekte ansehen",
         getInTouch: "Kontakt aufnehmen",
@@ -902,12 +902,9 @@ export default function PortfolioWebsite() {
                   />
                 </div>
                 <div>
-                  <h1 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight tracking-tight ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>
-                    {t[language].hero.title}<br />
-                    <span className={`bg-clip-text text-transparent ${isDarkTheme ? 'bg-gradient-to-r from-blue-300 via-cyan-300 to-indigo-300' : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600'}`}>
-                      {t[language].hero.subtitle}
-                    </span>
-                  </h1>
+                  <div className={`text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4 md:mb-5 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>
+                    {t[language].hero.title}
+                  </div>
                 </div>
               </div>
               
