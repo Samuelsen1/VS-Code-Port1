@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Award, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles } from 'lucide-react';
+import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Award, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, Lightbulb, Type, Square, Volume2, Image, Palette, AlignCenter, RotateCcw, Heart } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,6 +11,20 @@ export default function PortfolioWebsite() {
   const [hasAnimated, setHasAnimated] = useState(false);
   const metricsRefMobile = useRef(null);
   const metricsRefDesktop = useRef(null);
+  
+  // Accessibility states - now with 3 levels: 0 = off, 1 = light, 2 = full
+  const [isAccessibilityOpen, setIsAccessibilityOpen] = useState(false);
+  const [accessibility, setAccessibility] = useState({
+    contrast: 0,
+    mark: 0,
+    largeText: 0,
+    textSpacing: 0,
+    stopAnimations: 0,
+    hideImages: 0,
+    dyslexia: 0,
+    rowHeight: 0,
+    fullWidth: 0
+  });
   
   // Animate numbers when metrics come into view
   useEffect(() => {
@@ -48,6 +62,121 @@ export default function PortfolioWebsite() {
     if (metricsRefDesktop.current) observer.observe(metricsRefDesktop.current);
     return () => observer.disconnect();
   }, [hasAnimated]);
+
+  // Reset accessibility settings
+  const resetAccessibility = () => {
+    setAccessibility({
+      contrast: 0,
+      mark: 0,
+      largeText: 0,
+      textSpacing: 0,
+      stopAnimations: 0,
+      hideImages: 0,
+      dyslexia: 0,
+      rowHeight: 0,
+      fullWidth: 0
+    });
+  };
+
+  const toggleAccessibility = (setting) => {
+    setAccessibility(prev => ({
+      ...prev,
+      [setting]: prev[setting] === 0 ? 1 : (prev[setting] === 1 ? 2 : 0)
+    }));
+  };
+
+  // Apply accessibility styles
+  useEffect(() => {
+    const root = document.documentElement;
+    
+    // Apply styles based on accessibility settings (with gradient intensity)
+    if (accessibility.contrast > 0) {
+      const contrast = 1 + (accessibility.contrast === 1 ? 0.25 : 0.5);
+      root.style.filter = `contrast(${contrast})`;
+    } else {
+      root.style.filter = 'contrast(1)';
+    }
+
+    if (accessibility.largeText > 0) {
+      const size = accessibility.largeText === 1 ? '110%' : '120%';
+      root.style.fontSize = size;
+    } else {
+      root.style.fontSize = '100%';
+    }
+
+    if (accessibility.textSpacing > 0) {
+      const multiplier = accessibility.textSpacing === 1 ? 1 : 1.5;
+      root.style.letterSpacing = `${0.15 * multiplier}em`;
+      root.style.wordSpacing = `${0.5 * multiplier}em`;
+      root.style.lineHeight = `${1.8 * (multiplier * 0.8)}`;
+    } else {
+      root.style.letterSpacing = 'normal';
+      root.style.wordSpacing = 'normal';
+      root.style.lineHeight = 'normal';
+    }
+
+    if (accessibility.stopAnimations > 0) {
+      const style = document.getElementById('a11y-disable-animations') || document.createElement('style');
+      style.id = 'a11y-disable-animations';
+      style.textContent = '* { animation: none !important; transition: none !important; }';
+      if (!document.getElementById('a11y-disable-animations')) {
+        document.head.appendChild(style);
+      }
+    } else {
+      const style = document.getElementById('a11y-disable-animations');
+      if (style) style.remove();
+    }
+
+    if (accessibility.hideImages > 0) {
+      document.querySelectorAll('img').forEach(img => {
+        img.style.visibility = 'hidden';
+      });
+    } else {
+      document.querySelectorAll('img').forEach(img => {
+        img.style.visibility = 'visible';
+      });
+    }
+
+    if (accessibility.dyslexia > 0) {
+      root.style.fontFamily = '"Dyslexie", "Comic Sans MS", sans-serif';
+      root.style.letterSpacing = `${0.12 * (accessibility.dyslexia === 1 ? 1 : 1.5)}em`;
+    } else {
+      root.style.fontFamily = 'inherit';
+    }
+
+    if (accessibility.rowHeight > 0) {
+      const height = accessibility.rowHeight === 1 ? 2 : 2.5;
+      root.style.setProperty('line-height', height.toString(), 'important');
+    }
+
+    if (accessibility.fullWidth > 0) {
+      document.body.style.maxWidth = '100vw';
+      document.body.style.overflowX = 'hidden';
+      const main = document.querySelector('main');
+      if (main) {
+        main.style.maxWidth = '100%';
+        main.style.marginLeft = '0';
+        main.style.marginRight = '0';
+        main.style.paddingLeft = '0';
+        main.style.paddingRight = '0';
+      }
+    } else {
+      document.body.style.maxWidth = '';
+      document.body.style.overflowX = '';
+    }
+
+    if (accessibility.mark > 0) {
+      root.style.setProperty('--mark-bg', '#FFFF00', 'important');
+      document.querySelectorAll('a').forEach(link => {
+        link.style.outline = '2px solid #0000FF';
+        link.style.outlineOffset = '2px';
+      });
+    } else {
+      document.querySelectorAll('a').forEach(link => {
+        link.style.outline = 'none';
+      });
+    }
+  }, [accessibility]);
 
   // Simple translation object for English and German
   const t = {
@@ -1623,6 +1752,117 @@ export default function PortfolioWebsite() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Accessibility Button */}
+      <div className="fixed bottom-6 left-6 z-50">
+          {isAccessibilityOpen && (
+            <div 
+              className="absolute bottom-20 left-0 w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 max-h-[80vh] overflow-hidden flex flex-col border"
+              style={{
+                background: isDarkTheme ? 'rgba(15,23,42,0.95)' : 'rgba(255,255,255,0.98)',
+                borderColor: 'rgba(124,58,237,0.12)'
+              }}
+            >
+              {/* Header bar - PURPLE */}
+              <div 
+                className="flex justify-between items-center px-4 py-4 border-b flex-shrink-0" 
+                style={{ background: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)', borderColor: 'rgba(255,255,255,0.15)' }}
+              >
+                <h3 className="text-base font-bold text-white">
+                  {language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
+                </h3>
+                <button
+                  onClick={() => setIsAccessibilityOpen(false)}
+                  className="p-1.5 rounded-lg transition-all flex-shrink-0 hover:bg-white/20"
+                >
+                  <X className="w-5 h-5 text-white" />
+                </button>
+              </div>
+
+              <div className="overflow-y-auto flex-1 p-5">
+                {/* Settings Grid */}
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { key: 'contrast', label: language === 'en' ? 'Bit Contrast' : 'Etwas Kontrast', fullLabel: language === 'en' ? 'Full Contrast' : 'Voller Kontrast', icon: Lightbulb },
+                    { key: 'mark', label: language === 'en' ? 'Mark Links' : 'Links markieren', icon: Eye },
+                    { key: 'largeText', label: language === 'en' ? 'Larger Text' : 'Größere Schrift', fullLabel: language === 'en' ? 'Large Text' : 'Große Schrift', icon: Type },
+                    { key: 'textSpacing', label: language === 'en' ? 'Bit Spacing' : 'Etwas Abstand', fullLabel: language === 'en' ? 'Full Spacing' : 'Voller Abstand', icon: AlignCenter },
+                    { key: 'stopAnimations', label: language === 'en' ? 'Stop Animations' : 'Animationen stoppen', icon: Volume2 },
+                    { key: 'hideImages', label: language === 'en' ? 'Hide Images' : 'Bilder verbergen', icon: Image },
+                    { key: 'dyslexia', label: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift', icon: Palette },
+                    { key: 'rowHeight', label: language === 'en' ? 'More Height' : 'Mehr Höhe', fullLabel: language === 'en' ? 'Max Height' : 'Max. Höhe', icon: Square },
+                    { key: 'fullWidth', label: language === 'en' ? 'Full Width' : 'Volle Breite', icon: Code }
+                  ].map(setting => {
+                    const IconComponent = setting.icon;
+                    const isActive = accessibility[setting.key] > 0;
+                    const isFull = accessibility[setting.key] === 2;
+                  
+                    return (
+                      <button 
+                        key={setting.key}
+                        onClick={() => toggleAccessibility(setting.key)}
+                        className={`flex flex-col items-center gap-2 p-3 rounded-2xl transition-all border-2 text-sm font-medium ${
+                          !isActive 
+                            ? (isDarkTheme ? 'bg-transparent border-gray-700/40 hover:border-purple-400/40' : 'bg-gray-50 border-gray-200 hover:border-purple-400/40')
+                            : (isDarkTheme ? 'bg-purple-500/20 border-purple-400' : 'bg-purple-100 border-purple-400')
+                        }`}
+                      >
+                        <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: isActive ? 'linear-gradient(90deg,#7c3aed,#6d28d9)' : 'transparent' }}>
+                          <IconComponent className="w-4 h-4" style={{ color: isActive ? '#fff' : (isDarkTheme ? '#cbd5e1' : '#6b7280') }} />
+                        </div>
+                        <span className={`text-xs text-center leading-tight ${isActive ? (isDarkTheme ? 'text-purple-100' : 'text-purple-900') : (isDarkTheme ? 'text-gray-300' : 'text-gray-700')}`}>
+                          {!isActive ? setting.label : (isFull ? (setting.fullLabel || setting.label) : setting.label)}
+                        </span>
+                        {/* Two-bar intensity indicator */}
+                        <div className="flex items-end gap-1 mt-2 h-4">
+                          <span className={`w-1.5 rounded-sm transition-all ${accessibility[setting.key] >= 1 ? 'bg-purple-600' : (isDarkTheme ? 'bg-gray-700/30' : 'bg-gray-300')}`} style={{ height: accessibility[setting.key] >= 1 ? '14px' : '8px' }} />
+                          <span className={`w-1.5 rounded-sm transition-all ${accessibility[setting.key] >= 2 ? 'bg-purple-600' : (isDarkTheme ? 'bg-gray-700/30' : 'bg-gray-300')}`} style={{ height: accessibility[setting.key] >= 2 ? '18px' : '8px' }} />
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Reset Button */}
+                <button
+                  onClick={resetAccessibility}
+                  className={`w-full mt-6 py-2.5 px-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 border ${isDarkTheme ? 'bg-purple-600/20 text-purple-100 border-purple-500/40 hover:bg-purple-600/30' : 'bg-purple-100 text-purple-900 border-purple-300 hover:bg-purple-200'}`}
+                >
+                  <RotateCcw className="w-4 h-4" />
+                  {language === 'en' ? 'Reset All' : 'Alle zurücksetzen'}
+                </button>
+              </div>
+            </div>
+          )}
+
+        {/* Floating Button */}
+        <button
+          onClick={() => setIsAccessibilityOpen(!isAccessibilityOpen)}
+          className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group ${
+            isAccessibilityOpen ? 'scale-95' : 'hover:scale-110'
+          }`}
+          style={{
+            background: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
+            boxShadow: isDarkTheme 
+              ? '0 4px 12px rgba(124, 58, 237, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
+              : '0 4px 15px rgba(124, 58, 237, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
+          }}
+          aria-label={language === 'en' ? 'Accessibility options' : 'Barrierefreiheitsoptionen'}
+          title={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
+        >
+          <Eye className="w-6 h-6" />
+          {/* Subtle border effect */}
+          <div 
+            className="absolute inset-0 rounded-full pointer-events-none"
+            style={{
+              border: '2px solid rgba(255, 255, 255, 0.15)',
+              boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.05)'
+            }}
+          />
+        </button>
+      </div>
     </div>
   );
 }
+
+
