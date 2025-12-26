@@ -22,8 +22,7 @@ export default function PortfolioWebsite() {
     stopAnimations: 0,
     hideImages: 0,
     dyslexia: 0,
-    rowHeight: 0,
-    fullWidth: 0
+    rowHeight: 0
   });
   
   // Animate numbers when metrics come into view
@@ -73,8 +72,7 @@ export default function PortfolioWebsite() {
       stopAnimations: 0,
       hideImages: 0,
       dyslexia: 0,
-      rowHeight: 0,
-      fullWidth: 0
+      rowHeight: 0
     });
   };
 
@@ -147,25 +145,7 @@ export default function PortfolioWebsite() {
     if (accessibility.rowHeight > 0) {
       const height = accessibility.rowHeight === 1 ? 2 : 2.5;
       root.style.setProperty('line-height', height.toString(), 'important');
-    }
-
-    if (accessibility.fullWidth > 0) {
-      document.body.style.maxWidth = '100vw';
-      document.body.style.overflowX = 'hidden';
-      const main = document.querySelector('main');
-      if (main) {
-        main.style.maxWidth = '100%';
-        main.style.marginLeft = '0';
-        main.style.marginRight = '0';
-        main.style.paddingLeft = '0';
-        main.style.paddingRight = '0';
-      }
-    } else {
-      document.body.style.maxWidth = '';
-      document.body.style.overflowX = '';
-    }
-
-    if (accessibility.mark > 0) {
+    }    if (accessibility.mark > 0) {
       root.style.setProperty('--mark-bg', '#FFFF00', 'important');
       document.querySelectorAll('a').forEach(link => {
         link.style.outline = '2px solid #0000FF';
@@ -1783,17 +1763,15 @@ export default function PortfolioWebsite() {
                 {/* Settings Grid */}
                 <div className="grid grid-cols-2 gap-3">
                   {[
-                    { key: 'contrast', label: language === 'en' ? 'Bit Contrast' : 'Etwas Kontrast', fullLabel: language === 'en' ? 'Full Contrast' : 'Voller Kontrast', icon: Lightbulb },
-                    { key: 'mark', label: language === 'en' ? 'Mark Links' : 'Links markieren', icon: Eye },
-                    { key: 'largeText', label: language === 'en' ? 'Larger Text' : 'Größere Schrift', fullLabel: language === 'en' ? 'Large Text' : 'Große Schrift', icon: Type },
-                    { key: 'textSpacing', label: language === 'en' ? 'Bit Spacing' : 'Etwas Abstand', fullLabel: language === 'en' ? 'Full Spacing' : 'Voller Abstand', icon: AlignCenter },
-                    { key: 'stopAnimations', label: language === 'en' ? 'Stop Animations' : 'Animationen stoppen', icon: Volume2 },
-                    { key: 'hideImages', label: language === 'en' ? 'Hide Images' : 'Bilder verbergen', icon: Image },
-                    { key: 'dyslexia', label: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift', icon: Palette },
-                    { key: 'rowHeight', label: language === 'en' ? 'More Height' : 'Mehr Höhe', fullLabel: language === 'en' ? 'Max Height' : 'Max. Höhe', icon: Square },
-                    { key: 'fullWidth', label: language === 'en' ? 'Full Width' : 'Volle Breite', icon: Code }
+                    { key: 'contrast', label: language === 'en' ? 'Contrast' : 'Kontrast', fullLabel: language === 'en' ? 'Full Contrast' : 'Voller Kontrast', icon: '/images/contrast.png' },
+                    { key: 'mark', label: language === 'en' ? 'Mark Links' : 'Links markieren', icon: '/images/link.png' },
+                    { key: 'largeText', label: language === 'en' ? 'Larger Text' : 'Größere Schrift', fullLabel: language === 'en' ? 'Large Text' : 'Große Schrift', icon: '/images/larger-font.png' },
+                    { key: 'textSpacing', label: language === 'en' ? 'Text Spacing' : 'Textabstand', fullLabel: language === 'en' ? 'Full Spacing' : 'Voller Abstand', icon: '/images/spacing.png' },
+                    { key: 'stopAnimations', label: language === 'en' ? 'Stop Animations' : 'Animationen stoppen', icon: '/images/pause-button.png' },
+                    { key: 'hideImages', label: language === 'en' ? 'Hide Images' : 'Bilder verbergen', icon: '/images/hide-images.png' },
+                    { key: 'dyslexia', label: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift', icon: '/images/dyslexia.png' },
+                    { key: 'rowHeight', label: language === 'en' ? 'Row Height' : 'Zeilenhöhe', fullLabel: language === 'en' ? 'Max Height' : 'Max. Höhe', icon: '/images/row-height.png' }
                   ].map(setting => {
-                    const IconComponent = setting.icon;
                     const isActive = accessibility[setting.key] > 0;
                     const isFull = accessibility[setting.key] === 2;
                   
@@ -1807,16 +1785,16 @@ export default function PortfolioWebsite() {
                             : (isDarkTheme ? 'bg-purple-500/20 border-purple-400' : 'bg-purple-100 border-purple-400')
                         }`}
                       >
-                        <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: isActive ? 'linear-gradient(90deg,#7c3aed,#6d28d9)' : 'transparent' }}>
-                          <IconComponent className="w-4 h-4" style={{ color: isActive ? '#fff' : (isDarkTheme ? '#cbd5e1' : '#6b7280') }} />
+                        <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ background: isActive ? 'linear-gradient(90deg,#7c3aed,#6d28d9)' : 'transparent' }}>
+                          <img src={setting.icon} alt={setting.label} className={`w-6 h-6 ${isActive ? 'brightness-0 invert' : ''}`} />
                         </div>
                         <span className={`text-xs text-center leading-tight ${isActive ? (isDarkTheme ? 'text-purple-100' : 'text-purple-900') : (isDarkTheme ? 'text-gray-300' : 'text-gray-700')}`}>
                           {!isActive ? setting.label : (isFull ? (setting.fullLabel || setting.label) : setting.label)}
                         </span>
-                        {/* Two-bar intensity indicator */}
-                        <div className="flex items-end gap-1 mt-2 h-4">
-                          <span className={`w-1.5 rounded-sm transition-all ${accessibility[setting.key] >= 1 ? 'bg-purple-600' : (isDarkTheme ? 'bg-gray-700/30' : 'bg-gray-300')}`} style={{ height: accessibility[setting.key] >= 1 ? '14px' : '8px' }} />
-                          <span className={`w-1.5 rounded-sm transition-all ${accessibility[setting.key] >= 2 ? 'bg-purple-600' : (isDarkTheme ? 'bg-gray-700/30' : 'bg-gray-300')}`} style={{ height: accessibility[setting.key] >= 2 ? '18px' : '8px' }} />
+                        {/* Flat horizontal intensity bars */}
+                        <div className="flex gap-0.5 mt-2">
+                          <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 1 ? 'bg-purple-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                          <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 2 ? 'bg-purple-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
                         </div>
                       </button>
                     );
@@ -1850,7 +1828,7 @@ export default function PortfolioWebsite() {
           aria-label={language === 'en' ? 'Accessibility options' : 'Barrierefreiheitsoptionen'}
           title={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
         >
-          <Eye className="w-6 h-6" />
+          <img src="/images/accessibility.png" alt="Accessibility" className="w-12 h-12 brightness-0 invert" />
           {/* Subtle border effect */}
           <div 
             className="absolute inset-0 rounded-full pointer-events-none"
