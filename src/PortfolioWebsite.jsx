@@ -1833,18 +1833,20 @@ export default function PortfolioWebsite() {
       </footer>
 
       {/* Floating Accessibility Button */}
-      <div className="fixed bottom-6 left-6 z-50">
+      <div className="fixed bottom-6 left-6 z-50" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
           {isAccessibilityOpen && (
             <div 
-              className="absolute bottom-20 left-0 w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 max-h-[80vh] overflow-hidden flex flex-col border"
+              className="absolute bottom-20 left-0 w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 overflow-hidden flex flex-col border"
               style={{
                 background: isDarkTheme ? 'rgba(15,23,42,0.95)' : 'rgba(255,255,255,0.98)',
-                borderColor: 'rgba(124,58,237,0.12)'
+                borderColor: 'rgba(124,58,237,0.12)',
+                maxHeight: 'min(70vh, calc(100vh - 150px))',
+                maxHeight: 'min(70dvh, calc(100dvh - 150px))'
               }}
             >
               {/* Header bar - PURPLE */}
               <div 
-                className="flex justify-between items-center px-4 py-4 border-b flex-shrink-0" 
+                className="flex justify-between items-center px-4 py-3 border-b flex-shrink-0 min-h-[52px]" 
                 style={{ background: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)', borderColor: 'rgba(255,255,255,0.15)' }}
               >
                 <h3 className="text-base font-bold text-white">
@@ -1858,7 +1860,7 @@ export default function PortfolioWebsite() {
                 </button>
               </div>
 
-              <div className="overflow-y-auto flex-1 p-5">
+              <div className="overflow-y-auto flex-1 p-5 overscroll-contain">
                 {/* Settings Grid */}
                 <div className="grid grid-cols-2 gap-3">
                   {[
