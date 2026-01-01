@@ -1123,7 +1123,7 @@ export default function PortfolioWebsite() {
                 <div className="relative group flex-shrink-0">
                   <div className={`absolute -inset-1.5 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 rounded-2xl blur-md opacity-70 group-hover:opacity-90 transition duration-500`}></div>
                   <img
-                    src="/images/Instructional_Design_illustration.jpg"
+                    src="/images/profile.jpg"
                     alt={t[language].name}
                     className={`relative rounded-2xl object-cover shadow-2xl flex-shrink-0 transition-transform duration-500 group-hover:scale-[1.02] w-36 h-48 md:w-44 md:h-56 lg:w-48 lg:h-64 ${isDarkTheme ? 'border-4 border-white/90' : 'border-4 border-white shadow-xl'}`}
                   />

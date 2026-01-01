@@ -16,7 +16,7 @@ export const metadata = {
     description: 'Transforming complex concepts into engaging, high-impact digital learning experiences.',
     images: [
       {
-        url: '/images/profile.jpg',
+        url: '/images/Instructional_Design_illustration.jpg',
         width: 1200,
         height: 630,
         alt: 'Samuel Afriyie Opoku - Digital Learning Designer',
@@ -27,7 +27,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Samuel Afriyie Opoku — Digital Learning Designer',
     description: 'Transforming complex concepts into engaging, high-impact digital learning experiences.',
-    images: ['/images/profile.jpg'],
+    images: ['/images/Instructional_Design_illustration.jpg'],
   },
   robots: {
     index: true,
@@ -49,8 +49,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/images/profile.jpg" />
+        <link rel="icon" href="/images/Instructional_Design_illustration.jpg" />
+        <link rel="apple-touch-icon" href="/images/Instructional_Design_illustration.jpg" />
         <meta name="theme-color" content="#1e3a8a" />
       </head>
       <body>{children}</body>
