@@ -3,178 +3,566 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Samuel Afriyie Opoku - Digital Learning Designer</title>
-  <meta name="description" content="Professional portfolio of Samuel Afriyie Opoku, Digital Learning Designer based in Marburg, Germany.">
+  <title>Samuel Afriyie Opoku — Digital Learning Designer | Full Portfolio</title>
+  <meta name="description" content="Transforming complex concepts into engaging, high-impact digital learning experiences. Expert in e-learning development, instructional design, and technical writing. Based in Marburg, Germany.">
+  <meta name="keywords" content="Digital Learning Designer, Instructional Designer, E-Learning Developer, Technical Writer, ADDIE, Bloom's Taxonomy, Articulate Storyline, Samuel Afriyie Opoku, Marburg, Germany">
+  <meta name="author" content="Samuel Afriyie Opoku">
+  <link rel="canonical" href="https://vs-code-port1.vercel.app/about.html">
+  <meta property="og:title" content="Samuel Afriyie Opoku — Digital Learning Designer">
+  <meta property="og:description" content="Transforming complex concepts into engaging, high-impact digital learning experiences.">
+  <meta property="og:url" content="https://vs-code-port1.vercel.app/about.html">
+  <meta property="og:type" content="profile">
   <style>
-    body { font-family: system-ui, -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px 20px; line-height: 1.8; color: #1f2937; }
-    h1 { color: #1e40af; border-bottom: 3px solid #1e40af; padding-bottom: 15px; }
-    h2 { color: #3730a3; margin-top: 40px; border-left: 4px solid #3730a3; padding-left: 15px; }
-    h3 { color: #4f46e5; }
-    a { color: #2563eb; }
-    ul { margin-left: 20px; }
-    .contact { background: #f0f9ff; padding: 25px; border-radius: 12px; margin: 30px 0; }
-    .highlight { background: #fef3c7; padding: 15px; border-radius: 8px; margin: 20px 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #1f2937; background: #fff; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Navigation */
+    nav { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+    nav .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    nav .logo { color: white; font-weight: 700; font-size: 1.2rem; }
+    nav ul { list-style: none; display: flex; gap: 25px; flex-wrap: wrap; }
+    nav ul a { color: white; font-weight: 500; }
+    nav ul a:hover { color: #93c5fd; text-decoration: none; }
+    
+    /* Hero */
+    .hero { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; padding: 80px 20px; text-align: center; }
+    .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+    .hero .title { font-size: 1.5rem; color: #93c5fd; margin-bottom: 20px; }
+    .hero .tagline { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; opacity: 0.95; }
+    .hero .availability { display: inline-block; background: rgba(34, 197, 94, 0.2); border: 1px solid #22c55e; color: #86efac; padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; margin-bottom: 20px; }
+    .hero .location { opacity: 0.9; }
+    .hero .cta-buttons { display: flex; gap: 15px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+    .hero .cta-buttons a { padding: 12px 30px; border-radius: 8px; font-weight: 600; }
+    .hero .cta-primary { background: white; color: #1e3a8a; }
+    .hero .cta-secondary { border: 2px solid white; color: white; }
+    
+    /* Sections */
+    section { padding: 80px 20px; }
+    section:nth-child(even) { background: #f8fafc; }
+    section h2 { font-size: 2.2rem; color: #1e3a8a; margin-bottom: 15px; text-align: center; }
+    section .section-desc { text-align: center; color: #64748b; max-width: 700px; margin: 0 auto 40px; }
+    
+    /* About */
+    .about-content { max-width: 900px; margin: 0 auto; }
+    .about-content p { font-size: 1.1rem; margin-bottom: 20px; }
+    .about-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+    .about-card { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid #3b82f6; }
+    .about-card h3 { color: #1e40af; margin-bottom: 10px; font-size: 1.2rem; }
+    
+    /* Impact Metrics */
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 800px; margin: 40px auto 0; }
+    .metric { text-align: center; padding: 25px; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-radius: 16px; }
+    .metric .value { font-size: 3rem; font-weight: 700; color: #1e40af; }
+    .metric .label { color: #64748b; font-size: 0.95rem; margin-top: 5px; }
+    
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+    .skill-category { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .skill-category h3 { color: #1e40af; margin-bottom: 20px; font-size: 1.2rem; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill-tag { background: #eff6ff; color: #1e40af; padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; }
+    
+    /* Projects */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+    .project-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s; }
+    .project-card:hover { transform: translateY(-5px); }
+    .project-card .content { padding: 25px; }
+    .project-card .category { display: inline-block; background: #dbeafe; color: #1e40af; padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px; }
+    .project-card h3 { color: #1e3a8a; margin-bottom: 12px; font-size: 1.3rem; }
+    .project-card p { color: #64748b; margin-bottom: 15px; }
+    .project-card .tools { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+    .project-card .tool { background: #f1f5f9; color: #475569; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; }
+    .project-card .results { margin-bottom: 20px; }
+    .project-card .results li { color: #22c55e; font-size: 0.9rem; margin-bottom: 5px; padding-left: 20px; position: relative; list-style: none; }
+    .project-card .results li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; }
+    .project-card .link { display: inline-block; color: #2563eb; font-weight: 600; }
+    .featured-badge { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-left: 10px; }
+    
+    /* Experience */
+    .experience-timeline { max-width: 900px; margin: 0 auto; }
+    .experience-item { display: flex; gap: 25px; margin-bottom: 40px; padding: 30px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .experience-item.highlight { border-left: 4px solid #3b82f6; background: linear-gradient(135deg, #eff6ff 0%, #fff 100%); }
+    .experience-item img { width: 80px; height: 80px; object-fit: contain; border-radius: 12px; flex-shrink: 0; }
+    .experience-item h3 { color: #1e3a8a; font-size: 1.2rem; margin-bottom: 5px; }
+    .experience-item .company { color: #3b82f6; font-weight: 600; margin-bottom: 5px; }
+    .experience-item .date { color: #64748b; font-size: 0.9rem; margin-bottom: 15px; }
+    .experience-item ul { color: #475569; list-style: none; }
+    .experience-item li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+    .experience-item li::before { content: "•"; position: absolute; left: 0; color: #3b82f6; }
+    .upcoming-badge { display: inline-block; background: #dcfce7; color: #166534; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; margin-left: 10px; }
+    
+    /* Certifications */
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+    .cert-card { display: flex; align-items: center; gap: 20px; background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .cert-card img { width: 60px; height: 60px; object-fit: contain; }
+    .cert-card h3 { color: #1e3a8a; font-size: 1rem; margin-bottom: 5px; }
+    .cert-card .issuer { color: #3b82f6; font-size: 0.9rem; margin-bottom: 3px; }
+    .cert-card .date { color: #64748b; font-size: 0.85rem; }
+    
+    /* Contact */
+    .contact-section { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; text-align: center; }
+    .contact-section h2 { color: white; }
+    .contact-section .section-desc { color: rgba(255,255,255,0.9); }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 900px; margin: 40px auto 0; }
+    .contact-item { text-align: center; }
+    .contact-item .icon { font-size: 2rem; margin-bottom: 10px; }
+    .contact-item .label { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 5px; }
+    .contact-item a, .contact-item .value { color: white; font-weight: 600; font-size: 1.1rem; }
+    .contact-item a:hover { color: #93c5fd; }
+    
+    /* Footer */
+    footer { background: #0f172a; color: #94a3b8; padding: 60px 20px 30px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1000px; margin: 0 auto 40px; }
+    .footer-section h4 { color: white; margin-bottom: 20px; font-size: 1.1rem; }
+    .footer-section ul { list-style: none; }
+    .footer-section li { margin-bottom: 10px; }
+    .footer-section a { color: #94a3b8; }
+    .footer-section a:hover { color: white; }
+    .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #1e293b; }
+    .footer-bottom p { margin-bottom: 5px; }
+    
+    /* AI Notice */
+    .ai-notice { background: #fef3c7; border: 1px solid #f59e0b; padding: 15px 20px; border-radius: 8px; margin: 20px auto; max-width: 800px; text-align: center; }
+    .ai-notice strong { color: #92400e; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      nav ul { gap: 15px; }
+      .experience-item { flex-direction: column; }
+      .experience-item img { width: 60px; height: 60px; }
+      .metrics { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Samuel Afriyie Opoku</h1>
-    <p><strong>Digital Learning Designer</strong> | Marburg, Germany</p>
-    <p><em>Transforming complex concepts into engaging, high-impact digital learning experiences.</em></p>
-  </header>
 
-  <div class="highlight">
-    <strong>🟢 Currently Available</strong> for Digital Learning Design, Instructional Design, E-Learning Development, and Technical Writing opportunities.
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="logo">Samuel Afriyie Opoku</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="availability">🟢 Available for Opportunities</div>
+    <h1>Samuel Afriyie Opoku</h1>
+    <p class="title">Digital Learning Designer</p>
+    <p class="tagline">Transforming complex concepts into engaging, high-impact digital learning experiences. Leveraging learning science and multimedia design to create scalable, inclusive solutions.</p>
+    <p class="location">📍 Marburg, Germany | 🌍 Available for Remote Work Worldwide</p>
+    <div class="cta-buttons">
+      <a href="#projects" class="cta-primary">View Projects</a>
+      <a href="#contact" class="cta-secondary">Get In Touch</a>
+      <a href="/cv.pdf" class="cta-secondary">View CV</a>
+    </div>
+  </section>
+
+  <!-- AI Notice -->
+  <div class="ai-notice">
+    <strong>📋 AI-Readable Version:</strong> This is a static HTML version of my portfolio, identical in content to the interactive React version at <a href="https://vs-code-port1.vercel.app">vs-code-port1.vercel.app</a>
   </div>
 
-  <section>
-    <h2>About Me</h2>
-    <p>I am a Digital Learning Designer who transforms complex concepts into engaging, high-impact digital learning experiences. With expertise in instructional design, e-learning development, and technical writing, I create learning solutions that drive real results.</p>
-    <p>My approach combines pedagogical best practices (ADDIE Model, Bloom's Taxonomy, Adult Learning Theory) with modern technology to create accessible, engaging, and effective learning experiences for diverse audiences.</p>
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <p>Educator-turned-Digital Learning Designer. I leverage classroom experience to build inclusive, high-impact digital learning solutions. My approach combines learning science (ADDIE, Bloom's Taxonomy, Adult Learning Theory) with modern technology to create engaging courses and technical documentation that drive measurable results.</p>
+        
+        <div class="about-cards">
+          <div class="about-card">
+            <h3>🎯 Learning Science</h3>
+            <p>Applying ADDIE framework, cognitive load theory, and evidence-based instructional strategies to create effective learning experiences.</p>
+          </div>
+          <div class="about-card">
+            <h3>💻 Technical Skills</h3>
+            <p>Full-stack toolkit spanning e-learning authoring (Articulate 360) and multimedia design (Adobe Suite).</p>
+          </div>
+          <div class="about-card">
+            <h3>📈 Measurable Impact</h3>
+            <p>Delivering learning solutions with proven results: 40% knowledge gains, 96% completion rates, and sustained behavioral change.</p>
+          </div>
+        </div>
+
+        <!-- Impact Metrics -->
+        <div class="metrics">
+          <div class="metric">
+            <div class="value">40%</div>
+            <div class="label">Average Learning Improvement</div>
+          </div>
+          <div class="metric">
+            <div class="value">96%</div>
+            <div class="label">Completion Rate</div>
+          </div>
+          <div class="metric">
+            <div class="value">78%</div>
+            <div class="label">Active Use</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Core Expertise</h2>
-    <h3>Instructional Design</h3>
-    <ul>
-      <li>ADDIE Model (Analysis, Design, Development, Implementation, Evaluation)</li>
-      <li>SAM (Successive Approximation Model)</li>
-      <li>Bloom's Taxonomy for Learning Objectives</li>
-      <li>Gagné's Nine Events of Instruction</li>
-      <li>Adult Learning Theory & Andragogy</li>
-      <li>Cognitive Load Theory</li>
-      <li>Competency-Based Learning Design</li>
-    </ul>
-
-    <h3>E-Learning Development</h3>
-    <ul>
-      <li>Articulate Storyline 360 & Rise 360</li>
-      <li>Adobe Captivate</li>
-      <li>SCORM & xAPI Standards</li>
-      <li>Learning Management Systems (Moodle, Canvas, Blackboard)</li>
-      <li>Interactive Multimedia Design</li>
-      <li>Video Production (Camtasia, Vyond)</li>
-    </ul>
-
-    <h3>Technical Writing</h3>
-    <ul>
-      <li>Technical Documentation</li>
-      <li>Knowledge Base Creation</li>
-      <li>User Guides & Manuals</li>
-      <li>API Documentation</li>
-      <li>Process Documentation</li>
-      <li>Standard Operating Procedures (SOPs)</li>
-    </ul>
-
-    <h3>Tools & Technologies</h3>
-    <ul>
-      <li>Adobe Creative Suite (Photoshop, Illustrator, Premiere Pro)</li>
-      <li>Figma & UI/UX Design</li>
-      <li>HTML, CSS, JavaScript</li>
-      <li>React & Modern Web Development</li>
-      <li>Accessibility (WCAG 2.1 AA Compliance)</li>
-    </ul>
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2>Skills & Technologies</h2>
+      <p class="section-desc">Comprehensive toolkit for creating effective learning experiences</p>
+      
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>🎓 Digital Learning Design</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">ADDIE Framework</span>
+            <span class="skill-tag">Bloom's Taxonomy</span>
+            <span class="skill-tag">Adult Learning Theory</span>
+            <span class="skill-tag">Storyboarding</span>
+            <span class="skill-tag">LXD</span>
+            <span class="skill-tag">Curriculum Development</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>🛠️ E-Learning Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Articulate 360 (Storyline, Rise)</span>
+            <span class="skill-tag">Moodle</span>
+            <span class="skill-tag">SCORM</span>
+            <span class="skill-tag">Adobe Premiere Pro</span>
+            <span class="skill-tag">Adobe Photoshop</span>
+            <span class="skill-tag">Figma</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>✍️ Content Creation</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Technical Writing</span>
+            <span class="skill-tag">Multimedia Design</span>
+            <span class="skill-tag">Knowledge Base Documentation</span>
+            <span class="skill-tag">Cross-Cultural Adaptation</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>💻 Web & Development Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">Markdown</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Vercel</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Featured Projects</h2>
-    
-    <h3>1. Interactive E-Learning Modules</h3>
-    <p>Developed comprehensive e-learning courses using Articulate Storyline with branching scenarios, knowledge checks, interactive simulations, and accessibility features. Achieved 95% completion rate and improved learner performance by 40%.</p>
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <p class="section-desc">Digital learning design projects categorized by type and impact</p>
+      
+      <div class="projects-grid">
+        
+        <!-- Project 1: Plain Language -->
+        <div class="project-card">
+          <div class="content">
+            <span class="category">E-Learning Module</span>
+            <span class="featured-badge">Featured</span>
+            <h3>Plain Language and Inclusivity</h3>
+            <p>Created with Articulate Rise, focusing on making content accessible and inclusive for all users.</p>
+            <div class="tools">
+              <span class="tool">Articulate Rise</span>
+              <span class="tool">Figma</span>
+              <span class="tool">InVideo AI</span>
+            </div>
+            <ul class="results">
+              <li>Improved accessibility</li>
+              <li>Enhanced user engagement</li>
+              <li>Clear communication</li>
+            </ul>
+            <a href="https://360.eu.articulate.com/review/content/c31705cd-3bed-4851-84bd-992bf5c13eb9/review" class="link" target="_blank">View Project →</a>
+          </div>
+        </div>
 
-    <h3>2. Technical Documentation System</h3>
-    <p>Created a structured knowledge base for enterprise software, including user guides, API documentation, and troubleshooting resources. Reduced support tickets by 30% through comprehensive self-service documentation.</p>
+        <!-- Project 2: 2FA -->
+        <div class="project-card">
+          <div class="content">
+            <span class="category">E-Learning Module</span>
+            <h3>Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)</h3>
+            <p>A practical Articulate Rise module covering setup and troubleshooting steps for common 2FA flows.</p>
+            <div class="tools">
+              <span class="tool">Articulate Rise</span>
+              <span class="tool">Figma</span>
+            </div>
+            <ul class="results">
+              <li>Step-by-step troubleshooting</li>
+              <li>Improved account recovery</li>
+              <li>Clear user instructions</li>
+            </ul>
+            <a href="https://360.eu.articulate.com/review/content/8d8ac689-1670-458d-a7b3-0407850b55ef/review" class="link" target="_blank">View Project →</a>
+          </div>
+        </div>
 
-    <h3>3. Corporate Onboarding Program</h3>
-    <p>Designed a 5-module onboarding series for new employees covering company culture, policies, compliance, and role-specific training. Reduced onboarding time by 25% while improving new hire productivity.</p>
+        <!-- Project 3: LLMs Knowledge Base -->
+        <div class="project-card">
+          <div class="content">
+            <span class="category">Knowledge Base</span>
+            <span class="featured-badge">Featured</span>
+            <h3>LLMs, Sustainability and Climate Change</h3>
+            <p>A theoretically complete ADDIE-based guide combining LLMs, sustainability, and climate change concepts into comprehensive learning material.</p>
+            <div class="tools">
+              <span class="tool">Notion</span>
+              <span class="tool">Figma</span>
+            </div>
+            <ul class="results">
+              <li>Complete ADDIE framework</li>
+              <li>Multi-level strategies</li>
+            </ul>
+            <a href="https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d?source=copy_link" class="link" target="_blank">View Project →</a>
+          </div>
+        </div>
 
-    <h3>4. LMS Implementation & Administration</h3>
-    <p>Led learning management system implementations including content migration, user training, custom reporting setup, and SCORM/xAPI compliance verification.</p>
+        <!-- Project 4: Climate Change -->
+        <div class="project-card">
+          <div class="content">
+            <span class="category">Knowledge Base</span>
+            <span class="featured-badge">Featured</span>
+            <h3>Climate Change Mitigation Guide</h3>
+            <p>Comprehensive educational resource covering climate science, human impacts, and actionable solutions at individual, corporate, and governmental levels.</p>
+            <div class="tools">
+              <span class="tool">Notion</span>
+              <span class="tool">Figma</span>
+            </div>
+            <ul class="results">
+              <li>Complete ADDIE framework</li>
+              <li>Multi-level mitigation strategies</li>
+              <li>Evidence-based content</li>
+            </ul>
+            <a href="https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f?source=copy_link" class="link" target="_blank">View Project →</a>
+          </div>
+        </div>
+
+        <!-- Project 5: Technical Documentation -->
+        <div class="project-card">
+          <div class="content">
+            <span class="category">Technical Writing</span>
+            <h3>Technical Documentation (GitHub)</h3>
+            <p>User guide for Postman and a knowledge-base article for 2FA hosted on GitHub.</p>
+            <div class="tools">
+              <span class="tool">GitHub</span>
+            </div>
+            <ul class="results">
+              <li>Developer-friendly docs</li>
+              <li>Knowledge-base integration</li>
+              <li>Clear procedures</li>
+            </ul>
+            <a href="https://github.com/Samuelsen1/Sample-2" class="link" target="_blank">View Project →</a>
+          </div>
+        </div>
+
+        <!-- Project 6: Welth Health -->
+        <div class="project-card">
+          <div class="content">
+            <span class="category">Technical Writing</span>
+            <h3>Welth Health Platform</h3>
+            <p>Fictional platform user guide and DITA XML documentation for managing personal health and wellbeing.</p>
+            <div class="tools">
+              <span class="tool">GitHub</span>
+              <span class="tool">Figma</span>
+              <span class="tool">Microsoft Word</span>
+            </div>
+            <ul class="results">
+              <li>Structured topic-based docs</li>
+              <li>XML DITA examples</li>
+              <li>User-focused guides</li>
+            </ul>
+            <a href="https://github.com/Samuelsen1/Tech-Writing-Samples" class="link" target="_blank">View Project →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Professional Experience</h2>
-    
-    <h3>Student Assistant - TDK Electronics</h3>
-    <p><em>Munich, Germany | Current</em></p>
-    <ul>
-      <li>Support SAP-related processes and technical documentation</li>
-      <li>Create user guides and training materials</li>
-      <li>Assist with knowledge management initiatives</li>
-    </ul>
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2>Professional Experience</h2>
+      
+      <div class="experience-timeline">
+        
+        <!-- Dräger (Upcoming) -->
+        <div class="experience-item highlight">
+          <img src="/images/drager.png" alt="Dräger Logo" onerror="this.style.display='none'">
+          <div>
+            <h3>Online Training (Intern) <span class="upcoming-badge">Starting Feb 2026</span></h3>
+            <p class="company">Dräger, Lübeck</p>
+            <p class="date">Starting February 2026</p>
+          </div>
+        </div>
 
-    <h3>National Service Personnel - National Service Secretariat</h3>
-    <p><em>Kumasi, Ghana</em></p>
-    <ul>
-      <li>Developed training programs and educational materials</li>
-      <li>Provided clerical and administrative support</li>
-      <li>Created documentation for organizational processes</li>
-    </ul>
+        <!-- Tanz der Kulturen -->
+        <div class="experience-item">
+          <img src="/images/tdk.jpg" alt="Tanz der Kulturen Logo" onerror="this.style.display='none'">
+          <div>
+            <h3>Web & Digital Learning Design Intern</h3>
+            <p class="company">Tanz der Kulturen e.V., Hamburg</p>
+            <p class="date">June 2025 – October 2025</p>
+            <ul>
+              <li>Designed and documented instructional materials for both digital and print use</li>
+              <li>Contributed to rebuilding the website on an e-commerce platform</li>
+              <li>Used AI to translate German brand content into English while preserving its voice and natural flow</li>
+            </ul>
+          </div>
+        </div>
 
-    <h3>English Language Teaching Assistant - Ghana Education Service</h3>
-    <p><em>Kumasi, Ghana</em></p>
-    <ul>
-      <li>Developed innovative handwriting teaching method</li>
-      <li>Improved student performance by 40%</li>
-      <li>Created supplementary learning materials</li>
-    </ul>
+        <!-- Ghana National Service -->
+        <div class="experience-item">
+          <img src="/images/nss.jpg" alt="NSS Logo" onerror="this.style.display='none'">
+          <div>
+            <h3>English Language Teacher & Administrative Assistant</h3>
+            <p class="company">Ghana National Service Scheme, Kumasi</p>
+            <p class="date">January 2023 – October 2023</p>
+            <ul>
+              <li>Designed, delivered and assessed English lessons, improving students' comprehension and speaking skills</li>
+              <li>Managed administrative tasks including student records and scheduling</li>
+            </ul>
+          </div>
+        </div>
 
-    <h3>English Language Teacher - Kovak Hill Educational Centre</h3>
-    <p><em>Kumasi, Ghana</em></p>
-    <ul>
-      <li>Applied ADDIE principles to lesson planning</li>
-      <li>Designed assessments aligned with learning objectives</li>
-      <li>Differentiated instruction for diverse learners</li>
-    </ul>
+        <!-- Ghana Education Service -->
+        <div class="experience-item">
+          <img src="/images/ges.jpeg" alt="GES Logo" onerror="this.style.display='none'">
+          <div>
+            <h3>English Language Teaching Assistant (Intern)</h3>
+            <p class="company">Ghana Education Service, Kumasi</p>
+            <p class="date">June 2021 – December 2021</p>
+            <ul>
+              <li>Researched, wrote, and developed a method (box-part-letter), which helped 40% of first-year students gain legible handwriting</li>
+              <li>Designed and facilitated lessons integrating formative and summative assessment principles</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Education & Certifications</h2>
-    <ul>
-      <li><strong>Instructional Design MasterTrack Certificate</strong> - University of Illinois Urbana-Champaign</li>
-      <li><strong>Technical Writing Course</strong> - Professional Development</li>
-      <li><strong>Board Infinity Certifications</strong> - E-Learning & Instructional Design</li>
-      <li><strong>EFSET English Certificate</strong> - C2 Proficient</li>
-    </ul>
+  <!-- Certifications Section -->
+  <section id="certifications">
+    <div class="container">
+      <h2>Certifications & Training</h2>
+      
+      <div class="cert-grid">
+        <a href="https://www.coursera.org/account/accomplishments/verify/VA2HACXYEOYV" target="_blank" class="cert-card">
+          <img src="/images/uiuc.png" alt="UIUC Logo" onerror="this.style.display='none'">
+          <div>
+            <h3>Digital Learning Design Foundations & Applications</h3>
+            <p class="issuer">University of Illinois Urbana-Champaign</p>
+            <p class="date">Aug 2025</p>
+          </div>
+        </a>
+        
+        <a href="https://www.coursera.org/account/accomplishments/verify/CDOSFZ44QK27" target="_blank" class="cert-card">
+          <img src="/images/board_infinity.svg" alt="Board Infinity Logo" onerror="this.style.display='none'">
+          <div>
+            <h3>Technical Writing Course</h3>
+            <p class="issuer">Board Infinity</p>
+            <p class="date">Apr 2025</p>
+          </div>
+        </a>
+        
+        <a href="https://cert.efset.org/1uf78L" target="_blank" class="cert-card">
+          <img src="/images/efset.png" alt="EF SET Logo" onerror="this.style.display='none'">
+          <div>
+            <h3>EF SET English Certificate</h3>
+            <p class="issuer">C1 Advanced (67/100)</p>
+            <p class="date">Feb 2025</p>
+          </div>
+        </a>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Languages</h2>
-    <ul>
-      <li><strong>English</strong> - Native/Fluent (C2)</li>
-      <li><strong>German</strong> - Professional Working Proficiency (B2)</li>
-    </ul>
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Let's Create Something Great Together</h2>
+      <p class="section-desc">Looking for a digital learning designer who combines learning science with technical expertise? Let's connect and discuss how I can help transform your learning initiatives.</p>
+      
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="icon">📧</div>
+          <div class="label">Email</div>
+          <a href="mailto:gideonsammysen@gmail.com">gideonsammysen@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <div class="icon">📱</div>
+          <div class="label">Phone</div>
+          <a href="tel:+491715811680">+49 171 5811680</a>
+        </div>
+        <div class="contact-item">
+          <div class="icon">💼</div>
+          <div class="label">LinkedIn</div>
+          <a href="https://www.linkedin.com/in/samuel-o-4b9bbb2a8" target="_blank">linkedin.com/in/samuel-o-4b9bbb2a8</a>
+        </div>
+        <div class="contact-item">
+          <div class="icon">📍</div>
+          <div class="label">Location</div>
+          <span class="value">Marburg, Germany</span>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Services Offered</h2>
-    <ul>
-      <li>Custom E-Learning Module Development</li>
-      <li>Instructional Design Consulting</li>
-      <li>Technical Writing & Documentation</li>
-      <li>Knowledge Base Design & Implementation</li>
-      <li>Learning Experience Audits</li>
-      <li>Accessibility Reviews & WCAG Compliance</li>
-      <li>LMS Setup & Administration</li>
-      <li>Training Needs Analysis</li>
-    </ul>
-  </section>
-
-  <section class="contact">
-    <h2>Contact Information</h2>
-    <p><strong>Name:</strong> Samuel Afriyie Opoku</p>
-    <p><strong>Email:</strong> <a href="mailto:gideonsammysen@gmail.com">gideonsammysen@gmail.com</a></p>
-    <p><strong>Phone:</strong> <a href="tel:+491715811680">+49 171 5811680</a></p>
-    <p><strong>Location:</strong> Marburg, Germany (Available for Remote Work Worldwide)</p>
-    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/samuel-o-4b9bbb2a8">linkedin.com/in/samuel-o-4b9bbb2a8</a></p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/Samuelsen1">github.com/Samuelsen1</a></p>
-    <p><strong>Portfolio:</strong> <a href="https://vs-code-port1.vercel.app">vs-code-port1.vercel.app</a></p>
-  </section>
-
-  <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 0.9rem;">
-    <p>© 2024–2026 Samuel Afriyie Opoku. Open to remote and on-site opportunities worldwide.</p>
-    <p>This page is fully accessible and designed to be readable by AI assistants and screen readers.</p>
-    <p><a href="/">← Back to Interactive Portfolio</a> | <a href="/llms.txt">View LLMs.txt</a></p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Portfolio Samples</h4>
+        <ul>
+          <li><a href="https://360.eu.articulate.com/review/content/c31705cd-3bed-4851-84bd-992bf5c13eb9/review" target="_blank">E-Learning Modules</a></li>
+          <li><a href="https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d" target="_blank">Knowledge Base Design</a></li>
+          <li><a href="https://github.com/Samuelsen1/Tech-Writing-Samples" target="_blank">Technical Documentation</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://github.com/Samuelsen1" target="_blank">GitHub Repository</a></li>
+          <li><a href="https://www.linkedin.com/in/samuel-o-4b9bbb2a8" target="_blank">LinkedIn Profile</a></li>
+          <li><a href="mailto:gideonsammysen@gmail.com">Email Me</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Samuel Afriyie Opoku • Digital Learning Designer & E-Learning Developer</p>
+      <p>Built with React & Tailwind CSS | <a href="/" style="color: #60a5fa;">View Interactive Version</a> | <a href="/llms.txt" style="color: #60a5fa;">LLMs.txt</a></p>
+    </div>
   </footer>
+
 </body>
 </html>
