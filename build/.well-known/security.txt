@@ -1,0 +1,11 @@
+# Security Policy for Samuel Afriyie Opoku Portfolio
+# https://samuelafriyieopoku.com/
+
+Contact: mailto:gideonsammysen@gmail.com
+Preferred-Languages: en, de
+Canonical: https://samuelafriyieopoku.com/.well-known/security.txt
+Expires: 2027-01-01T00:00:00.000Z
+
+# If you find any security issues with this site, 
+# please contact me directly via email.
+# Thank you for helping keep the web safe!

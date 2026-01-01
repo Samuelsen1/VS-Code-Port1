@@ -1,0 +1,53 @@
+/* TEAM */
+
+Developer & Designer: Samuel Afriyie Opoku
+Role: Digital Learning Designer
+Location: Marburg, Germany
+Contact: gideonsammysen@gmail.com
+LinkedIn: linkedin.com/in/samuel-o-4b9bbb2a8
+GitHub: github.com/Samuelsen1
+
+/* SITE */
+
+Last Updated: 2026-01-01
+Language: English, German
+Standards: HTML5, CSS3, ES6+, WCAG 2.1 AA
+Framework: React 18, Tailwind CSS 3
+Components: Lucide Icons
+Accessibility: 100% WCAG 2.1 Level AA Compliant
+
+/* ACCESSIBILITY */
+
+This website is designed to be accessible to everyone, including:
+- Screen reader users
+- Keyboard-only navigation
+- Low vision users (high contrast, text scaling)
+- Color blind users (non-color dependent UI)
+- Users with dyslexia (specialized fonts available)
+- Users with motion sensitivity (animation control)
+
+Features:
+- 11 accessibility options with 3-level intensity control
+- Skip links for keyboard navigation
+- ARIA labels on all interactive elements
+- Semantic HTML structure
+- Alt text on all images
+- Bilingual support (EN/DE)
+
+/* AI & BOT FRIENDLY */
+
+This site welcomes all search engines, AI crawlers, and bots.
+Structured data provided via JSON-LD schema for:
+- Person (Schema.org)
+- WebSite (Schema.org)
+- ProfessionalService (Schema.org)
+- BreadcrumbList (Schema.org)
+- FAQPage (Schema.org)
+
+/* THANKS */
+
+Built with love and accessibility in mind.
+Making the web better for everyone, one feature at a time.
+
+"Education is the most powerful weapon which you can use to change the world."
+— Nelson Mandela
