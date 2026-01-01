@@ -13,17 +13,17 @@ export default function PortfolioWebsite() {
   const metricsRefDesktop = useRef(null);
   
   // Accessibility states - now with 3 levels: 0 = off, 1 = light, 2 = full
+  // Some features are binary (0 = off, 1 = on) - marked with isBinary
   const [isAccessibilityOpen, setIsAccessibilityOpen] = useState(false);
   const [accessibility, setAccessibility] = useState({
     contrast: 0,
-    mark: 0,
+    mark: 0,          // Binary: on/off only
     largeText: 0,
     textSpacing: 0,
-    stopAnimations: 0,
-    hideImages: 0,
+    stopAnimations: 0, // Binary: on/off only
+    hideImages: 0,     // Binary: on/off only
     dyslexia: 0,
     rowHeight: 0,
-    underlineLinks: 0,
     focusIndicator: 0,
     saturation: 0
   });
@@ -76,17 +76,23 @@ export default function PortfolioWebsite() {
       hideImages: 0,
       dyslexia: 0,
       rowHeight: 0,
-      underlineLinks: 0,
       focusIndicator: 0,
       saturation: 0
     });
   };
 
+  // Binary features only toggle between 0 and 1
+  const binaryFeatures = ['mark', 'stopAnimations', 'hideImages'];
+  
   const toggleAccessibility = (setting) => {
-    setAccessibility(prev => ({
-      ...prev,
-      [setting]: prev[setting] === 0 ? 1 : (prev[setting] === 1 ? 2 : 0)
-    }));
+    setAccessibility(prev => {
+      if (binaryFeatures.includes(setting)) {
+        // Binary toggle: 0 -> 1 -> 0
+        return { ...prev, [setting]: prev[setting] === 0 ? 1 : 0 };
+      }
+      // Gradual toggle: 0 -> 1 -> 2 -> 0
+      return { ...prev, [setting]: prev[setting] === 0 ? 1 : (prev[setting] === 1 ? 2 : 0) };
+    });
   };
 
   useEffect(() => {
@@ -179,18 +185,6 @@ export default function PortfolioWebsite() {
     } else {
       document.querySelectorAll('a').forEach(link => {
         link.style.outline = 'none';
-      });
-    }
-
-    if (accessibility.underlineLinks > 0) {
-      document.querySelectorAll('a').forEach(link => {
-        link.style.textDecoration = 'underline';
-        link.style.textDecorationThickness = accessibility.underlineLinks === 1 ? '1px' : '2px';
-      });
-    } else {
-      document.querySelectorAll('a').forEach(link => {
-        link.style.textDecoration = '';
-        link.style.textDecorationThickness = '';
       });
     }
 
@@ -1869,20 +1863,20 @@ export default function PortfolioWebsite() {
                 <div className="grid grid-cols-2 gap-3">
                   {[
                     { key: 'contrast', label: language === 'en' ? 'Contrast' : 'Kontrast', fullLabel: language === 'en' ? 'Full Contrast' : 'Voller Kontrast', icon: '/images/contrast.png' },
-                    { key: 'mark', label: language === 'en' ? 'Mark Links' : 'Links markieren', icon: '/images/link.png' },
+                    { key: 'mark', label: language === 'en' ? 'Mark Links' : 'Links markieren', icon: '/images/link.png', isBinary: true },
                     { key: 'largeText', label: language === 'en' ? 'Larger Text' : 'Größere Schrift', fullLabel: language === 'en' ? 'Large Text' : 'Große Schrift', icon: '/images/larger-font.png' },
                     { key: 'textSpacing', label: language === 'en' ? 'Text Spacing' : 'Textabstand', fullLabel: language === 'en' ? 'Full Spacing' : 'Voller Abstand', icon: '/images/spacing.png' },
-                    { key: 'stopAnimations', label: language === 'en' ? 'Stop Animations' : 'Animationen stoppen', icon: '/images/pause-button.png' },
-                    { key: 'hideImages', label: language === 'en' ? 'Hide Images' : 'Bilder verbergen', icon: '/images/hide-images.png' },
-                    { key: 'dyslexia', label: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift', icon: '/images/dyslexia.png' },
+                    { key: 'stopAnimations', label: language === 'en' ? 'Stop Animations' : 'Animationen stoppen', icon: '/images/pause-button.png', isBinary: true },
+                    { key: 'hideImages', label: language === 'en' ? 'Hide Images' : 'Bilder verbergen', icon: '/images/hide-images.png', isBinary: true },
+                    { key: 'dyslexia', label: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift', fullLabel: language === 'en' ? 'Full Dyslexia' : 'Voll Dyslexie', icon: '/images/dyslexia.png' },
                     { key: 'rowHeight', label: language === 'en' ? 'Row Height' : 'Zeilenhöhe', fullLabel: language === 'en' ? 'Max Height' : 'Max. Höhe', icon: '/images/row-height.png' },
-                    { key: 'underlineLinks', label: language === 'en' ? 'Underline Links' : 'Links unterstrichen', fullLabel: language === 'en' ? 'Thick Underline' : 'Dicke Unterstreichung', icon: '/images/text-align.png' },
                     { key: 'focusIndicator', label: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige', fullLabel: language === 'en' ? 'Strong Focus' : 'Starker Fokus', icon: Award },
                     { key: 'saturation', label: language === 'en' ? 'Saturation' : 'Sättigung', fullLabel: language === 'en' ? 'Full Saturation' : 'Volle Sättigung', icon: Palette }
                   ].map(setting => {
                     const isActive = accessibility[setting.key] > 0;
                     const isFull = accessibility[setting.key] === 2;
                     const isImageIcon = typeof setting.icon === 'string';
+                    const isBinary = setting.isBinary === true;
                   
                     return (
                       <button 
@@ -1904,12 +1898,14 @@ export default function PortfolioWebsite() {
                           )}
                         </div>
                         <span className={`text-xs text-center leading-tight ${isActive ? (isDarkTheme ? 'text-purple-100' : 'text-purple-900') : (isDarkTheme ? 'text-gray-300' : 'text-gray-700')}`}>
-                          {!isActive ? setting.label : (isFull ? (setting.fullLabel || setting.label) : setting.label)}
+                          {!isActive ? setting.label : (isFull && !isBinary ? (setting.fullLabel || setting.label) : setting.label)}
                         </span>
-                        {/* Flat horizontal intensity bars */}
+                        {/* Intensity bars - 1 for binary, 2 for gradual */}
                         <div className="flex gap-0.5 mt-2">
                           <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 1 ? 'bg-purple-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
-                          <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 2 ? 'bg-purple-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                          {!isBinary && (
+                            <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 2 ? 'bg-purple-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                          )}
                         </div>
                       </button>
                     );
