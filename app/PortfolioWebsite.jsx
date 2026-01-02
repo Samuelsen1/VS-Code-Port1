@@ -977,7 +977,7 @@ export default function PortfolioWebsite() {
       </a>
 
       {/* Navigation + Language Switcher */}
-      <nav className="fixed top-0 w-full glass-card shadow-lg z-50 border-b border-white/20" role="navigation" aria-label={language === 'en' ? 'Main navigation' : 'Hauptnavigation'}>
+      <nav className={`fixed top-0 w-full shadow-lg z-50 border-b ${isDarkTheme ? 'bg-black/95 backdrop-blur-xl border-gray-800' : 'glass-card border-white/20'}`} role="navigation" aria-label={language === 'en' ? 'Main navigation' : 'Hauptnavigation'}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-6">
@@ -1050,12 +1050,12 @@ export default function PortfolioWebsite() {
       </nav>
 
       {/* Hero Section - Theme Responsive */}
-      <section className={`pt-28 pb-20 md:pt-32 md:pb-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900' : 'bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/30'}`}>
+      <section className={`pt-28 pb-20 md:pt-32 md:pb-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-950' : 'bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/30'}`}>
         {/* E-Learning Themed Animated Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Subtle gradient orbs */}
-          <div className={`absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-blue-500/20 to-cyan-500/10' : 'bg-gradient-to-br from-blue-400/20 to-cyan-400/10'}`}></div>
-          <div className={`absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-indigo-500/15 to-purple-500/10' : 'bg-gradient-to-br from-indigo-400/15 to-purple-400/10'}`} style={{ animationDelay: '2s' }}></div>
+          <div className={`absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-blue-600/15 to-cyan-600/8' : 'bg-gradient-to-br from-blue-400/20 to-cyan-400/10'}`}></div>
+          <div className={`absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-indigo-600/12 to-purple-600/8' : 'bg-gradient-to-br from-indigo-400/15 to-purple-400/10'}`} style={{ animationDelay: '2s' }}></div>
           
           {/* Floating E-Learning Icons */}
           {/* Book Icon */}
@@ -1338,11 +1338,11 @@ export default function PortfolioWebsite() {
       </section>
 
       {/* About Section */}
-      <section id="about" className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-slate-800 via-blue-900 to-indigo-900' : 'bg-white'}`}>
+      <section id="about" className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-950' : 'bg-white'}`}>
         {isDarkTheme && (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-indigo-500/10 to-purple-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-br from-blue-600/8 to-cyan-600/4 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-indigo-600/8 to-purple-600/4 rounded-full blur-3xl"></div>
           </div>
         )}
         <div className="section-divider absolute top-0 left-0 right-0"></div>
@@ -1373,11 +1373,11 @@ export default function PortfolioWebsite() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-blue-950 via-slate-900 to-indigo-950' : 'bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50/30'}`}>
+      <section id="projects" className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gray-950' : 'bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50/30'}`}>
         {isDarkTheme && (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-40 left-20 w-80 h-80 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-40 right-20 w-96 h-96 bg-gradient-to-br from-indigo-500/10 to-purple-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-40 left-20 w-80 h-80 bg-gradient-to-br from-blue-600/8 to-cyan-600/4 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-40 right-20 w-96 h-96 bg-gradient-to-br from-indigo-600/8 to-purple-600/4 rounded-full blur-3xl"></div>
           </div>
         )}
         <div className="section-divider absolute top-0 left-0 right-0"></div>
@@ -1564,11 +1564,11 @@ export default function PortfolioWebsite() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-slate-800 via-blue-900 to-indigo-900' : 'bg-white'}`}>
+      <section id="skills" className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-950' : 'bg-white'}`}>
         {isDarkTheme && (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-br from-indigo-500/10 to-purple-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-br from-blue-600/8 to-cyan-600/4 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-br from-indigo-600/8 to-purple-600/4 rounded-full blur-3xl"></div>
           </div>
         )}
         <div className="section-divider absolute top-0 left-0 right-0"></div>
@@ -1603,11 +1603,11 @@ export default function PortfolioWebsite() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-blue-950 via-slate-900 to-indigo-950' : 'bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50/30'}`}>
+      <section id="experience" className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gray-950' : 'bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50/30'}`}>
         {isDarkTheme && (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-40 right-20 w-80 h-80 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-40 left-20 w-96 h-96 bg-gradient-to-br from-indigo-500/10 to-purple-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-40 right-20 w-80 h-80 bg-gradient-to-br from-blue-600/8 to-cyan-600/4 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-40 left-20 w-96 h-96 bg-gradient-to-br from-indigo-600/8 to-purple-600/4 rounded-full blur-3xl"></div>
           </div>
         )}
         <div className="section-divider absolute top-0 left-0 right-0"></div>
@@ -1664,11 +1664,11 @@ export default function PortfolioWebsite() {
       </section>
 
       {/* Certifications */}
-      <section className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-slate-800 via-blue-900 to-indigo-900' : 'bg-white'}`}>
+      <section className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-950' : 'bg-white'}`}>
         {isDarkTheme && (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-indigo-500/10 to-purple-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-br from-blue-600/8 to-cyan-600/4 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-indigo-600/8 to-purple-600/4 rounded-full blur-3xl"></div>
           </div>
         )}
         <div className="section-divider absolute top-0 left-0 right-0"></div>
@@ -1741,11 +1741,11 @@ export default function PortfolioWebsite() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800' : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'}`}>
+      <section id="contact" className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gray-950' : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'}`}>
         {/* Decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className={`absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 ${isDarkTheme ? 'bg-white/5' : 'bg-blue-200/30'}`}></div>
-          <div className={`absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 ${isDarkTheme ? 'bg-indigo-400/10' : 'bg-indigo-200/30'}`}></div>
+          <div className={`absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 ${isDarkTheme ? 'bg-blue-600/8' : 'bg-blue-200/30'}`}></div>
+          <div className={`absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 ${isDarkTheme ? 'bg-indigo-600/8' : 'bg-indigo-200/30'}`}></div>
         </div>
         
         <div className="max-w-7xl mx-auto text-center relative z-10">
@@ -1785,7 +1785,7 @@ export default function PortfolioWebsite() {
       </section>
 
       {/* Footer */}
-      <footer className={`py-16 px-4 ${isDarkTheme ? 'glass-dark text-white' : 'bg-gray-50 text-gray-900 border-t border-gray-200'}`}>
+      <footer className={`py-16 px-4 ${isDarkTheme ? 'bg-black text-white' : 'bg-gray-50 text-gray-900 border-t border-gray-200'}`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
