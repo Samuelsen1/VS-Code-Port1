@@ -1141,17 +1141,17 @@ export default function PortfolioWebsite() {
               
               {/* Mobile Metrics Tile - after description, before CTA buttons */}
               <div ref={metricsRefMobile} className="md:hidden mb-8 mx-auto max-w-sm animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                <div className={`rounded-2xl p-4 overflow-hidden relative ${isDarkTheme ? 'bg-gradient-to-br from-slate-800/90 via-blue-900/90 to-indigo-900/90 backdrop-blur-xl border border-white/10 shadow-2xl' : 'bg-gradient-to-br from-white via-gray-50 to-slate-50 border border-gray-200 shadow-xl'}`}>
+                <div className={`rounded-2xl p-4 overflow-hidden relative ${isDarkTheme ? 'bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 backdrop-blur-xl border border-blue-500/30 shadow-2xl shadow-blue-500/10' : 'bg-gradient-to-br from-white via-gray-50 to-slate-50 border border-gray-200 shadow-xl'}`}>
                   {/* Giant 40% watermark */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-                    <span className={`text-[100px] font-black leading-none ${isDarkTheme ? 'text-blue-400/[0.15]' : 'text-blue-400/[0.20]'}`} style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                    <span className={`text-[100px] font-black leading-none ${isDarkTheme ? 'text-blue-500/20' : 'text-blue-400/[0.20]'}`} style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
                       {counts.improvement}%
                     </span>
                   </div>
                   {/* Animated orbs */}
                   <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className={`absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl animate-pulse ${isDarkTheme ? 'bg-blue-500/10' : 'bg-blue-400/10'}`}></div>
-                    <div className={`absolute -bottom-20 -left-20 w-36 h-36 rounded-full blur-3xl animate-pulse ${isDarkTheme ? 'bg-indigo-500/10' : 'bg-indigo-300/10'}`} style={{ animationDelay: '1.5s' }}></div>
+                    <div className={`absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl animate-pulse ${isDarkTheme ? 'bg-blue-500/20' : 'bg-blue-400/10'}`}></div>
+                    <div className={`absolute -bottom-20 -left-20 w-36 h-36 rounded-full blur-3xl animate-pulse ${isDarkTheme ? 'bg-indigo-500/20' : 'bg-indigo-300/10'}`} style={{ animationDelay: '1.5s' }}></div>
                   </div>
                   {/* Header */}
                   <div className="relative mb-4" style={{ zIndex: 2 }}>
@@ -1241,12 +1241,12 @@ export default function PortfolioWebsite() {
             {/* Desktop Metrics Tile - hidden on mobile, shown on md+ */}
             <div ref={metricsRefDesktop} className="relative animate-fade-in hidden md:block" style={{ animationDelay: '0.2s' }}>
               <div className="relative z-10">
-                <div className={`rounded-3xl p-6 overflow-hidden relative ${isDarkTheme ? 'bg-gradient-to-br from-slate-800/90 via-blue-900/90 to-indigo-900/90 backdrop-blur-xl border border-white/10 shadow-2xl' : 'bg-gradient-to-br from-white via-gray-50 to-slate-50 border border-gray-200 shadow-xl'}`}>
+                <div className={`rounded-3xl p-6 overflow-hidden relative ${isDarkTheme ? 'bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 backdrop-blur-xl border border-blue-500/30 shadow-2xl shadow-blue-500/10' : 'bg-gradient-to-br from-white via-gray-50 to-slate-50 border border-gray-200 shadow-xl'}`}>
                   
                   {/* Giant 40% watermark - centered, more visible */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
                     <span 
-                      className={`text-[190px] font-black leading-none ${isDarkTheme ? 'text-blue-400/[0.15]' : 'text-blue-400/[0.20]'}`}
+                      className={`text-[190px] font-black leading-none ${isDarkTheme ? 'text-blue-500/20' : 'text-blue-400/[0.20]'}`}
                       style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                     >
                       {counts.improvement}%
@@ -1255,52 +1255,52 @@ export default function PortfolioWebsite() {
                   
                   {/* Subtle animated gradient orbs */}
                   <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className={`absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl animate-pulse ${isDarkTheme ? 'bg-blue-500/10' : 'bg-blue-400/10'}`}></div>
-                    <div className={`absolute -bottom-20 -left-20 w-36 h-36 rounded-full blur-3xl animate-pulse ${isDarkTheme ? 'bg-indigo-500/10' : 'bg-indigo-300/10'}`} style={{ animationDelay: '1.5s' }}></div>
+                    <div className={`absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl animate-pulse ${isDarkTheme ? 'bg-blue-500/20' : 'bg-blue-400/10'}`}></div>
+                    <div className={`absolute -bottom-20 -left-20 w-36 h-36 rounded-full blur-3xl animate-pulse ${isDarkTheme ? 'bg-indigo-500/20' : 'bg-indigo-300/10'}`} style={{ animationDelay: '1.5s' }}></div>
                   </div>
                   
                   {/* Header with main metric */}
                   <div className="relative mb-6" style={{ zIndex: 2 }}>
                     <div className="flex items-center justify-between">
                       <div className={`${isDarkTheme ? '' : 'bg-white/60 backdrop-blur-sm'} rounded-xl p-2 -m-2`}>
-                        <p className={`text-xs font-medium uppercase tracking-wider mb-1 ${isDarkTheme ? 'text-blue-300/70' : 'text-gray-500'}`}>{t[language].impact.metrics}</p>
+                        <p className={`text-xs font-medium uppercase tracking-wider mb-1 ${isDarkTheme ? 'text-blue-400' : 'text-gray-500'}`}>{t[language].impact.metrics}</p>
                         <div className="flex items-baseline gap-2">
                           <span className={`text-5xl font-black ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>{counts.improvement}</span>
                           <span className={`text-2xl font-bold ${isDarkTheme ? 'text-blue-400' : 'text-blue-600'}`}>%</span>
                         </div>
-                        <p className={`text-sm mt-1 ${isDarkTheme ? 'text-blue-200/60' : 'text-gray-500'}`}>{t[language].impact.improvement}</p>
+                        <p className={`text-sm mt-1 ${isDarkTheme ? 'text-blue-300/70' : 'text-gray-500'}`}>{t[language].impact.improvement}</p>
                       </div>
-                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isDarkTheme ? 'bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-500/25' : 'bg-gradient-to-br from-blue-500 to-indigo-500 shadow-lg shadow-blue-500/20'}`}>
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isDarkTheme ? 'bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-500/40' : 'bg-gradient-to-br from-blue-500 to-indigo-500 shadow-lg shadow-blue-500/20'}`}>
                         <TrendingUp className="w-7 h-7 text-white" />
                       </div>
                     </div>
                     {/* Main progress bar */}
-                    <div className={`mt-4 h-2 rounded-full overflow-hidden ${isDarkTheme ? 'bg-white/10' : 'bg-gray-200/80'}`}>
+                    <div className={`mt-4 h-2 rounded-full overflow-hidden ${isDarkTheme ? 'bg-gray-800' : 'bg-gray-200/80'}`}>
                       <div 
-                        className={`h-full rounded-full transition-all duration-700 ease-out ${isDarkTheme ? 'bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400' : 'bg-gradient-to-r from-blue-500 to-indigo-500'}`}
+                        className={`h-full rounded-full transition-all duration-700 ease-out ${isDarkTheme ? 'bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500' : 'bg-gradient-to-r from-blue-500 to-indigo-500'}`}
                         style={{ width: `${counts.improvement}%`, boxShadow: isDarkTheme ? '0 0 12px rgba(99, 102, 241, 0.5)' : '0 0 12px rgba(99, 102, 241, 0.3)' }}
                       />
                     </div>
                   </div>
                   
                   {/* Divider */}
-                  <div className={`h-px mb-5 relative ${isDarkTheme ? 'bg-white/10' : 'bg-gray-200/80'}`} style={{ zIndex: 2 }}></div>
+                  <div className={`h-px mb-5 relative ${isDarkTheme ? 'bg-blue-500/20' : 'bg-gray-200/80'}`} style={{ zIndex: 2 }}></div>
                   
                   {/* Secondary Metrics - Side by side, semi-transparent */}
                   <div className="relative grid grid-cols-2 gap-4" style={{ zIndex: 2 }}>
                     {/* Completion Rate */}
-                    <div className={`p-4 rounded-2xl transition-all duration-300 group hover:scale-[1.02] backdrop-blur-sm ${isDarkTheme ? 'bg-white/[0.03] hover:bg-white/[0.08]' : 'bg-white/40 hover:bg-white/70'}`}>
+                    <div className={`p-4 rounded-2xl transition-all duration-300 group hover:scale-[1.02] backdrop-blur-sm ${isDarkTheme ? 'bg-emerald-500/10 border border-emerald-500/20 hover:bg-emerald-500/15' : 'bg-white/40 hover:bg-white/70'}`}>
                       <div className="flex items-center gap-2 mb-3">
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isDarkTheme ? 'bg-emerald-500/20' : 'bg-emerald-100/80'}`}>
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isDarkTheme ? 'bg-emerald-500/30' : 'bg-emerald-100/80'}`}>
                           <Target className={`w-4 h-4 ${isDarkTheme ? 'text-emerald-400' : 'text-emerald-600'}`} />
                         </div>
-                        <span className={`text-xs font-medium ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>{t[language].impact.completion}</span>
+                        <span className={`text-xs font-medium ${isDarkTheme ? 'text-emerald-300' : 'text-gray-600'}`}>{t[language].impact.completion}</span>
                       </div>
                       <div className="flex items-baseline gap-1">
                         <span className={`text-3xl font-bold ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>{counts.completion}</span>
                         <span className={`text-lg font-semibold ${isDarkTheme ? 'text-emerald-400' : 'text-emerald-600'}`}>%</span>
                       </div>
-                      <div className={`mt-3 h-1.5 rounded-full overflow-hidden ${isDarkTheme ? 'bg-white/10' : 'bg-gray-200/60'}`}>
+                      <div className={`mt-3 h-1.5 rounded-full overflow-hidden ${isDarkTheme ? 'bg-gray-800' : 'bg-gray-200/60'}`}>
                         <div 
                           className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 transition-all duration-700 ease-out"
                           style={{ width: `${counts.completion}%` }}
@@ -1309,12 +1309,12 @@ export default function PortfolioWebsite() {
                     </div>
                     
                     {/* Usage Rate */}
-                    <div className={`p-4 rounded-2xl transition-all duration-300 group hover:scale-[1.02] backdrop-blur-sm ${isDarkTheme ? 'bg-white/[0.03] hover:bg-white/[0.08]' : 'bg-white/40 hover:bg-white/70'}`}>
+                    <div className={`p-4 rounded-2xl transition-all duration-300 group hover:scale-[1.02] backdrop-blur-sm ${isDarkTheme ? 'bg-violet-500/10 border border-violet-500/20 hover:bg-violet-500/15' : 'bg-white/40 hover:bg-white/70'}`}>
                       <div className="flex items-center gap-2 mb-3">
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isDarkTheme ? 'bg-violet-500/20' : 'bg-violet-100/80'}`}>
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isDarkTheme ? 'bg-violet-500/30' : 'bg-violet-100/80'}`}>
                           <Users className={`w-4 h-4 ${isDarkTheme ? 'text-violet-400' : 'text-violet-600'}`} />
                         </div>
-                        <span className={`text-xs font-medium ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>{t[language].impact.usage}</span>
+                        <span className={`text-xs font-medium ${isDarkTheme ? 'text-violet-300' : 'text-gray-600'}`}>{t[language].impact.usage}</span>
                       </div>
                       <div className="flex items-baseline gap-1">
                         <span className={`text-3xl font-bold ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>{counts.usage}</span>
