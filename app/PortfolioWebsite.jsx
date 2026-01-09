@@ -590,18 +590,18 @@ export default function PortfolioWebsite() {
         de: "E-Learning-Modul"
       },
       description: {
-        en: "Created with Articulate Rise, focusing on making content accessible and inclusive for all users.",
-        de: "Erstellt mit Articulate Rise, mit Fokus auf barrierefreie und inklusive Inhalte für alle Nutzer."
+        en: "Created with Articulate Rise, focusing on making content accessible and inclusive for all users. Features enhanced accessibility controls including text-to-speech, focus indicators, and customizable display settings.",
+        de: "Erstellt mit Articulate Rise, mit Fokus auf barrierefreie und inklusive Inhalte für alle Nutzer. Mit erweiterten Barrierefreiheitsfunktionen wie Text-zu-Sprache, Fokusindikatoren und anpassbaren Anzeigeeinstellungen."
       },
       tools: {
-        en: ["Articulate Rise", "Figma", "InVideo AI"],
-        de: ["Articulate Rise", "Figma", "InVideo AI"]
+        en: ["Articulate Rise", "Figma", "InVideo AI", "Copilot", "VS Code", "Vercel", "SCORM Cloud"],
+        de: ["Articulate Rise", "Figma", "InVideo AI", "Copilot", "VS Code", "Vercel", "SCORM Cloud"]
       },
       results: {
-        en: ["Improved accessibility", "Enhanced user engagement", "Clear communication"],
-        de: ["Verbesserte Barrierefreiheit", "Erhöhte Nutzerbindung", "Klare Kommunikation"]
+        en: ["Enhanced accessibility features", "WCAG compliance", "Improved user engagement", "Clear communication"],
+        de: ["Erweiterte Barrierefreiheitsfunktionen", "WCAG-Konformität", "Erhöhte Nutzerbindung", "Klare Kommunikation"]
       },
-      link: "https://360.eu.articulate.com/review/content/c31705cd-3bed-4851-84bd-992bf5c13eb9/review",
+      link: "https://plain-language-five.vercel.app",
       featured: true
     },
     {
