@@ -1941,7 +1941,7 @@ export default function PortfolioWebsite() {
           aria-label={language === 'en' ? 'Accessibility options' : 'Barrierefreiheitsoptionen'}
           title={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
         >
-          <img src="/images/accessibility.png" alt="Accessibility" className="w-[47px] h-[47px] brightness-0 invert" />
+          <img src="/images/accessibility.png" alt="Accessibility" className="w-[51px] h-[51px] brightness-0 invert" />
           {/* Subtle border effect */}
           <div 
             className="absolute inset-0 rounded-full pointer-events-none"
