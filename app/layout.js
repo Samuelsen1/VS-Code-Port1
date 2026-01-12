@@ -7,6 +7,9 @@ export const metadata = {
   keywords: ['Digital Learning Designer', 'Instructional Designer', 'E-Learning Developer', 'Technical Writer', 'ADDIE', 'Articulate Storyline', 'Samuel Afriyie Opoku', 'Marburg', 'Germany'],
   authors: [{ name: 'Samuel Afriyie Opoku' }],
   creator: 'Samuel Afriyie Opoku',
+  alternates: {
+    canonical: 'https://vs-code-port1.vercel.app',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -16,7 +19,7 @@ export const metadata = {
     description: 'Transforming complex concepts into engaging, high-impact digital learning experiences.',
     images: [
       {
-        url: '/images/Instructional_Design_illustration.jpg',
+        url: 'https://vs-code-port1.vercel.app/images/Instructional_Design_illustration.jpg',
         width: 1200,
         height: 630,
         alt: 'Samuel Afriyie Opoku - Digital Learning Designer',
@@ -27,7 +30,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Samuel Afriyie Opoku — Digital Learning Designer',
     description: 'Transforming complex concepts into engaging, high-impact digital learning experiences.',
-    images: ['/images/Instructional_Design_illustration.jpg'],
+    images: ['https://vs-code-port1.vercel.app/images/Instructional_Design_illustration.jpg'],
   },
   robots: {
     index: true,
