@@ -1,24 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import emailjs from '@emailjs/browser';
 import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState('en');
   const [isDarkTheme, setIsDarkTheme] = useState(false); // Light theme by default, toggle for dark/night mode
-  
-  // CV Request Modal state
-  const [isCVModalOpen, setIsCVModalOpen] = useState(false);
-  const [cvFormData, setCVFormData] = useState({
-    fullName: '',
-    email: '',
-    company: '',
-    jobTitle: '',
-    jobDescription: '',
-    additionalMessage: ''
-  });
-  const [cvFormSubmitted, setCVFormSubmitted] = useState(false);
-  const [cvFormLoading, setCVFormLoading] = useState(false);
   
   // Chatbot state
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -125,85 +111,6 @@ export default function PortfolioWebsite() {
     document.documentElement.lang = language === 'en' ? 'en' : 'de';
     document.documentElement.dir = 'ltr';
   }, [language]);
-  
-  // Handle CV form submission
-  const handleCVFormChange = (e) => {
-    setCVFormData({
-      ...cvFormData,
-      [e.target.name]: e.target.value
-    });
-  };
-  
-  const handleCVFormSubmit = async (e) => {
-    e.preventDefault();
-    setCVFormLoading(true);
-    
-    try {
-      // EmailJS configuration (add these to your .env.local)
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
-      
-      // Check if EmailJS is configured
-      if (serviceId === 'YOUR_SERVICE_ID' || !serviceId.startsWith('service_')) {
-        setCVFormSubmitted(true);
-        setTimeout(() => {
-          alert('✅ Request submitted!\n\n⚠️ Email not configured yet.\n\n📧 Quick Setup (5 min):\n1. Go to emailjs.com/sign-up\n2. Create free account\n3. Get Service ID, Template ID, Public Key\n4. Add to Vercel: NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, NEXT_PUBLIC_EMAILJS_PUBLIC_KEY\n\nYour request is logged. Check EMAIL_SETUP.md');
-        }, 500);
-        
-        setTimeout(() => {
-          setCVFormSubmitted(false);
-          setIsCVModalOpen(false);
-          setCVFormData({
-            fullName: '',
-            email: '',
-            company: '',
-            jobTitle: '',
-            jobDescription: '',
-            additionalMessage: ''
-          });
-        }, 3000);
-        
-        setCVFormLoading(false);
-        return;
-      }
-      
-      // Send email via EmailJS
-      const templateParams = {
-        from_name: cvFormData.fullName,
-        from_email: cvFormData.email,
-        company: cvFormData.company,
-        job_title: cvFormData.jobTitle,
-        job_description: cvFormData.jobDescription,
-        message: cvFormData.additionalMessage,
-        to_email: 'gideonsammysen@gmail.com'
-      };
-      
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-      
-      setCVFormSubmitted(true);
-      
-      // Reset form after 3 seconds and close modal
-      setTimeout(() => {
-        setCVFormSubmitted(false);
-        setIsCVModalOpen(false);
-        setCVFormData({
-          fullName: '',
-          email: '',
-          company: '',
-          jobTitle: '',
-          jobDescription: '',
-          additionalMessage: ''
-        });
-      }, 3000);
-      
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to send request. Please try again or email directly at gideonsammysen@gmail.com');
-    } finally {
-      setCVFormLoading(false);
-    }
-  };
   
   // Format chat messages with proper HTML formatting
   const formatChatMessage = (text) => {
@@ -414,7 +321,7 @@ export default function PortfolioWebsite() {
         desc: "Transforming complex concepts into engaging, high-impact digital learning experiences. Leveraging learning science, multimedia design, and technical communication to create scalable, accessible solutions that drive measurable results.",
         viewProjects: "View Projects",
         getInTouch: "Get In Touch",
-        viewCV: "Request CV"
+        viewCV: "View CV"
       },
       about: {
         title: "About Me",
@@ -1405,15 +1312,19 @@ export default function PortfolioWebsite() {
                     setIsAccessibilityOpen(false);
                     setIsChatOpen(true);
                   }}
-                  className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/30 hover:bg-green-500/30' : 'bg-white/80 backdrop-blur text-green-700 border-green-200 hover:bg-white hover:border-green-300'}`}
+                  className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 relative animate-pulse ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/30 hover:bg-green-500/30' : 'bg-white/80 backdrop-blur text-green-700 border-green-200 hover:bg-white hover:border-green-300'}`}
                 >
+                  <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </span>
                   <MessageCircle className="w-5 h-5" />
                   {language === 'en' ? 'Ask AI' : 'KI fragen'}
                 </button>
                 <button 
                   onClick={() => {
                     setIsAccessibilityOpen(false);
-                    setIsCVModalOpen(true);
+                    window.open('https://drive.google.com/file/d/1a_sVfG0QOMcYDxSWRXyK6gvpVn_S0oTr/view?usp=sharing', '_blank');
                   }}
                   className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 ${isDarkTheme ? 'bg-blue-500/20 backdrop-blur text-white border-blue-400/30 hover:bg-blue-500/30' : 'bg-white/80 backdrop-blur text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300'}`}
                 >
@@ -2148,166 +2059,6 @@ export default function PortfolioWebsite() {
         </button>
       </div>
       
-      {/* CV Request Modal */}
-      {isCVModalOpen && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onClick={() => setIsCVModalOpen(false)}>
-          <div 
-            className={`relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl ${isDarkTheme ? 'bg-gray-900 border border-gray-700' : 'bg-white'}`}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsCVModalOpen(false)}
-              className={`absolute top-4 right-4 p-2 rounded-lg transition-colors ${isDarkTheme ? 'hover:bg-gray-800 text-gray-400 hover:text-white' : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'}`}
-              aria-label="Close modal"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="p-6 md:p-8">
-              {!cvFormSubmitted ? (
-                <>
-                  <div className="mb-6">
-                    <h2 className={`text-2xl md:text-3xl font-bold mb-2 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>
-                      {language === 'en' ? 'Request Resume' : 'Lebenslauf anfordern'}
-                    </h2>
-                    <p className={`text-sm md:text-base ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
-                      {language === 'en' 
-                        ? 'Please provide your details and information about the opportunity. Samuel will review your request and get back to you with his resume.'
-                        : 'Bitte geben Sie Ihre Daten und Informationen über die Gelegenheit an. Samuel wird Ihre Anfrage prüfen und sich mit seinem Lebenslauf bei Ihnen melden.'}
-                    </p>
-                  </div>
-
-                  <form onSubmit={handleCVFormSubmit} className="space-y-5">
-                    <div className="grid md:grid-cols-2 gap-5">
-                      <div>
-                        <label className={`block text-sm font-semibold mb-2 ${isDarkTheme ? 'text-gray-300' : 'text-gray-700'}`}>
-                          {language === 'en' ? 'Full Name' : 'Vollständiger Name'} <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          name="fullName"
-                          value={cvFormData.fullName}
-                          onChange={handleCVFormChange}
-                          placeholder={language === 'en' ? 'Your full name' : 'Ihr vollständiger Name'}
-                          required
-                          className={`w-full px-4 py-3 rounded-lg border transition-colors ${isDarkTheme ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-blue-500' : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400 focus:border-blue-500'} focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
-                        />
-                      </div>
-
-                      <div>
-                        <label className={`block text-sm font-semibold mb-2 ${isDarkTheme ? 'text-gray-300' : 'text-gray-700'}`}>
-                          Email <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          value={cvFormData.email}
-                          onChange={handleCVFormChange}
-                          placeholder={language === 'en' ? 'your.email@company.com' : 'ihre.email@firma.de'}
-                          required
-                          className={`w-full px-4 py-3 rounded-lg border transition-colors ${isDarkTheme ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-blue-500' : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400 focus:border-blue-500'} focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-5">
-                      <div>
-                        <label className={`block text-sm font-semibold mb-2 ${isDarkTheme ? 'text-gray-300' : 'text-gray-700'}`}>
-                          {language === 'en' ? 'Company' : 'Firma'} <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          name="company"
-                          value={cvFormData.company}
-                          onChange={handleCVFormChange}
-                          placeholder={language === 'en' ? 'Company name' : 'Firmenname'}
-                          required
-                          className={`w-full px-4 py-3 rounded-lg border transition-colors ${isDarkTheme ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-blue-500' : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400 focus:border-blue-500'} focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
-                        />
-                      </div>
-
-                      <div>
-                        <label className={`block text-sm font-semibold mb-2 ${isDarkTheme ? 'text-gray-300' : 'text-gray-700'}`}>
-                          {language === 'en' ? 'Job Title' : 'Berufsbezeichnung'} <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          name="jobTitle"
-                          value={cvFormData.jobTitle}
-                          onChange={handleCVFormChange}
-                          placeholder={language === 'en' ? 'Position title' : 'Positionstitel'}
-                          required
-                          className={`w-full px-4 py-3 rounded-lg border transition-colors ${isDarkTheme ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-blue-500' : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400 focus:border-blue-500'} focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className={`block text-sm font-semibold mb-2 ${isDarkTheme ? 'text-gray-300' : 'text-gray-700'}`}>
-                        {language === 'en' ? 'Job Description' : 'Stellenbeschreibung'}
-                      </label>
-                      <textarea
-                        name="jobDescription"
-                        value={cvFormData.jobDescription}
-                        onChange={handleCVFormChange}
-                        placeholder={language === 'en' ? 'Brief description of the role and requirements...' : 'Kurze Beschreibung der Rolle und Anforderungen...'}
-                        rows="4"
-                        className={`w-full px-4 py-3 rounded-lg border transition-colors resize-none ${isDarkTheme ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-blue-500' : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400 focus:border-blue-500'} focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
-                      />
-                    </div>
-
-                    <div>
-                      <label className={`block text-sm font-semibold mb-2 ${isDarkTheme ? 'text-gray-300' : 'text-gray-700'}`}>
-                        {language === 'en' ? 'Additional Message' : 'Zusätzliche Nachricht'}
-                      </label>
-                      <textarea
-                        name="additionalMessage"
-                        value={cvFormData.additionalMessage}
-                        onChange={handleCVFormChange}
-                        placeholder={language === 'en' ? 'Any additional information or questions...' : 'Zusätzliche Informationen oder Fragen...'}
-                        rows="3"
-                        className={`w-full px-4 py-3 rounded-lg border transition-colors resize-none ${isDarkTheme ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-blue-500' : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400 focus:border-blue-500'} focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
-                      />
-                    </div>
-
-                    <div className="flex gap-3 pt-2">
-                      <button
-                        type="button"
-                        onClick={() => setIsCVModalOpen(false)}
-                        className={`flex-1 px-6 py-3 rounded-lg font-semibold transition-all ${isDarkTheme ? 'bg-gray-800 text-gray-300 hover:bg-gray-700' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
-                      >
-                        {language === 'en' ? 'Cancel' : 'Abbrechen'}
-                      </button>
-                      <button
-                        type="submit"
-                        disabled={cvFormLoading}
-                        className="flex-1 px-6 py-3 rounded-lg font-semibold bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        {cvFormLoading ? (language === 'en' ? 'Sending...' : 'Wird gesendet...') : (language === 'en' ? 'Submit Request' : 'Anfrage senden')}
-                      </button>
-                    </div>
-                  </form>
-                </>
-              ) : (
-                <div className="text-center py-8">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
-                    <CheckCircle className="w-8 h-8 text-green-600" />
-                  </div>
-                  <h3 className={`text-2xl font-bold mb-2 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>
-                    {language === 'en' ? 'Request Submitted!' : 'Anfrage gesendet!'}
-                  </h3>
-                  <p className={`${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
-                    {language === 'en' 
-                      ? 'Thank you! Samuel will review your request and get back to you soon.'
-                      : 'Vielen Dank! Samuel wird Ihre Anfrage prüfen und sich bald bei Ihnen melden.'}
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
       
       {/* AI Chatbot Modal */}
       {isChatOpen && (
