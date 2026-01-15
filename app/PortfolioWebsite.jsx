@@ -1312,12 +1312,11 @@ export default function PortfolioWebsite() {
                     setIsAccessibilityOpen(false);
                     setIsChatOpen(true);
                   }}
-                  className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 relative animate-pulse ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/30 hover:bg-green-500/30' : 'bg-white/80 backdrop-blur text-green-700 border-green-200 hover:bg-white hover:border-green-300'}`}
+                  className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 relative animate-pulse ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/50 hover:bg-green-500/30' : 'bg-green-50 backdrop-blur text-green-700 border-green-300 hover:bg-green-100 hover:border-green-400'}`}
+                  style={{
+                    animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite, glow 2s ease-in-out infinite'
+                  }}
                 >
-                  <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                  </span>
                   <MessageCircle className="w-5 h-5" />
                   {language === 'en' ? 'Ask AI' : 'KI fragen'}
                 </button>
@@ -2068,9 +2067,9 @@ export default function PortfolioWebsite() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className={`flex items-center justify-between p-4 border-b ${isDarkTheme ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50'}`}>
+            <div className={`flex items-center justify-between p-4 border-b ${isDarkTheme ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-gradient-to-r from-green-50 to-emerald-50'}`}>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg">
                   <MessageCircle className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -2102,8 +2101,8 @@ export default function PortfolioWebsite() {
                     className={`max-w-[80%] rounded-2xl px-4 py-3 ${
                       message.role === 'user'
                         ? isDarkTheme
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-blue-600 text-white'
+                          ? 'bg-green-600 text-white'
+                          : 'bg-green-600 text-white'
                         : isDarkTheme
                         ? 'bg-gray-800 text-gray-200 border border-gray-700'
                         : 'bg-white text-gray-900 border border-gray-200 shadow-sm'
@@ -2138,13 +2137,13 @@ export default function PortfolioWebsite() {
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
                   placeholder={language === 'en' ? 'Ask about skills, experience, education...' : 'Fragen Sie über Fähigkeiten, Erfahrung, Ausbildung...'}
-                  className={`flex-1 px-4 py-3 rounded-xl border transition-colors ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-blue-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-blue-500'} focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
+                  className={`flex-1 px-4 py-3 rounded-xl border transition-colors ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-green-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-green-500/20`}
                   disabled={chatLoading}
                 />
                 <button
                   type="submit"
                   disabled={chatLoading || !chatInput.trim()}
-                  className="px-5 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                  className="px-5 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                 </button>
