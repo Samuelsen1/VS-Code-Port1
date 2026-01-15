@@ -321,16 +321,16 @@ export default function PortfolioWebsite() {
       },
       hero: {
         available: "Available for Opportunities",
-        title: "Technical Writer & Digital Learning Designer",
-        subtitle: "",
-        desc: "Creating clear, user-centered documentation and engaging digital learning experiences. Combining technical communication expertise with instructional design to deliver accessible, high-impact solutions—from API documentation and user guides to interactive e-learning modules.",
+        title: "Digital Learning Designer",
+        subtitle: "Corporate E-Learning • Instructional Design • Accessible Learning Systems",
+        desc: "Designing learner-centered instructional content and digital learning experiences that drive skill acquisition and knowledge transfer. Specialized in ADDIE framework, accessibility standards (WCAG 2.1), and multimedia learning design—with strong technical documentation capabilities.",
         viewProjects: "View Projects",
         getInTouch: "Get In Touch",
         viewCV: "View CV"
       },
       about: {
         title: "About Me",
-        desc: "Technical Writer and Digital Learning Designer with a unique blend of documentation expertise and instructional design skills. I create clear, accessible technical content—from API documentation and user guides to comprehensive knowledge bases—while also designing engaging e-learning modules. My approach combines technical communication best practices with learning science (ADDIE, plain language principles) to deliver solutions that educate and empower users."
+        desc: "Digital Learning Designer specializing in creating learner-centered instructional content that drives measurable skill acquisition and knowledge transfer. I apply evidence-based learning science (ADDIE framework, cognitive load theory, adult learning principles) to design engaging e-learning modules, accessible training systems, and multimedia learning experiences. My technical documentation expertise strengthens instructional clarity and supports comprehensive learning ecosystems."
       },
       projects: {
         title: "Featured Projects",
@@ -441,8 +441,8 @@ export default function PortfolioWebsite() {
         title: "Certifications & Training"
       },
       contact: {
-        title: "Let's Create Something Great Together",
-        desc: "Looking for a technical writer or digital learning designer who combines clear communication with technical expertise? Let's connect and discuss how I can help with your documentation or learning initiatives.",
+        title: "Let's Create Impactful Learning Experiences Together",
+        desc: "Looking for a Digital Learning Designer who combines evidence-based instructional strategies with technical expertise? Let's discuss how I can help transform your corporate training and e-learning initiatives.",
         email: "Email Me",
         linkedin: "LinkedIn Profile"
       ,
@@ -456,7 +456,7 @@ export default function PortfolioWebsite() {
         knowledge: "Knowledge Base Design",
         techWriting: "Technical Documentation",
         github: "GitHub Repository",
-        copyright: "© 2025 Samuel Afriyie Opoku • Technical Writer & Digital Learning Designer",
+        copyright: "© 2025 Samuel Afriyie Opoku • Digital Learning Designer",
         built: "Built with React & Tailwind CSS"
       },
       impact: {
@@ -467,42 +467,42 @@ export default function PortfolioWebsite() {
       },
       aboutCards: [
         {
-          title: "Technical Communication",
-          desc: "Expert in creating user-centered documentation: API guides, user manuals, knowledge bases, and process documentation. Specializing in plain language principles and WCAG 2.1 accessibility standards."
+          title: "Instructional Design Excellence",
+          desc: "Expert in applying ADDIE framework, Bloom's Taxonomy, and cognitive load theory to create effective learning experiences. Specialized in multimedia learning design, learner engagement strategies, and measurable learning outcomes."
         },
         {
-          title: "Digital Learning Design",
-          desc: "Applying ADDIE framework, cognitive load theory, and evidence-based instructional strategies to create effective learning experiences that drive measurable outcomes."
+          title: "E-Learning Development",
+          desc: "Proficient in Articulate 360 (Storyline, Rise), SCORM packaging, LMS integration, and accessible course design. Creating interactive, WCAG 2.1-compliant learning modules that drive skill acquisition."
         },
         {
-          title: "Technical Skills",
-          desc: "Full-stack toolkit spanning documentation tools (Markdown, GitHub, DITA XML) and e-learning authoring (Articulate 360, multimedia design with Adobe Suite)."
+          title: "Technical Documentation Support",
+          desc: "Strong technical communication skills enhance instructional clarity. Experienced in creating user guides, knowledge bases, and process documentation that support comprehensive learning ecosystems."
         }
       ],
       skillsCategories: [
         {
-          title: "Technical Writing",
-          items: ["API Documentation", "User Guides", "Knowledge Base Design", "DITA XML", "Plain Language", "Process Documentation"]
+          title: "Instructional Design & Learning Science",
+          items: ["ADDIE Framework", "Bloom's Taxonomy", "Cognitive Load Theory", "Adult Learning Principles", "Learning Experience Design", "Assessment Design"]
         },
         {
-          title: "Digital Learning Design",
-          items: ["ADDIE Framework", "Bloom's Taxonomy", "Adult Learning Theory", "Storyboarding", "LXD", "Curriculum Development"]
+          title: "E-Learning Development Tools",
+          items: ["Articulate 360 (Storyline, Rise)", "SCORM Packaging", "LMS Integration (Moodle)", "Adobe Premiere Pro", "Multimedia Design", "Interactive Content"]
         },
         {
-          title: "E-Learning & Multimedia Tools",
-          items: ["Articulate 360 (Storyline, Rise)", "Moodle", "SCORM", "Adobe Premiere Pro", "Adobe Photoshop", "Figma"]
+          title: "Accessibility & Inclusive Design",
+          items: ["WCAG 2.1 Compliance", "Universal Design for Learning", "Screen Reader Optimization", "Accessible Media", "Inclusive Content Strategy", "Plain Language"]
         },
         {
-          title: "Technical Tools & Platforms",
-          items: ["Markdown", "GitHub", "VS Code", "HTML/CSS", "Notion", "Microsoft 365"]
+          title: "Content Development & Localization",
+          items: ["Storyboarding", "Scenario-Based Learning", "Microlearning Design", "AI-Assisted Translation", "Cross-Cultural Adaptation", "Multilingual Content"]
         },
         {
-          title: "Content Localization",
-          items: ["AI-Assisted Translation", "Cross-Cultural Adaptation", "Multilingual Content", "Natural Language Flow"]
+          title: "Technical Documentation (Supporting Skill)",
+          items: ["User Guides", "Knowledge Base Design", "Process Documentation", "API Documentation", "Markdown", "GitHub"]
         },
         {
-          title: "Accessibility & Standards",
-          items: ["WCAG 2.1 Compliance", "Inclusive Design", "Screen Reader Optimization", "Universal Design"]
+          title: "Design & Technical Tools",
+          items: ["Figma", "Adobe Photoshop", "HTML/CSS", "VS Code", "Notion", "Microsoft 365"]
         }
       ]
     },
@@ -517,16 +517,16 @@ export default function PortfolioWebsite() {
       },
       hero: {
         available: "Verfügbar für Möglichkeiten",
-        title: "Technical Writer & Digital Learning Designer",
-        subtitle: "",
-        desc: "Erstellung klarer, nutzerzentrierter Dokumentation und ansprechender digitaler Lernerfahrungen. Kombiniert technische Kommunikationsexpertise mit Instructional Design für barrierefreie, wirkungsvolle Lösungen—von API-Dokumentation und Benutzerhandbüchern bis zu interaktiven E-Learning-Modulen.",
+        title: "Digital Learning Designer",
+        subtitle: "Unternehmens-E-Learning • Instructional Design • Barrierefreie Lernsysteme",
+        desc: "Gestaltung lernerzentrierter Lehrinhalte und digitaler Lernerfahrungen für Kompetenzerwerb und Wissenstransfer. Spezialisiert auf ADDIE-Framework, Barrierefreiheitsstandards (WCAG 2.1) und Multimedia-Lerndesign—mit starken technischen Dokumentationsfähigkeiten.",
         viewProjects: "Projekte ansehen",
         getInTouch: "Kontakt aufnehmen",
         viewCV: "Lebenslauf ansehen"
       },
       about: {
         title: "Über mich",
-        desc: "Technical Writer und Digital Learning Designer mit einer einzigartigen Kombination aus Dokumentations- und Instructional Design-Expertise. Ich erstelle klare, barrierefreie technische Inhalte—von API-Dokumentation und Benutzerhandbüchern bis zu umfassenden Wissensdatenbanken—und gestalte gleichzeitig ansprechende E-Learning-Module. Mein Ansatz kombiniert Best Practices der technischen Kommunikation mit Lernwissenschaft (ADDIE, Plain Language) für Lösungen, die Nutzer schulen und befähigen."
+        desc: "Digital Learning Designer mit Spezialisierung auf lernerzentrierte Lehrinhalte für messbaren Kompetenzerwerb und Wissenstransfer. Ich wende evidenzbasierte Lernwissenschaft (ADDIE-Framework, Cognitive Load Theory, Erwachsenenlernprinzipien) an, um ansprechende E-Learning-Module, barrierefreie Schulungssysteme und Multimedia-Lernerfahrungen zu gestalten. Meine technische Dokumentationsexpertise stärkt die instruktionale Klarheit und unterstützt umfassende Lernökosysteme."
       },
       projects: {
         title: "Ausgewählte Projekte",
@@ -618,8 +618,8 @@ export default function PortfolioWebsite() {
         title: "Zertifikate & Schulungen"
       },
       contact: {
-        title: "Lassen Sie uns gemeinsam Großartiges schaffen",
-        desc: "Suchen Sie einen Technical Writer oder Digital Learning Designer, der klare Kommunikation mit technischer Expertise verbindet? Lassen Sie uns sprechen, wie ich bei Ihren Dokumentations- oder Lerninitiativen helfen kann.",
+        title: "Lassen Sie uns wirkungsvolle Lernerfahrungen schaffen",
+        desc: "Suchen Sie einen Digital Learning Designer, der evidenzbasierte Instruktionsstrategien mit technischer Expertise verbindet? Lassen Sie uns besprechen, wie ich Ihre Unternehmensschulungen und E-Learning-Initiativen transformieren kann.",
         email: "E-Mail senden",
         linkedin: "LinkedIn Profil"
       ,
@@ -633,7 +633,7 @@ export default function PortfolioWebsite() {
         knowledge: "Wissensdatenbank-Design",
         techWriting: "Technische Dokumentation",
         github: "GitHub-Repository",
-        copyright: "© 2025 Samuel Afriyie Opoku • Technical Writer & Digital Learning Designer",
+        copyright: "© 2025 Samuel Afriyie Opoku • Digital Learning Designer",
         built: "Erstellt mit React & Tailwind CSS"
       },
       impact: {
@@ -644,42 +644,42 @@ export default function PortfolioWebsite() {
       },
       aboutCards: [
         {
-          title: "Technische Kommunikation",
-          desc: "Experte für nutzerzentrierte Dokumentation: API-Leitfäden, Benutzerhandbücher, Wissensdatenbanken und Prozessdokumentation. Spezialisiert auf Plain Language Prinzipien und WCAG 2.1 Barrierefreiheitsstandards."
+          title: "Instructional Design Exzellenz",
+          desc: "Experte für ADDIE-Framework, Bloom's Taxonomie und Cognitive Load Theory zur Gestaltung effektiver Lernerfahrungen. Spezialisiert auf Multimedia-Lerndesign, Lernerbindungsstrategien und messbare Lernergebnisse."
         },
         {
-          title: "Digitales Lerndesign",
-          desc: "ADDIE-Framework, kognitive Belastungstheorie und evidenzbasierte Instruktionsstrategien für effektive Lernerfahrungen mit messbaren Ergebnissen anwenden."
+          title: "E-Learning-Entwicklung",
+          desc: "Kompetent in Articulate 360 (Storyline, Rise), SCORM-Packaging, LMS-Integration und barrierefreiem Kursdesign. Erstellung interaktiver, WCAG 2.1-konformer Lernmodule für Kompetenzerwerb."
         },
         {
-          title: "Technische Fähigkeiten",
-          desc: "Full-Stack-Toolkit für Dokumentationstools (Markdown, GitHub, DITA XML) und E-Learning-Autorentools (Articulate 360, Multimediadesign mit Adobe Suite)."
+          title: "Technische Dokumentationsunterstützung",
+          desc: "Starke technische Kommunikationsfähigkeiten verbessern die instruktionale Klarheit. Erfahrung in Benutzerhandbüchern, Wissensdatenbanken und Prozessdokumentation für umfassende Lernökosysteme."
         }
       ],
       skillsCategories: [
         {
-          title: "Technisches Schreiben",
-          items: ["API-Dokumentation", "Benutzerhandbücher", "Wissensdatenbank-Design", "DITA XML", "Plain Language", "Prozessdokumentation"]
+          title: "Instructional Design & Lernwissenschaft",
+          items: ["ADDIE-Framework", "Bloom's Taxonomie", "Cognitive Load Theory", "Erwachsenenlernprinzipien", "Learning Experience Design", "Assessment Design"]
         },
         {
-          title: "Digitales Lerndesign",
-          items: ["ADDIE-Framework", "Bloom's Taxonomie", "Erwachsenenlerntheorie", "Storyboarding", "LXD", "Curriculumentwicklung"]
+          title: "E-Learning-Entwicklungstools",
+          items: ["Articulate 360 (Storyline, Rise)", "SCORM-Packaging", "LMS-Integration (Moodle)", "Adobe Premiere Pro", "Multimedia-Design", "Interaktive Inhalte"]
         },
         {
-          title: "E-Learning & Multimedia-Tools",
-          items: ["Articulate 360 (Storyline, Rise)", "Moodle", "SCORM", "Adobe Premiere Pro", "Adobe Photoshop", "Figma"]
+          title: "Barrierefreiheit & Inklusives Design",
+          items: ["WCAG 2.1 Konformität", "Universal Design for Learning", "Screenreader-Optimierung", "Barrierefreie Medien", "Inklusive Content-Strategie", "Plain Language"]
         },
         {
-          title: "Technische Tools & Plattformen",
-          items: ["Markdown", "GitHub", "VS Code", "HTML/CSS", "Notion", "Microsoft 365"]
+          title: "Content-Entwicklung & Lokalisierung",
+          items: ["Storyboarding", "Szenariobasiertes Lernen", "Microlearning-Design", "KI-gestützte Übersetzung", "Interkulturelle Anpassung", "Mehrsprachiger Content"]
         },
         {
-          title: "Content-Lokalisierung",
-          items: ["KI-gestützte Übersetzung", "Interkulturelle Anpassung", "Mehrsprachiger Content", "Natürlicher Sprachfluss"]
+          title: "Technische Dokumentation (Unterstützende Kompetenz)",
+          items: ["Benutzerhandbücher", "Wissensdatenbank-Design", "Prozessdokumentation", "API-Dokumentation", "Markdown", "GitHub"]
         },
         {
-          title: "Barrierefreiheit & Standards",
-          items: ["WCAG 2.1 Konformität", "Inklusives Design", "Screenreader-Optimierung", "Universelles Design"]
+          title: "Design & Technische Tools",
+          items: ["Figma", "Adobe Photoshop", "HTML/CSS", "VS Code", "Notion", "Microsoft 365"]
         }
       ]
     }
@@ -1185,17 +1185,14 @@ export default function PortfolioWebsite() {
                   />
                 </div>
                 <div>
-                  <h1 className={`text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 md:mb-5`} style={{ lineHeight: '1.1' }}>
-                    <span className={`${isDarkTheme ? 'text-white' : 'text-gray-900'} block text-center md:text-left`}>
-                      Technical Writer
-                    </span>
-                    <div className="flex justify-center md:justify-start my-2">
-                      <div className={`h-[2px] w-24 ${isDarkTheme ? 'bg-blue-400/40' : 'bg-gray-300'}`}></div>
-                    </div>
+                  <h1 className={`text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 md:mb-3`} style={{ lineHeight: '1.1' }}>
                     <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent block text-center md:text-left">
-                      Digital Learning Designer
+                      {t[language].hero.title}
                     </span>
                   </h1>
+                  <p className={`text-sm md:text-base lg:text-lg font-medium mb-4 md:mb-5 text-center md:text-left ${isDarkTheme ? 'text-blue-200/80' : 'text-gray-600'}`}>
+                    {t[language].hero.subtitle}
+                  </p>
                 </div>
               </div>
               
