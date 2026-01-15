@@ -2,9 +2,9 @@ import './globals.css'
 
 export const metadata = {
   metadataBase: new URL('https://vs-code-port1.vercel.app'),
-  title: 'Samuel Afriyie Opoku — Technical Writer & Digital Learning Designer',
-  description: 'Technical Writer and Digital Learning Designer creating clear, user-centered documentation and engaging e-learning experiences. Expert in API documentation, user guides, knowledge bases, ADDIE framework, and WCAG accessibility.',
-  keywords: ['Technical Writer', 'Digital Learning Designer', 'Instructional Designer', 'E-Learning Developer', 'API Documentation', 'User Guides', 'Knowledge Base', 'DITA XML', 'ADDIE', 'Articulate Storyline', 'WCAG', 'Plain Language', 'Samuel Afriyie Opoku', 'Marburg', 'Germany'],
+  title: 'Samuel Afriyie Opoku — Technical Writer | Digital Learning Designer',
+  description: 'Technical Writer and Digital Learning Designer specializing in user-centered documentation, API guides, knowledge bases, and WCAG-compliant e-learning content.',
+  keywords: ['Technical Writer', 'Digital Learning Designer', 'API Documentation', 'User Guides', 'Knowledge Base', 'E-Learning Developer', 'Instructional Designer', 'WCAG', 'Accessibility', 'Markdown', 'GitHub', 'Samuel Afriyie Opoku', 'Lübeck', 'Germany'],
   authors: [{ name: 'Samuel Afriyie Opoku' }],
   creator: 'Samuel Afriyie Opoku',
   alternates: {
@@ -15,8 +15,8 @@ export const metadata = {
     locale: 'en_US',
     url: 'https://vs-code-port1.vercel.app',
     siteName: 'Samuel Afriyie Opoku Portfolio',
-    title: 'Samuel Afriyie Opoku — Technical Writer & Digital Learning Designer',
-    description: 'Technical Writer and Digital Learning Designer creating clear documentation and engaging e-learning experiences. Expert in API documentation, user guides, ADDIE framework, and WCAG accessibility.',
+    title: 'Samuel Afriyie Opoku — Technical Writer | Digital Learning Designer',
+    description: 'Technical Writer and Digital Learning Designer specializing in user-centered documentation, API guides, and accessible e-learning content.',
     images: [
       {
         url: 'https://vs-code-port1.vercel.app/images/Instructional_Design_illustration.jpg',
@@ -28,8 +28,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Samuel Afriyie Opoku — Technical Writer & Digital Learning Designer',
-    description: 'Creating clear, user-centered documentation and engaging e-learning experiences. Expert in API documentation, user guides, and instructional design.',
+    title: 'Samuel Afriyie Opoku — Technical Writer | Digital Learning Designer',
+    description: 'Technical Writer and Digital Learning Designer specializing in user-centered documentation and accessible e-learning content.',
     images: ['https://vs-code-port1.vercel.app/images/Instructional_Design_illustration.jpg'],
   },
   robots: {
