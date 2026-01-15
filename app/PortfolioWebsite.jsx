@@ -1185,14 +1185,14 @@ export default function PortfolioWebsite() {
                   />
                 </div>
                 <div>
-                  <h1 className={`text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mb-4 md:mb-5`}>
-                    <span className={`${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>
+                  <h1 className={`text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 md:mb-5`} style={{ lineHeight: '1.1' }}>
+                    <span className={`${isDarkTheme ? 'text-white' : 'text-gray-900'} block`}>
                       Technical Writer
                     </span>
-                    <span className={`${isDarkTheme ? 'text-blue-400/40' : 'text-gray-300'} font-light mx-3 md:mx-4`}>
+                    <span className={`${isDarkTheme ? 'text-blue-400/40' : 'text-gray-300'} font-light block text-center my-1`}>
                       —
                     </span>
-                    <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent block">
                       Digital Learning Designer
                     </span>
                   </h1>
