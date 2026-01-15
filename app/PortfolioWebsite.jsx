@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart } from 'lucide-react';
+import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,6 +17,19 @@ export default function PortfolioWebsite() {
     additionalMessage: ''
   });
   const [cvFormSubmitted, setCVFormSubmitted] = useState(false);
+  const [cvFormLoading, setCVFormLoading] = useState(false);
+  
+  // Chatbot state
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [chatMessages, setChatMessages] = useState([
+    { role: 'assistant', content: language === 'en' 
+      ? "Hello! 👋 I'm Samuel's AI assistant. Ask me anything about his experience, skills, education, or portfolio!"
+      : "Hallo! 👋 Ich bin Samuels KI-Assistent. Fragen Sie mich über seine Erfahrung, Fähigkeiten, Ausbildung oder Portfolio!"
+    }
+  ]);
+  const [chatInput, setChatInput] = useState('');
+  const [chatLoading, setChatLoading] = useState(false);
+  const chatEndRef = useRef(null);
   
   // Animated counter states
   const [counts, setCounts] = useState({ improvement: 0, completion: 0, usage: 0 });
@@ -120,26 +133,92 @@ export default function PortfolioWebsite() {
     });
   };
   
-  const handleCVFormSubmit = (e) => {
+  const handleCVFormSubmit = async (e) => {
     e.preventDefault();
-    // In production, this would send to an API endpoint
-    console.log('CV Request submitted:', cvFormData);
-    setCVFormSubmitted(true);
+    setCVFormLoading(true);
     
-    // Reset form after 3 seconds and close modal
-    setTimeout(() => {
-      setCVFormSubmitted(false);
-      setIsCVModalOpen(false);
-      setCVFormData({
-        fullName: '',
-        email: '',
-        company: '',
-        jobTitle: '',
-        jobDescription: '',
-        additionalMessage: ''
+    try {
+      const response = await fetch('/api/request-cv', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(cvFormData),
       });
-    }, 3000);
+      
+      if (response.ok) {
+        setCVFormSubmitted(true);
+        
+        // Reset form after 3 seconds and close modal
+        setTimeout(() => {
+          setCVFormSubmitted(false);
+          setIsCVModalOpen(false);
+          setCVFormData({
+            fullName: '',
+            email: '',
+            company: '',
+            jobTitle: '',
+            jobDescription: '',
+            additionalMessage: ''
+          });
+        }, 3000);
+      } else {
+        alert('Failed to send request. Please try again or email directly at gideonsammysen@gmail.com');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to send request. Please try again or email directly at gideonsammysen@gmail.com');
+    } finally {
+      setCVFormLoading(false);
+    }
   };
+  
+  // Handle chatbot
+  const handleChatSubmit = async (e) => {
+    e.preventDefault();
+    if (!chatInput.trim()) return;
+    
+    const userMessage = chatInput.trim();
+    setChatInput('');
+    setChatMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+    setChatLoading(true);
+    
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: userMessage }),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        setChatMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
+      } else {
+        setChatMessages(prev => [...prev, { 
+          role: 'assistant', 
+          content: 'Sorry, I encountered an error. Please try asking again or contact Samuel directly at gideonsammysen@gmail.com' 
+        }]);
+      }
+    } catch (error) {
+      console.error('Chat error:', error);
+      setChatMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: 'Sorry, I encountered an error. Please try asking again or contact Samuel directly at gideonsammysen@gmail.com' 
+      }]);
+    } finally {
+      setChatLoading(false);
+    }
+  };
+  
+  // Scroll to bottom of chat
+  useEffect(() => {
+    if (chatEndRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [chatMessages]);
 
   // Apply accessibility styles
   useEffect(() => {
@@ -1263,6 +1342,13 @@ export default function PortfolioWebsite() {
                   {t[language].hero.getInTouch}
                 </a>
                 <button 
+                  onClick={() => setIsChatOpen(true)}
+                  className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/30 hover:bg-green-500/30' : 'bg-white/80 backdrop-blur text-green-700 border-green-200 hover:bg-white hover:border-green-300'}`}
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  {language === 'en' ? 'Ask AI' : 'KI fragen'}
+                </button>
+                <button 
                   onClick={() => setIsCVModalOpen(true)}
                   className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 ${isDarkTheme ? 'bg-blue-500/20 backdrop-blur text-white border-blue-400/30 hover:bg-blue-500/30' : 'bg-white/80 backdrop-blur text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300'}`}
                 >
@@ -2130,9 +2216,10 @@ export default function PortfolioWebsite() {
                       </button>
                       <button
                         type="submit"
-                        className="flex-1 px-6 py-3 rounded-lg font-semibold bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+                        disabled={cvFormLoading}
+                        className="flex-1 px-6 py-3 rounded-lg font-semibold bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        {language === 'en' ? 'Submit Request' : 'Anfrage senden'}
+                        {cvFormLoading ? (language === 'en' ? 'Sending...' : 'Wird gesendet...') : (language === 'en' ? 'Submit Request' : 'Anfrage senden')}
                       </button>
                     </div>
                   </form>
@@ -2153,6 +2240,97 @@ export default function PortfolioWebsite() {
                 </div>
               )}
             </div>
+          </div>
+        </div>
+      )}
+      
+      {/* AI Chatbot Modal */}
+      {isChatOpen && (
+        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center md:p-4" onClick={() => setIsChatOpen(false)}>
+          <div 
+            className={`relative w-full md:max-w-lg h-[85vh] md:h-[600px] md:rounded-2xl shadow-2xl flex flex-col ${isDarkTheme ? 'bg-gray-900 md:border md:border-gray-700' : 'bg-white'}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className={`flex items-center justify-between p-4 border-b ${isDarkTheme ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50'}`}>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg">
+                  <MessageCircle className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className={`font-bold ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>
+                    {language === 'en' ? 'Ask about Samuel' : 'Fragen Sie über Samuel'}
+                  </h3>
+                  <p className={`text-xs ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
+                    {language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setIsChatOpen(false)}
+                className={`p-2 rounded-lg transition-colors ${isDarkTheme ? 'hover:bg-gray-700 text-gray-400 hover:text-white' : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'}`}
+                aria-label="Close chat"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Chat Messages */}
+            <div className={`flex-1 overflow-y-auto p-4 space-y-4 ${isDarkTheme ? 'bg-gray-900' : 'bg-gray-50'}`}>
+              {chatMessages.map((message, index) => (
+                <div
+                  key={index}
+                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div
+                    className={`max-w-[80%] rounded-2xl px-4 py-3 ${
+                      message.role === 'user'
+                        ? isDarkTheme
+                          ? 'bg-blue-600 text-white'
+                          : 'bg-blue-600 text-white'
+                        : isDarkTheme
+                        ? 'bg-gray-800 text-gray-200 border border-gray-700'
+                        : 'bg-white text-gray-900 border border-gray-200 shadow-sm'
+                    }`}
+                  >
+                    <p className="text-sm whitespace-pre-wrap leading-relaxed">{message.content}</p>
+                  </div>
+                </div>
+              ))}
+              {chatLoading && (
+                <div className="flex justify-start">
+                  <div className={`max-w-[80%] rounded-2xl px-4 py-3 ${isDarkTheme ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200 shadow-sm'}`}>
+                    <div className="flex gap-2">
+                      <div className={`w-2 h-2 rounded-full animate-bounce ${isDarkTheme ? 'bg-gray-500' : 'bg-gray-400'}`} style={{ animationDelay: '0ms' }}></div>
+                      <div className={`w-2 h-2 rounded-full animate-bounce ${isDarkTheme ? 'bg-gray-500' : 'bg-gray-400'}`} style={{ animationDelay: '150ms' }}></div>
+                      <div className={`w-2 h-2 rounded-full animate-bounce ${isDarkTheme ? 'bg-gray-500' : 'bg-gray-400'}`} style={{ animationDelay: '300ms' }}></div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              <div ref={chatEndRef} />
+            </div>
+
+            {/* Input Form */}
+            <form onSubmit={handleChatSubmit} className={`p-4 border-t ${isDarkTheme ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-white'}`}>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={chatInput}
+                  onChange={(e) => setChatInput(e.target.value)}
+                  placeholder={language === 'en' ? 'Ask about skills, experience, education...' : 'Fragen Sie über Fähigkeiten, Erfahrung, Ausbildung...'}
+                  className={`flex-1 px-4 py-3 rounded-xl border transition-colors ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-blue-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-blue-500'} focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
+                  disabled={chatLoading}
+                />
+                <button
+                  type="submit"
+                  disabled={chatLoading || !chatInput.trim()}
+                  className="px-5 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                >
+                  <Send className="w-4 h-4" />
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
