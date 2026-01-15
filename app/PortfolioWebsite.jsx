@@ -27,6 +27,7 @@ export default function PortfolioWebsite() {
   // Accessibility states - now with 3 levels: 0 = off, 1 = light, 2 = full
   // Some features are binary (0 = off, 1 = on) - marked with isBinary
   const [isAccessibilityOpen, setIsAccessibilityOpen] = useState(false);
+  const [accessibilityOffset, setAccessibilityOffset] = useState(24);
   const [accessibility, setAccessibility] = useState({
     contrast: 0,
     mark: 0,          // Binary: on/off only
@@ -118,6 +119,27 @@ export default function PortfolioWebsite() {
       setIsAccessibilityOpen(false);
     }
   }, [isChatOpen]);
+
+  // Keep floating accessibility button stable when mobile UI (keyboards/nav bars) changes viewport height
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.visualViewport) return;
+
+    const updateOffset = () => {
+      const viewport = window.visualViewport;
+      const bottomInset = Math.max(0, window.innerHeight - (viewport.height + viewport.offsetTop));
+      const safeOffset = 24 + bottomInset;
+      setAccessibilityOffset((prev) => Math.abs(prev - safeOffset) > 2 ? safeOffset : prev);
+    };
+
+    updateOffset();
+    window.visualViewport.addEventListener('resize', updateOffset);
+    window.visualViewport.addEventListener('scroll', updateOffset);
+
+    return () => {
+      window.visualViewport.removeEventListener('resize', updateOffset);
+      window.visualViewport.removeEventListener('scroll', updateOffset);
+    };
+  }, []);
   
   // Format chat messages with proper HTML formatting
   const formatChatMessage = (text) => {
@@ -1947,10 +1969,10 @@ export default function PortfolioWebsite() {
 
       {/* Floating Accessibility Button */}
       <div 
-        className="fixed left-6 z-50" 
+        className="fixed left-6 z-50"
         style={{ 
-          bottom: '24px',
-          transition: 'none'
+          bottom: `${accessibilityOffset}px`,
+          transition: 'bottom 0.2s ease-out'
         }}
       >
           {isAccessibilityOpen && (
