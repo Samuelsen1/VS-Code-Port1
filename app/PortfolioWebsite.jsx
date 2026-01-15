@@ -1067,66 +1067,72 @@ export default function PortfolioWebsite() {
 
       {/* Hero Section - Theme Responsive */}
       <section className={`pt-28 pb-20 md:pt-32 md:pb-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-950' : 'bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/30'}`}>
-        {/* E-Learning Themed Animated Background */}
+        {/* Tech & Science Themed Animated Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Subtle gradient orbs */}
           <div className={`absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-blue-600/15 to-cyan-600/8' : 'bg-gradient-to-br from-blue-400/20 to-cyan-400/10'}`}></div>
           <div className={`absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-indigo-600/12 to-purple-600/8' : 'bg-gradient-to-br from-indigo-400/15 to-purple-400/10'}`} style={{ animationDelay: '2s' }}></div>
           
-          {/* Floating E-Learning Icons */}
-          {/* Book Icon */}
-          <div className={`absolute top-24 right-[15%] animate-float-gentle ${isDarkTheme ? 'text-blue-400/25' : 'text-blue-500/20'}`} style={{ animationDelay: '0s' }}>
+          {/* Floating Tech/Science Icons */}
+          {/* Binary Code */}
+          <div className={`absolute top-24 right-[15%] animate-float-gentle ${isDarkTheme ? 'text-cyan-400/20' : 'text-cyan-500/15'}`} style={{ animationDelay: '0s' }}>
             <svg className="w-12 h-12 md:w-16 md:h-16" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 4.5C10.42 4.5 8.85 5.13 7.5 6.4L4 3v15l3.5-3.4C8.85 13.13 10.42 12.5 12 12.5s3.15.63 4.5 1.9L20 18V3l-3.5 3.4C15.15 5.13 13.58 4.5 12 4.5zM12 6.5c1.12 0 2.21.38 3.11 1.11L12 10.73l-3.11-3.12C9.79 6.88 10.88 6.5 12 6.5z"/>
+              <text x="3" y="8" fontSize="6" fontFamily="monospace">101</text>
+              <text x="3" y="15" fontSize="6" fontFamily="monospace">010</text>
+              <text x="3" y="22" fontSize="6" fontFamily="monospace">110</text>
             </svg>
           </div>
           
-          {/* Graduation Cap */}
-          <div className={`absolute top-[45%] left-[8%] animate-float-diagonal ${isDarkTheme ? 'text-indigo-400/25' : 'text-indigo-500/20'}`} style={{ animationDelay: '1s' }}>
+          {/* CPU/Chip */}
+          <div className={`absolute top-[45%] left-[8%] animate-float-diagonal ${isDarkTheme ? 'text-indigo-400/20' : 'text-indigo-500/15'}`} style={{ animationDelay: '1s' }}>
             <svg className="w-10 h-10 md:w-14 md:h-14" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+              <path d="M5 7c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V7zm2 0v10h10V7H7zm2 2h6v6H9V9zm-6 2h2v2H3v-2zm18 0h2v2h-2v-2zM11 3h2v2h-2V3zm0 18h2v2h-2v-2zM3 7h2v2H3V7zm18 0h2v2h-2V7zM3 15h2v2H3v-2zm18 0h2v2h-2v-2z"/>
             </svg>
           </div>
           
-          {/* Lightbulb (Ideas) */}
-          <div className={`absolute bottom-[30%] right-[10%] animate-float-1 ${isDarkTheme ? 'text-yellow-400/20' : 'text-amber-500/15'}`} style={{ animationDelay: '2s' }}>
+          {/* Network/Graph Nodes */}
+          <div className={`absolute bottom-[30%] right-[10%] animate-float-1 ${isDarkTheme ? 'text-purple-400/20' : 'text-purple-500/15'}`} style={{ animationDelay: '2s' }}>
             <svg className="w-8 h-8 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
+              <path d="M12 2C10.9 2 10 2.9 10 4s.9 2 2 2 2-.9 2-2-.9-2-2-2zM4 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm16 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-8 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+              <path d="M12 6v2m0 4v2m0 4v2M4 12h2m4 0h4m4 0h2" stroke="currentColor" strokeWidth="2" fill="none"/>
             </svg>
           </div>
           
-          {/* Code Brackets */}
+          {/* Code Brackets/Terminal */}
           <div className={`absolute top-[60%] right-[25%] animate-float-2 ${isDarkTheme ? 'text-cyan-400/20' : 'text-cyan-600/15'}`} style={{ animationDelay: '0.5s' }}>
             <svg className="w-8 h-8 md:w-10 md:h-10" fill="currentColor" viewBox="0 0 24 24">
               <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
             </svg>
           </div>
           
-          {/* Laptop/Screen */}
+          {/* API/Database */}
           <div className={`absolute bottom-[45%] left-[18%] animate-float-gentle ${isDarkTheme ? 'text-blue-300/20' : 'text-blue-600/15'}`} style={{ animationDelay: '1.5s' }}>
             <svg className="w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/>
+              <path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4zm8 6c0 2.21-3.58 4-8 4s-8-1.79-8-4v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9zm0 5c0 2.21-3.58 4-8 4s-8-1.79-8-4v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3z"/>
             </svg>
           </div>
           
-          {/* Certificate/Award */}
+          {/* Atom/Molecular Structure */}
           <div className={`absolute top-[20%] left-[25%] animate-float-diagonal ${isDarkTheme ? 'text-purple-400/20' : 'text-purple-500/15'}`} style={{ animationDelay: '2.5s' }}>
-            <svg className="w-8 h-8 md:w-10 md:h-10" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+            <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+              <circle cx="12" cy="12" r="2" fill="currentColor"/>
+              <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/>
+              <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/>
+              <ellipse cx="12" cy="12" rx="10" ry="4"/>
             </svg>
           </div>
           
-          {/* Play Button (Video Learning) */}
+          {/* Rocket (Innovation) */}
           <div className={`absolute bottom-[20%] left-[35%] animate-float-1 ${isDarkTheme ? 'text-emerald-400/20' : 'text-emerald-500/15'}`} style={{ animationDelay: '3s' }}>
             <svg className="w-6 h-6 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
+              <path d="M12 2.5c-1.2 0-2.2.4-3 1.1C6.6 5.5 4.3 9.2 4 13c-.1.8.1 1.6.6 2.3L2.5 17.5c-.3.3-.3.8 0 1.1l2.8 2.8c.3.3.8.3 1.1 0l2.2-2.2c.6.4 1.4.6 2.2.5 3.8-.3 7.5-2.6 9.4-5 .7-.8 1.1-1.8 1.1-3V7c0-2.5-2-4.5-4.5-4.5h-4.8zm3 5c.8 0 1.5.7 1.5 1.5S15.8 10.5 15 10.5 13.5 9.8 13.5 9 14.2 7.5 15 7.5zM8.5 18L7 19.5 4.5 17 6 15.5l2.5 2.5z"/>
             </svg>
           </div>
           
-          {/* Pencil (Writing) */}
+          {/* Document with Checkmark */}
           <div className={`absolute top-[35%] right-[8%] animate-float-2 ${isDarkTheme ? 'text-orange-400/20' : 'text-orange-500/15'}`} style={{ animationDelay: '0.8s' }}>
             <svg className="w-7 h-7 md:w-9 md:h-9" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+              <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-3.06 16L7.4 14.46l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41L10.94 18zM13 9V3.5L18.5 9H13z"/>
             </svg>
           </div>
         </div>
@@ -1145,8 +1151,17 @@ export default function PortfolioWebsite() {
                   />
                 </div>
                 <div>
-                  <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4 md:mb-5 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>
-                    {t[language].hero.title}
+                  <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4 md:mb-5`}>
+                    <span className={`${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>
+                      Technical Writer
+                    </span>
+                    <span className={`${isDarkTheme ? 'text-blue-300/60' : 'text-gray-400'} font-normal mx-2`}>
+                      &
+                    </span>
+                    <br className="md:hidden" />
+                    <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                      Digital Learning Designer
+                    </span>
                   </h1>
                 </div>
               </div>
