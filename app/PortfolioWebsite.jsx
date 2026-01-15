@@ -1302,7 +1302,7 @@ export default function PortfolioWebsite() {
               <div className="flex flex-wrap justify-center md:justify-start gap-4">
                 <a 
                   href="#contact" 
-                  className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 ${isDarkTheme ? 'bg-white text-blue-700 hover:bg-blue-50' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+                  className={`inline-flex items-center justify-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 min-w-[140px] ${isDarkTheme ? 'bg-white text-blue-700 hover:bg-blue-50' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
                 >
                   <Mail className="w-5 h-5" />
                   {t[language].hero.getInTouch}
@@ -1312,7 +1312,7 @@ export default function PortfolioWebsite() {
                     setIsAccessibilityOpen(false);
                     setIsChatOpen(true);
                   }}
-                  className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 relative animate-pulse ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/50 hover:bg-green-500/30' : 'bg-green-50 backdrop-blur text-green-700 border-green-300 hover:bg-green-100 hover:border-green-400'}`}
+                  className={`inline-flex items-center justify-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 min-w-[140px] ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/50 hover:bg-green-500/30' : 'bg-green-50 backdrop-blur text-green-700 border-green-300 hover:bg-green-100 hover:border-green-400'}`}
                   style={{
                     animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite, glow 2s ease-in-out infinite'
                   }}
@@ -1325,7 +1325,7 @@ export default function PortfolioWebsite() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsAccessibilityOpen(false)}
-                  className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 ${isDarkTheme ? 'bg-blue-500/20 backdrop-blur text-white border-blue-400/30 hover:bg-blue-500/30' : 'bg-white/80 backdrop-blur text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300'}`}
+                  className={`inline-flex items-center justify-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 min-w-[140px] ${isDarkTheme ? 'bg-blue-500/20 backdrop-blur text-white border-blue-400/30 hover:bg-blue-500/30' : 'bg-white/80 backdrop-blur text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300'}`}
                 >
                   <FileText className="w-5 h-5" />
                   {t[language].hero.viewCV}
@@ -1938,19 +1938,15 @@ export default function PortfolioWebsite() {
       </footer>
 
       {/* Floating Accessibility Button */}
-      <div className="fixed left-6 z-50" style={{ 
-        bottom: 'max(24px, calc(env(safe-area-inset-bottom, 0px) + 24px))',
-        paddingBottom: '0'
-      }}>
+      <div className="fixed bottom-6 left-6 z-50" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
           {isAccessibilityOpen && (
             <div 
-              className="absolute left-0 w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 overflow-hidden flex flex-col border"
+              className="absolute bottom-20 left-0 w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 overflow-hidden flex flex-col border"
               style={{
                 background: isDarkTheme ? 'rgba(15,23,42,0.95)' : 'rgba(255,255,255,0.98)',
                 borderColor: 'rgba(124,58,237,0.12)',
-                bottom: '80px',
-                maxHeight: 'min(60vh, calc(100vh - 200px))',
-                maxHeight: 'min(60dvh, calc(100dvh - 200px))'
+                maxHeight: 'min(70vh, calc(100vh - 150px))',
+                maxHeight: 'min(70dvh, calc(100dvh - 150px))'
               }}
             >
               {/* Header bar - PURPLE */}
