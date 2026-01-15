@@ -8,97 +8,6 @@ export default function PortfolioWebsite() {
   
   // Animated counter states
   const [counts, setCounts] = useState({ improvement: 0, completion: 0, usage: 0 });
-  
-  // Particle network animation
-  const canvasRef = useRef(null);
-  
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-    let particles = [];
-    
-    const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2 + 1;
-      }
-      
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-      }
-      
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = isDarkTheme ? 'rgba(96, 165, 250, 0.6)' : 'rgba(59, 130, 246, 0.5)';
-        ctx.fill();
-      }
-    }
-    
-    // Create particles
-    const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 80);
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
-    
-    const connectParticles = () => {
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < 150) {
-            ctx.beginPath();
-            ctx.strokeStyle = isDarkTheme 
-              ? `rgba(96, 165, 250, ${0.2 * (1 - distance / 150)})` 
-              : `rgba(59, 130, 246, ${0.15 * (1 - distance / 150)})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-    };
-    
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-      });
-      
-      connectParticles();
-      animationFrameId = requestAnimationFrame(animate);
-    };
-    
-    animate();
-    
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [isDarkTheme]);
   const [hasAnimated, setHasAnimated] = useState(false);
   const metricsRefMobile = useRef(null);
   const metricsRefDesktop = useRef(null);
@@ -321,16 +230,16 @@ export default function PortfolioWebsite() {
       },
       hero: {
         available: "Available for Opportunities",
-        title: "Digital Learning Designer",
-        subtitle: "Corporate E-Learning • Instructional Design • Accessible Learning Systems",
-        desc: "Designing learner-centered instructional content and digital learning experiences that drive skill acquisition and knowledge transfer. Specialized in ADDIE framework, accessibility standards (WCAG 2.1), and multimedia learning design—with strong technical documentation capabilities.",
+        title: "Technical Writer & Digital Learning Designer",
+        subtitle: "",
+        desc: "Creating clear, user-centered documentation and engaging digital learning experiences. Combining technical communication expertise with instructional design to deliver accessible, high-impact solutions—from API documentation and user guides to interactive e-learning modules.",
         viewProjects: "View Projects",
         getInTouch: "Get In Touch",
         viewCV: "View CV"
       },
       about: {
         title: "About Me",
-        desc: "Digital Learning Designer specializing in creating learner-centered instructional content that drives measurable skill acquisition and knowledge transfer. I apply evidence-based learning science (ADDIE framework, cognitive load theory, adult learning principles) to design engaging e-learning modules, accessible training systems, and multimedia learning experiences. My technical documentation expertise strengthens instructional clarity and supports comprehensive learning ecosystems."
+        desc: "Technical Writer and Digital Learning Designer with a unique blend of documentation expertise and instructional design skills. I create clear, accessible technical content—from API documentation and user guides to comprehensive knowledge bases—while also designing engaging e-learning modules. My approach combines technical communication best practices with learning science (ADDIE, plain language principles) to deliver solutions that educate and empower users."
       },
       projects: {
         title: "Featured Projects",
@@ -441,8 +350,8 @@ export default function PortfolioWebsite() {
         title: "Certifications & Training"
       },
       contact: {
-        title: "Let's Create Impactful Learning Experiences Together",
-        desc: "Looking for a Digital Learning Designer who combines evidence-based instructional strategies with technical expertise? Let's discuss how I can help transform your corporate training and e-learning initiatives.",
+        title: "Let's Create Something Great Together",
+        desc: "Looking for a technical writer or digital learning designer who combines clear communication with technical expertise? Let's connect and discuss how I can help with your documentation or learning initiatives.",
         email: "Email Me",
         linkedin: "LinkedIn Profile"
       ,
@@ -456,7 +365,7 @@ export default function PortfolioWebsite() {
         knowledge: "Knowledge Base Design",
         techWriting: "Technical Documentation",
         github: "GitHub Repository",
-        copyright: "© 2025 Samuel Afriyie Opoku • Digital Learning Designer",
+        copyright: "© 2025 Samuel Afriyie Opoku • Technical Writer & Digital Learning Designer",
         built: "Built with React & Tailwind CSS"
       },
       impact: {
@@ -467,42 +376,42 @@ export default function PortfolioWebsite() {
       },
       aboutCards: [
         {
-          title: "Instructional Design Excellence",
-          desc: "Expert in applying ADDIE framework, Bloom's Taxonomy, and cognitive load theory to create effective learning experiences. Specialized in multimedia learning design, learner engagement strategies, and measurable learning outcomes."
+          title: "Technical Communication",
+          desc: "Expert in creating user-centered documentation: API guides, user manuals, knowledge bases, and process documentation. Specializing in plain language principles and WCAG 2.1 accessibility standards."
         },
         {
-          title: "E-Learning Development",
-          desc: "Proficient in Articulate 360 (Storyline, Rise), SCORM packaging, LMS integration, and accessible course design. Creating interactive, WCAG 2.1-compliant learning modules that drive skill acquisition."
+          title: "Digital Learning Design",
+          desc: "Applying ADDIE framework, cognitive load theory, and evidence-based instructional strategies to create effective learning experiences that drive measurable outcomes."
         },
         {
-          title: "Technical Documentation Support",
-          desc: "Strong technical communication skills enhance instructional clarity. Experienced in creating user guides, knowledge bases, and process documentation that support comprehensive learning ecosystems."
+          title: "Technical Skills",
+          desc: "Full-stack toolkit spanning documentation tools (Markdown, GitHub, DITA XML) and e-learning authoring (Articulate 360, multimedia design with Adobe Suite)."
         }
       ],
       skillsCategories: [
         {
-          title: "Instructional Design & Learning Science",
-          items: ["ADDIE Framework", "Bloom's Taxonomy", "Cognitive Load Theory", "Adult Learning Principles", "Learning Experience Design", "Assessment Design"]
+          title: "Technical Writing",
+          items: ["API Documentation", "User Guides", "Knowledge Base Design", "DITA XML", "Plain Language", "Process Documentation"]
         },
         {
-          title: "E-Learning Development Tools",
-          items: ["Articulate 360 (Storyline, Rise)", "SCORM Packaging", "LMS Integration (Moodle)", "Adobe Premiere Pro", "Multimedia Design", "Interactive Content"]
+          title: "Digital Learning Design",
+          items: ["ADDIE Framework", "Bloom's Taxonomy", "Adult Learning Theory", "Storyboarding", "LXD", "Curriculum Development"]
         },
         {
-          title: "Accessibility & Inclusive Design",
-          items: ["WCAG 2.1 Compliance", "Universal Design for Learning", "Screen Reader Optimization", "Accessible Media", "Inclusive Content Strategy", "Plain Language"]
+          title: "E-Learning & Multimedia Tools",
+          items: ["Articulate 360 (Storyline, Rise)", "Moodle", "SCORM", "Adobe Premiere Pro", "Adobe Photoshop", "Figma"]
         },
         {
-          title: "Content Development & Localization",
-          items: ["Storyboarding", "Scenario-Based Learning", "Microlearning Design", "AI-Assisted Translation", "Cross-Cultural Adaptation", "Multilingual Content"]
+          title: "Technical Tools & Platforms",
+          items: ["Markdown", "GitHub", "VS Code", "HTML/CSS", "Notion", "Microsoft 365"]
         },
         {
-          title: "Technical Documentation (Supporting Skill)",
-          items: ["User Guides", "Knowledge Base Design", "Process Documentation", "API Documentation", "Markdown", "GitHub"]
+          title: "Content Localization",
+          items: ["AI-Assisted Translation", "Cross-Cultural Adaptation", "Multilingual Content", "Natural Language Flow"]
         },
         {
-          title: "Design & Technical Tools",
-          items: ["Figma", "Adobe Photoshop", "HTML/CSS", "VS Code", "Notion", "Microsoft 365"]
+          title: "Accessibility & Standards",
+          items: ["WCAG 2.1 Compliance", "Inclusive Design", "Screen Reader Optimization", "Universal Design"]
         }
       ]
     },
@@ -517,16 +426,16 @@ export default function PortfolioWebsite() {
       },
       hero: {
         available: "Verfügbar für Möglichkeiten",
-        title: "Digital Learning Designer",
-        subtitle: "Unternehmens-E-Learning • Instructional Design • Barrierefreie Lernsysteme",
-        desc: "Gestaltung lernerzentrierter Lehrinhalte und digitaler Lernerfahrungen für Kompetenzerwerb und Wissenstransfer. Spezialisiert auf ADDIE-Framework, Barrierefreiheitsstandards (WCAG 2.1) und Multimedia-Lerndesign—mit starken technischen Dokumentationsfähigkeiten.",
+        title: "Technical Writer & Digital Learning Designer",
+        subtitle: "",
+        desc: "Erstellung klarer, nutzerzentrierter Dokumentation und ansprechender digitaler Lernerfahrungen. Kombiniert technische Kommunikationsexpertise mit Instructional Design für barrierefreie, wirkungsvolle Lösungen—von API-Dokumentation und Benutzerhandbüchern bis zu interaktiven E-Learning-Modulen.",
         viewProjects: "Projekte ansehen",
         getInTouch: "Kontakt aufnehmen",
         viewCV: "Lebenslauf ansehen"
       },
       about: {
         title: "Über mich",
-        desc: "Digital Learning Designer mit Spezialisierung auf lernerzentrierte Lehrinhalte für messbaren Kompetenzerwerb und Wissenstransfer. Ich wende evidenzbasierte Lernwissenschaft (ADDIE-Framework, Cognitive Load Theory, Erwachsenenlernprinzipien) an, um ansprechende E-Learning-Module, barrierefreie Schulungssysteme und Multimedia-Lernerfahrungen zu gestalten. Meine technische Dokumentationsexpertise stärkt die instruktionale Klarheit und unterstützt umfassende Lernökosysteme."
+        desc: "Technical Writer und Digital Learning Designer mit einer einzigartigen Kombination aus Dokumentations- und Instructional Design-Expertise. Ich erstelle klare, barrierefreie technische Inhalte—von API-Dokumentation und Benutzerhandbüchern bis zu umfassenden Wissensdatenbanken—und gestalte gleichzeitig ansprechende E-Learning-Module. Mein Ansatz kombiniert Best Practices der technischen Kommunikation mit Lernwissenschaft (ADDIE, Plain Language) für Lösungen, die Nutzer schulen und befähigen."
       },
       projects: {
         title: "Ausgewählte Projekte",
@@ -618,8 +527,8 @@ export default function PortfolioWebsite() {
         title: "Zertifikate & Schulungen"
       },
       contact: {
-        title: "Lassen Sie uns wirkungsvolle Lernerfahrungen schaffen",
-        desc: "Suchen Sie einen Digital Learning Designer, der evidenzbasierte Instruktionsstrategien mit technischer Expertise verbindet? Lassen Sie uns besprechen, wie ich Ihre Unternehmensschulungen und E-Learning-Initiativen transformieren kann.",
+        title: "Lassen Sie uns gemeinsam Großartiges schaffen",
+        desc: "Suchen Sie einen Technical Writer oder Digital Learning Designer, der klare Kommunikation mit technischer Expertise verbindet? Lassen Sie uns sprechen, wie ich bei Ihren Dokumentations- oder Lerninitiativen helfen kann.",
         email: "E-Mail senden",
         linkedin: "LinkedIn Profil"
       ,
@@ -633,7 +542,7 @@ export default function PortfolioWebsite() {
         knowledge: "Wissensdatenbank-Design",
         techWriting: "Technische Dokumentation",
         github: "GitHub-Repository",
-        copyright: "© 2025 Samuel Afriyie Opoku • Digital Learning Designer",
+        copyright: "© 2025 Samuel Afriyie Opoku • Technical Writer & Digital Learning Designer",
         built: "Erstellt mit React & Tailwind CSS"
       },
       impact: {
@@ -644,42 +553,42 @@ export default function PortfolioWebsite() {
       },
       aboutCards: [
         {
-          title: "Instructional Design Exzellenz",
-          desc: "Experte für ADDIE-Framework, Bloom's Taxonomie und Cognitive Load Theory zur Gestaltung effektiver Lernerfahrungen. Spezialisiert auf Multimedia-Lerndesign, Lernerbindungsstrategien und messbare Lernergebnisse."
+          title: "Technische Kommunikation",
+          desc: "Experte für nutzerzentrierte Dokumentation: API-Leitfäden, Benutzerhandbücher, Wissensdatenbanken und Prozessdokumentation. Spezialisiert auf Plain Language Prinzipien und WCAG 2.1 Barrierefreiheitsstandards."
         },
         {
-          title: "E-Learning-Entwicklung",
-          desc: "Kompetent in Articulate 360 (Storyline, Rise), SCORM-Packaging, LMS-Integration und barrierefreiem Kursdesign. Erstellung interaktiver, WCAG 2.1-konformer Lernmodule für Kompetenzerwerb."
+          title: "Digitales Lerndesign",
+          desc: "ADDIE-Framework, kognitive Belastungstheorie und evidenzbasierte Instruktionsstrategien für effektive Lernerfahrungen mit messbaren Ergebnissen anwenden."
         },
         {
-          title: "Technische Dokumentationsunterstützung",
-          desc: "Starke technische Kommunikationsfähigkeiten verbessern die instruktionale Klarheit. Erfahrung in Benutzerhandbüchern, Wissensdatenbanken und Prozessdokumentation für umfassende Lernökosysteme."
+          title: "Technische Fähigkeiten",
+          desc: "Full-Stack-Toolkit für Dokumentationstools (Markdown, GitHub, DITA XML) und E-Learning-Autorentools (Articulate 360, Multimediadesign mit Adobe Suite)."
         }
       ],
       skillsCategories: [
         {
-          title: "Instructional Design & Lernwissenschaft",
-          items: ["ADDIE-Framework", "Bloom's Taxonomie", "Cognitive Load Theory", "Erwachsenenlernprinzipien", "Learning Experience Design", "Assessment Design"]
+          title: "Technisches Schreiben",
+          items: ["API-Dokumentation", "Benutzerhandbücher", "Wissensdatenbank-Design", "DITA XML", "Plain Language", "Prozessdokumentation"]
         },
         {
-          title: "E-Learning-Entwicklungstools",
-          items: ["Articulate 360 (Storyline, Rise)", "SCORM-Packaging", "LMS-Integration (Moodle)", "Adobe Premiere Pro", "Multimedia-Design", "Interaktive Inhalte"]
+          title: "Digitales Lerndesign",
+          items: ["ADDIE-Framework", "Bloom's Taxonomie", "Erwachsenenlerntheorie", "Storyboarding", "LXD", "Curriculumentwicklung"]
         },
         {
-          title: "Barrierefreiheit & Inklusives Design",
-          items: ["WCAG 2.1 Konformität", "Universal Design for Learning", "Screenreader-Optimierung", "Barrierefreie Medien", "Inklusive Content-Strategie", "Plain Language"]
+          title: "E-Learning & Multimedia-Tools",
+          items: ["Articulate 360 (Storyline, Rise)", "Moodle", "SCORM", "Adobe Premiere Pro", "Adobe Photoshop", "Figma"]
         },
         {
-          title: "Content-Entwicklung & Lokalisierung",
-          items: ["Storyboarding", "Szenariobasiertes Lernen", "Microlearning-Design", "KI-gestützte Übersetzung", "Interkulturelle Anpassung", "Mehrsprachiger Content"]
+          title: "Technische Tools & Plattformen",
+          items: ["Markdown", "GitHub", "VS Code", "HTML/CSS", "Notion", "Microsoft 365"]
         },
         {
-          title: "Technische Dokumentation (Unterstützende Kompetenz)",
-          items: ["Benutzerhandbücher", "Wissensdatenbank-Design", "Prozessdokumentation", "API-Dokumentation", "Markdown", "GitHub"]
+          title: "Content-Lokalisierung",
+          items: ["KI-gestützte Übersetzung", "Interkulturelle Anpassung", "Mehrsprachiger Content", "Natürlicher Sprachfluss"]
         },
         {
-          title: "Design & Technische Tools",
-          items: ["Figma", "Adobe Photoshop", "HTML/CSS", "VS Code", "Notion", "Microsoft 365"]
+          title: "Barrierefreiheit & Standards",
+          items: ["WCAG 2.1 Konformität", "Inklusives Design", "Screenreader-Optimierung", "Universelles Design"]
         }
       ]
     }
@@ -1158,17 +1067,68 @@ export default function PortfolioWebsite() {
 
       {/* Hero Section - Theme Responsive */}
       <section className={`pt-28 pb-20 md:pt-32 md:pb-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-950' : 'bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/30'}`}>
-        {/* Particle Network Background */}
-        <canvas 
-          ref={canvasRef}
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          style={{ opacity: 0.6 }}
-        />
-        
-        {/* Subtle gradient orbs */}
+        {/* E-Learning Themed Animated Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className={`absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-blue-600/10 to-cyan-600/5' : 'bg-gradient-to-br from-blue-400/15 to-cyan-400/8'}`}></div>
-          <div className={`absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-indigo-600/8 to-purple-600/5' : 'bg-gradient-to-br from-indigo-400/12 to-purple-400/8'}`} style={{ animationDelay: '2s' }}></div>
+          {/* Subtle gradient orbs */}
+          <div className={`absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-blue-600/15 to-cyan-600/8' : 'bg-gradient-to-br from-blue-400/20 to-cyan-400/10'}`}></div>
+          <div className={`absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-indigo-600/12 to-purple-600/8' : 'bg-gradient-to-br from-indigo-400/15 to-purple-400/10'}`} style={{ animationDelay: '2s' }}></div>
+          
+          {/* Floating E-Learning Icons */}
+          {/* Book Icon */}
+          <div className={`absolute top-24 right-[15%] animate-float-gentle ${isDarkTheme ? 'text-blue-400/25' : 'text-blue-500/20'}`} style={{ animationDelay: '0s' }}>
+            <svg className="w-12 h-12 md:w-16 md:h-16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 4.5C10.42 4.5 8.85 5.13 7.5 6.4L4 3v15l3.5-3.4C8.85 13.13 10.42 12.5 12 12.5s3.15.63 4.5 1.9L20 18V3l-3.5 3.4C15.15 5.13 13.58 4.5 12 4.5zM12 6.5c1.12 0 2.21.38 3.11 1.11L12 10.73l-3.11-3.12C9.79 6.88 10.88 6.5 12 6.5z"/>
+            </svg>
+          </div>
+          
+          {/* Graduation Cap */}
+          <div className={`absolute top-[45%] left-[8%] animate-float-diagonal ${isDarkTheme ? 'text-indigo-400/25' : 'text-indigo-500/20'}`} style={{ animationDelay: '1s' }}>
+            <svg className="w-10 h-10 md:w-14 md:h-14" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+            </svg>
+          </div>
+          
+          {/* Lightbulb (Ideas) */}
+          <div className={`absolute bottom-[30%] right-[10%] animate-float-1 ${isDarkTheme ? 'text-yellow-400/20' : 'text-amber-500/15'}`} style={{ animationDelay: '2s' }}>
+            <svg className="w-8 h-8 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
+            </svg>
+          </div>
+          
+          {/* Code Brackets */}
+          <div className={`absolute top-[60%] right-[25%] animate-float-2 ${isDarkTheme ? 'text-cyan-400/20' : 'text-cyan-600/15'}`} style={{ animationDelay: '0.5s' }}>
+            <svg className="w-8 h-8 md:w-10 md:h-10" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+            </svg>
+          </div>
+          
+          {/* Laptop/Screen */}
+          <div className={`absolute bottom-[45%] left-[18%] animate-float-gentle ${isDarkTheme ? 'text-blue-300/20' : 'text-blue-600/15'}`} style={{ animationDelay: '1.5s' }}>
+            <svg className="w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/>
+            </svg>
+          </div>
+          
+          {/* Certificate/Award */}
+          <div className={`absolute top-[20%] left-[25%] animate-float-diagonal ${isDarkTheme ? 'text-purple-400/20' : 'text-purple-500/15'}`} style={{ animationDelay: '2.5s' }}>
+            <svg className="w-8 h-8 md:w-10 md:h-10" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+            </svg>
+          </div>
+          
+          {/* Play Button (Video Learning) */}
+          <div className={`absolute bottom-[20%] left-[35%] animate-float-1 ${isDarkTheme ? 'text-emerald-400/20' : 'text-emerald-500/15'}`} style={{ animationDelay: '3s' }}>
+            <svg className="w-6 h-6 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          
+          {/* Pencil (Writing) */}
+          <div className={`absolute top-[35%] right-[8%] animate-float-2 ${isDarkTheme ? 'text-orange-400/20' : 'text-orange-500/15'}`} style={{ animationDelay: '0.8s' }}>
+            <svg className="w-7 h-7 md:w-9 md:h-9" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+            </svg>
+          </div>
         </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -1185,14 +1145,9 @@ export default function PortfolioWebsite() {
                   />
                 </div>
                 <div>
-                  <h1 className={`text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 md:mb-3`} style={{ lineHeight: '1.1' }}>
-                    <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent block text-center md:text-left">
-                      {t[language].hero.title}
-                    </span>
+                  <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4 md:mb-5 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>
+                    {t[language].hero.title}
                   </h1>
-                  <p className={`text-sm md:text-base lg:text-lg font-medium mb-4 md:mb-5 text-center md:text-left ${isDarkTheme ? 'text-blue-200/80' : 'text-gray-600'}`}>
-                    {t[language].hero.subtitle}
-                  </p>
                 </div>
               </div>
               
