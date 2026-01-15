@@ -145,19 +145,19 @@ export default function PortfolioWebsite() {
         },
         body: JSON.stringify(cvFormData),
       });
+      
       const result = await response.json();
-
-      // Show friendly feedback depending on whether an email was actually sent
-      if (response.ok && result.success) {
+      
+      if (response.ok) {
         setCVFormSubmitted(true);
-
-        // If server couldn't send an email (no API key configured), inform the user-developer
+        
+        // Show alert if email not configured
         if (!result.emailSent) {
-          // Keep success UX for requester, but surface a dev note in console and a brief alert
-          console.warn('CV request received but email not sent. Configure RESEND_API_KEY or Web3Forms access key to enable email delivery.');
-          alert('Request submitted. Note: email delivery is not configured on the site yet — please add RESEND_API_KEY or Web3Forms key to receive notifications.');
+          setTimeout(() => {
+            alert('✅ Request submitted successfully!\n\n⚠️ Note: Email notifications are not set up yet.\n\nTo receive CV request emails:\n1. Sign up at resend.com (free)\n2. Get your API key\n3. Add RESEND_API_KEY to Vercel environment variables\n\nYour request has been logged. Check EMAIL_SETUP.md for details.');
+          }, 500);
         }
-
+        
         // Reset form after 3 seconds and close modal
         setTimeout(() => {
           setCVFormSubmitted(false);
@@ -172,8 +172,7 @@ export default function PortfolioWebsite() {
           });
         }, 3000);
       } else {
-        const errMsg = result?.error || 'Failed to send request. Please try again or email directly at gideonsammysen@gmail.com';
-        alert(errMsg);
+        alert('Failed to send request. Please try again or email directly at gideonsammysen@gmail.com');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -182,11 +181,6 @@ export default function PortfolioWebsite() {
       setCVFormLoading(false);
     }
   };
-
-  // Close accessibility panel when modals open to avoid UI overlap/shift
-  useEffect(() => {
-    if (isCVModalOpen || isChatOpen) setIsAccessibilityOpen(false);
-  }, [isCVModalOpen, isChatOpen]);
   
   // Format chat messages with proper HTML formatting
   const formatChatMessage = (text) => {
