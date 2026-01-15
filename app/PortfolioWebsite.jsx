@@ -230,16 +230,16 @@ export default function PortfolioWebsite() {
       },
       hero: {
         available: "Available for Opportunities",
-        title: "Digital Learning Designer",
+        title: "Technical Writer & Digital Learning Designer",
         subtitle: "",
-        desc: "Transforming complex concepts into engaging, high-impact digital learning experiences. Leveraging learning science and multimedia design to create scalable, inclusive solutions.",
+        desc: "Creating clear, user-centered documentation and engaging digital learning experiences. Combining technical communication expertise with instructional design to deliver accessible, high-impact solutions—from API documentation and user guides to interactive e-learning modules.",
         viewProjects: "View Projects",
         getInTouch: "Get In Touch",
         viewCV: "View CV"
       },
       about: {
         title: "About Me",
-        desc: "Educator-turned-Digital Learning Designer. I leverage classroom experience to build inclusive, high-impact digital learning solutions. My approach combines learning science (ADDIE, Bloom's Taxonomy, Adult Learning Theory) with modern technology to create engaging courses and technical documentation that drive measurable results."
+        desc: "Technical Writer and Digital Learning Designer with a unique blend of documentation expertise and instructional design skills. I create clear, accessible technical content—from API documentation and user guides to comprehensive knowledge bases—while also designing engaging e-learning modules. My approach combines technical communication best practices with learning science (ADDIE, plain language principles) to deliver solutions that educate and empower users."
       },
       projects: {
         title: "Featured Projects",
@@ -351,7 +351,7 @@ export default function PortfolioWebsite() {
       },
       contact: {
         title: "Let's Create Something Great Together",
-        desc: "Looking for a digital learning designer who combines learning science with technical expertise? Let's connect and discuss how I can help transform your learning initiatives.",
+        desc: "Looking for a technical writer or digital learning designer who combines clear communication with technical expertise? Let's connect and discuss how I can help with your documentation or learning initiatives.",
         email: "Email Me",
         linkedin: "LinkedIn Profile"
       ,
@@ -365,7 +365,7 @@ export default function PortfolioWebsite() {
         knowledge: "Knowledge Base Design",
         techWriting: "Technical Documentation",
         github: "GitHub Repository",
-        copyright: "© 2025 Samuel Afriyie Opoku • Digital Learning Designer & E-Learning Developer",
+        copyright: "© 2025 Samuel Afriyie Opoku • Technical Writer & Digital Learning Designer",
         built: "Built with React & Tailwind CSS"
       },
       impact: {
@@ -376,34 +376,42 @@ export default function PortfolioWebsite() {
       },
       aboutCards: [
         {
-          title: "Learning Science",
-          desc: "Applying ADDIE framework, cognitive load theory, and evidence-based instructional strategies to create effective learning experiences."
+          title: "Technical Communication",
+          desc: "Expert in creating user-centered documentation: API guides, user manuals, knowledge bases, and process documentation. Specializing in plain language principles and WCAG 2.1 accessibility standards."
+        },
+        {
+          title: "Digital Learning Design",
+          desc: "Applying ADDIE framework, cognitive load theory, and evidence-based instructional strategies to create effective learning experiences that drive measurable outcomes."
         },
         {
           title: "Technical Skills",
-          desc: "Full-stack toolkit spanning e-learning authoring (Articulate 360) and multimedia design (Adobe Suite)."
-        },
-        {
-          title: "Measurable Impact",
-          desc: "Delivering learning solutions with proven results: 40% knowledge gains, 96% completion rates, and sustained behavioral change."
+          desc: "Full-stack toolkit spanning documentation tools (Markdown, GitHub, DITA XML) and e-learning authoring (Articulate 360, multimedia design with Adobe Suite)."
         }
       ],
       skillsCategories: [
+        {
+          title: "Technical Writing",
+          items: ["API Documentation", "User Guides", "Knowledge Base Design", "DITA XML", "Plain Language", "Process Documentation"]
+        },
         {
           title: "Digital Learning Design",
           items: ["ADDIE Framework", "Bloom's Taxonomy", "Adult Learning Theory", "Storyboarding", "LXD", "Curriculum Development"]
         },
         {
-          title: "E-Learning Tools",
+          title: "E-Learning & Multimedia Tools",
           items: ["Articulate 360 (Storyline, Rise)", "Moodle", "SCORM", "Adobe Premiere Pro", "Adobe Photoshop", "Figma"]
         },
         {
-          title: "Content Creation",
-          items: ["Technical Writing", "Multimedia Design", "Knowledge Base Documentation", "Cross-Cultural Adaptation"]
+          title: "Technical Tools & Platforms",
+          items: ["Markdown", "GitHub", "VS Code", "HTML/CSS", "Notion", "Microsoft 365"]
         },
         {
-          title: "Web & Development Tools",
-          items: ["HTML", "CSS", "Markdown", "GitHub", "VS Code", "Vercel"]
+          title: "Content Localization",
+          items: ["AI-Assisted Translation", "Cross-Cultural Adaptation", "Multilingual Content", "Natural Language Flow"]
+        },
+        {
+          title: "Accessibility & Standards",
+          items: ["WCAG 2.1 Compliance", "Inclusive Design", "Screen Reader Optimization", "Universal Design"]
         }
       ]
     },
@@ -418,16 +426,16 @@ export default function PortfolioWebsite() {
       },
       hero: {
         available: "Verfügbar für Möglichkeiten",
-        title: "Digital Learning Designer",
+        title: "Technical Writer & Digital Learning Designer",
         subtitle: "",
-        desc: "Komplexe Konzepte in ansprechende, wirkungsvolle digitale Lernerfahrungen verwandeln. Lernwissenschaft und Multimediadesign für skalierbare, inklusive Lösungen.",
+        desc: "Erstellung klarer, nutzerzentrierter Dokumentation und ansprechender digitaler Lernerfahrungen. Kombiniert technische Kommunikationsexpertise mit Instructional Design für barrierefreie, wirkungsvolle Lösungen—von API-Dokumentation und Benutzerhandbüchern bis zu interaktiven E-Learning-Modulen.",
         viewProjects: "Projekte ansehen",
         getInTouch: "Kontakt aufnehmen",
         viewCV: "Lebenslauf ansehen"
       },
       about: {
         title: "Über mich",
-        desc: "Lehrer, jetzt Digital Learning Designer. Ich nutze meine Unterrichtserfahrung, um inklusive, wirkungsvolle digitale Lernlösungen zu entwickeln. Mein Ansatz kombiniert Lernwissenschaft (ADDIE, Bloom's Taxonomie, Erwachsenenlerntheorie) mit moderner Technologie für ansprechende Kurse und technische Dokumentation, die messbare Ergebnisse liefern."
+        desc: "Technical Writer und Digital Learning Designer mit einer einzigartigen Kombination aus Dokumentations- und Instructional Design-Expertise. Ich erstelle klare, barrierefreie technische Inhalte—von API-Dokumentation und Benutzerhandbüchern bis zu umfassenden Wissensdatenbanken—und gestalte gleichzeitig ansprechende E-Learning-Module. Mein Ansatz kombiniert Best Practices der technischen Kommunikation mit Lernwissenschaft (ADDIE, Plain Language) für Lösungen, die Nutzer schulen und befähigen."
       },
       projects: {
         title: "Ausgewählte Projekte",
@@ -520,7 +528,7 @@ export default function PortfolioWebsite() {
       },
       contact: {
         title: "Lassen Sie uns gemeinsam Großartiges schaffen",
-        desc: "Suchen Sie einen Digital Learning Designer, der Lernwissenschaft mit technischer Expertise verbindet? Lassen Sie uns sprechen, wie ich Ihre Lerninitiativen verbessern kann.",
+        desc: "Suchen Sie einen Technical Writer oder Digital Learning Designer, der klare Kommunikation mit technischer Expertise verbindet? Lassen Sie uns sprechen, wie ich bei Ihren Dokumentations- oder Lerninitiativen helfen kann.",
         email: "E-Mail senden",
         linkedin: "LinkedIn Profil"
       ,
@@ -534,7 +542,7 @@ export default function PortfolioWebsite() {
         knowledge: "Wissensdatenbank-Design",
         techWriting: "Technische Dokumentation",
         github: "GitHub-Repository",
-        copyright: "© 2025 Samuel Afriyie Opoku • Digital Learning Designer & E-Learning Entwickler",
+        copyright: "© 2025 Samuel Afriyie Opoku • Technical Writer & Digital Learning Designer",
         built: "Erstellt mit React & Tailwind CSS"
       },
       impact: {
@@ -545,34 +553,42 @@ export default function PortfolioWebsite() {
       },
       aboutCards: [
         {
-          title: "Lernwissenschaft",
-          desc: "ADDIE-Framework, kognitive Belastungstheorie und evidenzbasierte Instruktionsstrategien für effektive Lernerfahrungen anwenden."
+          title: "Technische Kommunikation",
+          desc: "Experte für nutzerzentrierte Dokumentation: API-Leitfäden, Benutzerhandbücher, Wissensdatenbanken und Prozessdokumentation. Spezialisiert auf Plain Language Prinzipien und WCAG 2.1 Barrierefreiheitsstandards."
+        },
+        {
+          title: "Digitales Lerndesign",
+          desc: "ADDIE-Framework, kognitive Belastungstheorie und evidenzbasierte Instruktionsstrategien für effektive Lernerfahrungen mit messbaren Ergebnissen anwenden."
         },
         {
           title: "Technische Fähigkeiten",
-          desc: "Full-Stack-Toolkit für E-Learning-Autorentools (Articulate 360) und Multimediadesign (Adobe Suite)."
-        },
-        {
-          title: "Messbare Wirkung",
-          desc: "Lernlösungen mit nachweisbaren Ergebnissen: 40% Wissenszuwachs, 96% Abschlussrate und nachhaltige Verhaltensänderung."
+          desc: "Full-Stack-Toolkit für Dokumentationstools (Markdown, GitHub, DITA XML) und E-Learning-Autorentools (Articulate 360, Multimediadesign mit Adobe Suite)."
         }
       ],
       skillsCategories: [
+        {
+          title: "Technisches Schreiben",
+          items: ["API-Dokumentation", "Benutzerhandbücher", "Wissensdatenbank-Design", "DITA XML", "Plain Language", "Prozessdokumentation"]
+        },
         {
           title: "Digitales Lerndesign",
           items: ["ADDIE-Framework", "Bloom's Taxonomie", "Erwachsenenlerntheorie", "Storyboarding", "LXD", "Curriculumentwicklung"]
         },
         {
-          title: "E-Learning-Tools",
+          title: "E-Learning & Multimedia-Tools",
           items: ["Articulate 360 (Storyline, Rise)", "Moodle", "SCORM", "Adobe Premiere Pro", "Adobe Photoshop", "Figma"]
         },
         {
-          title: "Content-Erstellung",
-          items: ["Technisches Schreiben", "Multimediadesign", "Wissensdatenbank-Dokumentation", "Interkulturelle Anpassung"]
+          title: "Technische Tools & Plattformen",
+          items: ["Markdown", "GitHub", "VS Code", "HTML/CSS", "Notion", "Microsoft 365"]
         },
         {
-          title: "Web & Entwicklungstools",
-          items: ["HTML", "CSS", "Markdown", "GitHub", "VS Code", "Vercel"]
+          title: "Content-Lokalisierung",
+          items: ["KI-gestützte Übersetzung", "Interkulturelle Anpassung", "Mehrsprachiger Content", "Natürlicher Sprachfluss"]
+        },
+        {
+          title: "Barrierefreiheit & Standards",
+          items: ["WCAG 2.1 Konformität", "Inklusives Design", "Screenreader-Optimierung", "Universelles Design"]
         }
       ]
     }
