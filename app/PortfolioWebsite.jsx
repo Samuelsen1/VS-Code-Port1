@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send } from 'lucide-react';
 
 export default function PortfolioWebsite() {
@@ -138,27 +139,18 @@ export default function PortfolioWebsite() {
     setCVFormLoading(true);
     
     try {
-      const response = await fetch('/api/request-cv', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(cvFormData),
-      });
+      // EmailJS configuration (add these to your .env.local)
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
       
-      const result = await response.json();
-      
-      if (response.ok) {
+      // Check if EmailJS is configured
+      if (serviceId === 'YOUR_SERVICE_ID' || !serviceId.startsWith('service_')) {
         setCVFormSubmitted(true);
+        setTimeout(() => {
+          alert('✅ Request submitted!\n\n⚠️ Email not configured yet.\n\n📧 Quick Setup (5 min):\n1. Go to emailjs.com/sign-up\n2. Create free account\n3. Get Service ID, Template ID, Public Key\n4. Add to Vercel: NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, NEXT_PUBLIC_EMAILJS_PUBLIC_KEY\n\nYour request is logged. Check EMAIL_SETUP.md');
+        }, 500);
         
-        // Show alert if email not configured
-        if (!result.emailSent) {
-          setTimeout(() => {
-            alert('✅ Request submitted successfully!\n\n⚠️ Note: Email notifications are not set up yet.\n\nTo receive CV request emails:\n1. Sign up at resend.com (free)\n2. Get your API key\n3. Add RESEND_API_KEY to Vercel environment variables\n\nYour request has been logged. Check EMAIL_SETUP.md for details.');
-          }, 500);
-        }
-        
-        // Reset form after 3 seconds and close modal
         setTimeout(() => {
           setCVFormSubmitted(false);
           setIsCVModalOpen(false);
@@ -171,9 +163,40 @@ export default function PortfolioWebsite() {
             additionalMessage: ''
           });
         }, 3000);
-      } else {
-        alert('Failed to send request. Please try again or email directly at gideonsammysen@gmail.com');
+        
+        setCVFormLoading(false);
+        return;
       }
+      
+      // Send email via EmailJS
+      const templateParams = {
+        from_name: cvFormData.fullName,
+        from_email: cvFormData.email,
+        company: cvFormData.company,
+        job_title: cvFormData.jobTitle,
+        job_description: cvFormData.jobDescription,
+        message: cvFormData.additionalMessage,
+        to_email: 'gideonsammysen@gmail.com'
+      };
+      
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      setCVFormSubmitted(true);
+      
+      // Reset form after 3 seconds and close modal
+      setTimeout(() => {
+        setCVFormSubmitted(false);
+        setIsCVModalOpen(false);
+        setCVFormData({
+          fullName: '',
+          email: '',
+          company: '',
+          jobTitle: '',
+          jobDescription: '',
+          additionalMessage: ''
+        });
+      }, 3000);
+      
     } catch (error) {
       console.error('Error:', error);
       alert('Failed to send request. Please try again or email directly at gideonsammysen@gmail.com');
