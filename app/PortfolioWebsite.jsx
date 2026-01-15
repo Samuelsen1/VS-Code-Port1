@@ -1158,12 +1158,9 @@ export default function PortfolioWebsite() {
                     <span className={`${isDarkTheme ? 'text-blue-400/40' : 'text-gray-300'} font-light mx-3 md:mx-4`}>
                       |
                     </span>
-                    <span className={`${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>
-                      Learning
-                    </span>
                     <br />
                     <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                      Digital Designer
+                      Digital Learning Designer
                     </span>
                   </h1>
                 </div>
