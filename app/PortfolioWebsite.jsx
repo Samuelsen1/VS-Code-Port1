@@ -145,10 +145,19 @@ export default function PortfolioWebsite() {
         },
         body: JSON.stringify(cvFormData),
       });
-      
-      if (response.ok) {
+      const result = await response.json();
+
+      // Show friendly feedback depending on whether an email was actually sent
+      if (response.ok && result.success) {
         setCVFormSubmitted(true);
-        
+
+        // If server couldn't send an email (no API key configured), inform the user-developer
+        if (!result.emailSent) {
+          // Keep success UX for requester, but surface a dev note in console and a brief alert
+          console.warn('CV request received but email not sent. Configure RESEND_API_KEY or Web3Forms access key to enable email delivery.');
+          alert('Request submitted. Note: email delivery is not configured on the site yet — please add RESEND_API_KEY or Web3Forms key to receive notifications.');
+        }
+
         // Reset form after 3 seconds and close modal
         setTimeout(() => {
           setCVFormSubmitted(false);
@@ -163,7 +172,8 @@ export default function PortfolioWebsite() {
           });
         }, 3000);
       } else {
-        alert('Failed to send request. Please try again or email directly at gideonsammysen@gmail.com');
+        const errMsg = result?.error || 'Failed to send request. Please try again or email directly at gideonsammysen@gmail.com';
+        alert(errMsg);
       }
     } catch (error) {
       console.error('Error:', error);
@@ -172,6 +182,11 @@ export default function PortfolioWebsite() {
       setCVFormLoading(false);
     }
   };
+
+  // Close accessibility panel when modals open to avoid UI overlap/shift
+  useEffect(() => {
+    if (isCVModalOpen || isChatOpen) setIsAccessibilityOpen(false);
+  }, [isCVModalOpen, isChatOpen]);
   
   // Format chat messages with proper HTML formatting
   const formatChatMessage = (text) => {
@@ -1369,14 +1384,20 @@ export default function PortfolioWebsite() {
                   {t[language].hero.getInTouch}
                 </a>
                 <button 
-                  onClick={() => setIsChatOpen(true)}
+                  onClick={() => {
+                    setIsAccessibilityOpen(false);
+                    setIsChatOpen(true);
+                  }}
                   className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/30 hover:bg-green-500/30' : 'bg-white/80 backdrop-blur text-green-700 border-green-200 hover:bg-white hover:border-green-300'}`}
                 >
                   <MessageCircle className="w-5 h-5" />
                   {language === 'en' ? 'Ask AI' : 'KI fragen'}
                 </button>
                 <button 
-                  onClick={() => setIsCVModalOpen(true)}
+                  onClick={() => {
+                    setIsAccessibilityOpen(false);
+                    setIsCVModalOpen(true);
+                  }}
                   className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 ${isDarkTheme ? 'bg-blue-500/20 backdrop-blur text-white border-blue-400/30 hover:bg-blue-500/30' : 'bg-white/80 backdrop-blur text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300'}`}
                 >
                   <FileText className="w-5 h-5" />
@@ -2112,7 +2133,7 @@ export default function PortfolioWebsite() {
       
       {/* CV Request Modal */}
       {isCVModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onClick={() => setIsCVModalOpen(false)}>
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onClick={() => setIsCVModalOpen(false)}>
           <div 
             className={`relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl ${isDarkTheme ? 'bg-gray-900 border border-gray-700' : 'bg-white'}`}
             onClick={(e) => e.stopPropagation()}
@@ -2273,7 +2294,7 @@ export default function PortfolioWebsite() {
       
       {/* AI Chatbot Modal */}
       {isChatOpen && (
-        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center md:p-4" onClick={() => setIsChatOpen(false)}>
+        <div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center md:p-4" onClick={() => setIsChatOpen(false)}>
           <div 
             className={`relative w-full md:max-w-lg h-[85vh] md:h-[600px] md:rounded-2xl shadow-2xl flex flex-col ${isDarkTheme ? 'bg-gray-900 md:border md:border-gray-700' : 'bg-white'}`}
             onClick={(e) => e.stopPropagation()}

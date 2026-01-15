@@ -5,7 +5,7 @@ export async function POST(request) {
     const data = await request.json();
     
     // Log the request for debugging
-    console.log('CV Request received:', {
+    console.log('📧 CV Request received:', {
       name: data.fullName,
       email: data.email,
       company: data.company,
@@ -13,7 +13,9 @@ export async function POST(request) {
       timestamp: new Date().toISOString()
     });
     
-    // Send email using Resend if API key is available
+    let emailSent = false;
+    
+    // Try Resend if API key is available
     if (process.env.RESEND_API_KEY) {
       try {
         const emailResponse = await fetch('https://api.resend.com/emails', {
@@ -25,7 +27,7 @@ export async function POST(request) {
           body: JSON.stringify({
             from: 'CV Requests <onboarding@resend.dev>',
             to: ['gideonsammysen@gmail.com'],
-            subject: `CV Request from ${data.fullName} - ${data.company}`,
+            subject: `🎯 CV Request from ${data.fullName} - ${data.company}`,
             html: `
               <!DOCTYPE html>
               <html>
@@ -94,34 +96,34 @@ export async function POST(request) {
           }),
         });
 
-        if (!emailResponse.ok) {
+        if (emailResponse.ok) {
+          emailSent = true;
+          console.log('✅ Email sent successfully via Resend');
+        } else {
           const error = await emailResponse.json();
-          console.error('Resend API error:', error);
-          throw new Error('Email sending failed');
+          console.error('❌ Resend API error:', error);
         }
-        
-        console.log('Email sent successfully via Resend');
       } catch (emailError) {
-        console.error('Failed to send via Resend:', emailError);
-        // Continue to return success even if email fails
+        console.error('❌ Failed to send via Resend:', emailError);
       }
     }
     
-    // Always return success to the user
-    // Store the data or send via alternative method as needed
+    // Always return success - store request data
     return NextResponse.json({ 
       success: true, 
       message: 'CV request received successfully',
-      data: {
+      emailSent: emailSent,
+      requestDetails: {
         fullName: data.fullName,
         email: data.email,
         company: data.company,
+        jobTitle: data.jobTitle,
         timestamp: new Date().toISOString()
       }
     });
     
   } catch (error) {
-    console.error('Error processing CV request:', error);
+    console.error('❌ Error processing CV request:', error);
     return NextResponse.json({ 
       success: false,
       error: 'Failed to process request' 
