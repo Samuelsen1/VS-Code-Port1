@@ -111,6 +111,13 @@ export default function PortfolioWebsite() {
     document.documentElement.lang = language === 'en' ? 'en' : 'de';
     document.documentElement.dir = 'ltr';
   }, [language]);
+
+  // Close accessibility panel when chatbot opens to prevent positioning issues
+  useEffect(() => {
+    if (isChatOpen) {
+      setIsAccessibilityOpen(false);
+    }
+  }, [isChatOpen]);
   
   // Format chat messages with proper HTML formatting
   const formatChatMessage = (text) => {
@@ -1939,15 +1946,20 @@ export default function PortfolioWebsite() {
       </footer>
 
       {/* Floating Accessibility Button */}
-      <div className="fixed bottom-6 left-6 z-50" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
+      <div 
+        className="fixed left-6 z-50" 
+        style={{ 
+          bottom: '24px',
+          transition: 'none'
+        }}
+      >
           {isAccessibilityOpen && (
             <div 
               className="absolute bottom-20 left-0 w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 overflow-hidden flex flex-col border"
               style={{
                 background: isDarkTheme ? 'rgba(15,23,42,0.95)' : 'rgba(255,255,255,0.98)',
                 borderColor: 'rgba(124,58,237,0.12)',
-                maxHeight: 'min(70vh, calc(100vh - 150px))',
-                maxHeight: 'min(70dvh, calc(100dvh - 150px))'
+                maxHeight: '60vh'
               }}
             >
               {/* Header bar - PURPLE */}
