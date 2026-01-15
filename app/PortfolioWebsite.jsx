@@ -173,6 +173,33 @@ export default function PortfolioWebsite() {
     }
   };
   
+  // Format chat messages with proper HTML formatting
+  const formatChatMessage = (text) => {
+    if (!text) return '';
+    
+    let formatted = text
+      // Convert **bold** to <strong>
+      .replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold">$1</strong>')
+      // Convert *italic* to <em>
+      .replace(/\*(.+?)\*/g, '<em class="italic">$1</em>')
+      // Convert bullet points with emojis
+      .replace(/^([✅❌📧📱📍💼🗣️📄🎓📚🌐🛠️📅🎨👤📏♿📊])\s(.+)$/gm, '<div class="flex gap-2 my-1"><span>$1</span><span>$2</span></div>')
+      // Convert regular bullet points
+      .replace(/^- (.+)$/gm, '<li class="ml-4">$1</li>')
+      // Convert section headers (lines ending with colon)
+      .replace(/^(.+:)$/gm, '<div class="font-semibold mt-3 mb-1">$1</div>')
+      // Convert line breaks
+      .replace(/\n\n/g, '<br/><br/>')
+      .replace(/\n/g, '<br/>');
+    
+    // Wrap list items in ul
+    if (formatted.includes('<li')) {
+      formatted = formatted.replace(/(<li.+?<\/li>)/gs, '<ul class="list-disc ml-4 my-2">$1</ul>');
+    }
+    
+    return formatted;
+  };
+  
   // Handle chatbot
   const handleChatSubmit = async (e) => {
     e.preventDefault();
@@ -2293,7 +2320,10 @@ export default function PortfolioWebsite() {
                         : 'bg-white text-gray-900 border border-gray-200 shadow-sm'
                     }`}
                   >
-                    <p className="text-sm whitespace-pre-wrap leading-relaxed">{message.content}</p>
+                    <div 
+                      className="text-sm leading-relaxed prose prose-sm max-w-none"
+                      dangerouslySetInnerHTML={{ __html: formatChatMessage(message.content) }}
+                    />
                   </div>
                 </div>
               ))}

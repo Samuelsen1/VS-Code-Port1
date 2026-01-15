@@ -4,6 +4,20 @@ export async function POST(request) {
   try {
     const data = await request.json();
     
+    // Check if RESEND_API_KEY is configured
+    if (!process.env.RESEND_API_KEY) {
+      console.log('RESEND_API_KEY not configured. Email would have been sent to:', data);
+      console.log('Please add RESEND_API_KEY to your environment variables.');
+      console.log('Get your free API key at: https://resend.com');
+      
+      // Return success but log the data (for development/testing)
+      return NextResponse.json({ 
+        success: true, 
+        message: 'CV request received (email not configured yet)',
+        note: 'Add RESEND_API_KEY to enable email notifications'
+      });
+    }
+    
     // Using Resend (free tier: 3,000 emails/month, 100 emails/day)
     // Alternative: SendGrid, Mailgun, or AWS SES
     
