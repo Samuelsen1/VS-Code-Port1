@@ -1312,11 +1312,12 @@ export default function PortfolioWebsite() {
                     setIsAccessibilityOpen(false);
                     setIsChatOpen(true);
                   }}
-                  className={`inline-flex items-center justify-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 min-w-[140px] ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/50 hover:bg-green-500/30' : 'bg-green-50 backdrop-blur text-green-700 border-green-300 hover:bg-green-100 hover:border-green-400'}`}
-                  style={{
-                    animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite, glow 2s ease-in-out infinite'
-                  }}
+                  className={`inline-flex items-center justify-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 min-w-[140px] relative ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/50 hover:bg-green-500/30' : 'bg-green-50 backdrop-blur text-green-700 border-green-300 hover:bg-green-100 hover:border-green-400'}`}
                 >
+                  <span className="absolute top-2 right-2 flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
                   <MessageCircle className="w-5 h-5" />
                   {language === 'en' ? 'Ask AI' : 'KI fragen'}
                 </button>
