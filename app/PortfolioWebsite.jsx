@@ -8,6 +8,97 @@ export default function PortfolioWebsite() {
   
   // Animated counter states
   const [counts, setCounts] = useState({ improvement: 0, completion: 0, usage: 0 });
+  
+  // Particle network animation
+  const canvasRef = useRef(null);
+  
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let animationFrameId;
+    let particles = [];
+    
+    const resizeCanvas = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = Math.random() * 2 + 1;
+      }
+      
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = isDarkTheme ? 'rgba(96, 165, 250, 0.6)' : 'rgba(59, 130, 246, 0.5)';
+        ctx.fill();
+      }
+    }
+    
+    // Create particles
+    const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 80);
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+    
+    const connectParticles = () => {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.strokeStyle = isDarkTheme 
+              ? `rgba(96, 165, 250, ${0.2 * (1 - distance / 150)})` 
+              : `rgba(59, 130, 246, ${0.15 * (1 - distance / 150)})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    };
+    
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      
+      connectParticles();
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    
+    animate();
+    
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [isDarkTheme]);
   const [hasAnimated, setHasAnimated] = useState(false);
   const metricsRefMobile = useRef(null);
   const metricsRefDesktop = useRef(null);
@@ -1067,74 +1158,17 @@ export default function PortfolioWebsite() {
 
       {/* Hero Section - Theme Responsive */}
       <section className={`pt-28 pb-20 md:pt-32 md:pb-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-950' : 'bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/30'}`}>
-        {/* Tech & Science Themed Animated Background */}
+        {/* Particle Network Background */}
+        <canvas 
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          style={{ opacity: 0.6 }}
+        />
+        
+        {/* Subtle gradient orbs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Subtle gradient orbs */}
-          <div className={`absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-blue-600/15 to-cyan-600/8' : 'bg-gradient-to-br from-blue-400/20 to-cyan-400/10'}`}></div>
-          <div className={`absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-indigo-600/12 to-purple-600/8' : 'bg-gradient-to-br from-indigo-400/15 to-purple-400/10'}`} style={{ animationDelay: '2s' }}></div>
-          
-          {/* Floating Tech/Science Icons */}
-          {/* Binary Code */}
-          <div className={`absolute top-24 right-[15%] animate-float-gentle ${isDarkTheme ? 'text-cyan-400/20' : 'text-cyan-500/15'}`} style={{ animationDelay: '0s' }}>
-            <svg className="w-12 h-12 md:w-16 md:h-16" fill="currentColor" viewBox="0 0 24 24">
-              <text x="3" y="8" fontSize="6" fontFamily="monospace">101</text>
-              <text x="3" y="15" fontSize="6" fontFamily="monospace">010</text>
-              <text x="3" y="22" fontSize="6" fontFamily="monospace">110</text>
-            </svg>
-          </div>
-          
-          {/* CPU/Chip */}
-          <div className={`absolute top-[45%] left-[8%] animate-float-diagonal ${isDarkTheme ? 'text-indigo-400/20' : 'text-indigo-500/15'}`} style={{ animationDelay: '1s' }}>
-            <svg className="w-10 h-10 md:w-14 md:h-14" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M5 7c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V7zm2 0v10h10V7H7zm2 2h6v6H9V9zm-6 2h2v2H3v-2zm18 0h2v2h-2v-2zM11 3h2v2h-2V3zm0 18h2v2h-2v-2zM3 7h2v2H3V7zm18 0h2v2h-2V7zM3 15h2v2H3v-2zm18 0h2v2h-2v-2z"/>
-            </svg>
-          </div>
-          
-          {/* Network/Graph Nodes */}
-          <div className={`absolute bottom-[30%] right-[10%] animate-float-1 ${isDarkTheme ? 'text-purple-400/20' : 'text-purple-500/15'}`} style={{ animationDelay: '2s' }}>
-            <svg className="w-8 h-8 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C10.9 2 10 2.9 10 4s.9 2 2 2 2-.9 2-2-.9-2-2-2zM4 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm16 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-8 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-              <path d="M12 6v2m0 4v2m0 4v2M4 12h2m4 0h4m4 0h2" stroke="currentColor" strokeWidth="2" fill="none"/>
-            </svg>
-          </div>
-          
-          {/* Code Brackets/Terminal */}
-          <div className={`absolute top-[60%] right-[25%] animate-float-2 ${isDarkTheme ? 'text-cyan-400/20' : 'text-cyan-600/15'}`} style={{ animationDelay: '0.5s' }}>
-            <svg className="w-8 h-8 md:w-10 md:h-10" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
-            </svg>
-          </div>
-          
-          {/* API/Database */}
-          <div className={`absolute bottom-[45%] left-[18%] animate-float-gentle ${isDarkTheme ? 'text-blue-300/20' : 'text-blue-600/15'}`} style={{ animationDelay: '1.5s' }}>
-            <svg className="w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4zm8 6c0 2.21-3.58 4-8 4s-8-1.79-8-4v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9zm0 5c0 2.21-3.58 4-8 4s-8-1.79-8-4v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3z"/>
-            </svg>
-          </div>
-          
-          {/* Atom/Molecular Structure */}
-          <div className={`absolute top-[20%] left-[25%] animate-float-diagonal ${isDarkTheme ? 'text-purple-400/20' : 'text-purple-500/15'}`} style={{ animationDelay: '2.5s' }}>
-            <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-              <circle cx="12" cy="12" r="2" fill="currentColor"/>
-              <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/>
-              <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/>
-              <ellipse cx="12" cy="12" rx="10" ry="4"/>
-            </svg>
-          </div>
-          
-          {/* Rocket (Innovation) */}
-          <div className={`absolute bottom-[20%] left-[35%] animate-float-1 ${isDarkTheme ? 'text-emerald-400/20' : 'text-emerald-500/15'}`} style={{ animationDelay: '3s' }}>
-            <svg className="w-6 h-6 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.5c-1.2 0-2.2.4-3 1.1C6.6 5.5 4.3 9.2 4 13c-.1.8.1 1.6.6 2.3L2.5 17.5c-.3.3-.3.8 0 1.1l2.8 2.8c.3.3.8.3 1.1 0l2.2-2.2c.6.4 1.4.6 2.2.5 3.8-.3 7.5-2.6 9.4-5 .7-.8 1.1-1.8 1.1-3V7c0-2.5-2-4.5-4.5-4.5h-4.8zm3 5c.8 0 1.5.7 1.5 1.5S15.8 10.5 15 10.5 13.5 9.8 13.5 9 14.2 7.5 15 7.5zM8.5 18L7 19.5 4.5 17 6 15.5l2.5 2.5z"/>
-            </svg>
-          </div>
-          
-          {/* Document with Checkmark */}
-          <div className={`absolute top-[35%] right-[8%] animate-float-2 ${isDarkTheme ? 'text-orange-400/20' : 'text-orange-500/15'}`} style={{ animationDelay: '0.8s' }}>
-            <svg className="w-7 h-7 md:w-9 md:h-9" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-3.06 16L7.4 14.46l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41L10.94 18zM13 9V3.5L18.5 9H13z"/>
-            </svg>
-          </div>
+          <div className={`absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-blue-600/10 to-cyan-600/5' : 'bg-gradient-to-br from-blue-400/15 to-cyan-400/8'}`}></div>
+          <div className={`absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse-glow ${isDarkTheme ? 'bg-gradient-to-br from-indigo-600/8 to-purple-600/5' : 'bg-gradient-to-br from-indigo-400/12 to-purple-400/8'}`} style={{ animationDelay: '2s' }}></div>
         </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
