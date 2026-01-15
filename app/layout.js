@@ -52,6 +52,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0" />
         <link rel="icon" href="/images/Instructional_Design_illustration.jpg" />
         <link rel="apple-touch-icon" href="/images/Instructional_Design_illustration.jpg" />
         <meta name="theme-color" content="#1e3a8a" />

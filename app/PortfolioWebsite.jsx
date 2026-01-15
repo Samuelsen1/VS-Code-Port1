@@ -1320,16 +1320,16 @@ export default function PortfolioWebsite() {
                   <MessageCircle className="w-5 h-5" />
                   {language === 'en' ? 'Ask AI' : 'KI fragen'}
                 </button>
-                <button 
-                  onClick={() => {
-                    setIsAccessibilityOpen(false);
-                    window.open('https://drive.google.com/file/d/1a_sVfG0QOMcYDxSWRXyK6gvpVn_S0oTr/view?usp=sharing', '_blank');
-                  }}
+                <a 
+                  href="/cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsAccessibilityOpen(false)}
                   className={`inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 ${isDarkTheme ? 'bg-blue-500/20 backdrop-blur text-white border-blue-400/30 hover:bg-blue-500/30' : 'bg-white/80 backdrop-blur text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300'}`}
                 >
                   <FileText className="w-5 h-5" />
                   {t[language].hero.viewCV}
-                </button>
+                </a>
               </div>
               <div className="flex justify-center md:justify-start gap-5 mt-8 md:mt-10">
                 <a href="https://www.linkedin.com/in/samuel-o-4b9bbb2a8" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className={`transition-all duration-300 hover:scale-110 ${isDarkTheme ? 'text-blue-300/80 hover:text-white' : 'text-blue-500 hover:text-blue-700'}`}>
@@ -1938,15 +1938,19 @@ export default function PortfolioWebsite() {
       </footer>
 
       {/* Floating Accessibility Button */}
-      <div className="fixed bottom-6 left-6 z-50" style={{ paddingBottom: 'max(env(safe-area-inset-bottom, 0px), 16px)' }}>
+      <div className="fixed left-6 z-50" style={{ 
+        bottom: 'max(24px, calc(env(safe-area-inset-bottom, 0px) + 24px))',
+        paddingBottom: '0'
+      }}>
           {isAccessibilityOpen && (
             <div 
-              className="absolute bottom-20 left-0 w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 overflow-hidden flex flex-col border"
+              className="absolute left-0 w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 overflow-hidden flex flex-col border"
               style={{
                 background: isDarkTheme ? 'rgba(15,23,42,0.95)' : 'rgba(255,255,255,0.98)',
                 borderColor: 'rgba(124,58,237,0.12)',
-                maxHeight: 'min(60vh, calc(100vh - 180px))',
-                maxHeight: 'min(60dvh, calc(100dvh - 180px))'
+                bottom: '80px',
+                maxHeight: 'min(60vh, calc(100vh - 200px))',
+                maxHeight: 'min(60dvh, calc(100dvh - 200px))'
               }}
             >
               {/* Header bar - PURPLE */}
