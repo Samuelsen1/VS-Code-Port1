@@ -198,21 +198,48 @@ export default function PortfolioWebsite() {
     }
   }, [chatMessages]);
 
-  // Maintain accessibility button position on mobile after chat modal closes
+  // Maintain accessibility button position on mobile - always keep it fixed
   useEffect(() => {
-    if (!isChatOpen && accessibilityButtonRef.current) {
-      // Force reflow on mobile to maintain fixed position
-      const button = accessibilityButtonRef.current;
-      if (window.innerWidth <= 768) {
-        // Use requestAnimationFrame to ensure position is maintained
-        requestAnimationFrame(() => {
-          button.style.position = 'fixed';
-          button.style.left = '1rem';
-          button.style.bottom = '1rem';
-        });
-      }
-    }
-  }, [isChatOpen]);
+    const button = accessibilityButtonRef.current;
+    if (!button || window.innerWidth > 768) return;
+
+    const maintainPosition = () => {
+      // Always maintain fixed position with pixel values
+      const computedStyle = window.getComputedStyle(button);
+      button.style.position = 'fixed';
+      button.style.left = '16px';
+      button.style.bottom = '16px';
+      button.style.right = 'auto';
+      button.style.top = 'auto';
+      button.style.margin = '0';
+      // Force reflow to ensure position is applied
+      void button.offsetHeight;
+    };
+
+    // Maintain position immediately and on all viewport changes
+    maintainPosition();
+    
+    // Use multiple methods to ensure position is maintained
+    requestAnimationFrame(maintainPosition);
+    
+    const timeoutId = setTimeout(maintainPosition, 50);
+    const timeoutId2 = setTimeout(maintainPosition, 200);
+    
+    // Also maintain on window resize, orientation change, and focus
+    window.addEventListener('resize', maintainPosition);
+    window.addEventListener('orientationchange', maintainPosition);
+    window.addEventListener('focus', maintainPosition);
+    document.addEventListener('touchstart', maintainPosition, { passive: true });
+
+    return () => {
+      clearTimeout(timeoutId);
+      clearTimeout(timeoutId2);
+      window.removeEventListener('resize', maintainPosition);
+      window.removeEventListener('orientationchange', maintainPosition);
+      window.removeEventListener('focus', maintainPosition);
+      document.removeEventListener('touchstart', maintainPosition);
+    };
+  }, [isChatOpen, isAccessibilityOpen]);
 
   // Apply accessibility styles
   useEffect(() => {
@@ -1987,15 +2014,18 @@ export default function PortfolioWebsite() {
         className="fixed left-4 bottom-4 md:left-6 md:bottom-6 z-50" 
         style={{ 
           position: 'fixed',
-          left: '1rem',
-          bottom: '1rem',
+          left: '16px',
+          bottom: '16px',
+          right: 'auto',
+          top: 'auto',
           zIndex: isChatOpen ? 55 : 50,
           transform: 'translateZ(0)',
           WebkitTransform: 'translateZ(0)',
           backfaceVisibility: 'hidden',
           WebkitBackfaceVisibility: 'hidden',
           pointerEvents: 'auto',
-          touchAction: 'manipulation'
+          touchAction: 'manipulation',
+          willChange: 'transform'
         }}
       >
           {isAccessibilityOpen && (
