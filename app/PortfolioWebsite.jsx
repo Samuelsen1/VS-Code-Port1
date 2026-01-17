@@ -2130,18 +2130,15 @@ export default function PortfolioWebsite() {
         <div 
           className={`fixed z-[70] transition-all duration-700 ease-out ${
             welcomePopupAnimating 
-              ? 'bottom-20 md:bottom-auto md:top-[50%] md:left-[50%] md:-translate-x-[50%] md:-translate-y-[50%] scale-75 opacity-0' 
-              : 'bottom-20 md:bottom-auto md:top-[50%] md:left-[50%] md:-translate-x-[50%] md:-translate-y-[50%] scale-100 opacity-100'
+              ? 'bottom-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-75 opacity-0' 
+              : 'bottom-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100 md:top-1/2 md:bottom-auto'
           }`}
           style={{
-            transform: welcomePopupAnimating 
-              ? 'translate(-50%, -50%) scale(0.75)' 
-              : 'translate(-50%, -50%) scale(1)',
             transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
           }}
         >
           <div 
-            className={`max-w-sm md:max-w-md px-6 py-5 rounded-2xl shadow-2xl border-2 backdrop-blur-xl ${
+            className={`w-[90vw] max-w-sm md:max-w-md mx-4 px-4 py-4 md:px-6 md:py-5 rounded-2xl shadow-2xl border-2 backdrop-blur-xl ${
               isDarkTheme 
                 ? 'bg-gray-900/95 border-green-500/50 text-white' 
                 : 'bg-white/95 border-green-400/50 text-gray-900'
