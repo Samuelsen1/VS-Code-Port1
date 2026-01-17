@@ -104,33 +104,74 @@ function matchesPattern(message, patterns) {
   });
 }
 
-// Extract key topics from message
+// Extract key topics from message - Enhanced with comprehensive patterns
 function extractTopics(message) {
   const topics = [];
   const lowerMessage = message.toLowerCase();
   
   const topicPatterns = {
-    'role-primary': [/primary.*role|main.*role|primary.*focus|primary.*professional|primary.*career|haupt.*rolle|haupt.*beruf|primär.*rolle|primär.*fokus|primär.*karriere|haupt.*fokus/i],
-    'role-secondary': [/secondary|technical writing.*role|documentation.*role|do.*also.*technical|also.*work.*technical|zweite.*rolle|sekundär|technical.*writing.*secondary/i],
-    'role-relationship': [/how.*instructional.*technical|how.*relate|relationship.*between|wie.*zusammen|beziehung.*zwischen|wie.*verbunden/i],
-    'role-prioritize': [/which.*priorit|which.*should|recruiter.*priorit|which.*role|welche.*priorit|welche.*rolle.*priorit/i],
-    'role-switching': [/switching.*career|switching.*from|career.*change|karriere.*wechsel|wechsel.*von/i],
+    // Question types
+    'why': [/why|wieso|warum|what.*makes|what.*reason|reason.*for/i],
+    'how': [/how.*do|how.*does|how.*can|how.*work|how.*create|how.*build|how.*make|wie.*macht|wie.*erstellt|wie.*baut|wie.*kann/i],
+    'what': [/what.*is|what.*are|what.*does|what.*can|was.*ist|was.*sind|was.*kann|was.*macht/i],
+    'tell-me': [/tell.*me|explain|describe|share|elaborate|erzähl.*mir|erklär|beschreib|teile/i],
+    'compare': [/compare|vs|versus|difference|better.*than|versus|im.*vergleich|unterschied|besser.*als/i],
+    
+    // Role hierarchy
+    'role-primary': [/primary.*role|main.*role|primary.*focus|primary.*professional|primary.*career|main.*focus|primary.*expertise|haupt.*rolle|haupt.*beruf|primär.*rolle|primär.*fokus|primär.*karriere|haupt.*fokus|haupt.*expertise/i],
+    'role-secondary': [/secondary|technical writing.*role|documentation.*role|do.*also.*technical|also.*work.*technical|zweite.*rolle|sekundär|technical.*writing.*secondary|also.*specializ/i],
+    'role-relationship': [/how.*instructional.*technical|how.*relate|relationship.*between|connection.*between|wie.*zusammen|beziehung.*zwischen|wie.*verbunden|verbindung.*zwischen/i],
+    'role-prioritize': [/which.*priorit|which.*should|recruiter.*priorit|which.*role|best.*fit|welche.*priorit|welche.*rolle.*priorit|welche.*sollte|recruiter.*soll|beste.*passung/i],
+    'role-switching': [/switching.*career|switching.*from|career.*change|changing.*career|karriere.*wechsel|wechsel.*von|wechseln.*karriere/i],
     'role-temporary': [/technical.*writing.*temporary|see.*temporary|temporary|vorübergehend/i],
-    'team-fit': [/team|work.*with|types.*team|works.*best|hybrid|remote|on-site|art.*team|hybrid.*remote/i],
-    'digital-learning': [/digital learning|e-learning|elearning|instructional design|learning design|lxd|curriculum|course design|learning experience|addie|bloom|articulate|storyline|rise|scorm|moodle|lern.*design|instruktionsdesign|e-learning.*modul|kurse.*design/i],
-    'technical-writing': [/technical writing|documentation|tech writer|api doc|user guide|knowledge base|technical competenc|writing skill|documentation skill|technisches schreiben|dokumentation|benutzerhandbuch|api.*dokumentation|wissensdatenbank/i],
-    'experience': [/experience|work history|work|job|career|employment|position|role|what.*done|what.*did|background|erfahrung|arbeit|beruf|karriere|position|was.*gemacht|was.*getan/i],
-    'education': [/education|degree|university|academic|study|studied|school|master|bachelor|ausbildung|studium|universität|abschluss|studium|promotion/i],
-    'skills': [/skill|abilities|expertise|proficien|capabilit|was kann|können|fähigkeit|kompetenz|seine.*kompetenz|seine.*fähigkeit|welche.*kompetenz|welche.*fähigkeit|können.*tun/i],
-    'contact': [/contact|email|phone|reach|get in touch|how to reach|kontakt|erreichen|telefon|e-mail|kontaktdaten|wie.*kontaktieren|wie.*erreichen/i],
-    'portfolio': [/portfolio|project|work sample|example|showcase|demo|what.*built|what.*created|projekte|beispiele|projekt.*beispiele|was.*erstellt|was.*gebaut|portfolio.*link|portfolio.*url|see.*portfolio/i],
-    'tools': [/tool|software|program|platform|articulate|adobe|figma|technology|tech stack|werkzeug|programme|welche.*tools|welche.*software/i],
-    'certification': [/certificat|training|course|credential|certified|zertifikat|kurs|schulung|weiterbildung|qualifikation/i],
-    'languages': [/language|speak|german|english|multilingual|bilingual|fluent|sprache|sprechen|mehrsprachig|welche.*sprache|welche.*sprachen/i],
-    'accessibility': [/accessib|wcag|inclusive|universal design|a11y|barrierefreiheit|zugänglich|inklusion|wie.*barrierefrei/i],
-    'availability': [/available|availability|start date|when can|free|hire|looking for work|verfügbar|verfügbarkeit|wann.*kann|freie.*zeit|sucht.*arbeit|open.*role|after.*graduation|when.*full-time/i],
-    'location': [/where|location|based|live|city|country|germany|lübeck|marburg|wo|standort|wohnt|wo.*lebt/i],
-    'personal': [/height|tall|personality|personal|hobbies|talent|about him|who is|character|persönlich|größe|hobbys|wer.*ist|über.*ihn/i]
+    'team-fit': [/team|work.*with|types.*team|works.*best|collaborate|hybrid|remote|on-site|art.*team|hybrid.*remote|remote.*work|on.*site|types.*teams|team.*culture|working.*style/i],
+    
+    // Expertise areas
+    'digital-learning': [/digital learning|e-learning|elearning|instructional design|learning design|lxd|curriculum|course design|learning experience|addie|bloom|articulate|storyline|rise|scorm|moodle|lern.*design|instruktionsdesign|e-learning.*modul|kurse.*design|online.*learning|distance.*learning|virtual.*learning|multimedia.*learning|interactive.*learning|digital.*education/i],
+    'technical-writing': [/technical writing|documentation|tech writer|api doc|user guide|knowledge base|technical competenc|writing skill|documentation skill|technisches schreiben|dokumentation|benutzerhandbuch|api.*dokumentation|wissensdatenbank|user.*manual|technical.*doc|process.*doc|dita|xml.*doc|content.*development/i],
+    
+    // Work & Background
+    'experience': [/experience|work history|work|job|career|employment|position|role|what.*done|what.*did|background|professional.*history|previous.*work|work.*experience|erfahrung|arbeit|beruf|karriere|position|was.*gemacht|was.*getan|berufsleben|laufbahn|was.*erfahren|berufserfahrung|berufshistorie/i],
+    'achievements': [/achievement|accomplishment|success|impact|result|outcome|erfolg|leistung|erreichung|auswirkung|ergebnis|wirkung/i],
+    'strengths': [/strength|strong|excel|best.*at|good.*at|stärke|stark|exzellent|gut.*in|beste.*in/i],
+    
+    // Education & Learning
+    'education': [/education|degree|university|academic|study|studied|school|master|bachelor|diploma|qualification|college|institute|ausbildung|studium|universität|abschluss|promotion|hochschule|akademisch|qualifikation/i],
+    'certification': [/certificat|training|course|credential|certified|qualification|license|zertifikat|kurs|schulung|weiterbildung|qualifikation|lizenz/i],
+    'learning': [/learn|learning|study|studying|studied|continuous.*learning|lernen|studium|studieren|kontinuierlich.*lernen/i],
+    
+    // Skills & Capabilities
+    'skills': [/skill|abilities|expertise|proficien|capabilit|competence|competenc|talented|proficient|was kann|können|fähigkeit|kompetenz|talent|fachlich|begabt/i],
+    'tools': [/tool|software|program|platform|application|app|technology|tech stack|system|werkzeug|programm|anwendung|technologie|system|software/i],
+    'specific-tools': [/articulate|adobe|figma|premiere|photoshop|indesign|moodle|scorm|notion|github|vercel|markdown|html|css|vs.*code/i],
+    
+    // Portfolio & Work
+    'portfolio': [/portfolio|project|work sample|example|showcase|demo|what.*built|what.*created|projekte|beispiele|projekt.*beispiele|was.*erstellt|was.*gebaut|portfolio.*link|portfolio.*url|see.*portfolio|sample|examples|samples|case.*study|work.*product/i],
+    
+    // Communication & Contact
+    'contact': [/contact|email|phone|reach|get.*in.*touch|how.*to.*reach|how.*contact|call|message|connect|communication|kontakt|erreichen|telefon|e-mail|kontaktdaten|wie.*kontaktieren|wie.*erreichen|anrufen|schreiben|kommunikation|erreichbar/i],
+    
+    // Languages & Communication
+    'languages': [/language|speak|german|english|multilingual|bilingual|fluent|proficiency|sprache|sprechen|mehrsprachig|zweisprachig|fließend|kompetenz|sprachkenntnisse/i],
+    
+    // Accessibility & Standards
+    'accessibility': [/accessib|wcag|inclusive|universal.*design|a11y|barrierefreiheit|zugänglich|inklusion|wie.*barrierefrei|accessible.*design|accessibility.*standards/i],
+    
+    // Availability & Opportunity
+    'availability': [/available|availability|start.*date|when.*can|free|hire|looking.*for.*work|open.*to|verfügbar|verfügbarkeit|wann.*kann|freie.*zeit|sucht.*arbeit|offen.*für|verfügbar.*für|wann.*verfügbar|bereit.*für/i],
+    
+    // Location & Geography
+    'location': [/where|location|based|live|city|country|germany|lübeck|marburg|ghana|kumasi|address|reside|wo|standort|wohnt|wo.*lebt|wo.*basiert|adresse|wohnort|ansässig/i],
+    
+    // Personal
+    'personal': [/height|tall|personality|personal|hobbies|talent|about.*him|who.*is|character|interests|hobbies|persönlich|größe|hobbys|wer.*ist|über.*ihn|als.*person|wie.*ist|persönlichkeit|interessen/i],
+    
+    // Process & Methods
+    'process': [/process|method|approach|workflow|methodology|methodologie|prozess|methode|ansatz|workflow|methodologie/i],
+    
+    // Quality & Impact
+    'quality': [/quality|excellence|best.*practice|standard|high.*quality|qualität|exzellenz|beste.*praxis|standard|hohe.*qualität/i],
+    'impact': [/impact|result|outcome|achievement|effect|measurable|wirkung|ergebnis|erreichung|effekt|messbar/i]
   };
   
   for (const [topic, patterns] of Object.entries(topicPatterns)) {
@@ -406,12 +447,67 @@ export async function POST(request) {
         : "**About Samuel:**\n\n👤 **Personality:**\n• **Quiet and Observant** – Analytical and thoughtful in approach\n• **Empathetic** – Understands the needs of learners and users\n• **Curious** – Actively learning new skills and exploring new technologies\n• **Reserved but Friendly** – Professional and approachable\n• **Value-Driven** – Focuses on continuous improvement and inclusive design\n\n🎨 **Natural Talents:**\n• **Creative Drawing** – Visual creativity that shows in infographics and design assets\n• **Naturally Soothing Singing Voice** – Musical sensitivity\n\n📏 **Height:** 184cm\n\n💡 **Work Approach:**\nSamuel combines technical precision with creative problem-solving. He values continuous learning, inclusive design, and measurable outcomes. His multicultural perspective (Ghana → Germany) enriches his ability to communicate and create content for diverse audiences.\n\n**Interests:** Digital media, human-technology relationships (Master's thesis focus), sustainability, accessibility";
     }
     
-    // Default fallback - try to be helpful
+    // "Why" questions - provide explanations
+    else if (topics.includes('why') && (topics.includes('digital-learning') || topics.includes('technical-writing') || topics.includes('accessibility'))) {
+      confidence = 0.9;
+      if (topics.includes('digital-learning')) {
+        response = isGerman
+          ? "**Warum ist Samuel gut in Digital Learning Design?**\n\nSamuel hat eine starke pädagogische Grundlage (Bachelor in Englischer Bildung, Master in Medienwissenschaften) kombiniert mit praktischer Erfahrung:\n\n🎓 **Theoretische Basis:**\n• Instruktionsdesign-Methodik (ADDIE, Bloom's Taxonomie)\n• Erwachsenenbildungstheorie\n• Lernpsychologie und Bewertung\n\n💼 **Praktische Erfahrung:**\n• **25+ WCAG-konforme Multimedia-Assets** erstellt\n• **50+ Bildungsressourcen** strukturiert (200+ Lernende erreicht)\n• **300+ Seiten** Content-Lokalisierung (Deutsch→Englisch)\n• **Messbare Ergebnisse:** 40% Verbesserung der Lernergebnisse dokumentiert\n\n🎯 **Kombinierte Expertise:**\nSeine Erfahrung in Unterricht (3+ Jahre) und Digital Learning Design (1+ Jahr) gibt ihm ein tiefes Verständnis dafür, wie Menschen lernen und wie man effektive E-Learning-Erfahrungen erstellt.\n\n**Zertifizierung:** Instructional Design Foundations & Applications – University of Illinois (2025)"
+          : "**Why is Samuel good at Digital Learning Design?**\n\nSamuel has a strong pedagogical foundation (Bachelor's in English Education, Master's in Media Studies) combined with practical experience:\n\n🎓 **Theoretical Foundation:**\n• Instructional design methodology (ADDIE, Bloom's Taxonomy)\n• Adult learning theory\n• Learning psychology and assessment\n\n💼 **Practical Experience:**\n• **Created 25+ WCAG-compliant multimedia assets**\n• **Structured 50+ educational resources** (reaching 200+ learners)\n• **300+ pages** of content localization (German→English)\n• **Measurable Results:** Documented 40% improvement in learning outcomes\n\n🎯 **Combined Expertise:**\nHis experience in teaching (3+ years) and Digital Learning Design (1+ year) gives him deep understanding of how people learn and how to create effective e-learning experiences.\n\n**Certification:** Instructional Design Foundations & Applications – University of Illinois (2025)";
+      } else if (topics.includes('technical-writing')) {
+        response = isGerman
+          ? "**Warum ist Samuel gut in Technical Writing?**\n\nSamuel kombiniert starke Schreibfähigkeiten mit technischem Verständnis und Benutzerzentriertheit:\n\n📝 **Schreib-Expertise:**\n• Englisch als Muttersprache (C1 Advanced zertifiziert)\n• Wissenschaftliches Schreiben (Masterstudium)\n• Unterrichtserfahrung verbessert Klarheit und Struktur\n\n🔧 **Technisches Verständnis:**\n• API-Dokumentation (Postman, REST APIs)\n• Markdown, HTML, CSS für Web-Dokumentation\n• GitHub für Versionskontrolle\n• SCORM-Packaging verstehen\n\n🎯 **Benutzerzentriertheit:**\nSein Instruktionsdesign-Hintergrund hilft ihm, technische Konzepte so zu erklären, dass Benutzer sie verstehen und anwenden können.\n\n📚 **Bewiesene Erfahrung:**\n• 300+ Seiten Content-Lokalisierung (Deutsch→Englisch)\n• 2FA User Guides, API-Dokumentation\n• Wissensdatenbank-Design (Notion)\n\n**Zertifizierungen:** Technical Writing – Google Developers & Board Infinity (2025)"
+          : "**Why is Samuel good at Technical Writing?**\n\nSamuel combines strong writing skills with technical understanding and user-centeredness:\n\n📝 **Writing Expertise:**\n• Native English speaker (C1 Advanced certified)\n• Academic writing (Master's program)\n• Teaching experience enhances clarity and structure\n\n🔧 **Technical Understanding:**\n• API documentation (Postman, REST APIs)\n• Markdown, HTML, CSS for web documentation\n• GitHub for version control\n• Understanding of SCORM packaging\n\n🎯 **User-Centeredness:**\nHis instructional design background helps him explain technical concepts in ways users understand and can apply.\n\n📚 **Proven Experience:**\n• 300+ pages of content localization (German→English)\n• 2FA User Guides, API documentation\n• Knowledge base design (Notion)\n\n**Certifications:** Technical Writing – Google Developers & Board Infinity (2025)";
+      } else {
+        response = isGerman
+          ? "**Warum ist Barrierefreiheit wichtig für Samuel?**\n\nSamuel glaubt, dass Barrierefreiheit essentiell ist, um **alle Lernenden zu erreichen** – nicht nur eine Option.\n\n♿ **Grundprinzipien:**\n• **Inklusivität:** Lernen sollte für alle zugänglich sein, unabhängig von Fähigkeiten oder Hintergründen\n• **WCAG 2.1-Konformität:** Einhaltung etablierter Standards\n• **Plain Language:** Klare, verständliche Kommunikation für diverse Zielgruppen\n\n💼 **Praktische Umsetzung:**\n• Alle Projekte folgen WCAG 2.1-Richtlinien\n• 25+ barrierefreie Assets erstellt\n• Erweitertes Barrierefreiheits-Panel im Portfolio\n• Mehrsprachiger Content mit Barrierefreiheits-Features\n\n**Philosophie:** Barrierefreiheit ist ein integraler Bestandteil von gutem Design – kein zusätzliches Feature, sondern eine Grundvoraussetzung."
+          : "**Why is accessibility important to Samuel?**\n\nSamuel believes accessibility is essential to **reach all learners** – not just an option.\n\n♿ **Core Principles:**\n• **Inclusivity:** Learning should be accessible to all, regardless of abilities or backgrounds\n• **WCAG 2.1 Compliance:** Adherence to established standards\n• **Plain Language:** Clear, understandable communication for diverse audiences\n\n💼 **Practical Implementation:**\n• All projects follow WCAG 2.1 guidelines\n• Created 25+ accessible assets\n• Advanced accessibility panel in portfolio\n• Multilingual content with accessibility features\n\n**Philosophy:** Accessibility is an integral part of good design – not an add-on feature, but a fundamental requirement.";
+      }
+    }
+    
+    // "How" questions - provide process explanations
+    else if (topics.includes('how') && (topics.includes('digital-learning') || topics.includes('technical-writing'))) {
+      confidence = 0.9;
+      if (topics.includes('digital-learning')) {
+        response = isGerman
+          ? "**Wie erstellt Samuel E-Learning-Module?**\n\nSamuel folgt einem strukturierten, benutzerzentrierten Prozess:\n\n1️⃣ **Analyse (ADDIE):**\n• Zielgruppenanalyse und Bedarfsermittlung\n• Lernziele definieren (Bloom's Taxonomie)\n• Technische Anforderungen prüfen\n\n2️⃣ **Design:**\n• Storyboarding und Curriculum-Planung\n• Interaktive Szenarien entwickeln\n• Barrierefreiheits-Features planen (WCAG 2.1)\n\n3️⃣ **Entwicklung:**\n• Articulate 360 (Storyline für interaktive Module, Rise für responsive Kurse)\n• Multimedia-Erstellung (Video mit Premiere Pro, Infografiken mit Photoshop)\n• SCORM-Packaging für LMS-Integration\n\n4️⃣ **Implementierung:**\n• LMS-Upload (z.B. Moodle)\n• Testing und Qualitätssicherung\n\n5️⃣ **Evaluation:**\n• Formative Bewertung während der Entwicklung\n• Summative Bewertung nach dem Launch\n• Kontinuierliche Verbesserung basierend auf Lernanalysen\n\n**Ergebnis:** Zugängliche, effektive E-Learning-Erfahrungen mit messbaren Lernergebnissen."
+          : "**How does Samuel create e-learning modules?**\n\nSamuel follows a structured, user-centered process:\n\n1️⃣ **Analysis (ADDIE):**\n• Audience analysis and needs assessment\n• Define learning objectives (Bloom's Taxonomy)\n• Review technical requirements\n\n2️⃣ **Design:**\n• Storyboarding and curriculum planning\n• Develop interactive scenarios\n• Plan accessibility features (WCAG 2.1)\n\n3️⃣ **Development:**\n• Articulate 360 (Storyline for interactive modules, Rise for responsive courses)\n• Multimedia creation (video with Premiere Pro, infographics with Photoshop)\n• SCORM packaging for LMS integration\n\n4️⃣ **Implementation:**\n• LMS upload (e.g., Moodle)\n• Testing and quality assurance\n\n5️⃣ **Evaluation:**\n• Formative assessment during development\n• Summative assessment after launch\n• Continuous improvement based on learning analytics\n\n**Result:** Accessible, effective e-learning experiences with measurable learning outcomes.";
+      } else {
+        response = isGerman
+          ? "**Wie erstellt Samuel technische Dokumentation?**\n\nSamuel nutzt einen strukturierten, benutzerzentrierten Ansatz:\n\n1️⃣ **Planung:**\n• Zielgruppenanalyse (Entwickler, Endbenutzer, Admin)\n• Dokumentationsstruktur definieren\n• Informationsarchitektur planen\n\n2️⃣ **Content-Entwicklung:**\n• Benutzerhandbücher: Schritt-für-Schritt-Anleitungen\n• API-Dokumentation: REST APIs, Postman\n• Wissensdatenbanken: Strukturierte Content-Systeme (Notion)\n• Plain Language Principles für Klarheit\n\n3️⃣ **Formatierung & Tools:**\n• Markdown, HTML, CSS für Web-Dokumentation\n• GitHub für Versionskontrolle\n• Notion für Wissensdatenbanken\n• DITA XML für strukturierte Dokumentation\n\n4️⃣ **Qualitätssicherung:**\n• WCAG 2.1-Konformität\n• Benutzer-Testing\n• Review und Iteration\n\n5️⃣ **Lokalisierung (falls benötigt):**\n• Übersetzung mit KI-Unterstützung\n• Natürlichen Fluss und Stimme bewahren\n• Kulturelle Anpassung\n\n**Ergebnis:** Klare, zugängliche technische Dokumentation, die Benutzer unterstützt."
+          : "**How does Samuel create technical documentation?**\n\nSamuel uses a structured, user-centered approach:\n\n1️⃣ **Planning:**\n• Audience analysis (developers, end users, admins)\n• Define documentation structure\n• Plan information architecture\n\n2️⃣ **Content Development:**\n• User guides: Step-by-step instructions\n• API documentation: REST APIs, Postman\n• Knowledge bases: Structured content systems (Notion)\n• Plain Language Principles for clarity\n\n3️⃣ **Formatting & Tools:**\n• Markdown, HTML, CSS for web documentation\n• GitHub for version control\n• Notion for knowledge bases\n• DITA XML for structured documentation\n\n4️⃣ **Quality Assurance:**\n• WCAG 2.1 compliance\n• User testing\n• Review and iteration\n\n5️⃣ **Localization (if needed):**\n• Translation with AI assistance\n• Preserve natural flow and voice\n• Cultural adaptation\n\n**Result:** Clear, accessible technical documentation that supports users.";
+      }
+    }
+    
+    // Enhanced fallback - smarter context-aware responses
     else {
-      confidence = 0.5;
-      response = isGerman
-        ? "Ich kann Ihnen gerne über Samuel helfen! Hier sind einige Themen, über die ich sprechen kann:\n\n🎓 **Digital Learning Design:**\n• 'Was sind seine Digital Learning Kompetenzen?'\n• 'Welche E-Learning-Tools verwendet er?'\n• 'Erzähle mir über seine Instruktionsdesign-Erfahrung'\n• 'Wie verwendet er ADDIE und Bloom's Taxonomie?'\n\n📝 **Technical Writing:**\n• 'Was sind seine Technical Writing Fähigkeiten?'\n• 'Zeige mir sein Dokumentations-Portfolio'\n• 'Welche Tools verwendet er für Dokumentation?'\n• 'Wie lokalisiert er Content?'\n\n💼 **Allgemeine Informationen:**\n• 'Was ist seine Berufserfahrung?'\n• 'Welche Sprachen spricht er?'\n• 'Wie kann ich Samuel kontaktieren?'\n• 'Wo ist er stationiert?'\n• 'Ist er verfügbar für Projekte?'\n\n**Sie können auch fragen:**\n• 'Erzähle mir über sein Portfolio'\n• 'Welche Zertifizierungen hat er?'\n• 'Wie ist seine Erfahrung mit Barrierefreiheit?'\n\n**Was möchten Sie über Samuel wissen?** 😊"
-        : "I'd be happy to help you learn about Samuel! Here are some topics I can discuss:\n\n🎓 **Digital Learning Design:**\n• 'What are his digital learning competencies?'\n• 'What e-learning tools does he use?'\n• 'Tell me about his instructional design experience'\n• 'How does he use ADDIE and Bloom's Taxonomy?'\n\n📝 **Technical Writing:**\n• 'What are his technical writing skills?'\n• 'Show me his documentation portfolio'\n• 'What tools does he use for documentation?'\n• 'How does he localize content?'\n\n💼 **General Information:**\n• 'What's his work experience?'\n• 'What languages does he speak?'\n• 'How can I contact Samuel?'\n• 'Where is he based?'\n• 'Is he available for projects?'\n\n**You can also ask about:**\n• 'Tell me about his portfolio'\n• 'What certifications does he have?'\n• 'What's his experience with accessibility?'\n\n**What would you like to know about Samuel?** 😊";
+      // Check for partial topic matches to provide helpful responses
+      let partialResponse = '';
+      confidence = 0.4;
+      
+      // Extract key terms for partial matching
+      const hasQuestionWord = /^(what|how|why|when|where|who|which|tell|explain|describe|share|show|can you|kannst|was|wie|warum|wann|wo|wer|welche|erzähl|erklär|beschreib|zeige|kannst.*du)/i.test(message.trim());
+      
+      // If it's a clear question but we couldn't match, try to provide a general helpful response
+      if (hasQuestionWord) {
+        // Check for any context clues
+        if (matchesPattern(message, [/samuel|sam|him|his|ihm|sein|ihn/i])) {
+          confidence = 0.6;
+          response = isGerman
+            ? "Ich kann Ihnen gerne über Samuel helfen! Es scheint, als hätten Sie eine spezifische Frage. Lassen Sie mich Ihnen helfen:\n\n**Samuel ist Experte in:**\n🎓 **Digital Learning Design** (Instruktionsdesign, E-Learning-Entwicklung, Articulate 360)\n📝 **Technical Writing** (API-Dokumentation, Benutzerhandbücher, Wissensdatenbanken)\n\n**Häufige Fragen:**\n• 'Was sind seine Hauptkompetenzen?' – Digital Learning Design & Technical Writing\n• 'Welche Erfahrung hat er?' – Über 1 Jahr Digital Learning Design + 3 Jahre Lehre\n• 'Wo ist er verfügbar?' – Vollzeit ab April/Mai 2026 (nach Master-Abschluss)\n• 'Wie kann ich ihn kontaktieren?' – gideonsammysen@gmail.com oder +49 171 5811680\n• 'Zeige mir sein Portfolio' – Projekte mit Links verfügbar\n\n**Könnten Sie Ihre Frage spezifizieren?** Zum Beispiel:\n• 'Erzähle mir über seine Digital Learning Erfahrung'\n• 'Was sind seine Technical Writing Fähigkeiten?'\n• 'Welche Tools verwendet er?'\n• 'Zeige mir Portfolio-Projekte mit Links'\n\nIch helfe gerne! 😊"
+            : "I'd be happy to help you learn about Samuel! It seems like you have a specific question. Let me help:\n\n**Samuel is an expert in:**\n🎓 **Digital Learning Design** (Instructional Design, E-Learning Development, Articulate 360)\n📝 **Technical Writing** (API Documentation, User Guides, Knowledge Bases)\n\n**Common Questions:**\n• 'What are his core competencies?' – Digital Learning Design & Technical Writing\n• 'What experience does he have?' – Over 1 year Digital Learning Design + 3 years Teaching\n• 'When is he available?' – Full-time from April/May 2026 (after Master's completion)\n• 'How can I contact him?' – gideonsammysen@gmail.com or +49 171 5811680\n• 'Show me his portfolio' – Projects with links available\n\n**Could you specify your question?** For example:\n• 'Tell me about his digital learning experience'\n• 'What are his technical writing skills?'\n• 'What tools does he use?'\n• 'Show me portfolio projects with links'\n\nI'm here to help! 😊";
+        } else {
+          // Very vague question - provide general context
+          response = isGerman
+            ? "Ich bin Samuels KI-Assistent und helfe gerne bei Fragen über ihn! Samuel ist ein **Digital Learning Designer** mit Expertise in **Technical Writing**, der lernerzentrierte E-Learning-Erfahrungen und technische Dokumentation erstellt.\n\n**Schnelle Fakten:**\n• **Primärer Fokus:** Instructional Design & Digital Learning Design\n• **Sekundärer Fokus:** Technical Writing & Dokumentation\n• **Verfügbar:** Vollzeit ab April/Mai 2026\n• **Standort:** Lübeck, Deutschland\n• **Kontakt:** gideonsammysen@gmail.com\n\n**Sie können mich fragen:**\n• Über seine Kompetenzen und Fähigkeiten\n• Über seine Berufserfahrung und Ausbildung\n• Über sein Portfolio und Projekte\n• Über Kontaktinformationen und Verfügbarkeit\n• Über seine Tools und Technologien\n\n**Beispiel-Fragen:**\n• 'Was sind Samuels Hauptkompetenzen?'\n• 'Erzähle mir über seine Erfahrung'\n• 'Zeige mir Portfolio-Projekte mit Links'\n• 'Wie kann ich Samuel kontaktieren?'\n\n**Was möchten Sie wissen?** 😊"
+            : "I'm Samuel's AI assistant and I'm happy to help with questions about him! Samuel is a **Digital Learning Designer** with expertise in **Technical Writing**, creating learner-centered e-learning experiences and technical documentation.\n\n**Quick Facts:**\n• **Primary Focus:** Instructional Design & Digital Learning Design\n• **Secondary Focus:** Technical Writing & Documentation\n• **Available:** Full-time from April/May 2026\n• **Location:** Lübeck, Germany\n• **Contact:** gideonsammysen@gmail.com\n\n**You can ask me about:**\n• His competencies and skills\n• His work experience and education\n• His portfolio and projects\n• Contact information and availability\n• His tools and technologies\n\n**Example Questions:**\n• 'What are Samuel's core competencies?'\n• 'Tell me about his experience'\n• 'Show me portfolio projects with links'\n• 'How can I contact Samuel?'\n\n**What would you like to know?** 😊";
+        }
+      } else {
+        // Not a clear question - provide helpful suggestions
+        response = isGerman
+          ? "Ich kann Ihnen gerne über Samuel helfen! Hier sind einige Themen, über die ich sprechen kann:\n\n🎓 **Digital Learning Design:**\n• 'Was sind seine Digital Learning Kompetenzen?'\n• 'Welche E-Learning-Tools verwendet er?'\n• 'Erzähle mir über seine Instruktionsdesign-Erfahrung'\n• 'Wie verwendet er ADDIE und Bloom's Taxonomie?'\n\n📝 **Technical Writing:**\n• 'Was sind seine Technical Writing Fähigkeiten?'\n• 'Zeige mir sein Dokumentations-Portfolio'\n• 'Welche Tools verwendet er für Dokumentation?'\n• 'Wie lokalisiert er Content?'\n\n💼 **Allgemeine Informationen:**\n• 'Was ist seine Berufserfahrung?'\n• 'Welche Sprachen spricht er?'\n• 'Wie kann ich Samuel kontaktieren?'\n• 'Wo ist er stationiert?'\n• 'Ist er verfügbar für Projekte?'\n\n**Sie können auch fragen:**\n• 'Erzähle mir über sein Portfolio'\n• 'Welche Zertifizierungen hat er?'\n• 'Wie ist seine Erfahrung mit Barrierefreiheit?'\n• 'Warum ist er gut in Instructional Design?'\n• 'Wie erstellt er E-Learning-Module?'\n\n**Was möchten Sie über Samuel wissen?** 😊"
+          : "I'd be happy to help you learn about Samuel! Here are some topics I can discuss:\n\n🎓 **Digital Learning Design:**\n• 'What are his digital learning competencies?'\n• 'What e-learning tools does he use?'\n• 'Tell me about his instructional design experience'\n• 'How does he use ADDIE and Bloom's Taxonomy?'\n\n📝 **Technical Writing:**\n• 'What are his technical writing skills?'\n• 'Show me his documentation portfolio'\n• 'What tools does he use for documentation?'\n• 'How does he localize content?'\n\n💼 **General Information:**\n• 'What's his work experience?'\n• 'What languages does he speak?'\n• 'How can I contact Samuel?'\n• 'Where is he based?'\n• 'Is he available for projects?'\n\n**You can also ask about:**\n• 'Tell me about his portfolio'\n• 'What certifications does he have?'\n• 'What's his experience with accessibility?'\n• 'Why is he good at instructional design?'\n• 'How does he create e-learning modules?'\n\n**What would you like to know about Samuel?** 😊";
+      }
     }
 
     return NextResponse.json({ 
