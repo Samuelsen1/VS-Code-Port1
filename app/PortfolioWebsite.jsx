@@ -205,7 +205,6 @@ export default function PortfolioWebsite() {
 
     const maintainPosition = () => {
       // Always maintain fixed position with pixel values
-      const computedStyle = window.getComputedStyle(button);
       button.style.position = 'fixed';
       button.style.left = '16px';
       button.style.bottom = '16px';
