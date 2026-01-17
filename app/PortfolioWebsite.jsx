@@ -17,6 +17,7 @@ export default function PortfolioWebsite() {
   const [chatInput, setChatInput] = useState('');
   const [chatLoading, setChatLoading] = useState(false);
   const chatEndRef = useRef(null);
+  const chatInputRef = useRef(null);
   
   // Animated counter states
   const [counts, setCounts] = useState({ improvement: 0, completion: 0, usage: 0 });
@@ -197,6 +198,19 @@ export default function PortfolioWebsite() {
     }
   }, [chatMessages]);
 
+  // Auto-focus chat input when modal opens (for mobile keyboard)
+  useEffect(() => {
+    if (isChatOpen && chatInputRef.current) {
+      // Use setTimeout to ensure the modal is fully rendered
+      setTimeout(() => {
+        chatInputRef.current?.focus();
+        // Also trigger click on mobile to ensure keyboard appears
+        if (window.innerWidth <= 768) {
+          chatInputRef.current?.click();
+        }
+      }, 100);
+    }
+  }, [isChatOpen]);
 
   // Apply accessibility styles
   useEffect(() => {
@@ -2164,6 +2178,7 @@ export default function PortfolioWebsite() {
             <form onSubmit={handleChatSubmit} className={`p-4 border-t ${isDarkTheme ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-white'}`}>
               <div className="flex gap-2">
                 <input
+                  ref={chatInputRef}
                   type="text"
                   inputMode="text"
                   autoComplete="off"
@@ -2173,7 +2188,6 @@ export default function PortfolioWebsite() {
                   placeholder={language === 'en' ? 'Ask about skills, experience, education...' : 'Fragen Sie über Fähigkeiten, Erfahrung, Ausbildung...'}
                   className={`flex-1 px-4 py-3 rounded-xl border transition-colors ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-green-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-green-500/20`}
                   disabled={chatLoading}
-                  onTouchStart={(e) => e.target.focus()}
                 />
                 <button
                   type="submit"
