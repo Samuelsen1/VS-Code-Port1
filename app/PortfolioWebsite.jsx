@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send } from 'lucide-react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send, Award } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,6 +17,7 @@ export default function PortfolioWebsite() {
   const [chatInput, setChatInput] = useState('');
   const [chatLoading, setChatLoading] = useState(false);
   const chatEndRef = useRef(null);
+  const accessibilityButtonRef = useRef(null);
   
   // Animated counter states
   const [counts, setCounts] = useState({ improvement: 0, completion: 0, usage: 0 });
@@ -27,7 +28,6 @@ export default function PortfolioWebsite() {
   // Accessibility states - now with 3 levels: 0 = off, 1 = light, 2 = full
   // Some features are binary (0 = off, 1 = on) - marked with isBinary
   const [isAccessibilityOpen, setIsAccessibilityOpen] = useState(false);
-  const [accessibilityOffset, setAccessibilityOffset] = useState(24);
   const [accessibility, setAccessibility] = useState({
     contrast: 0,
     mark: 0,          // Binary: on/off only
@@ -39,7 +39,7 @@ export default function PortfolioWebsite() {
     rowHeight: 0,
     focusIndicator: 0,
     saturation: 0
-  });
+  }); 
   
   // Animate numbers when metrics come into view
   useEffect(() => {
@@ -97,50 +97,33 @@ export default function PortfolioWebsite() {
   // Binary features only toggle between 0 and 1
   const binaryFeatures = ['mark', 'stopAnimations', 'hideImages'];
   
-  const toggleAccessibility = (setting) => {
-    setAccessibility(prev => {
-      if (binaryFeatures.includes(setting)) {
-        // Binary toggle: 0 -> 1 -> 0
-        return { ...prev, [setting]: prev[setting] === 0 ? 1 : 0 };
-      }
-      // Gradual toggle: 0 -> 1 -> 2 -> 0
-      return { ...prev, [setting]: prev[setting] === 0 ? 1 : (prev[setting] === 1 ? 2 : 0) };
-    });
-  };
+  const toggleAccessibility = useCallback((setting) => {
+    // Use setTimeout to defer state update and prevent blocking
+    setTimeout(() => {
+      setAccessibility(prev => {
+        if (binaryFeatures.includes(setting)) {
+          // Binary toggle: 0 -> 1 -> 0
+          return { ...prev, [setting]: prev[setting] === 0 ? 1 : 0 };
+        }
+        // Gradual toggle: 0 -> 1 -> 2 -> 0
+        return { ...prev, [setting]: prev[setting] === 0 ? 1 : (prev[setting] === 1 ? 2 : 0) };
+      });
+    }, 0);
+  }, []);
 
   useEffect(() => {
     document.documentElement.lang = language === 'en' ? 'en' : 'de';
     document.documentElement.dir = 'ltr';
+    
+    // Update initial chatbot greeting when language changes
+    setChatMessages([
+      { role: 'assistant', content: language === 'en' 
+        ? "Hello! 👋 I'm Samuel's AI assistant. Ask me anything about his experience, skills, education, or portfolio!"
+        : "Hallo! 👋 Ich bin Samuels KI-Assistent. Fragen Sie mich über seine Erfahrung, Fähigkeiten, Ausbildung oder Portfolio!"
+      }
+    ]);
   }, [language]);
 
-  // Close accessibility panel when chatbot opens to prevent positioning issues
-  useEffect(() => {
-    if (isChatOpen) {
-      setIsAccessibilityOpen(false);
-    }
-  }, [isChatOpen]);
-
-  // Keep floating accessibility button stable when mobile UI (keyboards/nav bars) changes viewport height
-  useEffect(() => {
-    if (typeof window === 'undefined' || !window.visualViewport) return;
-
-    const updateOffset = () => {
-      const viewport = window.visualViewport;
-      const bottomInset = Math.max(0, window.innerHeight - (viewport.height + viewport.offsetTop));
-      const safeOffset = 24 + bottomInset;
-      setAccessibilityOffset((prev) => Math.abs(prev - safeOffset) > 2 ? safeOffset : prev);
-    };
-
-    updateOffset();
-    window.visualViewport.addEventListener('resize', updateOffset);
-    window.visualViewport.addEventListener('scroll', updateOffset);
-
-    return () => {
-      window.visualViewport.removeEventListener('resize', updateOffset);
-      window.visualViewport.removeEventListener('scroll', updateOffset);
-    };
-  }, []);
-  
   // Format chat messages with proper HTML formatting
   const formatChatMessage = (text) => {
     if (!text) return '';
@@ -184,7 +167,7 @@ export default function PortfolioWebsite() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: userMessage }),
+        body: JSON.stringify({ message: userMessage, language: language }),
       });
       
       const data = await response.json();
@@ -214,6 +197,22 @@ export default function PortfolioWebsite() {
       chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [chatMessages]);
+
+  // Maintain accessibility button position on mobile after chat modal closes
+  useEffect(() => {
+    if (!isChatOpen && accessibilityButtonRef.current) {
+      // Force reflow on mobile to maintain fixed position
+      const button = accessibilityButtonRef.current;
+      if (window.innerWidth <= 768) {
+        // Use requestAnimationFrame to ensure position is maintained
+        requestAnimationFrame(() => {
+          button.style.position = 'fixed';
+          button.style.left = '1rem';
+          button.style.bottom = '1rem';
+        });
+      }
+    }
+  }, [isChatOpen]);
 
   // Apply accessibility styles
   useEffect(() => {
@@ -291,7 +290,9 @@ export default function PortfolioWebsite() {
     if (accessibility.rowHeight > 0) {
       const height = accessibility.rowHeight === 1 ? 2 : 2.5;
       root.style.setProperty('line-height', height.toString(), 'important');
-    }    if (accessibility.mark > 0) {
+    }
+
+    if (accessibility.mark > 0) {
       root.style.setProperty('--mark-bg', '#FFFF00', 'important');
       document.querySelectorAll('a').forEach(link => {
         link.style.outline = '2px solid #0000FF';
@@ -328,7 +329,17 @@ export default function PortfolioWebsite() {
 
     if (accessibility.saturation > 0) {
       const saturation = 1 + (accessibility.saturation === 1 ? 0.3 : 0.7);
-      root.style.filter = `${root.style.filter} saturate(${saturation})`;
+      const currentFilter = root.style.filter || '';
+      // Only add saturate if it's not already applied
+      if (!currentFilter.includes('saturate')) {
+        root.style.filter = `${currentFilter} saturate(${saturation})`.trim();
+      } else {
+        // Replace existing saturate value
+        root.style.filter = currentFilter.replace(/saturate\([^)]+\)/, `saturate(${saturation})`);
+      }
+    } else if (accessibility.contrast === 0) {
+      // Remove saturate if no other filters are active
+      root.style.filter = root.style.filter.replace(/\s*saturate\([^)]+\)/g, '').trim() || '';
     }
   }, [accessibility]);
 
@@ -468,8 +479,7 @@ export default function PortfolioWebsite() {
         title: "Let's Create Something Great Together",
         desc: "Looking for a digital learning designer who combines learning science with technical expertise? Let's connect and discuss how I can help transform your learning initiatives.",
         email: "Email Me",
-        linkedin: "LinkedIn Profile"
-      ,
+        linkedin: "LinkedIn Profile",
         location: "Based in Marburg, Germany",
         phone: "+49 171 5811680"
       },
@@ -637,8 +647,7 @@ export default function PortfolioWebsite() {
         title: "Lassen Sie uns gemeinsam Großartiges schaffen",
         desc: "Suchen Sie einen Digital Learning Designer, der Lernwissenschaft mit technischer Expertise verbindet? Lassen Sie uns sprechen, wie ich Ihre Lerninitiativen verbessern kann.",
         email: "E-Mail senden",
-        linkedin: "LinkedIn Profil"
-      ,
+        linkedin: "LinkedIn Profil",
         location: "Standort: Marburg, Deutschland",
         phone: "+49 171 5811680"
       },
@@ -1105,14 +1114,14 @@ export default function PortfolioWebsite() {
                   onClick={() => setLanguage('en')}
                   aria-label="Switch to English"
                 >
-                  <img src="/images/us.svg.webp" alt="English" className="w-5 h-5 rounded-sm" />
+                  <img src="/images/us.svg.webp" alt="English" width="20" height="20" loading="lazy" className="w-5 h-5 rounded-sm" />
                 </button>
                 <button
                   className={`px-2.5 py-1.5 rounded-lg text-sm font-medium border transition-all duration-200 flex items-center gap-1.5 ${language === 'de' ? 'bg-blue-600 text-white border-blue-600 shadow-md' : 'bg-white/80 text-gray-700 border-gray-200 hover:border-blue-300'}`}
                   onClick={() => setLanguage('de')}
                   aria-label="Switch to German"
                 >
-                  <img src="/images/ger.svg.png" alt="Deutsch" className="w-5 h-5 rounded-sm" />
+                  <img src="/images/ger.svg.png" alt="Deutsch" width="20" height="20" loading="lazy" className="w-5 h-5 rounded-sm" />
                 </button>
               </div>
             </div>
@@ -1165,7 +1174,7 @@ export default function PortfolioWebsite() {
       </nav>
 
       {/* Hero Section - Theme Responsive */}
-      <section className={`pt-28 pb-20 md:pt-32 md:pb-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-950' : 'bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/30'}`}>
+      <section id="main-content" className={`pt-28 pb-20 md:pt-32 md:pb-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-950' : 'bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/30'}`}>
         {/* E-Learning Themed Animated Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Subtle gradient orbs */}
@@ -1240,6 +1249,8 @@ export default function PortfolioWebsite() {
                   <img
                     src="/images/profile.jpg"
                     alt={t[language].name}
+                    width="192"
+                    height="256"
                     className={`relative rounded-2xl object-cover shadow-2xl flex-shrink-0 transition-transform duration-500 group-hover:scale-[1.02] w-36 h-48 md:w-44 md:h-56 lg:w-48 lg:h-64 ${isDarkTheme ? 'border-4 border-white/90' : 'border-4 border-white shadow-xl'}`}
                   />
                 </div>
@@ -1331,17 +1342,14 @@ export default function PortfolioWebsite() {
               <div className="flex flex-wrap justify-center md:justify-start gap-4">
                 <a 
                   href="#contact" 
-                  className={`inline-flex items-center justify-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 min-w-[140px] ${isDarkTheme ? 'bg-white text-blue-700 hover:bg-blue-50' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+                  className={`inline-flex items-center justify-center gap-2 px-3 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-[180px] ${isDarkTheme ? 'bg-white text-blue-700 hover:bg-blue-50 border-white hover:border-blue-50' : 'bg-blue-600 text-white hover:bg-blue-700 border-blue-600 hover:border-blue-700'}`}
                 >
                   <Mail className="w-5 h-5" />
                   {t[language].hero.getInTouch}
                 </a>
                 <button 
-                  onClick={() => {
-                    setIsAccessibilityOpen(false);
-                    setIsChatOpen(true);
-                  }}
-                  className={`inline-flex items-center justify-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 min-w-[140px] relative ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/50 hover:bg-green-500/30' : 'bg-green-50 backdrop-blur text-green-700 border-green-300 hover:bg-green-100 hover:border-green-400'}`}
+                  onClick={() => setIsChatOpen(true)}
+                  className={`inline-flex items-center justify-center gap-2 px-3 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-[180px] relative ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/50 hover:bg-green-500/30' : 'bg-green-50 backdrop-blur text-green-700 border-green-300 hover:bg-green-100 hover:border-green-400'}`}
                 >
                   <span className="absolute top-2 right-2 flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -1354,8 +1362,7 @@ export default function PortfolioWebsite() {
                   href="/cv.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => setIsAccessibilityOpen(false)}
-                  className={`inline-flex items-center justify-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:-translate-y-0.5 min-w-[140px] ${isDarkTheme ? 'bg-blue-500/20 backdrop-blur text-white border-blue-400/30 hover:bg-blue-500/30' : 'bg-white/80 backdrop-blur text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300'}`}
+                  className={`inline-flex items-center justify-center gap-2 px-3 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-[180px] ${isDarkTheme ? 'bg-blue-500/20 backdrop-blur text-white border-blue-400/30 hover:bg-blue-500/30' : 'bg-white/80 backdrop-blur text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300'}`}
                 >
                   <FileText className="w-5 h-5" />
                   {t[language].hero.viewCV}
@@ -1545,7 +1552,7 @@ export default function PortfolioWebsite() {
                 return (
                   <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
                     <div className="relative overflow-hidden">
-                      <img src={imgSrc} alt={project.title[language]} className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
@@ -1601,7 +1608,7 @@ export default function PortfolioWebsite() {
                 return (
                   <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
                     <div className="relative overflow-hidden">
-                      <img src={imgSrc} alt={project.title[language]} className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
@@ -1657,7 +1664,7 @@ export default function PortfolioWebsite() {
                 return (
                   <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
                     <div className="relative overflow-hidden">
-                      <img src={imgSrc} alt={project.title[language]} className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
@@ -1762,6 +1769,9 @@ export default function PortfolioWebsite() {
                       <img
                         src={item.image}
                         alt={(item.title && item.title[language]) || ''}
+                        width="56"
+                        height="56"
+                        loading="lazy"
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           console.warn('Experience image failed to load:', item.image);
@@ -1829,6 +1839,9 @@ export default function PortfolioWebsite() {
                     <img
                       src={cert.image}
                       alt={(cert.title && cert.title[language]) || ''}
+                      width="400"
+                      height="144"
+                      loading="lazy"
                       className="w-full h-36 object-cover transition-transform duration-500 group-hover:scale-105"
                       onError={(e) => {
                         try {
@@ -1969,19 +1982,30 @@ export default function PortfolioWebsite() {
 
       {/* Floating Accessibility Button */}
       <div 
-        className="fixed left-6 z-50"
+        ref={accessibilityButtonRef}
+        data-fixed-mobile
+        className="fixed left-4 bottom-4 md:left-6 md:bottom-6 z-50" 
         style={{ 
-          bottom: `${accessibilityOffset}px`,
-          transition: 'bottom 0.2s ease-out'
+          position: 'fixed',
+          left: '1rem',
+          bottom: '1rem',
+          zIndex: isChatOpen ? 55 : 50,
+          transform: 'translateZ(0)',
+          WebkitTransform: 'translateZ(0)',
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
+          pointerEvents: 'auto',
+          touchAction: 'manipulation'
         }}
       >
           {isAccessibilityOpen && (
             <div 
-              className="absolute bottom-20 left-0 w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 overflow-hidden flex flex-col border"
+              className="absolute bottom-20 left-0 w-[calc(100vw-2rem)] max-w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 overflow-hidden flex flex-col border"
               style={{
                 background: isDarkTheme ? 'rgba(15,23,42,0.95)' : 'rgba(255,255,255,0.98)',
                 borderColor: 'rgba(124,58,237,0.12)',
-                maxHeight: '60vh'
+                maxHeight: '60vh',
+                position: 'absolute'
               }}
             >
               {/* Header bar - PURPLE */}
@@ -2034,7 +2058,7 @@ export default function PortfolioWebsite() {
                       >
                         <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ background: isActive ? 'linear-gradient(90deg,#7c3aed,#6d28d9)' : 'transparent' }}>
                           {isImageIcon ? (
-                            <img src={setting.icon} alt={setting.label} className={`w-6 h-6 ${isActive ? 'brightness-0 invert' : ''}`} />
+                            <img src={setting.icon} alt={setting.label} width="24" height="24" loading="lazy" className={`w-6 h-6 ${isActive ? 'brightness-0 invert' : ''}`} />
                           ) : (
                             <setting.icon className={`w-6 h-6 ${isActive ? 'text-white' : (isDarkTheme ? 'text-gray-400' : 'text-gray-600')}`} />
                           )}
@@ -2069,19 +2093,23 @@ export default function PortfolioWebsite() {
         {/* Floating Button */}
         <button
           onClick={() => setIsAccessibilityOpen(!isAccessibilityOpen)}
-          className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group ${
-            isAccessibilityOpen ? 'scale-95' : 'hover:scale-110'
+          className={`w-14 h-14 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group touch-manipulation ${
+            isAccessibilityOpen ? 'scale-95' : 'hover:scale-110 active:scale-95'
           }`}
           style={{
             background: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
             boxShadow: isDarkTheme 
               ? '0 4px 12px rgba(124, 58, 237, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
-              : '0 4px 15px rgba(124, 58, 237, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
+              : '0 4px 15px rgba(124, 58, 237, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)',
+            position: 'relative',
+            minWidth: '56px',
+            minHeight: '56px',
+            WebkitTapHighlightColor: 'transparent'
           }}
           aria-label={language === 'en' ? 'Accessibility options' : 'Barrierefreiheitsoptionen'}
           title={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
         >
-          <img src="/images/accessibility.png" alt="Accessibility" className="w-[51px] h-[51px] brightness-0 invert" />
+          <img src="/images/accessibility.png" alt="Accessibility" width="51" height="51" loading="lazy" className="w-[51px] h-[51px] brightness-0 invert" />
           {/* Subtle border effect */}
           <div 
             className="absolute inset-0 rounded-full pointer-events-none"
@@ -2098,7 +2126,10 @@ export default function PortfolioWebsite() {
       {isChatOpen && (
         <div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center md:p-4" onClick={() => setIsChatOpen(false)}>
           <div 
-            className={`relative w-full md:max-w-lg h-[85vh] md:h-[600px] md:rounded-2xl shadow-2xl flex flex-col ${isDarkTheme ? 'bg-gray-900 md:border md:border-gray-700' : 'bg-white'}`}
+            className={`relative w-full md:max-w-md h-[75vh] md:h-[500px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}
+            style={{
+              border: '3px solid #10b981'
+            }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
