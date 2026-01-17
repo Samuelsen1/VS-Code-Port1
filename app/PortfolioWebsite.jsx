@@ -10,8 +10,8 @@ export default function PortfolioWebsite() {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([
     { role: 'assistant', content: language === 'en' 
-      ? "Hello! 👋 I'm Samuel's AI assistant. Ask me anything about his experience, skills, education, or portfolio!"
-      : "Hallo! 👋 Ich bin Samuels KI-Assistent. Fragen Sie mich über seine Erfahrung, Fähigkeiten, Ausbildung oder Portfolio!"
+      ? "Hello! 👋 I'm Samuel's AI assistant. I'm here to answer questions about Samuel and his expertise in Digital Learning Design and Technical Writing. Ask me anything about his experience, skills, education, portfolio, or availability! 😊"
+      : "Guten Tag! 👋 Ich bin Samuels KI-Assistent. Ich beantworte gerne Fragen über Samuel und seine Expertise in Digital Learning Design und Technical Writing. Fragen Sie mich über seine Erfahrung, Fähigkeiten, Ausbildung, Portfolio oder Verfügbarkeit! 😊"
     }
   ]);
   const [chatInput, setChatInput] = useState('');
@@ -118,8 +118,8 @@ export default function PortfolioWebsite() {
     // Update initial chatbot greeting when language changes
     setChatMessages([
       { role: 'assistant', content: language === 'en' 
-        ? "Hello! 👋 I'm Samuel's AI assistant. Ask me anything about his experience, skills, education, or portfolio!"
-        : "Hallo! 👋 Ich bin Samuels KI-Assistent. Fragen Sie mich über seine Erfahrung, Fähigkeiten, Ausbildung oder Portfolio!"
+        ? "Hello! 👋 I'm Samuel's AI assistant. I'm here to answer questions about Samuel and his expertise in Digital Learning Design and Technical Writing. Ask me anything about his experience, skills, education, portfolio, or availability! 😊"
+        : "Guten Tag! 👋 Ich bin Samuels KI-Assistent. Ich beantworte gerne Fragen über Samuel und seine Expertise in Digital Learning Design und Technical Writing. Fragen Sie mich über seine Erfahrung, Fähigkeiten, Ausbildung, Portfolio oder Verfügbarkeit! 😊"
       }
     ]);
   }, [language]);
