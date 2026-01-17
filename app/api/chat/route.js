@@ -110,18 +110,25 @@ function extractTopics(message) {
   const lowerMessage = message.toLowerCase();
   
   const topicPatterns = {
+    'role-primary': [/primary.*role|main.*role|primary.*focus|primary.*professional|primary.*career|haupt.*rolle|haupt.*beruf|primär.*rolle|primär.*fokus|primär.*karriere|haupt.*fokus/i],
+    'role-secondary': [/secondary|technical writing.*role|documentation.*role|do.*also.*technical|also.*work.*technical|zweite.*rolle|sekundär|technical.*writing.*secondary/i],
+    'role-relationship': [/how.*instructional.*technical|how.*relate|relationship.*between|wie.*zusammen|beziehung.*zwischen|wie.*verbunden/i],
+    'role-prioritize': [/which.*priorit|which.*should|recruiter.*priorit|which.*role|welche.*priorit|welche.*rolle.*priorit/i],
+    'role-switching': [/switching.*career|switching.*from|career.*change|karriere.*wechsel|wechsel.*von/i],
+    'role-temporary': [/technical.*writing.*temporary|see.*temporary|temporary|vorübergehend/i],
+    'team-fit': [/team|work.*with|types.*team|works.*best|hybrid|remote|on-site|art.*team|hybrid.*remote/i],
     'digital-learning': [/digital learning|e-learning|elearning|instructional design|learning design|lxd|curriculum|course design|learning experience|addie|bloom|articulate|storyline|rise|scorm|moodle|lern.*design|instruktionsdesign|e-learning.*modul|kurse.*design/i],
     'technical-writing': [/technical writing|documentation|tech writer|api doc|user guide|knowledge base|technical competenc|writing skill|documentation skill|technisches schreiben|dokumentation|benutzerhandbuch|api.*dokumentation|wissensdatenbank/i],
     'experience': [/experience|work history|work|job|career|employment|position|role|what.*done|what.*did|background|erfahrung|arbeit|beruf|karriere|position|was.*gemacht|was.*getan/i],
     'education': [/education|degree|university|academic|study|studied|school|master|bachelor|ausbildung|studium|universität|abschluss|studium|promotion/i],
     'skills': [/skill|abilities|expertise|proficien|capabilit|was kann|können|fähigkeit|kompetenz|seine.*kompetenz|seine.*fähigkeit|welche.*kompetenz|welche.*fähigkeit|können.*tun/i],
     'contact': [/contact|email|phone|reach|get in touch|how to reach|kontakt|erreichen|telefon|e-mail|kontaktdaten|wie.*kontaktieren|wie.*erreichen/i],
-    'portfolio': [/portfolio|project|work sample|example|showcase|demo|what.*built|what.*created|projekte|beispiele|projekt.*beispiele|was.*erstellt|was.*gebaut/i],
+    'portfolio': [/portfolio|project|work sample|example|showcase|demo|what.*built|what.*created|projekte|beispiele|projekt.*beispiele|was.*erstellt|was.*gebaut|portfolio.*link|portfolio.*url|see.*portfolio/i],
     'tools': [/tool|software|program|platform|articulate|adobe|figma|technology|tech stack|werkzeug|programme|welche.*tools|welche.*software/i],
     'certification': [/certificat|training|course|credential|certified|zertifikat|kurs|schulung|weiterbildung|qualifikation/i],
     'languages': [/language|speak|german|english|multilingual|bilingual|fluent|sprache|sprechen|mehrsprachig|welche.*sprache|welche.*sprachen/i],
     'accessibility': [/accessib|wcag|inclusive|universal design|a11y|barrierefreiheit|zugänglich|inklusion|wie.*barrierefrei/i],
-    'availability': [/available|availability|start date|when can|free|hire|looking for work|verfügbar|verfügbarkeit|wann.*kann|freie.*zeit|sucht.*arbeit/i],
+    'availability': [/available|availability|start date|when can|free|hire|looking for work|verfügbar|verfügbarkeit|wann.*kann|freie.*zeit|sucht.*arbeit|open.*role|after.*graduation|when.*full-time/i],
     'location': [/where|location|based|live|city|country|germany|lübeck|marburg|wo|standort|wohnt|wo.*lebt/i],
     'personal': [/height|tall|personality|personal|hobbies|talent|about him|who is|character|persönlich|größe|hobbys|wer.*ist|über.*ihn/i]
   };
@@ -176,6 +183,86 @@ export async function POST(request) {
     let confidence = 0;
     
     // Priority-based response system (check most specific first)
+    
+    // Primary role identity (highest priority - establishes hierarchy)
+    if (topics.includes('role-primary') || matchesPattern(message, [
+      /primary.*professional.*role|primary.*role|main.*role|primary.*focus|primary.*professional|primary.*career|haupt.*rolle|haupt.*beruf|primär.*rolle|primär.*fokus|primär.*karriere|haupt.*fokus|what.*primary|what.*main/i
+    ])) {
+      confidence = 1;
+      response = isGerman
+        ? "**Samuels primärer professioneller Fokus:**\n\nMein primärer professioneller Fokus liegt auf **Instruktionsdesign und Digital Learning Design**, bei dem ich lernerzentrierte E-Learning-Erfahrungen erstelle, die auf Pädagogik, Barrierefreiheit und messbaren Lernergebnissen basieren.\n\n🎓 **Kernkompetenzen:**\n• Instruktionsdesign mit ADDIE, Bloom's Taxonomie\n• E-Learning-Entwicklung (Articulate 360)\n• Learning Experience Design (LXD)\n• Curriculum-Entwicklung und Storyboarding\n• Lernanalysen und Bewertung\n• WCAG 2.1-konforme Module\n\nDies ist die Hauptrichtung meiner Karriere."
+        : "**Samuel's Primary Professional Focus:**\n\nMy primary professional focus is **Instructional Design and Digital Learning Design**, creating learner-centered e-learning experiences grounded in pedagogy, accessibility, and measurable learning outcomes.\n\n🎓 **Core Competencies:**\n• Instructional design with ADDIE, Bloom's Taxonomy\n• E-learning development (Articulate 360)\n• Learning Experience Design (LXD)\n• Curriculum development and storyboarding\n• Learning analytics and assessment\n• WCAG 2.1-compliant modules\n\nThis is the main direction of my career.";
+    }
+    
+    // Role prioritization (for recruiters)
+    else if (topics.includes('role-prioritize') || matchesPattern(message, [
+      /which.*priorit|which.*should|recruiter.*priorit|which.*role.*priorit|which.*should.*priorit|welche.*priorit|welche.*rolle.*priorit|welche.*sollte|recruiter.*soll/i
+    ])) {
+      confidence = 1;
+      response = isGerman
+        ? "**Rollen-Priorisierung für Recruiter:**\n\n🎯 **Primäre Priorität:**\n**Instruktionsdesign, Digital Learning Design oder E-Learning-Entwicklung** sollten priorisiert werden. Das sind Samuels Hauptkompetenzen und Karriereziel.\n\n📝 **Sekundäre Option:**\n**Technical Writing und Dokumentationsspezialist-Rollen** sind eine starke sekundäre Option, insbesondere dort, wo Dokumentation, Lernen und Benutzerunterstützung sich überschneiden.\n\n**Verfügbarkeit:** Samuel ist verfügbar für Vollzeit-Rollen ab April/Mai 2026 (nach Abschluss des Masterstudiums).\n\n**Kontakt:** gideonsammysen@gmail.com für Anfragen"
+        : "**Role Prioritization for Recruiters:**\n\n🎯 **Primary Priority:**\n**Instructional Design, Digital Learning Design, or E-Learning Development** should be prioritized. These are Samuel's core competencies and career goals.\n\n📝 **Secondary Option:**\n**Technical Writing and Documentation Specialist roles** are a strong secondary option, particularly where documentation, learning, and user enablement intersect.\n\n**Availability:** Samuel is available for full-time roles starting April/May 2026 (after Master's completion).\n\n**Contact:** gideonsammysen@gmail.com for inquiries";
+    }
+    
+    // Secondary role - Technical Writing
+    else if (topics.includes('role-secondary') || matchesPattern(message, [
+      /do.*also.*technical|also.*work.*technical|technical.*writing.*role|documentation.*role|secondary|zweite.*rolle|sekundär|auch.*technical|auch.*technisches.*schreiben/i
+    ])) {
+      confidence = 1;
+      response = isGerman
+        ? "**Technical Writing als sekundäre Spezialisierung:**\n\nJa. Neben Instruktionsdesign habe ich starke Erfahrung in **Technical Writing und Dokumentation**, einschließlich Benutzerhandbücher, API-Dokumentation und Wissensdatenbank-Entwicklung. Dies ist eine komplementäre sekundäre Spezialisierung.\n\n📝 **Technical Writing Fähigkeiten:**\n• Benutzerhandbücher & API-Dokumentation\n• Wissensdatenbank-Design (Notion)\n• Content-Lokalisierung (300+ Seiten Deutsch→Englisch)\n• DITA XML Dokumentation\n• Prozessdokumentation\n\n**Beziehung:** Technical Writing unterstützt Instruktionsdesign, indem es Dokumentationsqualität, Informationsarchitektur und Benutzerunterstützung stärkt."
+        : "**Technical Writing as Secondary Specialization:**\n\nYes. Alongside instructional design, I have strong experience in **technical writing and documentation**, including user guides, API documentation, and knowledge base development. This is a complementary secondary specialization.\n\n📝 **Technical Writing Skills:**\n• User guides & API documentation\n• Knowledge base design (Notion)\n• Content localization (300+ pages German→English)\n• DITA XML documentation\n• Process documentation\n\n**Relationship:** Technical writing supports instructional design by strengthening documentation quality, information architecture, and user support.";
+    }
+    
+    // Role relationship
+    else if (topics.includes('role-relationship') || matchesPattern(message, [
+      /how.*instructional.*technical|how.*relate|relationship.*between|wie.*zusammen|beziehung.*zwischen|wie.*verbunden|how.*connect/i
+    ])) {
+      confidence = 1;
+      response = isGerman
+        ? "**Wie Instruktionsdesign und Technical Writing zusammenhängen:**\n\nInstruktionsdesign formt, **wie Menschen lernen**, während Technical Writing sich darauf konzentriert, **wie Menschen Systeme nutzen**. Mein Hintergrund ermöglicht es mir, sowohl Lernerfahrungen zu gestalten als auch Tools, Prozesse und Workflows klar und zugänglich zu dokumentieren.\n\n**Konvergenz in modernen Rollen:**\nModernes Instruktionsdesign überschneidet sich zunehmend mit Dokumentation, Onboarding und Produktlernen. Mein Portfolio spiegelt diese Konvergenz und meine Fähigkeit wider, in beiden Bereichen zu arbeiten.\n\n**Praxis:** Beide Bereiche ergänzen sich, um skalierbare Lernsysteme, Produktadoption und Benutzererfolg zu unterstützen."
+        : "**How Instructional Design and Technical Writing Relate:**\n\nInstructional design shapes **how people learn**, while technical writing focuses on **how people use systems**. My background allows me to design learning experiences and also document tools, processes, and workflows clearly and accessibly.\n\n**Convergence in Modern Roles:**\nModern instructional design increasingly overlaps with documentation, onboarding, and product learning. My portfolio reflects this convergence and my ability to work across both domains.\n\n**In Practice:** Both areas complement each other to support scalable learning systems, product adoption, and user success.";
+    }
+    
+    // Role switching question
+    else if (topics.includes('role-switching') || matchesPattern(message, [
+      /switching.*career|switching.*from|career.*change|switching.*to.*technical|karriere.*wechsel|wechsel.*von|wechsel.*karriere/i
+    ])) {
+      confidence = 1;
+      response = isGerman
+        ? "**Karrierewechsel? Nein.**\n\nNein. Instruktionsdesign bleibt mein primärer Karriereweg. Technical Writing ergänzt diese Arbeit, indem es Dokumentationsqualität, Informationsarchitektur und Benutzerunterstützung stärkt.\n\n**Perspektive:** Ich sehe Technical Writing als eine wertvolle parallele Spezialisierung, die skalierbare Lernsysteme, Produktadoption und Benutzererfolg unterstützt – nicht als vorübergehende Beschäftigung.\n\n**Hauptziel:** Vollzeit-Rollen in Instruktionsdesign, Digital Learning Design oder E-Learning-Entwicklung ab April/Mai 2026."
+        : "**Switching Careers? No.**\n\nNo. Instructional design remains my primary career path. Technical writing complements this work by strengthening documentation quality, information architecture, and user support.\n\n**Perspective:** I see technical writing as a valuable parallel specialization that supports scalable learning systems, product adoption, and user success—not as a temporary pursuit.\n\n**Main Goal:** Full-time roles in Instructional Design, Digital Learning Design, or E-Learning Development starting April/May 2026.";
+    }
+    
+    // Team fit / Hybrid/Remote
+    else if (topics.includes('team-fit') || matchesPattern(message, [
+      /team|work.*with|types.*team|works.*best|hybrid|remote|on-site|art.*team|hybrid.*remote|remote.*work|on.*site|types.*teams/i
+    ])) {
+      confidence = 1;
+      response = isGerman
+        ? "**Team-Fit und Arbeitsmodalitäten:**\n\n**Mit welchen Teams arbeite ich am besten?**\nSamuel arbeitet gut mit Lern- & Entwicklungsteams, HR, Produktteams, Fachexperten, Ingenieuren und Compliance-Stakeholdern zusammen – besonders in strukturierten, dokumentationsorientierten Umgebungen.\n\n**Arbeitsmodalitäten:**\n• **Vor-Ort** – Verfügbar in Deutschland (Lübeck/Marburg)\n• **Hybrid** – Flexible Kombination aus vor Ort und remote\n• **Remote** – Vollständig remote je nach Team-Bedarf und Projektstruktur\n\n**Verfügbar ab:** April/Mai 2026 für Vollzeit-Rollen"
+        : "**Team Fit & Work Modalities:**\n\n**What types of teams do I work best with?**\nSamuel works well with learning & development teams, HR, product teams, SMEs, engineers, and compliance stakeholders—especially in structured, documentation-driven environments.\n\n**Work Modalities:**\n• **On-Site** – Available in Germany (Lübeck/Marburg)\n• **Hybrid** – Flexible combination of on-site and remote\n• **Remote** – Fully remote depending on team needs and project structure\n\n**Available from:** April/May 2026 for full-time roles";
+    }
+    
+    // Portfolio with link
+    else if (topics.includes('portfolio') && matchesPattern(message, [
+      /portfolio|see.*portfolio|view.*portfolio|portfolio.*link|portfolio.*url|show.*portfolio|link.*portfolio|zeige.*portfolio|portfolio.*zeigen|portfolio.*link|portfolio.*url/i
+    ])) {
+      confidence = 1;
+      response = isGerman
+        ? "**Samuels Portfolio:**\n\n**Portfolio-Website:**\n🔗 **https://vs-code-port1.vercel.app**\n\nDie Portfolio-Website enthält:\n• Interaktive E-Learning-Module mit Barrierefreiheits-Features\n• Technische Dokumentation (2FA Guides, API-Dokumentation)\n• Wissensdatenbanken (Klimawandel, Nachhaltigkeit)\n• Zweisprachige Unterstützung (EN/DE)\n• Erweiterte Barrierefreiheits-Funktionen\n\n**Weitere Portfolio-Links:**\n• GitHub Technical Writing Samples: github.com/Samuelsen1/Tech-Writing-Samples\n• Notion Knowledge Bases (siehe Portfolio-Website für Links)\n\n**Hinweis:** Die Portfolio-Website zeigt die Konvergenz zwischen Instruktionsdesign und Technical Writing, da modernes Instruktionsdesign zunehmend mit Dokumentation, Onboarding und Produktlernen überschneidet."
+        : "**Samuel's Portfolio:**\n\n**Portfolio Website:**\n🔗 **https://vs-code-port1.vercel.app**\n\nThe portfolio website includes:\n• Interactive e-learning modules with accessibility features\n• Technical documentation (2FA guides, API documentation)\n• Knowledge bases (climate change, sustainability)\n• Bilingual support (EN/DE)\n• Advanced accessibility features\n\n**Additional Portfolio Links:**\n• GitHub Technical Writing Samples: github.com/Samuelsen1/Tech-Writing-Samples\n• Notion Knowledge Bases (see portfolio website for links)\n\n**Note:** The portfolio website demonstrates the convergence between instructional design and technical writing, as modern instructional design increasingly overlaps with documentation, onboarding, and product learning.";
+    }
+    
+    // Portfolio projects (detailed)
+    else if (topics.includes('portfolio') || matchesPattern(message, [
+      /portfolio|project|work sample|example|showcase|demo|what.*built|what.*created|projekte|beispiele|projekt.*beispiele|was.*erstellt|was.*gebaut|portfolio.*projekte|showcase|which.*project|which.*represent/i
+    ])) {
+      confidence = 1;
+      response = isGerman
+        ? "**Samuels Portfolio-Highlights:**\n\n**Portfolio-Website:** https://vs-code-port1.vercel.app\n\n🎓 **E-Learning-Module (Primärfokus):**\n• **Plain Language & Inclusive Communication** – Interaktives Modul mit erweitertem Barrierefreiheits-Panel (WCAG 2.1)\n• **Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)** – Schritt-für-Schritt-Anleitung\n• **E-Learning Accessibility Best Practices** – Best Practices für barrierefreies Design\n\n📚 **Wissensdatenbanken (ADDIE-basiert):**\n• **ADDIE-basierte Dokumentation für LLMs & Nachhaltigkeit** – Theoretisch vollständiger Leitfaden\n• **Climate Change Mitigation Guide** – Umfassende Bildungsressource\n• **Sustainability and Climate Change Knowledge Base** – Strukturierte Wissensdatenbank\n\n📄 **Technische Dokumentation (Sekundärfokus):**\n• **2FA User Guide** – Microsoft PDF-Format\n• **Postman API Documentation Guide** – Entwickler-Dokumentation\n• **Welth Health Platform** – DITA XML-Dokumentation\n\n**Welche Projekte repräsentieren den Primärfokus?** Die interaktiven E-Learning-Module, barrierefreiheitsfokussierten Lernprojekte und Instruktionsdesign-Fallstudien.\n\n**Welche Projekte zeigen Technical Writing?** Die API-Dokumentation, 2FA-Benutzerhandbücher und Notion-basierten Wissensdatenbanken."
+        : "**Samuel's Portfolio Highlights:**\n\n**Portfolio Website:** https://vs-code-port1.vercel.app\n\n🎓 **E-Learning Modules (Primary Focus):**\n• **Plain Language & Inclusive Communication** – Interactive module with advanced accessibility panel (WCAG 2.1)\n• **Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)** – Step-by-step troubleshooting guide\n• **E-Learning Accessibility Best Practices** – Best practices for accessible design\n\n📚 **Knowledge Bases (ADDIE-based):**\n• **ADDIE-based Documentation for LLMs & Sustainability** – Theoretically complete guide\n• **Climate Change Mitigation Guide** – Comprehensive educational resource\n• **Sustainability and Climate Change Knowledge Base** – Structured knowledge base system\n\n📄 **Technical Documentation (Secondary Focus):**\n• **2FA User Guide** – Microsoft PDF format\n• **Postman API Documentation Guide** – Developer documentation\n• **Welth Health Platform** – DITA XML documentation\n\n**Which projects represent the primary focus?** The interactive e-learning modules, accessibility-focused learning projects, and instructional design case studies.\n\n**Which projects show technical writing capability?** The API documentation, 2FA user guides, and Notion-based knowledge bases.";
+    }
     
     // Digital Learning specific (high priority)
     if (topics.includes('digital-learning') || matchesPattern(message, [
