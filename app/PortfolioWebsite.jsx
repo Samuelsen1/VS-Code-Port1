@@ -223,19 +223,20 @@ export default function PortfolioWebsite() {
       // Show popup after a short delay
       const timer = setTimeout(() => {
         setShowWelcomePopup(true);
-        // Start shrinking animation after 4 seconds
-        setTimeout(() => {
-          setWelcomePopupAnimating(true);
-          // Hide popup after animation completes
-          setTimeout(() => {
-            setShowWelcomePopup(false);
-            sessionStorage.setItem('ai-welcome-shown', 'true');
-          }, 800);
-        }, 4000);
       }, 1500);
       return () => clearTimeout(timer);
     }
   }, []);
+
+  // Handle welcome popup close
+  const handleWelcomePopupClose = () => {
+    setWelcomePopupAnimating(true);
+    // Hide popup after animation completes
+    setTimeout(() => {
+      setShowWelcomePopup(false);
+      sessionStorage.setItem('ai-welcome-shown', 'true');
+    }, 700);
+  };
 
   // Apply accessibility styles
   useEffect(() => {
@@ -2138,7 +2139,7 @@ export default function PortfolioWebsite() {
           }}
         >
           <div 
-            className={`w-[90vw] max-w-sm md:max-w-md mx-4 px-4 py-4 md:px-6 md:py-5 rounded-2xl shadow-2xl border-2 backdrop-blur-xl ${
+            className={`w-[90vw] max-w-sm md:max-w-md mx-4 px-4 py-5 md:px-6 md:py-6 rounded-2xl shadow-2xl border-2 backdrop-blur-xl ${
               isDarkTheme 
                 ? 'bg-gray-900/95 border-green-500/50 text-white' 
                 : 'bg-white/95 border-green-400/50 text-gray-900'
@@ -2147,7 +2148,7 @@ export default function PortfolioWebsite() {
               boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(16, 185, 129, 0.2)'
             }}
           >
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 mb-4">
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg animate-pulse">
                 <MessageCircle className="w-6 h-6 text-white" />
               </div>
@@ -2162,6 +2163,16 @@ export default function PortfolioWebsite() {
                 </p>
               </div>
             </div>
+            <button
+              onClick={handleWelcomePopupClose}
+              className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] ${
+                isDarkTheme
+                  ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-600 hover:to-emerald-700'
+                  : 'bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-600 hover:to-emerald-700'
+              }`}
+            >
+              {language === 'en' ? 'OK, Got it!' : 'OK, Verstanden!'}
+            </button>
           </div>
         </div>
       )}
