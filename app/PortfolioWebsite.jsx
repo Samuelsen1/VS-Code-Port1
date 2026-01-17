@@ -1383,9 +1383,7 @@ export default function PortfolioWebsite() {
                   {language === 'en' ? 'Ask AI' : 'KI fragen'}
                 </button>
                 <a 
-                  href="/cv.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/cv"
                   className={`inline-flex items-center justify-center gap-2 px-3 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-[180px] ${isDarkTheme ? 'bg-blue-500/20 backdrop-blur text-white border-blue-400/30 hover:bg-blue-500/30' : 'bg-white/80 backdrop-blur text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300'}`}
                 >
                   <FileText className="w-5 h-5" />
