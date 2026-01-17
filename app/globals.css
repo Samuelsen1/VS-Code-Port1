@@ -19,33 +19,3 @@ body {
     box-shadow: 0 0 10px rgba(34, 197, 94, 0.8), 0 0 20px rgba(34, 197, 94, 0.6), 0 0 30px rgba(34, 197, 94, 0.4);
   }
 }
-
-/* Fix for mobile fixed positioning issues */
-@media (max-width: 768px) {
-  html, body {
-    position: relative;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-    overflow-x: hidden;
-  }
-  
-  /* Ensure fixed elements stay fixed on mobile - enforce position */
-  [data-fixed-mobile] {
-    position: fixed !important;
-    left: 16px !important;
-    bottom: 16px !important;
-    right: auto !important;
-    top: auto !important;
-    margin: 0 !important;
-    transform: translateZ(0) !important;
-    -webkit-transform: translateZ(0) !important;
-    will-change: transform !important;
-    -webkit-backface-visibility: hidden !important;
-    backface-visibility: hidden !important;
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-    isolation: isolate;
-    /* Prevent any layout shifts */
-    contain: layout style paint;
-  }
-}

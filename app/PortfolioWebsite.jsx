@@ -17,7 +17,6 @@ export default function PortfolioWebsite() {
   const [chatInput, setChatInput] = useState('');
   const [chatLoading, setChatLoading] = useState(false);
   const chatEndRef = useRef(null);
-  const accessibilityButtonRef = useRef(null);
   
   // Animated counter states
   const [counts, setCounts] = useState({ improvement: 0, completion: 0, usage: 0 });
@@ -198,47 +197,6 @@ export default function PortfolioWebsite() {
     }
   }, [chatMessages]);
 
-  // Maintain accessibility button position on mobile - always keep it fixed
-  useEffect(() => {
-    const button = accessibilityButtonRef.current;
-    if (!button || window.innerWidth > 768) return;
-
-    const maintainPosition = () => {
-      // Always maintain fixed position with pixel values
-      button.style.position = 'fixed';
-      button.style.left = '16px';
-      button.style.bottom = '16px';
-      button.style.right = 'auto';
-      button.style.top = 'auto';
-      button.style.margin = '0';
-      // Force reflow to ensure position is applied
-      void button.offsetHeight;
-    };
-
-    // Maintain position immediately and on all viewport changes
-    maintainPosition();
-    
-    // Use multiple methods to ensure position is maintained
-    requestAnimationFrame(maintainPosition);
-    
-    const timeoutId = setTimeout(maintainPosition, 50);
-    const timeoutId2 = setTimeout(maintainPosition, 200);
-    
-    // Also maintain on window resize, orientation change, and focus
-    window.addEventListener('resize', maintainPosition);
-    window.addEventListener('orientationchange', maintainPosition);
-    window.addEventListener('focus', maintainPosition);
-    document.addEventListener('touchstart', maintainPosition, { passive: true });
-
-    return () => {
-      clearTimeout(timeoutId);
-      clearTimeout(timeoutId2);
-      window.removeEventListener('resize', maintainPosition);
-      window.removeEventListener('orientationchange', maintainPosition);
-      window.removeEventListener('focus', maintainPosition);
-      document.removeEventListener('touchstart', maintainPosition);
-    };
-  }, [isChatOpen, isAccessibilityOpen]);
 
   // Apply accessibility styles
   useEffect(() => {
@@ -2008,33 +1966,15 @@ export default function PortfolioWebsite() {
 
       {/* Floating Accessibility Button */}
       <div 
-        ref={accessibilityButtonRef}
-        data-fixed-mobile
-        className="fixed left-4 bottom-4 md:left-6 md:bottom-6 z-50" 
-        style={{ 
-          position: 'fixed',
-          left: '16px',
-          bottom: '16px',
-          right: 'auto',
-          top: 'auto',
-          zIndex: isChatOpen ? 55 : 50,
-          transform: 'translateZ(0)',
-          WebkitTransform: 'translateZ(0)',
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden',
-          pointerEvents: 'auto',
-          touchAction: 'manipulation',
-          willChange: 'transform'
-        }}
+        className="fixed left-6 bottom-6 z-50"
       >
           {isAccessibilityOpen && (
             <div 
-              className="absolute bottom-20 left-0 w-[calc(100vw-2rem)] max-w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 overflow-hidden flex flex-col border"
+              className="absolute bottom-20 left-0 w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 overflow-hidden flex flex-col border"
               style={{
                 background: isDarkTheme ? 'rgba(15,23,42,0.95)' : 'rgba(255,255,255,0.98)',
                 borderColor: 'rgba(124,58,237,0.12)',
-                maxHeight: '60vh',
-                position: 'absolute'
+                maxHeight: '60vh'
               }}
             >
               {/* Header bar - PURPLE */}
@@ -2122,18 +2062,14 @@ export default function PortfolioWebsite() {
         {/* Floating Button */}
         <button
           onClick={() => setIsAccessibilityOpen(!isAccessibilityOpen)}
-          className={`w-14 h-14 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group touch-manipulation ${
-            isAccessibilityOpen ? 'scale-95' : 'hover:scale-110 active:scale-95'
+          className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group ${
+            isAccessibilityOpen ? 'scale-95' : 'hover:scale-110'
           }`}
           style={{
             background: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
             boxShadow: isDarkTheme 
               ? '0 4px 12px rgba(124, 58, 237, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
-              : '0 4px 15px rgba(124, 58, 237, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)',
-            position: 'relative',
-            minWidth: '56px',
-            minHeight: '56px',
-            WebkitTapHighlightColor: 'transparent'
+              : '0 4px 15px rgba(124, 58, 237, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
           }}
           aria-label={language === 'en' ? 'Accessibility options' : 'Barrierefreiheitsoptionen'}
           title={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
