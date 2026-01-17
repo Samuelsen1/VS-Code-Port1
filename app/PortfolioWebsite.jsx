@@ -2165,11 +2165,15 @@ export default function PortfolioWebsite() {
               <div className="flex gap-2">
                 <input
                   type="text"
+                  inputMode="text"
+                  autoComplete="off"
+                  autoCapitalize="sentences"
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
                   placeholder={language === 'en' ? 'Ask about skills, experience, education...' : 'Fragen Sie über Fähigkeiten, Erfahrung, Ausbildung...'}
                   className={`flex-1 px-4 py-3 rounded-xl border transition-colors ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-green-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-green-500/20`}
                   disabled={chatLoading}
+                  onTouchStart={(e) => e.target.focus()}
                 />
                 <button
                   type="submit"
