@@ -55,13 +55,13 @@ export default function DigitalLearningCV() {
           <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-gray-300 pb-1">SKILLS</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-3">
             <div>
-              <h3 className="font-semibold text-gray-800 mb-1 text-sm">Documentation & Technical Writing</h3>
-              <p className="text-xs text-gray-700">User guides • API docs • Knowledge bases • Technical specs • SOPs • Release notes • Content localization</p>
+              <h3 className="font-semibold text-gray-800 mb-1 text-sm">Instructional Design & E-Learning</h3>
+              <p className="text-xs text-gray-700">ADDIE framework • Interactive modules • SCORM packages • LMS administration • Bloom's Taxonomy • Assessment design</p>
             </div>
 
             <div>
-              <h3 className="font-semibold text-gray-800 mb-1 text-sm">Instructional Design & E-Learning</h3>
-              <p className="text-xs text-gray-700">ADDIE framework • Interactive modules • SCORM packages • LMS administration • Bloom's Taxonomy • Assessment design</p>
+              <h3 className="font-semibold text-gray-800 mb-1 text-sm">Documentation & Technical Writing</h3>
+              <p className="text-xs text-gray-700">User guides • API docs • Knowledge bases • Technical specs • SOPs • Release notes • Content localization</p>
             </div>
 
             <div>
