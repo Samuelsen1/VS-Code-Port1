@@ -2129,8 +2129,8 @@ export default function PortfolioWebsite() {
         <div 
           className={`fixed z-[70] transition-all duration-700 ease-out ${
             welcomePopupAnimating 
-              ? 'bottom-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-75 opacity-0' 
-              : 'bottom-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100 md:top-1/2 md:bottom-auto'
+              ? 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-75 opacity-0 md:bottom-[10%] md:top-auto md:translate-y-0' 
+              : 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100 md:bottom-[10%] md:top-auto md:translate-y-0'
           }`}
           style={{
             transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
