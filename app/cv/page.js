@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, Linkedin, Globe, MapPin, FileText, Image as ImageIcon } from 'lucide-react';
+import { Mail, Phone, Linkedin, Globe, MapPin, Award } from 'lucide-react';
 
 export default function DigitalLearningCV() {
   const [language, setLanguage] = useState('en');
@@ -209,17 +209,17 @@ export default function DigitalLearningCV() {
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
               <div>
                 <h3 className="font-bold text-gray-800">{language === 'de' ? 'Digital Learning Designer (Praktikant)' : 'Digital Learning Designer (Intern)'}</h3>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                   <p className="text-gray-600 italic">Tanz der Kulturen e.V., Hamburg</p>
                   <a 
                     href="/TDK_Intern_Cert.pdf" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-indigo-600 hover:text-indigo-800 transition-colors inline-flex items-center gap-1 text-xs"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-200/60 text-indigo-700 hover:from-indigo-100 hover:to-blue-100 hover:border-indigo-300 hover:shadow-sm transition-all duration-200 text-xs font-medium"
                     title={language === 'de' ? 'Zertifikat anzeigen' : 'View Certificate'}
                   >
-                    <FileText className="w-3.5 h-3.5" />
-                    <span className="text-xs">{language === 'de' ? 'Zertifikat' : 'Certificate'}</span>
+                    <Award className="w-3.5 h-3.5" />
+                    <span>{language === 'de' ? 'Zertifikat' : 'Certificate'}</span>
                   </a>
                 </div>
               </div>
@@ -237,17 +237,17 @@ export default function DigitalLearningCV() {
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
               <div>
                 <h3 className="font-bold text-gray-800">{language === 'de' ? 'Englischlehrer & Verwaltungsassistent' : 'English Language Teacher & Administrative Assistant'}</h3>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                   <p className="text-gray-600 italic">Ghana National Service Scheme, Kumasi</p>
                   <a 
                     href="/images/National_Service.jpeg" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-indigo-600 hover:text-indigo-800 transition-colors inline-flex items-center gap-1 text-xs"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-200/60 text-indigo-700 hover:from-indigo-100 hover:to-blue-100 hover:border-indigo-300 hover:shadow-sm transition-all duration-200 text-xs font-medium"
                     title={language === 'de' ? 'Zertifikat anzeigen' : 'View Certificate'}
                   >
-                    <ImageIcon className="w-3.5 h-3.5" />
-                    <span className="text-xs">{language === 'de' ? 'Zertifikat' : 'Certificate'}</span>
+                    <Award className="w-3.5 h-3.5" />
+                    <span>{language === 'de' ? 'Zertifikat' : 'Certificate'}</span>
                   </a>
                 </div>
               </div>

@@ -1805,18 +1805,14 @@ export default function PortfolioWebsite() {
                           href={item.certificate.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-1.5 text-xs font-medium transition-colors ${
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border transition-all duration-200 text-xs font-medium ${
                             isDarkTheme 
-                              ? 'text-blue-300 hover:text-blue-200' 
-                              : 'text-blue-600 hover:text-blue-700'
+                              ? 'bg-gradient-to-r from-blue-500/20 to-indigo-500/20 border-blue-400/40 text-blue-200 hover:from-blue-500/30 hover:to-indigo-500/30 hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/20' 
+                              : 'bg-gradient-to-r from-indigo-50 to-blue-50 border-indigo-200/60 text-indigo-700 hover:from-indigo-100 hover:to-blue-100 hover:border-indigo-300 hover:shadow-sm'
                           }`}
                           title={language === 'de' ? 'Zertifikat anzeigen' : 'View Certificate'}
                         >
-                          {item.certificate.type === 'pdf' ? (
-                            <FileText className="w-3.5 h-3.5" />
-                          ) : (
-                            <Image className="w-3.5 h-3.5" />
-                          )}
+                          <Award className="w-3.5 h-3.5" />
                           <span>{language === 'de' ? 'Zertifikat' : 'Certificate'}</span>
                         </a>
                       )}
