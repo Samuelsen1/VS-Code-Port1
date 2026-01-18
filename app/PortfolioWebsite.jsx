@@ -1399,17 +1399,6 @@ export default function PortfolioWebsite() {
                   <Mail className="w-5 h-5" />
                   {t[language].hero.getInTouch}
                 </a>
-                <button 
-                  onClick={() => setIsChatOpen(true)}
-                  className={`inline-flex items-center justify-center gap-2 px-4 py-3.5 md:py-4 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 w-[180px] relative ${isDarkTheme ? 'bg-gradient-to-r from-green-500/30 to-emerald-500/30 backdrop-blur-md text-white border-green-400/50 hover:from-green-500/40 hover:to-emerald-500/40 shadow-green-500/20' : 'bg-gradient-to-r from-green-50 to-emerald-50 backdrop-blur-sm text-green-700 border-green-300 hover:from-green-100 hover:to-emerald-100 hover:border-green-400 shadow-green-500/20'}`}
-                >
-                  <span className="absolute top-2 right-2 flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                  </span>
-                  <MessageCircle className="w-5 h-5" />
-                  {language === 'en' ? 'Ask AI' : 'KI fragen'}
-                </button>
                 <a 
                   href="/cv"
                   className={`inline-flex items-center justify-center gap-2 px-4 py-3.5 md:py-4 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 w-[180px] ${isDarkTheme ? 'bg-gradient-to-r from-blue-500/30 to-indigo-500/30 backdrop-blur-md text-white border-blue-400/30 hover:from-blue-500/40 hover:to-indigo-500/40 shadow-blue-500/20' : 'bg-white/90 backdrop-blur-sm text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300 shadow-blue-500/20'}`}
