@@ -90,7 +90,7 @@ PERSONAL ATTRIBUTES:
 - Personality: Quiet, observant, curious (actively digging for new skills), empathetic, reserved but friendly
 `;
 
-// Enhanced pattern matching with fuzzy logic
+// Enhanced pattern matching with fuzzy logic and semantic similarity
 function matchesPattern(message, patterns) {
   const lowerMessage = message.toLowerCase();
   return patterns.some(pattern => {
@@ -102,6 +102,105 @@ function matchesPattern(message, patterns) {
     }
     return false;
   });
+}
+
+// NLP: Semantic similarity and word relationship mapping
+// Maps words to semantic vectors (simplified representation using word relationships)
+const semanticVectors = {
+  'instructional': ['design', 'learning', 'education', 'training', 'course', 'curriculum', 'pedagogy', 'teaching', 'educational'],
+  'design': ['instructional', 'learning', 'course', 'curriculum', 'educational', 'training', 'create', 'develop', 'build'],
+  'learning': ['instructional', 'design', 'education', 'training', 'course', 'student', 'learner', 'knowledge', 'teaching'],
+  'technical': ['writing', 'documentation', 'document', 'guide', 'manual', 'api', 'code', 'software', 'developer'],
+  'writing': ['technical', 'documentation', 'content', 'document', 'guide', 'manual', 'author', 'create', 'draft'],
+  'documentation': ['technical', 'writing', 'guide', 'manual', 'api', 'reference', 'help', 'content', 'document'],
+  'skills': ['abilities', 'competencies', 'expertise', 'proficiency', 'capabilities', 'talents', 'strengths'],
+  'experience': ['work', 'job', 'career', 'employment', 'background', 'history', 'past', 'previous'],
+  'available': ['free', 'ready', 'open', 'when', 'start', 'date', 'hire', 'looking', 'seeking'],
+  'portfolio': ['projects', 'work', 'examples', 'samples', 'showcase', 'demo', 'creations'],
+  'contact': ['email', 'phone', 'reach', 'connect', 'message', 'communication', 'get in touch'],
+  'education': ['degree', 'university', 'study', 'academic', 'school', 'master', 'bachelor', 'qualification'],
+};
+
+// Calculate semantic similarity score between query and target concepts
+function calculateSemanticSimilarity(message, targetConcepts) {
+  const words = message.toLowerCase().split(/\s+/);
+  let maxSimilarity = 0;
+  
+  for (const word of words) {
+    for (const target of targetConcepts) {
+      // Direct match
+      if (word === target.toLowerCase()) {
+        maxSimilarity = Math.max(maxSimilarity, 1.0);
+      }
+      
+      // Semantic relationship (check if word relates to target)
+      const wordVector = semanticVectors[word] || [];
+      const targetVector = semanticVectors[target.toLowerCase()] || [];
+      
+      // Calculate overlap (simplified cosine similarity)
+      if (wordVector.length > 0 && targetVector.length > 0) {
+        const intersection = wordVector.filter(v => targetVector.includes(v));
+        const similarity = intersection.length / Math.max(wordVector.length, targetVector.length);
+        maxSimilarity = Math.max(maxSimilarity, similarity * 0.7); // Weight semantic matches
+      }
+      
+      // Check if word appears in target's semantic vector
+      if (wordVector.includes(target.toLowerCase()) || targetVector.includes(word)) {
+        maxSimilarity = Math.max(maxSimilarity, 0.6);
+      }
+    }
+  }
+  
+  return maxSimilarity;
+}
+
+// NLU: Enhanced intent extraction with context awareness
+function extractIntentWithContext(message, topics) {
+  const lowerMessage = message.toLowerCase();
+  const intent = {
+    type: 'information', // information, question, command, comparison
+    urgency: 'normal',
+    context: [],
+    entities: []
+  };
+  
+  // Question type detection
+  if (/^(what|who|when|where|why|how|which|whose)/i.test(message.trim())) {
+    intent.type = 'question';
+  }
+  
+  // Command detection
+  if (/^(tell|show|explain|describe|give|provide|list|display)/i.test(message.trim())) {
+    intent.type = 'command';
+  }
+  
+  // Comparison detection
+  if (/compare|vs|versus|difference|better|different|similar|same/i.test(message)) {
+    intent.type = 'comparison';
+  }
+  
+  // Urgency detection
+  if (/urgent|asap|soon|quick|fast|immediately|right now/i.test(message)) {
+    intent.urgency = 'high';
+  }
+  
+  // Entity extraction (simplified NER)
+  const entities = {
+    person: message.match(/\b(samuel|sam)\b/gi) || [],
+    location: message.match(/\b(germany|germany|lübeck|marburg|ghana|kumasi|remote|on-site|hybrid)\b/gi) || [],
+    tool: message.match(/\b(articulate|storyline|rise|moodle|scorm|figma|notion|github|premiere|photoshop|indesign|vs code|markdown|html|css)\b/gi) || [],
+    skill: message.match(/\b(instructional design|learning design|lxd|l&d|technical writing|documentation|e-learning|elearning|accessibility|wcag)\b/gi) || [],
+    date: message.match(/\b(2026|2025|2024|april|may|february|january|march|june|july|august|september|october|november|december)\b/gi) || []
+  };
+  
+  intent.entities = Object.entries(entities)
+    .filter(([_, values]) => values.length > 0)
+    .map(([type, values]) => ({ type, values: [...new Set(values)] }));
+  
+  // Context from topics
+  intent.context = topics;
+  
+  return intent;
 }
 
 // Extract key topics from message - Enhanced with comprehensive patterns
@@ -169,9 +268,31 @@ function extractTopics(message) {
     'impact': [/impact|result|outcome|achievement|effect|measurable|wirkung|ergebnis|erreichung|effekt|messbar/i]
   };
   
+  // Primary pattern matching
   for (const [topic, patterns] of Object.entries(topicPatterns)) {
     if (matchesPattern(lowerMessage, patterns)) {
       topics.push(topic);
+    }
+  }
+  
+  // Enhanced NLP: Semantic similarity fallback for missed concepts
+  // If no topics found or confidence is low, use semantic similarity
+  if (topics.length === 0 || lowerMessage.length > 10) {
+    const semanticTargets = {
+      'digital-learning': ['instructional', 'design', 'learning', 'education', 'course'],
+      'technical-writing': ['technical', 'writing', 'documentation', 'guide', 'manual'],
+      'skills': ['skills', 'abilities', 'competencies', 'expertise', 'proficiency'],
+      'experience': ['experience', 'work', 'job', 'career', 'background'],
+      'portfolio': ['portfolio', 'projects', 'work', 'examples', 'showcase'],
+      'contact': ['contact', 'email', 'phone', 'reach', 'connect'],
+      'availability': ['available', 'free', 'when', 'start', 'date']
+    };
+    
+    for (const [topic, concepts] of Object.entries(semanticTargets)) {
+      const similarity = calculateSemanticSimilarity(message, concepts);
+      if (similarity > 0.5 && !topics.includes(topic)) {
+        topics.push(topic);
+      }
     }
   }
   
@@ -193,6 +314,9 @@ export async function POST(request) {
     const isGerman = language === 'de';
     const lowerMessage = message.toLowerCase();
     const topics = extractTopics(message);
+    
+    // NLU: Extract intent with context for enhanced understanding
+    const intent = extractIntentWithContext(message, topics);
     
     // Enhanced welcome messages
     const greetings = {

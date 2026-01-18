@@ -2296,24 +2296,38 @@ export default function PortfolioWebsite() {
       {/* Floating AI Button */}
       <button
         onClick={() => setIsChatOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 shadow-2xl hover:shadow-green-500/50 hover:scale-110 active:scale-95 group ${
-          isDarkTheme
-            ? 'bg-gradient-to-br from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500'
-            : 'bg-gradient-to-br from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700'
+        className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 relative group ${
+          isAccessibilityOpen ? 'scale-95' : 'hover:scale-110'
         }`}
+        style={{
+          background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+          boxShadow: isDarkTheme 
+            ? '0 4px 12px rgba(16, 185, 129, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
+            : '0 4px 15px rgba(16, 185, 129, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
+        }}
         aria-label={language === 'en' ? 'Open AI Assistant' : 'KI-Assistent öffnen'}
+        title={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
       >
-        {/* Pulsing ring animation */}
-        <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20"></span>
-        
-        {/* Icon */}
-        <Bot className="w-7 h-7 text-white relative z-10 group-hover:scale-110 transition-transform duration-300" />
-        
-        {/* Notification dot */}
-        <span className="absolute top-2 right-2 flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
-        </span>
+        {/* AI Icon with green filter */}
+        <img 
+          src="/images/ai.png" 
+          alt="AI Assistant" 
+          width="51" 
+          height="51" 
+          loading="lazy" 
+          className="w-[51px] h-[51px] relative z-10 group-hover:scale-110 transition-transform duration-300"
+          style={{
+            filter: 'brightness(0) invert(1)'
+          }}
+        />
+        {/* Subtle border effect */}
+        <div 
+          className="absolute inset-0 rounded-full pointer-events-none"
+          style={{
+            border: '2px solid rgba(255, 255, 255, 0.15)',
+            boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.05)'
+          }}
+        />
       </button>
     </div>
   );
