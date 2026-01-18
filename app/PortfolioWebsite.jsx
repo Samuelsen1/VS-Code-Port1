@@ -14,9 +14,6 @@ export default function PortfolioWebsite() {
   const chatEndRef = useRef(null);
   const chatInputRef = useRef(null);
   
-  // Welcome popup state
-  const [showWelcomePopup, setShowWelcomePopup] = useState(false);
-  const [welcomePopupAnimating, setWelcomePopupAnimating] = useState(false);
   
   // Animated counter states
   const [counts, setCounts] = useState({ improvement: 0, completion: 0, usage: 0 });
@@ -208,27 +205,6 @@ export default function PortfolioWebsite() {
     }
   }, [isChatOpen]);
 
-  // Welcome popup on first visit
-  useEffect(() => {
-    const hasSeenWelcome = sessionStorage.getItem('ai-welcome-shown');
-    if (!hasSeenWelcome) {
-      // Show popup after a short delay
-      const timer = setTimeout(() => {
-        setShowWelcomePopup(true);
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  // Handle welcome popup close
-  const handleWelcomePopupClose = () => {
-    setWelcomePopupAnimating(true);
-    // Hide popup after animation completes
-    setTimeout(() => {
-      setShowWelcomePopup(false);
-      sessionStorage.setItem('ai-welcome-shown', 'true');
-    }, 700);
-  };
 
   // Apply accessibility styles
   useEffect(() => {
@@ -2162,57 +2138,6 @@ export default function PortfolioWebsite() {
           />
         </button>
       </div>
-      
-      {/* AI Welcome Popup */}
-      {showWelcomePopup && (
-        <div 
-          className={`fixed z-[70] transition-all duration-700 ease-out ${
-            welcomePopupAnimating 
-              ? 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-75 opacity-0 md:bottom-[10%] md:top-auto md:translate-y-0' 
-              : 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100 md:bottom-[10%] md:top-auto md:translate-y-0'
-          }`}
-          style={{
-            transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
-          }}
-        >
-          <div 
-            className={`w-[90vw] max-w-sm md:max-w-md mx-4 px-4 py-5 md:px-6 md:py-6 rounded-2xl shadow-2xl border-2 backdrop-blur-xl ${
-              isDarkTheme 
-                ? 'bg-gray-900/95 border-green-500/50 text-white' 
-                : 'bg-white/95 border-green-400/50 text-gray-900'
-            }`}
-            style={{
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(16, 185, 129, 0.2)'
-            }}
-          >
-            <div className="flex items-start gap-4 mb-4">
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg animate-pulse">
-                <MessageCircle className="w-6 h-6 text-white" />
-              </div>
-              <div className="flex-1">
-                <h3 className={`font-bold text-lg mb-2 ${isDarkTheme ? 'text-green-400' : 'text-green-600'}`}>
-                  {language === 'en' ? '👋 Hello! I\'m here to help' : '👋 Hallo! Ich helfe gerne'}
-                </h3>
-                <p className={`text-sm leading-relaxed ${isDarkTheme ? 'text-gray-300' : 'text-gray-700'}`}>
-                  {language === 'en' 
-                    ? 'For quick answers about Samuel\'s skills, experience, and availability, just ask me! Click the "Ask AI" button anytime.'
-                    : 'Für schnelle Antworten zu Samuels Fähigkeiten, Erfahrung und Verfügbarkeit, fragen Sie mich einfach! Klicken Sie jederzeit auf den "KI fragen" Button.'}
-                </p>
-              </div>
-            </div>
-            <button
-              onClick={handleWelcomePopupClose}
-              className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] ${
-                isDarkTheme
-                  ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-600 hover:to-emerald-700'
-                  : 'bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-600 hover:to-emerald-700'
-              }`}
-            >
-              {language === 'en' ? 'OK, Got it!' : 'OK, Verstanden!'}
-            </button>
-          </div>
-        </div>
-      )}
       
       {/* AI Chatbot Modal */}
       {isChatOpen && (
