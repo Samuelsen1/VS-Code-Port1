@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, Linkedin, Globe, MapPin } from 'lucide-react';
+import { Mail, Phone, Linkedin, Globe, MapPin, FileText, Image as ImageIcon } from 'lucide-react';
 
 export default function DigitalLearningCV() {
   const [language, setLanguage] = useState('en');
@@ -209,7 +209,19 @@ export default function DigitalLearningCV() {
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
               <div>
                 <h3 className="font-bold text-gray-800">{language === 'de' ? 'Digital Learning Designer (Praktikant)' : 'Digital Learning Designer (Intern)'}</h3>
-                <p className="text-gray-600 italic">Tanz der Kulturen e.V., Hamburg</p>
+                <div className="flex items-center gap-2">
+                  <p className="text-gray-600 italic">Tanz der Kulturen e.V., Hamburg</p>
+                  <a 
+                    href="/TDK_Intern_Cert.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-indigo-600 hover:text-indigo-800 transition-colors inline-flex items-center gap-1 text-xs"
+                    title={language === 'de' ? 'Zertifikat anzeigen' : 'View Certificate'}
+                  >
+                    <FileText className="w-3.5 h-3.5" />
+                    <span className="text-xs">{language === 'de' ? 'Zertifikat' : 'Certificate'}</span>
+                  </a>
+                </div>
               </div>
               <span className="text-sm text-gray-600">Juni 2025 – Nov 2025</span>
             </div>
@@ -225,7 +237,19 @@ export default function DigitalLearningCV() {
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
               <div>
                 <h3 className="font-bold text-gray-800">{language === 'de' ? 'Englischlehrer & Verwaltungsassistent' : 'English Language Teacher & Administrative Assistant'}</h3>
-                <p className="text-gray-600 italic">Ghana National Service Scheme, Kumasi</p>
+                <div className="flex items-center gap-2">
+                  <p className="text-gray-600 italic">Ghana National Service Scheme, Kumasi</p>
+                  <a 
+                    href="/images/National_Service.jpeg" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-indigo-600 hover:text-indigo-800 transition-colors inline-flex items-center gap-1 text-xs"
+                    title={language === 'de' ? 'Zertifikat anzeigen' : 'View Certificate'}
+                  >
+                    <ImageIcon className="w-3.5 h-3.5" />
+                    <span className="text-xs">{language === 'de' ? 'Zertifikat' : 'Certificate'}</span>
+                  </a>
+                </div>
               </div>
               <span className="text-sm text-gray-600">Jan 2023 – Okt 2023</span>
             </div>

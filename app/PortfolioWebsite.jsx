@@ -403,7 +403,8 @@ export default function PortfolioWebsite() {
             highlight: false,
             icon: "briefcase",
             iconBg: "bg-gray-100",
-            image: "/images/tdk.jpg"
+            image: "/images/tdk.jpg",
+            certificate: { url: "/TDK_Intern_Cert.pdf", type: "pdf" }
           },
           {
             title: { en: "English Language Teacher & Administrative Assistant", de: "Englischlehrer & Verwaltungsassistent" },
@@ -590,7 +591,8 @@ export default function PortfolioWebsite() {
             highlight: false,
             icon: "briefcase",
             iconBg: "bg-gray-100",
-            image: "/images/tdk.jpg"
+            image: "/images/tdk.jpg",
+            certificate: { url: "/TDK_Intern_Cert.pdf", type: "pdf" }
           },
           {
             title: { en: "English Language Teacher & Administrative Assistant", de: "Englischlehrer & Verwaltungsassistent" },
@@ -1795,7 +1797,29 @@ export default function PortfolioWebsite() {
                   </div>
                   <div className="flex-1">
                     <h3 className={`text-xl font-bold mb-1 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>{(item.title && item.title[language]) || ''}</h3>
-                    <p className={`font-semibold mb-2 ${item.highlight ? (isDarkTheme ? 'text-blue-300' : 'text-blue-600') : (isDarkTheme ? 'text-blue-200' : 'text-gray-600')}`}>{(item.company && item.company[language]) || ''}</p>
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                      <p className={`font-semibold ${item.highlight ? (isDarkTheme ? 'text-blue-300' : 'text-blue-600') : (isDarkTheme ? 'text-blue-200' : 'text-gray-600')}`}>{(item.company && item.company[language]) || ''}</p>
+                      {item.certificate && (
+                        <a
+                          href={item.certificate.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center gap-1.5 text-xs font-medium transition-colors ${
+                            isDarkTheme 
+                              ? 'text-blue-300 hover:text-blue-200' 
+                              : 'text-blue-600 hover:text-blue-700'
+                          }`}
+                          title={language === 'de' ? 'Zertifikat anzeigen' : 'View Certificate'}
+                        >
+                          {item.certificate.type === 'pdf' ? (
+                            <FileText className="w-3.5 h-3.5" />
+                          ) : (
+                            <Image className="w-3.5 h-3.5" />
+                          )}
+                          <span>{language === 'de' ? 'Zertifikat' : 'Certificate'}</span>
+                        </a>
+                      )}
+                    </div>
                     <p className={`text-sm mb-4 font-medium ${isDarkTheme ? 'text-blue-200/70' : 'text-gray-500'}`}>{(item.date && item.date[language]) || ''}</p>
                     {item.bullets && item.bullets[language] && item.bullets[language].length > 0 && (
                       <ul className={`space-y-3 ${isDarkTheme ? 'text-blue-100' : 'text-gray-600'}`}>
