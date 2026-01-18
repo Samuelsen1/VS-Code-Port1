@@ -611,7 +611,8 @@ export default function PortfolioWebsite() {
             highlight: false,
             icon: "briefcase",
             iconBg: "bg-gray-100",
-            image: "/images/nss.jpg"
+            image: "/images/nss.jpg",
+            certificate: { url: "/images/National_Service.jpeg", type: "image" }
           },
           {
             title: { en: "English Language Teaching Assistant (Intern)", de: "Englischlehrassistent (Praktikant)" },
