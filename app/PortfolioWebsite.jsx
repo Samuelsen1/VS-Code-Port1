@@ -2089,15 +2089,15 @@ export default function PortfolioWebsite() {
             isAccessibilityOpen ? 'scale-95' : 'hover:scale-110'
           }`}
           style={{
-            background: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
+            background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
             boxShadow: isDarkTheme 
-              ? '0 4px 12px rgba(124, 58, 237, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
-              : '0 4px 15px rgba(124, 58, 237, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
+              ? '0 4px 12px rgba(59, 130, 246, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
+              : '0 4px 15px rgba(59, 130, 246, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
           }}
           aria-label={language === 'en' ? 'Accessibility options' : 'Barrierefreiheitsoptionen'}
           title={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
         >
-          <img src="/images/accessibility.png?v=2" alt="Accessibility" width="51" height="51" loading="lazy" className="w-[51px] h-[51px] brightness-0 invert" />
+          <img src="/images/accessibility.png?v=2" alt="Accessibility" width="64" height="64" loading="lazy" className="w-16 h-16 brightness-0 invert" />
           {/* Subtle border effect */}
           <div 
             className="absolute inset-0 rounded-full pointer-events-none"
