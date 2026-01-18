@@ -9,14 +9,15 @@ export default function DigitalLearningCV() {
   const [language, setLanguage] = useState('en');
 
   useEffect(() => {
-    // Check URL parameter first, then localStorage, then default to 'en'
-    const langParam = searchParams.get('lang');
+    // Check URL parameter first, then localStorage
+    const langParam = searchParams?.get('lang');
     const storedLang = typeof window !== 'undefined' ? localStorage.getItem('language') : null;
-    const initialLang = langParam || storedLang || 'en';
-    setLanguage(initialLang);
+    const currentLang = langParam || storedLang || 'en';
+    
+    setLanguage(currentLang);
     
     // Update document language
-    document.documentElement.lang = initialLang === 'de' ? 'de' : 'en';
+    document.documentElement.lang = currentLang === 'de' ? 'de' : 'en';
   }, [searchParams]);
 
   const t = {
