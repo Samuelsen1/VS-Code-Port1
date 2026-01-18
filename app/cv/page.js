@@ -219,7 +219,7 @@ export default function DigitalLearningCV() {
                     title={language === 'de' ? 'Zertifikat anzeigen' : 'View Certificate'}
                   >
                     <Award className="w-3.5 h-3.5" />
-                    <span>{language === 'de' ? 'Zertifikat' : 'Certificate'}</span>
+                    <span>{lang.verify}</span>
                   </a>
                 </div>
               </div>
@@ -247,7 +247,7 @@ export default function DigitalLearningCV() {
                     title={language === 'de' ? 'Zertifikat anzeigen' : 'View Certificate'}
                   >
                     <Award className="w-3.5 h-3.5" />
-                    <span>{language === 'de' ? 'Zertifikat' : 'Certificate'}</span>
+                    <span>{lang.verify}</span>
                   </a>
                 </div>
               </div>
