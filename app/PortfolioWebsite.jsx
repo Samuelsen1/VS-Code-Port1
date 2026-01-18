@@ -2005,6 +2005,26 @@ export default function PortfolioWebsite() {
                 <a href="mailto:gideonsammysen@gmail.com" className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${isDarkTheme ? 'bg-white/10 text-white hover:bg-blue-600' : 'bg-blue-100 text-blue-600 hover:bg-blue-600 hover:text-white'}`}>
                   <Mail className="w-5 h-5" />
                 </a>
+                <button
+                  onClick={() => setIsChatOpen(true)}
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 relative group ${
+                    isDarkTheme ? 'bg-gradient-to-br from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500' : 'bg-gradient-to-br from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700'
+                  }`}
+                  aria-label={language === 'en' ? 'Open AI Assistant' : 'KI-Assistent öffnen'}
+                  title={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
+                >
+                  <img 
+                    src="/images/ai.png" 
+                    alt="AI Assistant" 
+                    width="24" 
+                    height="24" 
+                    loading="lazy" 
+                    className="w-6 h-6 relative z-10 group-hover:scale-110 transition-transform duration-300"
+                    style={{
+                      filter: 'brightness(0) invert(1)'
+                    }}
+                  />
+                </button>
               </div>
             </div>
           </div>
@@ -2293,42 +2313,6 @@ export default function PortfolioWebsite() {
         </div>
       )}
 
-      {/* Floating AI Button */}
-      <button
-        onClick={() => setIsChatOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 relative group ${
-          isAccessibilityOpen ? 'scale-95' : 'hover:scale-110'
-        }`}
-        style={{
-          background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-          boxShadow: isDarkTheme 
-            ? '0 4px 12px rgba(16, 185, 129, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
-            : '0 4px 15px rgba(16, 185, 129, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
-        }}
-        aria-label={language === 'en' ? 'Open AI Assistant' : 'KI-Assistent öffnen'}
-        title={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
-      >
-        {/* AI Icon with green filter */}
-        <img 
-          src="/images/ai.png" 
-          alt="AI Assistant" 
-          width="51" 
-          height="51" 
-          loading="lazy" 
-          className="w-[51px] h-[51px] relative z-10 group-hover:scale-110 transition-transform duration-300"
-          style={{
-            filter: 'brightness(0) invert(1)'
-          }}
-        />
-        {/* Subtle border effect */}
-        <div 
-          className="absolute inset-0 rounded-full pointer-events-none"
-          style={{
-            border: '2px solid rgba(255, 255, 255, 0.15)',
-            boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.05)'
-          }}
-        />
-      </button>
     </div>
   );
 }
