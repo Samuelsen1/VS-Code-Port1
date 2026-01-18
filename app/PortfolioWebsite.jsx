@@ -1996,14 +1996,14 @@ export default function PortfolioWebsite() {
               className="absolute bottom-20 left-0 w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 overflow-hidden flex flex-col border"
               style={{
                 background: isDarkTheme ? 'rgba(15,23,42,0.95)' : 'rgba(255,255,255,0.98)',
-                borderColor: 'rgba(124,58,237,0.12)',
+                borderColor: 'rgba(59,130,246,0.12)',
                 maxHeight: '60vh'
               }}
             >
-              {/* Header bar - PURPLE */}
+              {/* Header bar - BLUE */}
               <div 
                 className="flex justify-between items-center px-4 py-3 border-b flex-shrink-0 min-h-[52px]" 
-                style={{ background: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)', borderColor: 'rgba(255,255,255,0.15)' }}
+                style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)', borderColor: 'rgba(255,255,255,0.15)' }}
               >
                 <h3 className="text-base font-bold text-white">
                   {language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
@@ -2044,25 +2044,25 @@ export default function PortfolioWebsite() {
                         aria-label={`${setting.label}${isActive ? ` - ${isFull ? setting.fullLabel || setting.label : language === 'en' ? 'Enabled' : 'Aktiviert'}` : ''}`}
                         className={`flex flex-col items-center gap-2 p-3 rounded-2xl transition-all border-2 text-sm font-medium ${
                           !isActive 
-                            ? (isDarkTheme ? 'bg-transparent border-gray-700/40 hover:border-purple-400/40' : 'bg-gray-50 border-gray-200 hover:border-purple-400/40')
-                            : (isDarkTheme ? 'bg-purple-500/20 border-purple-400' : 'bg-purple-100 border-purple-400')
+                            ? (isDarkTheme ? 'bg-transparent border-gray-700/40 hover:border-blue-400/40' : 'bg-gray-50 border-gray-200 hover:border-blue-400/40')
+                            : (isDarkTheme ? 'bg-blue-500/20 border-blue-400' : 'bg-blue-100 border-blue-400')
                         }`}
                       >
-                        <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ background: isActive ? 'linear-gradient(90deg,#7c3aed,#6d28d9)' : 'transparent' }}>
+                        <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ background: isActive ? 'linear-gradient(90deg,#3b82f6,#2563eb)' : 'transparent' }}>
                           {isImageIcon ? (
                             <img src={setting.icon} alt={setting.label} width="24" height="24" loading="lazy" className={`w-6 h-6 ${isActive ? 'brightness-0 invert' : ''}`} />
                           ) : (
                             <setting.icon className={`w-6 h-6 ${isActive ? 'text-white' : (isDarkTheme ? 'text-gray-400' : 'text-gray-600')}`} />
                           )}
                         </div>
-                        <span className={`text-xs text-center leading-tight ${isActive ? (isDarkTheme ? 'text-purple-100' : 'text-purple-900') : (isDarkTheme ? 'text-gray-300' : 'text-gray-700')}`}>
+                        <span className={`text-xs text-center leading-tight ${isActive ? (isDarkTheme ? 'text-blue-100' : 'text-blue-900') : (isDarkTheme ? 'text-gray-300' : 'text-gray-700')}`}>
                           {!isActive ? setting.label : (isFull && !isBinary ? (setting.fullLabel || setting.label) : setting.label)}
                         </span>
                         {/* Intensity bars - 1 for binary, 2 for gradual */}
                         <div className="flex gap-0.5 mt-2">
-                          <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 1 ? 'bg-purple-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                          <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 1 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
                           {!isBinary && (
-                            <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 2 ? 'bg-purple-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                            <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 2 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
                           )}
                         </div>
                       </button>
@@ -2073,7 +2073,7 @@ export default function PortfolioWebsite() {
                 {/* Reset Button */}
                 <button
                   onClick={resetAccessibility}
-                  className={`w-full mt-6 py-2.5 px-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 border ${isDarkTheme ? 'bg-purple-600/20 text-purple-100 border-purple-500/40 hover:bg-purple-600/30' : 'bg-purple-100 text-purple-900 border-purple-300 hover:bg-purple-200'}`}
+                  className={`w-full mt-6 py-2.5 px-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 border ${isDarkTheme ? 'bg-blue-600/20 text-blue-100 border-blue-500/40 hover:bg-blue-600/30' : 'bg-blue-100 text-blue-900 border-blue-300 hover:bg-blue-200'}`}
                 >
                   <RotateCcw className="w-4 h-4" />
                   {language === 'en' ? 'Reset All' : 'Alle zurücksetzen'}
