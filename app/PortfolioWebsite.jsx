@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send, Award } from 'lucide-react';
+import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send, Award, Bot } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -2303,6 +2303,29 @@ export default function PortfolioWebsite() {
           </div>
         </div>
       )}
+
+      {/* Floating AI Button */}
+      <button
+        onClick={() => setIsChatOpen(true)}
+        className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 shadow-2xl hover:shadow-green-500/50 hover:scale-110 active:scale-95 group ${
+          isDarkTheme
+            ? 'bg-gradient-to-br from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500'
+            : 'bg-gradient-to-br from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700'
+        }`}
+        aria-label={language === 'en' ? 'Open AI Assistant' : 'KI-Assistent öffnen'}
+      >
+        {/* Pulsing ring animation */}
+        <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20"></span>
+        
+        {/* Icon */}
+        <Bot className="w-7 h-7 text-white relative z-10 group-hover:scale-110 transition-transform duration-300" />
+        
+        {/* Notification dot */}
+        <span className="absolute top-2 right-2 flex h-3 w-3">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+        </span>
+      </button>
     </div>
   );
 }
