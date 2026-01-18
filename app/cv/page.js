@@ -2,23 +2,25 @@
 
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Linkedin, Globe, MapPin } from 'lucide-react';
-import { useSearchParams } from 'next/navigation';
 
 export default function DigitalLearningCV() {
-  const searchParams = useSearchParams();
   const [language, setLanguage] = useState('en');
 
   useEffect(() => {
     // Check URL parameter first, then localStorage
-    const langParam = searchParams?.get('lang');
-    const storedLang = typeof window !== 'undefined' ? localStorage.getItem('language') : null;
-    const currentLang = langParam || storedLang || 'en';
-    
-    setLanguage(currentLang);
-    
-    // Update document language
-    document.documentElement.lang = currentLang === 'de' ? 'de' : 'en';
-  }, [searchParams]);
+    let langParam = null;
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      langParam = urlParams.get('lang');
+      const storedLang = localStorage.getItem('language');
+      const currentLang = langParam || storedLang || 'en';
+      
+      setLanguage(currentLang);
+      
+      // Update document language
+      document.documentElement.lang = currentLang === 'de' ? 'de' : 'en';
+    }
+  }, []);
 
   const t = {
     en: {
