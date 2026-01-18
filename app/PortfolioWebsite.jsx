@@ -119,6 +119,11 @@ export default function PortfolioWebsite() {
     document.documentElement.lang = language === 'en' ? 'en' : 'de';
     document.documentElement.dir = 'ltr';
     
+    // Store language preference in localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', language);
+    }
+    
     // Update initial chatbot greeting when language changes
     setChatMessages([
       { role: 'assistant', content: language === 'en' 
@@ -1400,7 +1405,7 @@ export default function PortfolioWebsite() {
                   {t[language].hero.getInTouch}
                 </a>
                 <a 
-                  href="/cv"
+                  href={`/cv?lang=${language}`}
                   className={`inline-flex items-center justify-center gap-2 px-4 py-3.5 md:py-4 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 w-[180px] ${isDarkTheme ? 'bg-gradient-to-r from-blue-500/30 to-indigo-500/30 backdrop-blur-md text-white border-blue-400/30 hover:from-blue-500/40 hover:to-indigo-500/40 shadow-blue-500/20' : 'bg-white/90 backdrop-blur-sm text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300 shadow-blue-500/20'}`}
                 >
                   <FileText className="w-5 h-5" />
