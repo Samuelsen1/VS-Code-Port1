@@ -240,7 +240,7 @@ export default function DigitalLearningCV() {
                 <div className="flex items-center gap-2 flex-wrap">
                   <p className="text-gray-600 italic">Ghana National Service Scheme, Kumasi</p>
                   <a 
-                    href="/images/National_Service.jpeg" 
+                    href="/National_Service.pdf" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-200/60 text-indigo-700 hover:from-indigo-100 hover:to-blue-100 hover:border-indigo-300 hover:shadow-sm transition-all duration-200 text-xs font-medium"
