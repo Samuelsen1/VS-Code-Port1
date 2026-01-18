@@ -1084,40 +1084,68 @@ export default function PortfolioWebsite() {
         .card-light {
           background: #ffffff;
           border: 1px solid #e2e8f0;
-          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.03);
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .card-light:hover {
           border-color: #cbd5e1;
-          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(59, 130, 246, 0.1);
+          transform: translateY(-2px);
         }
         .hover-lift {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .hover-lift:hover {
           transform: translateY(-8px);
-          box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.25);
+          box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.3), 0 8px 16px -4px rgba(0, 0, 0, 0.1);
         }
         .text-gradient {
-          background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #6366f1 100%);
+          background: linear-gradient(135deg, #1e40af 0%, #3b82f6 40%, #6366f1 70%, #8b5cf6 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+          background-size: 200% 200%;
+          animation: gradient-shift 8s ease infinite;
         }
         .btn-gradient {
-          background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-          transition: all 0.3s ease;
+          background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #6366f1 100%);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.25);
         }
         .btn-gradient:hover {
-          background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+          background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #4f46e5 100%);
           transform: translateY(-2px);
-          box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+          box-shadow: 0 12px 24px -4px rgba(59, 130, 246, 0.5);
         }
         .section-divider {
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+          background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), rgba(99, 102, 241, 0.4), transparent);
+        }
+        .glass-card {
+          background: rgba(255, 255, 255, 0.85);
+          backdrop-filter: blur(20px) saturate(180%);
+          -webkit-backdrop-filter: blur(20px) saturate(180%);
+          border: 1px solid rgba(255, 255, 255, 0.3);
         }
       `}</style>
-      <style>{`\n        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');\n        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }\n        h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; }\n      `}</style>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { 
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+          letter-spacing: -0.011em;
+          line-height: 1.6;
+        }
+        h1, h2, h3, h4, h5, h6 { 
+          font-family: 'Inter', sans-serif; 
+          letter-spacing: -0.025em;
+          line-height: 1.2;
+          font-weight: 700;
+        }
+        p {
+          letter-spacing: -0.003em;
+          line-height: 1.65;
+        }
+      `}</style>
 
       {/* Skip to main content link */}
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[100] focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:font-bold">
@@ -1150,11 +1178,11 @@ export default function PortfolioWebsite() {
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#about" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full">{t[language].nav.about}</a>
-              <a href="#projects" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full">{t[language].nav.projects}</a>
-              <a href="#skills" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full">{t[language].nav.skills}</a>
-              <a href="#experience" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full">{t[language].nav.experience}</a>
-              <a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full">{t[language].nav.contact}</a>
+              <a href="#about" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.about}</a>
+              <a href="#projects" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.projects}</a>
+              <a href="#skills" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.skills}</a>
+              <a href="#experience" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.experience}</a>
+              <a href="#contact" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.contact}</a>
               {/* Accessibility Theme Toggle */}
               <button
                 onClick={() => setIsDarkTheme(!isDarkTheme)}
@@ -1269,13 +1297,13 @@ export default function PortfolioWebsite() {
               {/* Mobile: Profile image on top, centered */}
               <div className="flex flex-col items-center md:flex-row md:items-center gap-6 md:gap-8 mb-6 md:mb-10">
                 <div className="relative group flex-shrink-0">
-                  <div className={`absolute -inset-1.5 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 rounded-2xl blur-md opacity-70 group-hover:opacity-90 transition duration-500`}></div>
+                  <div className={`absolute -inset-2 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 rounded-2xl blur-xl opacity-75 group-hover:opacity-100 transition-all duration-700 scale-100 group-hover:scale-105`}></div>
                   <img
                     src="/images/profile.jpg"
                     alt={t[language].name}
                     width="192"
                     height="256"
-                    className={`relative rounded-2xl object-cover shadow-2xl flex-shrink-0 transition-transform duration-500 group-hover:scale-[1.02] w-36 h-48 md:w-44 md:h-56 lg:w-48 lg:h-64 ${isDarkTheme ? 'border-4 border-white/90' : 'border-4 border-white shadow-xl'}`}
+                    className={`relative rounded-2xl object-cover shadow-2xl flex-shrink-0 transition-all duration-500 group-hover:scale-[1.03] w-36 h-48 md:w-44 md:h-56 lg:w-48 lg:h-64 ${isDarkTheme ? 'border-4 border-white/90 ring-4 ring-blue-500/20' : 'border-4 border-white shadow-2xl ring-4 ring-blue-100/50'}`}
                   />
                 </div>
                 <div>
@@ -1366,14 +1394,14 @@ export default function PortfolioWebsite() {
               <div className="flex flex-wrap justify-center md:justify-start gap-4">
                 <a 
                   href="#contact" 
-                  className={`inline-flex items-center justify-center gap-2 px-3 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-[180px] ${isDarkTheme ? 'bg-white text-blue-700 hover:bg-blue-50 border-white hover:border-blue-50' : 'bg-blue-600 text-white hover:bg-blue-700 border-blue-600 hover:border-blue-700'}`}
+                  className={`inline-flex items-center justify-center gap-2 px-4 py-3.5 md:py-4 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 w-[180px] ${isDarkTheme ? 'bg-white text-blue-700 hover:bg-blue-50 border-white hover:border-blue-100 shadow-blue-500/20' : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 border-blue-600 shadow-blue-500/30'}`}
                 >
                   <Mail className="w-5 h-5" />
                   {t[language].hero.getInTouch}
                 </a>
                 <button 
                   onClick={() => setIsChatOpen(true)}
-                  className={`inline-flex items-center justify-center gap-2 px-3 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-[180px] relative ${isDarkTheme ? 'bg-green-500/20 backdrop-blur text-white border-green-400/50 hover:bg-green-500/30' : 'bg-green-50 backdrop-blur text-green-700 border-green-300 hover:bg-green-100 hover:border-green-400'}`}
+                  className={`inline-flex items-center justify-center gap-2 px-4 py-3.5 md:py-4 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 w-[180px] relative ${isDarkTheme ? 'bg-gradient-to-r from-green-500/30 to-emerald-500/30 backdrop-blur-md text-white border-green-400/50 hover:from-green-500/40 hover:to-emerald-500/40 shadow-green-500/20' : 'bg-gradient-to-r from-green-50 to-emerald-50 backdrop-blur-sm text-green-700 border-green-300 hover:from-green-100 hover:to-emerald-100 hover:border-green-400 shadow-green-500/20'}`}
                 >
                   <span className="absolute top-2 right-2 flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -1384,7 +1412,7 @@ export default function PortfolioWebsite() {
                 </button>
                 <a 
                   href="/cv"
-                  className={`inline-flex items-center justify-center gap-2 px-3 py-3 md:py-3.5 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-[180px] ${isDarkTheme ? 'bg-blue-500/20 backdrop-blur text-white border-blue-400/30 hover:bg-blue-500/30' : 'bg-white/80 backdrop-blur text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300'}`}
+                  className={`inline-flex items-center justify-center gap-2 px-4 py-3.5 md:py-4 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 w-[180px] ${isDarkTheme ? 'bg-gradient-to-r from-blue-500/30 to-indigo-500/30 backdrop-blur-md text-white border-blue-400/30 hover:from-blue-500/40 hover:to-indigo-500/40 shadow-blue-500/20' : 'bg-white/90 backdrop-blur-sm text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300 shadow-blue-500/20'}`}
                 >
                   <FileText className="w-5 h-5" />
                   {t[language].hero.viewCV}
@@ -1522,14 +1550,14 @@ export default function PortfolioWebsite() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {t[language].aboutCards.map((card, idx) => (
-              <div key={idx} className={`p-8 rounded-2xl hover-lift group transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`}>
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div key={idx} className={`p-8 rounded-2xl hover-lift group transition-all duration-300 ${isDarkTheme ? 'bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20' : 'card-light'}`}>
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 group-hover:shadow-2xl transition-all duration-300 group-hover:rotate-3">
                   {idx === 0 && <BookOpen className="w-8 h-8 text-white" />}
                   {idx === 1 && <Code className="w-8 h-8 text-white" />}
                   {idx === 2 && <TrendingUp className="w-8 h-8 text-white" />}
                 </div>
                 <h3 className={`text-xl font-bold mb-4 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>{card.title}</h3>
-                <p className={`leading-relaxed ${isDarkTheme ? 'text-blue-100' : 'text-gray-600'}`}>{card.desc}</p>
+                <p className={`leading-relaxed ${isDarkTheme ? 'text-blue-100/90' : 'text-gray-600'}`}>{card.desc}</p>
               </div>
             ))}
           </div>
@@ -1558,7 +1586,7 @@ export default function PortfolioWebsite() {
           {/* E-Learning Modules */}
           <div className="mb-16">
             <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
-              <span className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+              <span className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <BookOpen className="w-5 h-5 text-white" />
               </span>
               {t[language].projects.eLearning}
@@ -1578,8 +1606,8 @@ export default function PortfolioWebsite() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="px-3 py-1 bg-blue-500 text-white rounded-full text-xs font-semibold">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full text-xs font-semibold shadow-md">
                           {project.category[language]}
                         </span>
                       </div>
@@ -1614,7 +1642,7 @@ export default function PortfolioWebsite() {
           {/* Knowledge Base */}
           <div className="mb-16">
             <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
-              <span className="w-10 h-10 bg-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
+              <span className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <Code className="w-5 h-5 text-white" />
               </span>
               {t[language].projects.knowledge}
@@ -1628,14 +1656,14 @@ export default function PortfolioWebsite() {
                 if (project.title.en === "LLMs, Sustainability and Climate Change") imgSrc = "/images/c1.png";
                 else if (project.title.en === "Climate Change Mitigation Guide") imgSrc = "/images/c2.png";
                 return (
-                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
-                    <div className="relative overflow-hidden">
-                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
+                    <div className="relative overflow-hidden rounded-t-2xl">
+                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" className="w-full h-52 object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="px-3 py-1 bg-indigo-500 text-white rounded-full text-xs font-semibold">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-3 py-1.5 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-xs font-semibold shadow-md">
                           {project.category[language]}
                         </span>
                       </div>
@@ -1670,7 +1698,7 @@ export default function PortfolioWebsite() {
           {/* Technical Writing */}
           <div className="mb-12">
             <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
-              <span className="w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center shadow-lg">
+              <span className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <FileText className="w-5 h-5 text-white" />
               </span>
               {t[language].projects.techWriting}
@@ -1684,14 +1712,14 @@ export default function PortfolioWebsite() {
                 if (project.title.en === "Technical Documentation (GitHub)") imgSrc = "/images/a1.png";
                 else if (project.title.en === "Welth Health Platform") imgSrc = "/images/a2.png";
                 return (
-                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
-                    <div className="relative overflow-hidden">
-                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
+                    <div className="relative overflow-hidden rounded-t-2xl">
+                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" className="w-full h-52 object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="px-3 py-1 bg-purple-500 text-white rounded-full text-xs font-semibold">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-full text-xs font-semibold shadow-md">
                           {project.category[language]}
                         </span>
                       </div>
@@ -1928,7 +1956,7 @@ export default function PortfolioWebsite() {
           <div className="flex flex-wrap justify-center gap-6">
             <a 
               href="mailto:gideonsammysen@gmail.com" 
-              className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 ${isDarkTheme ? 'bg-white text-blue-600 hover:bg-gray-50' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+              className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 ${isDarkTheme ? 'bg-white text-blue-600 hover:bg-gray-50 shadow-blue-500/20' : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 shadow-blue-500/30'}`}
             >
               <Mail className="w-5 h-5" />
               {t[language].contact.email}
@@ -1937,7 +1965,7 @@ export default function PortfolioWebsite() {
               href="https://www.linkedin.com/in/samuel-o-4b9bbb2a8" 
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-xl hover:-translate-y-1 ${isDarkTheme ? 'bg-white/10 backdrop-blur text-white border border-white/20 hover:bg-white/20' : 'bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 hover:border-blue-300'}`}
+              className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 ${isDarkTheme ? 'bg-gradient-to-r from-white/15 to-white/10 backdrop-blur-md text-white border border-white/20 hover:from-white/20 hover:to-white/15' : 'bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 hover:border-blue-300 shadow-blue-500/10'}`}
             >
               <Linkedin className="w-5 h-5" />
               {t[language].contact.linkedin}
