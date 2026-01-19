@@ -215,8 +215,8 @@ export default function PortfolioWebsite() {
           role: 'assistant',
           content:
             language === 'en'
-              ? "**Hi, I'm Samuel's AI assistant.**\n\nYou can ask about his skills, experience, education, or whether a role fits him.\n\nTry questions like:\n- \"What are Samuel's main skills?\"\n- \"Is he a Learning Experience Designer?\"\n- \"Can Samuel code?\"\n- \"Is he a doctor?\""
-              : "**Hallo, ich bin Samuels KI-Assistent.**\n\nSie können nach seinen Fähigkeiten, seiner Berufserfahrung, Ausbildung oder der Passung zu einer Rolle fragen.\n\nBeispiele für Fragen:\n- \"Was sind Samuels wichtigste Fähigkeiten?\"\n- \"Ist er Learning Experience Designer?\"\n- \"Kann Samuel programmieren?\"\n- \"Ist er Arzt?\"",
+              ? "Hi, I'm Samuel's AI assistant. If you want to know about him, his experience, skills or his personality, I'm here to assist you :)."
+              : 'Hallo, ich bin Samuels KI-Assistent. Wenn Sie mehr über ihn, seine Erfahrung, Fähigkeiten oder Persönlichkeit wissen möchten, helfe ich Ihnen gerne weiter :).',
         },
       ]);
     }
