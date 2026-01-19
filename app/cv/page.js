@@ -304,7 +304,11 @@ export default function DigitalLearningCV() {
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-1 gap-1">
               <div>
                 <h3 className="font-bold text-gray-800">{language === 'de' ? 'Master in Nordamerikastudien (Medienwissenschaften)' : "Master's in North American Studies (Media Studies)"}</h3>
-                <p className="text-gray-600">Philipps-Universität Marburg, Deutschland</p>
+                <p className="text-gray-600">
+                  {language === 'de'
+                    ? 'Philipps-Universität Marburg, Deutschland'
+                    : 'Philipps-Universität Marburg, Germany'}
+                </p>
               </div>
               <span className="text-sm text-gray-600">
                 {language === 'de' ? 'Okt 2023 – Aktuell' : 'Oct 2023 – Present'}

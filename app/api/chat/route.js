@@ -531,10 +531,15 @@ export async function POST(request) {
         : "**Samuel's Education:**\n\n🎓 **Master's in North American Studies (Media Studies)**\nPhilipps-Universität Marburg, Germany (October 2023 – Present)\n\n**Relevant Courses:**\n• Media, Visual Art\n• Writing for Research\n• Contested Sustainability\n\n**Master's Thesis:**\n'AI as Reflection: Human-Technology Relationships in Digital Narratives'\n\n**Focus:** Analysis of the interplay between humans and technology in digital media and narratives.\n\n---\n\n🎓 **Bachelor of Education in English Language**\nUniversity of Cape Coast, Ghana (October 2018 – October 2022)\n**Degree:** CGPA 3.6/4.0 (≈ German 1.4 – Excellent)\n\n**Relevant Courses:**\n• Educational Psychology\n• Curriculum Studies\n• Assessment & Evaluation\n• Educating Individuals with Diverse Learning Needs\n• Research Methods in Education\n• Educational Statistics\n• Language & Linguistics\n• Semantics & Translation\n• English in Multilingual Contexts\n\n**Educational Foundation:** Samuel's Bachelor's degree in English Education forms the foundation for his instructional design expertise and teaching experience.\n\n**Continuous Learning:** Samuel keeps his skills current with recent certifications in Digital Learning Design and Technical Writing.";
     }
     
-    // Portfolio/Projects
-    else if (topics.includes('portfolio') || matchesPattern(message, [
-      /portfolio|project|work sample|example|showcase|demo|what.*built|what.*created|projekte|beispiele|projekt.*beispiele|was.*erstellt|was.*gebaut|portfolio.*projekte|showcase/i
-    ])) {
+    // Portfolio/Projects (general overview – only when user is NOT explicitly asking for links)
+    else if (
+      (topics.includes('portfolio') || matchesPattern(message, [
+        /portfolio|project|work sample|example|showcase|demo|what.*built|what.*created|projekte|beispiele|projekt.*beispiele|was.*erstellt|was.*gebaut|portfolio.*projekte|showcase/i
+      ])) &&
+      !matchesPattern(message, [
+        /link|links|with link|mit link|mit links/i
+      ])
+    ) {
       confidence = 1;
       response = isGerman
         ? "**Samuels Portfolio-Highlights:**\n\n📄 **Technische Dokumentation:**\n• **2FA User Guide** – Microsoft PDF-Format, praktische Anleitung\n• **Postman API Documentation Guide** – Entwickler-freundliche API-Dokumentation\n• **Welth Health Platform** – DITA XML-Dokumentation für Gesundheitsmanagement\n\n🎓 **E-Learning-Module:**\n• **Plain Language & Inclusive Communication** – Interaktives E-Learning-Modul mit erweitertem Barrierefreiheits-Panel (WCAG 2.1)\n• **Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)** – Schritt-für-Schritt-Anleitung\n• **E-Learning Accessibility Best Practices** – Best Practices für barrierefreies E-Learning\n\n📚 **Wissensdatenbanken & Content-Systeme:**\n• **ADDIE-basierte Dokumentation für LLMs & Nachhaltigkeit** – Theoretisch vollständiger Leitfaden\n• **Climate Change Mitigation Guide** – Umfassende Bildungsressource zu Klimawissenschaft\n• **Sustainability and Climate Change Knowledge Base** – Strukturierte Wissensdatenbank\n\n🌐 **Web-Projekte:**\n• **Persönliche Portfolio-Website** – Responsive, zweisprachig (EN/DE) mit erweiterten Barrierefreiheitsfunktionen\n• Dark/Light Theme Toggle\n• KI-Assistent mit zweisprachiger Unterstützung\n\n**Alle Projekte zeigen:** Benutzerzentriertes Design, WCAG 2.1-Konformität und messbare Ergebnisse."
