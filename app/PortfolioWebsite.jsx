@@ -117,6 +117,22 @@ export default function PortfolioWebsite() {
     }
   }, [language]);
 
+  // Apply dark theme background to html and body to prevent white background on horizontal scroll
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const html = document.documentElement;
+      const body = document.body;
+      
+      if (isDarkTheme) {
+        html.style.backgroundColor = '#0f172a'; // slate-950
+        body.style.backgroundColor = '#0f172a'; // slate-950
+      } else {
+        html.style.backgroundColor = '#ffffff';
+        body.style.backgroundColor = '#ffffff';
+      }
+    }
+  }, [isDarkTheme]);
+
   // Format chat messages with proper HTML formatting
   const formatChatMessage = (text) => {
     if (!text) return '';
@@ -932,7 +948,7 @@ export default function PortfolioWebsite() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`min-h-screen ${isDarkTheme ? 'bg-slate-950' : 'bg-white'}`}>
       <style>{`
         @keyframes float-up-down {
           0%, 100% { transform: translateY(0px); }
