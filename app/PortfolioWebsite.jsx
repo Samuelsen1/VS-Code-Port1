@@ -215,8 +215,8 @@ export default function PortfolioWebsite() {
           role: 'assistant',
           content:
             language === 'en'
-              ? "Hi, I'm Samuel's AI assistant. If you want to know about him, his experience, skills, availability or his personality, I'm here to assist you :)."
-              : 'Hallo, ich bin Samuels KI-Assistent. Wenn Sie mehr über ihn, seine Erfahrung, Fähigkeiten, Verfügbarkeit oder Persönlichkeit wissen möchten, helfe ich Ihnen gerne weiter :).',
+              ? "Hi, I'm Samuel's AI assistant 🤖. If you want to know about him, his experience, skills, education, availability, personality or anything else, I'm here to assist you :)."
+              : 'Hallo, ich bin Samuels KI-Assistent 🤖. Wenn Sie mehr über ihn, seine Erfahrung, Fähigkeiten, Ausbildung, Verfügbarkeit, Persönlichkeit oder sonst etwas wissen möchten, helfe ich Ihnen gerne weiter :).',
         },
       ]);
     }
