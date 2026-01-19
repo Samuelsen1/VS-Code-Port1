@@ -223,7 +223,9 @@ export default function DigitalLearningCV() {
                   </a>
                 </div>
               </div>
-              <span className="text-sm text-gray-600">Juni 2025 – Nov 2025</span>
+              <span className="text-sm text-gray-600">
+                {language === 'de' ? 'Juni 2025 – Nov 2025' : 'June 2025 – Nov 2025'}
+              </span>
             </div>
             <ul className="text-sm text-gray-700 space-y-1 ml-4">
               <li>• {language === 'de' ? 'Erstellt 25+ barrierefreie Dokumentations-Assets und Unterrichtsmaterialien nach WCAG 2.1-Standards, die Benutzerfreundlichkeit für vielfältige Benutzergruppen gewährleistend' : 'Created 25+ accessible documentation assets and instructional materials following WCAG 2.1 standards, ensuring usability for diverse user groups'}</li>
@@ -251,7 +253,9 @@ export default function DigitalLearningCV() {
                   </a>
                 </div>
               </div>
-              <span className="text-sm text-gray-600">Jan 2023 – Okt 2023</span>
+              <span className="text-sm text-gray-600">
+                {language === 'de' ? 'Jan 2023 – Okt 2023' : 'Jan 2023 – Oct 2023'}
+              </span>
             </div>
             <ul className="text-sm text-gray-700 space-y-1 ml-4">
               <li>• {language === 'de' ? 'Entwarf und hielt Englischunterricht mit Lernzielen, die an Blooms Taxonomie ausgerichtet sind, und verbesserte Verständnis-, Schreib- und Sprechfähigkeiten' : "Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy, enhancing comprehension, writing, and speaking skills"}</li>
@@ -266,7 +270,9 @@ export default function DigitalLearningCV() {
                 <h3 className="font-bold text-gray-800">{language === 'de' ? 'Englisch-Lehrassistent (Praktikant)' : 'English Language Teaching Assistant (Intern)'}</h3>
                 <p className="text-gray-600 italic">Ghana Education Service, Kumasi</p>
               </div>
-              <span className="text-sm text-gray-600">Juni 2021 – Dez 2021</span>
+              <span className="text-sm text-gray-600">
+                {language === 'de' ? 'Juni 2021 – Dez 2021' : 'June 2021 – Dec 2021'}
+              </span>
             </div>
             <ul className="text-sm text-gray-700 space-y-1 ml-4">
               <li>• {language === 'de' ? 'Entwickelte eine Box-Teil-Buchstaben-Handschriftmethode, die die Leistung von Erstsemester-Studenten um 40% verbesserte' : 'Developed a box-part-letter handwriting method, improving first-year student performance by 40%'}</li>
@@ -280,7 +286,9 @@ export default function DigitalLearningCV() {
                 <h3 className="font-bold text-gray-800">{language === 'de' ? 'Englischlehrer (Werkstudent)' : 'English Language Teacher (Working Student)'}</h3>
                 <p className="text-gray-600 italic">Kovak Hill Educational Centre, Kumasi</p>
               </div>
-              <span className="text-sm text-gray-600">Jan 2020 – Juni 2020</span>
+              <span className="text-sm text-gray-600">
+                {language === 'de' ? 'Jan 2020 – Juni 2020' : 'Jan 2020 – June 2020'}
+              </span>
             </div>
             <ul className="text-sm text-gray-700 space-y-1 ml-4">
               <li>• {language === 'de' ? 'Entwickelte und implementierte Unterrichtspläne und stellte sicher, dass sie mit Lehrplanstandards und Lernermotivierungsstrategien übereinstimmten' : 'Developed and implemented lesson plans, ensuring alignment with curriculum standards and learner engagement strategies'}</li>
@@ -298,7 +306,9 @@ export default function DigitalLearningCV() {
                 <h3 className="font-bold text-gray-800">{language === 'de' ? 'Master in Nordamerikastudien (Medienwissenschaften)' : "Master's in North American Studies (Media Studies)"}</h3>
                 <p className="text-gray-600">Philipps-Universität Marburg, Deutschland</p>
               </div>
-              <span className="text-sm text-gray-600">Okt 2023 – {language === 'de' ? 'Aktuell' : 'Present'}</span>
+              <span className="text-sm text-gray-600">
+                {language === 'de' ? 'Okt 2023 – Aktuell' : 'Oct 2023 – Present'}
+              </span>
             </div>
             <p className="text-sm text-gray-700 italic ml-4">{language === 'de' ? 'Relevante Kurse: Medien | Visuelle Kunst | Schreiben für Forschung | Umstrittene Nachhaltigkeit' : 'Relevant Courses: Media | Visual Art | Writing for Research | Contested Sustainability'}</p>
             <p className="text-sm text-gray-700 font-semibold ml-4">{language === 'de' ? 'Masterarbeit: "KI als Reflexion: Mensch-Technologie-Beziehungen in digitalen Narrativen"' : 'Master\'s Thesis: "AI as Reflection: Human-Technology Relationships in Digital Narratives"'}</p>
@@ -311,7 +321,9 @@ export default function DigitalLearningCV() {
                 <p className="text-gray-600">{language === 'de' ? 'Universität Cape Coast, Ghana' : 'University of Cape Coast, Ghana'}</p>
                 <p className="text-sm text-gray-700"><span className="font-semibold">CGPA: 3.6/4.0</span> (≈ {language === 'de' ? 'Deutsch 1.4' : 'German 1.4'})</p>
               </div>
-              <span className="text-sm text-gray-600">Okt 2018 – Okt 2022</span>
+              <span className="text-sm text-gray-600">
+                {language === 'de' ? 'Okt 2018 – Okt 2022' : 'Oct 2018 – Oct 2022'}
+              </span>
             </div>
             <p className="text-sm text-gray-700 italic ml-4">{language === 'de' ? 'Relevante Kurse: Pädagogische Psychologie | Allgemeine Curriculumstudien | Bewertung & Evaluation | Erziehung von Personen mit vielfältigen Lernbedürfnissen | Forschungsmethoden in der Bildung | Bildungsstatistik | Sprache & Linguistik | Semantik | Übersetzung | Englisch in mehrsprachigen Kontexten' : "Educational Psychology | General Curriculum Studies | Assessment & Evaluation | Educating Individuals with Diverse Learning Needs | Research Methods in Education | Educational Statistics | Language & Linguistics | Semantics | Translation | English in Multilingual Contexts"}</p>
           </div>
@@ -324,7 +336,7 @@ export default function DigitalLearningCV() {
             <ul className="space-y-2 text-sm text-gray-700">
               <li>• <span className="font-semibold">{language === 'de' ? 'Technical Writing Kurs' : 'Technical Writing Course'}</span> – Google Developers | <a href="https://developers.google.com/profile/badges/profile/created-profile" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a> (April 2025)</li>
               <li>• <span className="font-semibold">{language === 'de' ? 'Technical Writing Kurs' : 'Technical Writing Course'}</span> – Board Infinity | <a href="https://bit.ly/446fLNy" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a> (April 2025)</li>
-              <li>• <span className="font-semibold">{language === 'de' ? 'API-Dokumentation erstellen' : 'Creating API Documentation'}</span> – LinkedIn Learning | <a href="https://www.linkedin.com/learning/certificates/62450d29357b3ffab0e29b7000b922977b9bddcaeaa9fde4870ca54d92732e0c" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a> (Mai 2025)</li>
+              <li>• <span className="font-semibold">{language === 'de' ? 'API-Dokumentation erstellen' : 'Creating API Documentation'}</span> – LinkedIn Learning | <a href="https://www.linkedin.com/learning/certificates/62450d29357b3ffab0e29b7000b922977b9bddcaeaa9fde4870ca54d92732e0c" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a> ({language === 'de' ? 'Mai 2025' : 'May 2025'})</li>
             </ul>
             <ul className="space-y-2 text-sm text-gray-700">
               <li>• <span className="font-semibold">{language === 'de' ? 'Instruktionsdesign Grundlagen & Anwendungen' : 'Instructional Design Foundations & Applications'}</span> – University of Illinois Urbana-Champaign | <a href="https://www.coursera.org/account/accomplishments/records/VA2HACXYEOYV" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a> (Aug 2025)</li>
