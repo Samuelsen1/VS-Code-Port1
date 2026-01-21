@@ -376,11 +376,21 @@ export default function PortfolioWebsite() {
 
     if (accessibility.rowHeight > 0) {
       const height = accessibility.rowHeight === 1 ? 2 : 2.5;
-      // Override line-height with important to override textSpacing if active
-      root.style.setProperty('line-height', height.toString(), 'important');
+      // Use style tag with !important to override all elements' line-height
+      const style = document.getElementById('a11y-row-height') || document.createElement('style');
+      style.id = 'a11y-row-height';
+      style.textContent = `
+        * {
+          line-height: ${height} !important;
+        }
+      `;
+      if (!document.getElementById('a11y-row-height')) {
+        document.head.appendChild(style);
+      }
     } else {
-      // Remove the important override when disabled, allowing other styles to take effect
-      root.style.removeProperty('line-height');
+      // Remove row height style when disabled
+      const style = document.getElementById('a11y-row-height');
+      if (style) style.remove();
       // Re-apply textSpacing line-height if it's active
       if (accessibility.textSpacing > 0) {
         const multiplier = accessibility.textSpacing === 1 ? 1 : 1.5;
