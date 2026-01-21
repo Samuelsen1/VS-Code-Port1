@@ -34,7 +34,7 @@ export default function PortfolioWebsite() {
     dyslexia: 0,
     rowHeight: 0,
     focusIndicator: 0,
-    saturation: 0
+    blueLightFilter: 0
   }); 
   
   // Animate numbers when metrics come into view
@@ -86,7 +86,7 @@ export default function PortfolioWebsite() {
       dyslexia: 0,
       rowHeight: 0,
       focusIndicator: 0,
-      saturation: 0
+      blueLightFilter: 0
     });
   };
 
@@ -256,12 +256,27 @@ export default function PortfolioWebsite() {
     }
     
     // Apply styles based on accessibility settings (with gradient intensity)
+    // Build filter string combining all active filters
+    const filters = [];
+    
     if (accessibility.contrast > 0) {
       const contrast = 1 + (accessibility.contrast === 1 ? 0.25 : 0.5);
-      root.style.filter = `contrast(${contrast})`;
+      filters.push(`contrast(${contrast})`);
     } else {
-      root.style.filter = 'contrast(1)';
+      filters.push('contrast(1)');
     }
+    
+    if (accessibility.blueLightFilter > 0) {
+      // Blue light filter: warm tone to reduce blue light
+      // Level 1: Light filter (sepia + warm brightness)
+      // Level 2: Strong filter (more sepia + warmer)
+      const sepiaValue = accessibility.blueLightFilter === 1 ? 0.3 : 0.5;
+      const brightnessValue = accessibility.blueLightFilter === 1 ? 1.05 : 1.1;
+      filters.push(`sepia(${sepiaValue})`);
+      filters.push(`brightness(${brightnessValue})`);
+    }
+    
+    root.style.filter = filters.join(' ');
 
     if (accessibility.largeText > 0) {
       const size = accessibility.largeText === 1 ? '110%' : '120%';
@@ -350,20 +365,6 @@ export default function PortfolioWebsite() {
       if (style) style.remove();
     }
 
-    if (accessibility.saturation > 0) {
-      const saturation = 1 + (accessibility.saturation === 1 ? 0.3 : 0.7);
-      const currentFilter = root.style.filter || '';
-      // Only add saturate if it's not already applied
-      if (!currentFilter.includes('saturate')) {
-        root.style.filter = `${currentFilter} saturate(${saturation})`.trim();
-      } else {
-        // Replace existing saturate value
-        root.style.filter = currentFilter.replace(/saturate\([^)]+\)/, `saturate(${saturation})`);
-      }
-    } else if (accessibility.contrast === 0) {
-      // Remove saturate if no other filters are active
-      root.style.filter = root.style.filter.replace(/\s*saturate\([^)]+\)/g, '').trim() || '';
-    }
   }, [accessibility]);
 
   // Simple translation object for English and German
@@ -2082,7 +2083,7 @@ export default function PortfolioWebsite() {
                     { key: 'dyslexia', label: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift', fullLabel: language === 'en' ? 'Full Dyslexia' : 'Voll Dyslexie', icon: '/images/dyslexia.png' },
                     { key: 'rowHeight', label: language === 'en' ? 'Row Height' : 'Zeilenhöhe', fullLabel: language === 'en' ? 'Max Height' : 'Max. Höhe', icon: '/images/row-height.png' },
                     { key: 'focusIndicator', label: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige', fullLabel: language === 'en' ? 'Strong Focus' : 'Starker Fokus', icon: '/images/focus.png' },
-                    { key: 'saturation', label: language === 'en' ? 'Saturation' : 'Sättigung', fullLabel: language === 'en' ? 'Full Saturation' : 'Volle Sättigung', icon: '/images/saturation.png' }
+                    { key: 'blueLightFilter', label: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter', fullLabel: language === 'en' ? 'Strong Filter' : 'Starker Filter', icon: '/images/saturation.png' }
                   ].map(setting => {
                     const isActive = accessibility[setting.key] > 0;
                     const isFull = accessibility[setting.key] === 2;

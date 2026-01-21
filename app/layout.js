@@ -16,13 +16,14 @@ export const metadata = {
     url: 'https://vs-code-port1.vercel.app',
     siteName: 'Samuel Afriyie Opoku Portfolio',
     title: 'Samuel Afriyie Opoku — Digital Learning Designer',
-    description: 'Digital Learning Designer creating engaging, accessible e-learning experiences and technical documentation.',
+    description: 'Digital Learning Designer creating engaging, accessible e-learning experiences and technical documentation. Specialized in instructional design, WCAG compliance, and multimedia content development.',
     images: [
       {
         url: 'https://vs-code-port1.vercel.app/images/Instructional_Design_illustration.jpg',
         width: 1200,
         height: 630,
         alt: 'Samuel Afriyie Opoku - Digital Learning Designer',
+        type: 'image/jpeg',
       },
     ],
   },
@@ -56,6 +57,11 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/images/Instructional_Design_illustration.jpg" />
         <link rel="apple-touch-icon" href="/images/Instructional_Design_illustration.jpg" />
         <meta name="theme-color" content="#1e3a8a" />
+        {/* Additional meta tags for LinkedIn and social sharing */}
+        <meta property="og:image:secure_url" content="https://vs-code-port1.vercel.app/images/Instructional_Design_illustration.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </head>
       <body>{children}</body>
     </html>
