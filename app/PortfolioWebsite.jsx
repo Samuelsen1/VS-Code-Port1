@@ -262,21 +262,37 @@ export default function PortfolioWebsite() {
     if (accessibility.contrast > 0) {
       const contrast = 1 + (accessibility.contrast === 1 ? 0.25 : 0.5);
       filters.push(`contrast(${contrast})`);
-    } else {
-      filters.push('contrast(1)');
     }
     
+    // Blue light filter: uses overlay approach for proper warm tone
     if (accessibility.blueLightFilter > 0) {
-      // Blue light filter: warm tone to reduce blue light
-      // Level 1: Light filter (sepia + warm brightness)
-      // Level 2: Strong filter (more sepia + warmer)
-      const sepiaValue = accessibility.blueLightFilter === 1 ? 0.3 : 0.5;
-      const brightnessValue = accessibility.blueLightFilter === 1 ? 1.05 : 1.1;
-      filters.push(`sepia(${sepiaValue})`);
-      filters.push(`brightness(${brightnessValue})`);
+      const style = document.getElementById('a11y-blue-light-filter') || document.createElement('style');
+      style.id = 'a11y-blue-light-filter';
+      const opacity = accessibility.blueLightFilter === 1 ? 0.15 : 0.25;
+      style.textContent = `
+        html::before {
+          content: '';
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(255, 200, 100, ${opacity});
+          pointer-events: none;
+          z-index: 999999;
+          mix-blend-mode: multiply;
+        }
+      `;
+      if (!document.getElementById('a11y-blue-light-filter')) {
+        document.head.appendChild(style);
+      }
+    } else {
+      const style = document.getElementById('a11y-blue-light-filter');
+      if (style) style.remove();
     }
     
-    root.style.filter = filters.join(' ');
+    // Only apply filter if there are active filters, otherwise clear it
+    root.style.filter = filters.length > 0 ? filters.join(' ') : '';
 
     if (accessibility.largeText > 0) {
       const size = accessibility.largeText === 1 ? '110%' : '120%';
@@ -2075,6 +2091,7 @@ export default function PortfolioWebsite() {
                 <div className="grid grid-cols-2 gap-3">
                   {[
                     { key: 'contrast', label: language === 'en' ? 'Contrast' : 'Kontrast', fullLabel: language === 'en' ? 'Full Contrast' : 'Voller Kontrast', icon: '/images/contrast.png' },
+                    { key: 'blueLightFilter', label: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter', fullLabel: language === 'en' ? 'Strong Filter' : 'Starker Filter', icon: '/images/saturation.png' },
                     { key: 'mark', label: language === 'en' ? 'Mark Links' : 'Links markieren', icon: '/images/link.png', isBinary: true },
                     { key: 'largeText', label: language === 'en' ? 'Larger Text' : 'Größere Schrift', fullLabel: language === 'en' ? 'Large Text' : 'Große Schrift', icon: '/images/larger-font.png' },
                     { key: 'textSpacing', label: language === 'en' ? 'Text Spacing' : 'Textabstand', fullLabel: language === 'en' ? 'Full Spacing' : 'Voller Abstand', icon: '/images/spacing.png' },
@@ -2082,8 +2099,7 @@ export default function PortfolioWebsite() {
                     { key: 'hideImages', label: language === 'en' ? 'Hide Images' : 'Bilder verbergen', icon: '/images/hide-images.png', isBinary: true },
                     { key: 'dyslexia', label: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift', fullLabel: language === 'en' ? 'Full Dyslexia' : 'Voll Dyslexie', icon: '/images/dyslexia.png' },
                     { key: 'rowHeight', label: language === 'en' ? 'Row Height' : 'Zeilenhöhe', fullLabel: language === 'en' ? 'Max Height' : 'Max. Höhe', icon: '/images/row-height.png' },
-                    { key: 'focusIndicator', label: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige', fullLabel: language === 'en' ? 'Strong Focus' : 'Starker Fokus', icon: '/images/focus.png' },
-                    { key: 'blueLightFilter', label: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter', fullLabel: language === 'en' ? 'Strong Filter' : 'Starker Filter', icon: '/images/saturation.png' }
+                    { key: 'focusIndicator', label: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige', fullLabel: language === 'en' ? 'Strong Focus' : 'Starker Fokus', icon: '/images/focus.png' }
                   ].map(setting => {
                     const isActive = accessibility[setting.key] > 0;
                     const isFull = accessibility[setting.key] === 2;
