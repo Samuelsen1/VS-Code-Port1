@@ -101,6 +101,11 @@ export default function PortfolioWebsite() {
           // Binary toggle: 0 -> 1 -> 0
           return { ...prev, [setting]: prev[setting] === 0 ? 1 : 0 };
         }
+        if (setting === 'blueLightFilter') {
+          // Blue light filter: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 0 (5 levels)
+          const current = prev[setting];
+          return { ...prev, [setting]: current >= 5 ? 0 : current + 1 };
+        }
         // Gradual toggle: 0 -> 1 -> 2 -> 0
         return { ...prev, [setting]: prev[setting] === 0 ? 1 : (prev[setting] === 1 ? 2 : 0) };
       });
@@ -264,11 +269,13 @@ export default function PortfolioWebsite() {
       filters.push(`contrast(${contrast})`);
     }
     
-    // Blue light filter: uses overlay approach for proper warm tone
+    // Blue light filter: uses overlay approach for proper warm tone (5 intensity levels)
     if (accessibility.blueLightFilter > 0) {
       const style = document.getElementById('a11y-blue-light-filter') || document.createElement('style');
       style.id = 'a11y-blue-light-filter';
-      const opacity = accessibility.blueLightFilter === 1 ? 0.15 : 0.25;
+      // 5 intensity levels: 0.1, 0.15, 0.2, 0.25, 0.3
+      const opacityMap = { 1: 0.1, 2: 0.15, 3: 0.2, 4: 0.25, 5: 0.3 };
+      const opacity = opacityMap[accessibility.blueLightFilter] || 0.15;
       style.textContent = `
         html::before {
           content: '';
@@ -2091,7 +2098,7 @@ export default function PortfolioWebsite() {
                 <div className="grid grid-cols-2 gap-3">
                   {[
                     { key: 'contrast', label: language === 'en' ? 'Contrast' : 'Kontrast', fullLabel: language === 'en' ? 'Full Contrast' : 'Voller Kontrast', icon: '/images/contrast.png' },
-                    { key: 'blueLightFilter', label: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter', fullLabel: language === 'en' ? 'Strong Filter' : 'Starker Filter', icon: '/images/saturation.png' },
+                    { key: 'blueLightFilter', label: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter', fullLabel: language === 'en' ? 'Strong Filter' : 'Starker Filter', icon: '/images/saturation.png' }, // TODO: Replace with proper blue light filter icon (e.g., night-mode.png, moon.png, or blue-light.png)
                     { key: 'mark', label: language === 'en' ? 'Mark Links' : 'Links markieren', icon: '/images/link.png', isBinary: true },
                     { key: 'largeText', label: language === 'en' ? 'Larger Text' : 'Größere Schrift', fullLabel: language === 'en' ? 'Large Text' : 'Große Schrift', icon: '/images/larger-font.png' },
                     { key: 'textSpacing', label: language === 'en' ? 'Text Spacing' : 'Textabstand', fullLabel: language === 'en' ? 'Full Spacing' : 'Voller Abstand', icon: '/images/spacing.png' },
@@ -2102,9 +2109,10 @@ export default function PortfolioWebsite() {
                     { key: 'focusIndicator', label: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige', fullLabel: language === 'en' ? 'Strong Focus' : 'Starker Fokus', icon: '/images/focus.png' }
                   ].map(setting => {
                     const isActive = accessibility[setting.key] > 0;
-                    const isFull = accessibility[setting.key] === 2;
+                    const isFull = setting.key === 'blueLightFilter' ? accessibility[setting.key] === 5 : accessibility[setting.key] === 2;
                     const isImageIcon = typeof setting.icon === 'string';
                     const isBinary = setting.isBinary === true;
+                    const maxLevel = setting.key === 'blueLightFilter' ? 5 : 2;
                   
                     return (
                       <button 
@@ -2128,11 +2136,20 @@ export default function PortfolioWebsite() {
                         <span className={`text-xs text-center leading-tight ${isActive ? (isDarkTheme ? 'text-blue-100' : 'text-blue-900') : (isDarkTheme ? 'text-gray-300' : 'text-gray-700')}`}>
                           {!isActive ? setting.label : (isFull && !isBinary ? (setting.fullLabel || setting.label) : setting.label)}
                         </span>
-                        {/* Intensity bars - 1 for binary, 2 for gradual */}
+                        {/* Intensity bars - 1 for binary, 2-5 for gradual */}
                         <div className="flex gap-0.5 mt-2">
                           <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 1 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
                           {!isBinary && (
-                            <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 2 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                            <>
+                              <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 2 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                              {setting.key === 'blueLightFilter' && (
+                                <>
+                                  <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 3 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                                  <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 4 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                                  <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 5 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                                </>
+                              )}
+                            </>
                           )}
                         </div>
                       </button>
