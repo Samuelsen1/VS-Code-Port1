@@ -312,11 +312,17 @@ export default function PortfolioWebsite() {
       const multiplier = accessibility.textSpacing === 1 ? 1 : 1.5;
       root.style.letterSpacing = `${0.15 * multiplier}em`;
       root.style.wordSpacing = `${0.5 * multiplier}em`;
-      root.style.lineHeight = `${1.8 * (multiplier * 0.8)}`;
+      // Only set line-height if rowHeight is not active (rowHeight takes priority)
+      if (accessibility.rowHeight === 0) {
+        root.style.lineHeight = `${1.8 * (multiplier * 0.8)}`;
+      }
     } else {
       root.style.letterSpacing = 'normal';
       root.style.wordSpacing = 'normal';
-      root.style.lineHeight = 'normal';
+      // Only reset line-height if rowHeight is not active
+      if (accessibility.rowHeight === 0) {
+        root.style.lineHeight = 'normal';
+      }
     }
 
     if (accessibility.stopAnimations > 0) {
@@ -342,15 +348,44 @@ export default function PortfolioWebsite() {
     }
 
     if (accessibility.dyslexia > 0) {
-      root.style.fontFamily = '"Dyslexie", "Comic Sans MS", sans-serif';
-      root.style.letterSpacing = `${0.12 * (accessibility.dyslexia === 1 ? 1 : 1.5)}em`;
+      // Use dyslexia-friendly fonts that are commonly available
+      // Apply via style tag with !important to ensure it overrides other styles
+      const style = document.getElementById('a11y-dyslexia-font') || document.createElement('style');
+      style.id = 'a11y-dyslexia-font';
+      style.textContent = `
+        * {
+          font-family: "Comic Sans MS", "Trebuchet MS", "Verdana", sans-serif !important;
+        }
+      `;
+      if (!document.getElementById('a11y-dyslexia-font')) {
+        document.head.appendChild(style);
+      }
+      // Only set letter spacing if textSpacing is not active (to avoid conflicts)
+      if (accessibility.textSpacing === 0) {
+        root.style.setProperty('letter-spacing', `${0.12 * (accessibility.dyslexia === 1 ? 1 : 1.5)}em`, 'important');
+      }
     } else {
-      root.style.fontFamily = 'inherit';
+      // Remove dyslexia font style
+      const style = document.getElementById('a11y-dyslexia-font');
+      if (style) style.remove();
+      // Only reset letter spacing if textSpacing is not active
+      if (accessibility.textSpacing === 0) {
+        root.style.setProperty('letter-spacing', '', 'important');
+      }
     }
 
     if (accessibility.rowHeight > 0) {
       const height = accessibility.rowHeight === 1 ? 2 : 2.5;
+      // Override line-height with important to override textSpacing if active
       root.style.setProperty('line-height', height.toString(), 'important');
+    } else {
+      // Remove the important override when disabled, allowing other styles to take effect
+      root.style.removeProperty('line-height');
+      // Re-apply textSpacing line-height if it's active
+      if (accessibility.textSpacing > 0) {
+        const multiplier = accessibility.textSpacing === 1 ? 1 : 1.5;
+        root.style.lineHeight = `${1.8 * (multiplier * 0.8)}`;
+      }
     }
 
     if (accessibility.mark > 0) {
