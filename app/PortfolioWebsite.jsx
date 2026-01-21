@@ -348,30 +348,52 @@ export default function PortfolioWebsite() {
     }
 
     if (accessibility.dyslexia > 0) {
-      // Use dyslexia-friendly fonts that are commonly available
-      // Apply via style tag with !important to ensure it overrides other styles
+      // Load Lexend font from Google Fonts if not already loaded
+      if (!document.getElementById('lexend-font')) {
+        const link = document.createElement('link');
+        link.id = 'lexend-font';
+        link.rel = 'stylesheet';
+        link.href = 'https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap';
+        document.head.appendChild(link);
+      }
+      
+      // Apply dyslexia-friendly styling with two distinct intensity levels
       const style = document.getElementById('a11y-dyslexia-font') || document.createElement('style');
       style.id = 'a11y-dyslexia-font';
-      style.textContent = `
-        * {
-          font-family: "Comic Sans MS", "Trebuchet MS", "Verdana", sans-serif !important;
-        }
-      `;
+      
+      if (accessibility.dyslexia === 1) {
+        // Level 1 (Light): Lexend font with moderate spacing
+        style.textContent = `
+          * {
+            font-family: "Lexend", "Comic Sans MS", "Trebuchet MS", sans-serif !important;
+            letter-spacing: 0.08em !important;
+            word-spacing: 0.2em !important;
+          }
+        `;
+      } else {
+        // Level 2 (Full): Lexend font with more dramatic spacing and adjustments
+        style.textContent = `
+          * {
+            font-family: "Lexend", "Comic Sans MS", "Trebuchet MS", sans-serif !important;
+            letter-spacing: 0.15em !important;
+            word-spacing: 0.4em !important;
+            font-weight: 500 !important;
+          }
+          p, span, div, li, td, th {
+            font-size: 1.05em !important;
+          }
+        `;
+      }
+      
       if (!document.getElementById('a11y-dyslexia-font')) {
         document.head.appendChild(style);
       }
-      // Only set letter spacing if textSpacing is not active (to avoid conflicts)
-      if (accessibility.textSpacing === 0) {
-        root.style.setProperty('letter-spacing', `${0.12 * (accessibility.dyslexia === 1 ? 1 : 1.5)}em`, 'important');
-      }
     } else {
-      // Remove dyslexia font style
+      // Remove dyslexia font style and font link
       const style = document.getElementById('a11y-dyslexia-font');
       if (style) style.remove();
-      // Only reset letter spacing if textSpacing is not active
-      if (accessibility.textSpacing === 0) {
-        root.style.setProperty('letter-spacing', '', 'important');
-      }
+      const link = document.getElementById('lexend-font');
+      if (link) link.remove();
     }
 
     if (accessibility.rowHeight > 0) {
