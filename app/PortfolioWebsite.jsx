@@ -2098,7 +2098,7 @@ export default function PortfolioWebsite() {
                 <div className="grid grid-cols-2 gap-3">
                   {[
                     { key: 'contrast', label: language === 'en' ? 'Contrast' : 'Kontrast', fullLabel: language === 'en' ? 'Full Contrast' : 'Voller Kontrast', icon: '/images/contrast.png' },
-                    { key: 'blueLightFilter', label: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter', fullLabel: language === 'en' ? 'Strong Filter' : 'Starker Filter', icon: '/images/saturation.png' }, // TODO: Replace with proper blue light filter icon (e.g., night-mode.png, moon.png, or blue-light.png)
+                    { key: 'blueLightFilter', label: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter', fullLabel: language === 'en' ? 'Strong Filter' : 'Starker Filter', icon: '/images/white-balance.png' },
                     { key: 'mark', label: language === 'en' ? 'Mark Links' : 'Links markieren', icon: '/images/link.png', isBinary: true },
                     { key: 'largeText', label: language === 'en' ? 'Larger Text' : 'Größere Schrift', fullLabel: language === 'en' ? 'Large Text' : 'Große Schrift', icon: '/images/larger-font.png' },
                     { key: 'textSpacing', label: language === 'en' ? 'Text Spacing' : 'Textabstand', fullLabel: language === 'en' ? 'Full Spacing' : 'Voller Abstand', icon: '/images/spacing.png' },
