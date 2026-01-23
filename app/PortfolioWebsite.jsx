@@ -243,8 +243,8 @@ export default function PortfolioWebsite() {
           role: 'assistant',
           content:
             language === 'en'
-              ? "👋 Hi! I'm <strong>Navitoir</strong>, your navigation AI assistant. I can help you find, navigate, and even control any section of this website!\n\nSay \"go to\" or \"show me\" to navigate.\nSay \"open\" to navigate and open a link.\n\nTry:\n\"Take me to projects\"\n\"Open CV\"\n(Accessibility): \"Say increase blue light filter level 3 or increase dyslexia font to level 2\""
-              : "👋 Hallo! Ich bin <strong>Navitoir</strong>, Ihr Navigations-KI-Assistent. Ich kann Ihnen helfen, jeden Bereich dieser Website zu finden, zu navigieren und sogar zu steuern!\n\nSagen Sie \"gehe zu\" oder \"zeige mir\" zum Navigieren.\nSagen Sie \"öffne\" zum Navigieren und Link öffnen.\n\nVersuchen Sie:\n\"Zeige Projekte\"\n\"Öffne Lebenslauf\"\n(Barrierefreiheit): \"Sagen Sie Blaulichtfilter Stufe 3 erhöhen oder Dyslexie-Schrift auf Stufe 2 erhöhen\"",
+              ? "👋 Hi! I'm <strong>Navitoir</strong>, your navigation AI assistant. I can help you find, navigate, and even control any section of this website!\n\nSay \"go to\" or \"show me\" to navigate.\nSay \"open\" to navigate and open a link.\n\nTry:\n\"Take me to projects\"\n\"Open CV\"\n(Accessibility): \"Say 'increase blue light filter to level 3' or 'increase dyslexia font to level 2'\""
+              : "👋 Hallo! Ich bin <strong>Navitoir</strong>, Ihr Navigations-KI-Assistent. Ich kann Ihnen helfen, jeden Bereich dieser Website zu finden, zu navigieren und sogar zu steuern!\n\nSagen Sie \"gehe zu\" oder \"zeige mir\" zum Navigieren.\nSagen Sie \"öffne\" zum Navigieren und Link öffnen.\n\nVersuchen Sie:\n\"Zeige Projekte\"\n\"Öffne Lebenslauf\"\n(Barrierefreiheit): \"Sagen Sie 'Blaulichtfilter auf Stufe 3 erhöhen' oder 'Dyslexie-Schrift auf Stufe 2 erhöhen'\"",
         },
       ]);
     }
@@ -1056,7 +1056,7 @@ export default function PortfolioWebsite() {
         contact: "Kontakt"
       },
       hero: {
-        available: "Verfügbar für Möglichkeiten",
+        available: "Verfügbar für neue Möglichkeiten",
         title: "Digital Learning Designer",
         subtitle: "Technical Writing & Dokumentation",
         desc: "Komplexe Konzepte in ansprechende, wirkungsvolle digitale Lernerfahrungen verwandeln. Lernwissenschaft, Multimediadesign und technische Kommunikation für skalierbare, barrierefreie Lösungen mit messbaren Ergebnissen.",
@@ -1066,7 +1066,7 @@ export default function PortfolioWebsite() {
       },
       about: {
         title: "Über mich",
-        desc: "Digital Learning Designer spezialisiert auf die Entwicklung ansprechender, barrierefreier Bildungserlebnisse, die transformieren, wie Menschen lernen. Ich kombiniere Instructional Design-Expertise (ADDIE, Bloom's Taxonomie, Erwachsenenlerntheorie) mit moderner Technologie, um wirkungsvolle E-Learning-Module, interaktive Kurse und Multimedia-Inhalte zu entwickeln. Mit fundiertem Hintergrund in technischer Kommunikation erstelle ich auch klare Dokumentationen, Benutzerhandbücher und Wissensdatenbanken, die komplexe Informationen für diverse Zielgruppen zugänglich machen. Engagiert für WCAG 2.1-Barrierefreiheit und messbare Lernergebnisse."
+        desc: "Als Digital Learning Designer spezialisiere ich mich auf die Entwicklung ansprechender, barrierefreier Bildungserlebnisse, die die Art, wie Menschen lernen, transformieren. Ich kombiniere Instructional Design-Expertise (ADDIE, Bloom's Taxonomie, Erwachsenenlerntheorie) mit moderner Technologie, um wirkungsvolle E-Learning-Module, interaktive Kurse und Multimedia-Inhalte zu entwickeln. Mit fundiertem Hintergrund in technischer Kommunikation erstelle ich auch klare Dokumentationen, Benutzerhandbücher und Wissensdatenbanken, die komplexe Informationen für diverse Zielgruppen zugänglich machen. Engagiert für WCAG 2.1-Barrierefreiheit und messbare Lernergebnisse."
       },
       projects: {
         title: "Ausgewählte Projekte",
@@ -1161,7 +1161,7 @@ export default function PortfolioWebsite() {
       },
       contact: {
         title: "Lassen Sie uns gemeinsam Großartiges schaffen",
-        desc: "Suchen Sie einen Digital Learning Designer, der Lernwissenschaft mit technischer Expertise verbindet? Lassen Sie uns sprechen, wie ich Ihre Lerninitiativen verbessern kann.",
+        desc: "Suchen Sie einen Digital Learning Designer, der Lernwissenschaft mit technischer Expertise verbindet? Lassen Sie uns sprechen, wie ich Ihre Lerninitiativen transformieren kann.",
         email: "E-Mail senden",
         linkedin: "LinkedIn Profil",
         location: "Standort: Marburg, Deutschland",
@@ -1319,7 +1319,7 @@ export default function PortfolioWebsite() {
     {
       title: {
         en: "Climate Change Mitigation Guide",
-        de: "Leitfaden zur Klimaschutzminderung"
+        de: "Leitfaden zur Klimawandel-Minderung"
       },
       category: {
         en: "Knowledge Base",
