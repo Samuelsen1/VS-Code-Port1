@@ -243,8 +243,8 @@ export default function PortfolioWebsite() {
           role: 'assistant',
           content:
             language === 'en'
-              ? "👋 Hi! I'm <strong>Navitoir</strong>, your navigation assistant. I can help you find and navigate to any section of this website, including certifications and CV!\n\n<strong>Navigation:</strong> Say \"go to\" or \"show me\" to navigate to a section.\n<strong>Opening links:</strong> Say \"open\" to navigate first, then open the link.\n\nTry saying:\n• \"Take me to projects\"\n• \"Show me certifications\"\n• \"Open technical writing certification\"\n• \"Go to CV\"\n• \"Open CV\""
-              : "👋 Hallo! Ich bin <strong>Navitoir</strong>, Ihr Navigationsassistent. Ich kann Ihnen helfen, jeden Bereich dieser Website zu finden und dorthin zu navigieren, einschließlich Zertifikate und Lebenslauf!\n\n<strong>Navigation:</strong> Sagen Sie \"gehe zu\" oder \"zeige mir\", um zu einem Bereich zu navigieren.\n<strong>Links öffnen:</strong> Sagen Sie \"öffne\", um zuerst zu navigieren und dann den Link zu öffnen.\n\nVersuchen Sie zu sagen:\n• \"Zeige mir Projekte\"\n• \"Gehe zu Zertifikaten\"\n• \"Öffne technisches Schreiben Zertifikat\"\n• \"Gehe zu Lebenslauf\"\n• \"Öffne Lebenslauf\"",
+              ? "👋 Hi! I'm <strong>Navitoir</strong>, your navigation assistant. I can help you find and navigate to any section of this website!\n\nSay \"go to\" or \"show me\" to navigate. Say \"open\" to navigate and open a link.\n\nTry: \"Take me to projects\", \"Show certifications\", \"Open CV\""
+              : "👋 Hallo! Ich bin <strong>Navitoir</strong>, Ihr Navigationsassistent. Ich kann Ihnen helfen, jeden Bereich dieser Website zu finden!\n\nSagen Sie \"gehe zu\" oder \"zeige mir\" zum Navigieren. Sagen Sie \"öffne\" zum Navigieren und Link öffnen.\n\nVersuchen Sie: \"Zeige Projekte\", \"Zertifikate\", \"Öffne Lebenslauf\"",
         },
       ]);
     }
