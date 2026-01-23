@@ -243,8 +243,8 @@ export default function PortfolioWebsite() {
           role: 'assistant',
           content:
             language === 'en'
-              ? "👋 Hi! I'm <strong>Navitoir</strong>, your navigation assistant. I can help you find and navigate to any section of this website. Just tell me what you're looking for!\n\nTry saying:\n• \"Take me to projects\"\n• \"Show me skills\"\n• \"Go to contact\"\n• \"About section\"\n• \"Experience\""
-              : "👋 Hallo! Ich bin <strong>Navitoir</strong>, Ihr Navigationsassistent. Ich kann Ihnen helfen, jeden Bereich dieser Website zu finden und dorthin zu navigieren. Sagen Sie mir einfach, wonach Sie suchen!\n\nVersuchen Sie zu sagen:\n• \"Zeige mir Projekte\"\n• \"Gehe zu Fähigkeiten\"\n• \"Kontakt\"\n• \"Über mich\"\n• \"Erfahrung\"",
+              ? "👋 Hi! I'm <strong>Navitoir</strong>, your navigation assistant. I can help you find and navigate to any section of this website, including certifications and CV!\n\n<strong>Navigation:</strong> Say \"go to\" or \"show me\" to navigate to a section.\n<strong>Opening links:</strong> Say \"open\" to navigate first, then open the link.\n\nTry saying:\n• \"Take me to projects\"\n• \"Show me certifications\"\n• \"Open technical writing certification\"\n• \"Go to CV\"\n• \"Open CV\""
+              : "👋 Hallo! Ich bin <strong>Navitoir</strong>, Ihr Navigationsassistent. Ich kann Ihnen helfen, jeden Bereich dieser Website zu finden und dorthin zu navigieren, einschließlich Zertifikate und Lebenslauf!\n\n<strong>Navigation:</strong> Sagen Sie \"gehe zu\" oder \"zeige mir\", um zu einem Bereich zu navigieren.\n<strong>Links öffnen:</strong> Sagen Sie \"öffne\", um zuerst zu navigieren und dann den Link zu öffnen.\n\nVersuchen Sie zu sagen:\n• \"Zeige mir Projekte\"\n• \"Gehe zu Zertifikaten\"\n• \"Öffne technisches Schreiben Zertifikat\"\n• \"Gehe zu Lebenslauf\"\n• \"Öffne Lebenslauf\"",
         },
       ]);
     }
@@ -259,6 +259,9 @@ export default function PortfolioWebsite() {
     setNavitoirInput('');
     setNavitoirMessages(prev => [...prev, { role: 'user', content: userQuery }]);
 
+    // Check if user wants to "open" something (navigate + open link)
+    const wantsToOpen = userQuery.includes('open') || userQuery.includes('öffne') || userQuery.includes('öffnen');
+
     // Section mapping
     const sectionMap = {
       'about': { id: 'about', name: language === 'en' ? 'About' : 'Über mich' },
@@ -266,9 +269,101 @@ export default function PortfolioWebsite() {
       'skills': { id: 'skills', name: language === 'en' ? 'Skills' : 'Fähigkeiten' },
       'experience': { id: 'experience', name: language === 'en' ? 'Experience' : 'Erfahrung' },
       'contact': { id: 'contact', name: language === 'en' ? 'Contact' : 'Kontakt' },
+      'certifications': { id: 'certifications', name: language === 'en' ? 'Certifications' : 'Zertifikate' },
+      'certificate': { id: 'certifications', name: language === 'en' ? 'Certifications' : 'Zertifikate' },
+      'cert': { id: 'certifications', name: language === 'en' ? 'Certifications' : 'Zertifikate' },
       'main': { id: 'main-content', name: language === 'en' ? 'Home' : 'Startseite' },
       'home': { id: 'main-content', name: language === 'en' ? 'Home' : 'Startseite' },
     };
+
+    // CV mapping
+    const cvUrl = `/cv?lang=${language}`;
+
+    // Certification links mapping
+    const certLinks = {
+      'technical writing': certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link,
+      'technical': certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link,
+      'digital learning': certifications.find(c => c.title.en.toLowerCase().includes('digital learning'))?.link,
+      'uiuc': certifications.find(c => c.issuer?.en?.toLowerCase().includes('illinois'))?.link,
+      'illinois': certifications.find(c => c.issuer?.en?.toLowerCase().includes('illinois'))?.link,
+      'board infinity': certifications.find(c => c.issuer?.en?.toLowerCase().includes('board'))?.link,
+      'board': certifications.find(c => c.issuer?.en?.toLowerCase().includes('board'))?.link,
+      'ef set': certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link,
+      'english': certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link,
+      'c1': certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link,
+    };
+
+    // Check for CV requests
+    if (userQuery.includes('cv') || userQuery.includes('resume') || userQuery.includes('lebenslauf')) {
+      if (wantsToOpen) {
+        // Navigate to main first, then open CV
+        setTimeout(() => {
+          const mainElement = document.getElementById('main-content');
+          if (mainElement) {
+            mainElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => {
+              window.open(cvUrl, '_blank');
+              setIsNavitoirOpen(false);
+            }, 800);
+          }
+        }, 100);
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `✅ Navigating to homepage, then opening <strong>CV</strong>...`
+            : `✅ Navigiere zur Startseite, dann öffne ich den <strong>Lebenslauf</strong>...`
+        }]);
+        return;
+      } else {
+        // Just navigate to main (CV link is there)
+        setTimeout(() => {
+          const element = document.getElementById('main-content');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => setIsNavitoirOpen(false), 500);
+          }
+        }, 100);
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `✅ Navigating to <strong>Home</strong> section where you can access the CV...`
+            : `✅ Navigiere zum Bereich <strong>Startseite</strong>, wo Sie auf den Lebenslauf zugreifen können...`
+        }]);
+        return;
+      }
+    }
+
+    // Check for certification link opening
+    if (wantsToOpen) {
+      let certLink = null;
+      for (const [key, link] of Object.entries(certLinks)) {
+        if (userQuery.includes(key) && link) {
+          certLink = link;
+          break;
+        }
+      }
+
+      if (certLink) {
+        // Navigate to certifications first, then open link
+        setTimeout(() => {
+          const certElement = document.getElementById('certifications');
+          if (certElement) {
+            certElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => {
+              window.open(certLink, '_blank');
+              setIsNavitoirOpen(false);
+            }, 800);
+          }
+        }, 100);
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `✅ Navigating to <strong>Certifications</strong> section, then opening the certificate...`
+            : `✅ Navigiere zum Bereich <strong>Zertifikate</strong>, dann öffne ich das Zertifikat...`
+        }]);
+        return;
+      }
+    }
 
     // Find matching section
     let targetSection = null;
@@ -291,6 +386,8 @@ export default function PortfolioWebsite() {
         targetSection = sectionMap['experience'];
       } else if (userQuery.includes('email') || userQuery.includes('reach') || userQuery.includes('message')) {
         targetSection = sectionMap['contact'];
+      } else if (userQuery.includes('cert') || userQuery.includes('training') || userQuery.includes('qualification')) {
+        targetSection = sectionMap['certifications'];
       }
     }
 
@@ -316,8 +413,8 @@ export default function PortfolioWebsite() {
       setNavitoirMessages(prev => [...prev, {
         role: 'assistant',
         content: language === 'en'
-          ? `I can help you navigate to: <strong>About</strong>, <strong>Projects</strong>, <strong>Skills</strong>, <strong>Experience</strong>, or <strong>Contact</strong>. What would you like to see?`
-          : `Ich kann Sie zu folgenden Bereichen navigieren: <strong>Über mich</strong>, <strong>Projekte</strong>, <strong>Fähigkeiten</strong>, <strong>Erfahrung</strong> oder <strong>Kontakt</strong>. Was möchten Sie sehen?`
+          ? `I can help you navigate to: <strong>About</strong>, <strong>Projects</strong>, <strong>Skills</strong>, <strong>Experience</strong>, <strong>Certifications</strong>, or <strong>Contact</strong>. I can also open CV or specific certificates. What would you like to see?`
+          : `Ich kann Sie zu folgenden Bereichen navigieren: <strong>Über mich</strong>, <strong>Projekte</strong>, <strong>Fähigkeiten</strong>, <strong>Erfahrung</strong>, <strong>Zertifikate</strong> oder <strong>Kontakt</strong>. Ich kann auch den Lebenslauf oder bestimmte Zertifikate öffnen. Was möchten Sie sehen?`
       }]);
     }
   };
@@ -2062,7 +2159,7 @@ export default function PortfolioWebsite() {
       </section>
 
       {/* Certifications */}
-      <section className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-950' : 'bg-white'}`}>
+      <section id="certifications" className={`py-24 px-4 relative overflow-hidden ${isDarkTheme ? 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-950' : 'bg-white'}`}>
         {isDarkTheme && (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-br from-blue-600/8 to-cyan-600/4 rounded-full blur-3xl"></div>
