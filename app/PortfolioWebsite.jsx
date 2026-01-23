@@ -243,8 +243,8 @@ export default function PortfolioWebsite() {
           role: 'assistant',
           content:
             language === 'en'
-              ? "👋 Hi! I'm <strong>Navitoir</strong>, your navigation assistant. I can help you find and navigate to any section of this website!\n\nSay \"go to\" or \"show me\" to navigate. Say \"open\" to navigate and open a link.\n\nTry: \"Take me to projects\", \"Show certifications\", \"Open CV\""
-              : "👋 Hallo! Ich bin <strong>Navitoir</strong>, Ihr Navigationsassistent. Ich kann Ihnen helfen, jeden Bereich dieser Website zu finden!\n\nSagen Sie \"gehe zu\" oder \"zeige mir\" zum Navigieren. Sagen Sie \"öffne\" zum Navigieren und Link öffnen.\n\nVersuchen Sie: \"Zeige Projekte\", \"Zertifikate\", \"Öffne Lebenslauf\"",
+              ? "👋 Hi! I'm <strong>Navitoir</strong>, your navigation assistant. I can help you find and navigate to any section of this website!\n\nSay \"go to\" or \"show me\" to navigate.\nSay \"open\" to navigate and open a link.\n\nTry:\n\"Take me to projects\"\n\"Show certifications\"\n\"Open CV\""
+              : "👋 Hallo! Ich bin <strong>Navitoir</strong>, Ihr Navigationsassistent. Ich kann Ihnen helfen, jeden Bereich dieser Website zu finden!\n\nSagen Sie \"gehe zu\" oder \"zeige mir\" zum Navigieren.\nSagen Sie \"öffne\" zum Navigieren und Link öffnen.\n\nVersuchen Sie:\n\"Zeige Projekte\"\n\"Zertifikate\"\n\"Öffne Lebenslauf\"",
         },
       ]);
     }
