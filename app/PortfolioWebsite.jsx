@@ -567,8 +567,8 @@ export default function PortfolioWebsite() {
       setNavitoirMessages(prev => [...prev, {
         role: 'assistant',
         content: language === 'en'
-          ? `I can help you navigate to: <strong>About</strong>, <strong>Projects</strong>, <strong>Skills</strong>, <strong>Experience</strong>, <strong>Certifications</strong>, or <strong>Contact</strong>. I can also open CV or specific certificates, and control accessibility features. What would you like to see?`
-          : `Ich kann Sie zu folgenden Bereichen navigieren: <strong>Über mich</strong>, <strong>Projekte</strong>, <strong>Fähigkeiten</strong>, <strong>Erfahrung</strong>, <strong>Zertifikate</strong> oder <strong>Kontakt</strong>. Ich kann auch den Lebenslauf oder bestimmte Zertifikate öffnen und Barrierefreiheitsfunktionen steuern. Was möchten Sie sehen?`
+          ? `I can help you navigate to: About, Projects, Skills, Experience, Certifications, or Contact. I can also open CV or specific certificates. What would you like to see?`
+          : `Ich kann Sie zu folgenden Bereichen navigieren: Über mich, Projekte, Fähigkeiten, Erfahrung, Zertifikate oder Kontakt. Ich kann auch den Lebenslauf oder bestimmte Zertifikate öffnen. Was möchten Sie sehen?`
       }]);
     }
   };
