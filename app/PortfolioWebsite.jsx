@@ -262,6 +262,51 @@ export default function PortfolioWebsite() {
     // Check if user wants to "open" something (navigate + open link)
     const wantsToOpen = userQuery.includes('open') || userQuery.includes('öffne') || userQuery.includes('öffnen');
 
+    // Check for theme switching
+    if (userQuery.includes('dark theme') || userQuery.includes('dark mode') || userQuery.includes('dunkles thema') || userQuery.includes('dunkel')) {
+      if (!isDarkTheme) {
+        setIsDarkTheme(true);
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `✅ Switched to <strong>Dark Theme</strong>.`
+            : `✅ Zu <strong>dunklem Thema</strong> gewechselt.`
+        }]);
+        setTimeout(() => setIsNavitoirOpen(false), 800);
+        return;
+      } else {
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `ℹ️ Already using <strong>Dark Theme</strong>.`
+            : `ℹ️ Bereits <strong>dunkles Thema</strong> aktiv.`
+        }]);
+        return;
+      }
+    }
+
+    if (userQuery.includes('light theme') || userQuery.includes('light mode') || userQuery.includes('helles thema') || userQuery.includes('hell')) {
+      if (isDarkTheme) {
+        setIsDarkTheme(false);
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `✅ Switched to <strong>Light Theme</strong>.`
+            : `✅ Zu <strong>hellem Thema</strong> gewechselt.`
+        }]);
+        setTimeout(() => setIsNavitoirOpen(false), 800);
+        return;
+      } else {
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `ℹ️ Already using <strong>Light Theme</strong>.`
+            : `ℹ️ Bereits <strong>helles Thema</strong> aktiv.`
+        }]);
+        return;
+      }
+    }
+
     // Accessibility feature mapping
     const accessibilityMap = {
       'accessibility': { key: null, name: language === 'en' ? 'Accessibility Panel' : 'Barrierefreiheitspanel' },
