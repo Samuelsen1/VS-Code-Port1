@@ -262,6 +262,139 @@ export default function PortfolioWebsite() {
     // Check if user wants to "open" something (navigate + open link)
     const wantsToOpen = userQuery.includes('open') || userQuery.includes('öffne') || userQuery.includes('öffnen');
 
+    // Accessibility feature mapping
+    const accessibilityMap = {
+      'accessibility': { key: null, name: language === 'en' ? 'Accessibility Panel' : 'Barrierefreiheitspanel' },
+      'dyslexia': { key: 'dyslexia', name: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift' },
+      'dyslexie': { key: 'dyslexia', name: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift' },
+      'blue light': { key: 'blueLightFilter', name: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter' },
+      'blue light filter': { key: 'blueLightFilter', name: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter' },
+      'images': { key: 'hideImages', name: language === 'en' ? 'Hide Images' : 'Bilder verbergen' },
+      'image': { key: 'hideImages', name: language === 'en' ? 'Hide Images' : 'Bilder verbergen' },
+      'contrast': { key: 'contrast', name: language === 'en' ? 'Contrast' : 'Kontrast' },
+      'text size': { key: 'largeText', name: language === 'en' ? 'Larger Text' : 'Größere Schrift' },
+      'large text': { key: 'largeText', name: language === 'en' ? 'Larger Text' : 'Größere Schrift' },
+      'font size': { key: 'largeText', name: language === 'en' ? 'Larger Text' : 'Größere Schrift' },
+      'spacing': { key: 'textSpacing', name: language === 'en' ? 'Text Spacing' : 'Textabstand' },
+      'text spacing': { key: 'textSpacing', name: language === 'en' ? 'Text Spacing' : 'Textabstand' },
+      'animations': { key: 'stopAnimations', name: language === 'en' ? 'Stop Animations' : 'Animationen stoppen' },
+      'animation': { key: 'stopAnimations', name: language === 'en' ? 'Stop Animations' : 'Animationen stoppen' },
+      'row height': { key: 'rowHeight', name: language === 'en' ? 'Row Height' : 'Zeilenhöhe' },
+      'line height': { key: 'rowHeight', name: language === 'en' ? 'Row Height' : 'Zeilenhöhe' },
+      'focus': { key: 'focusIndicator', name: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige' },
+      'focus indicator': { key: 'focusIndicator', name: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige' },
+      'links': { key: 'mark', name: language === 'en' ? 'Mark Links' : 'Links markieren' },
+      'link': { key: 'mark', name: language === 'en' ? 'Mark Links' : 'Links markieren' },
+    };
+
+    // Check for accessibility panel opening
+    if (userQuery.includes('accessibility') || userQuery.includes('barrierefreiheit')) {
+      setIsAccessibilityOpen(true);
+      setNavitoirMessages(prev => [...prev, {
+        role: 'assistant',
+        content: language === 'en'
+          ? `✅ Opening <strong>Accessibility Panel</strong>...`
+          : `✅ Öffne <strong>Barrierefreiheitspanel</strong>...`
+      }]);
+      setTimeout(() => setIsNavitoirOpen(false), 500);
+      return;
+    }
+
+    // Check for accessibility feature control
+    let matchedFeature = null;
+    for (const [key, feature] of Object.entries(accessibilityMap)) {
+      if (userQuery.includes(key) && feature.key) {
+        matchedFeature = feature;
+        break;
+      }
+    }
+
+    if (matchedFeature) {
+      const featureKey = matchedFeature.key;
+      const currentValue = accessibility[featureKey];
+      const isBinary = binaryFeatures.includes(featureKey);
+      const isBlueLight = featureKey === 'blueLightFilter';
+      
+      // Determine action based on query
+      const wantsIncrease = userQuery.includes('increase') || userQuery.includes('max') || userQuery.includes('full') || userQuery.includes('maximum') || userQuery.includes('erhöhen') || userQuery.includes('maximal');
+      const wantsDecrease = userQuery.includes('decrease') || userQuery.includes('reduce') || userQuery.includes('lower') || userQuery.includes('reduzieren') || userQuery.includes('verringern');
+      const wantsTurnOn = userQuery.includes('turn on') || userQuery.includes('enable') || userQuery.includes('open') || userQuery.includes('activate') || userQuery.includes('einschalten') || userQuery.includes('aktivieren');
+      const wantsTurnOff = userQuery.includes('turn off') || userQuery.includes('disable') || userQuery.includes('close') || userQuery.includes('deactivate') || userQuery.includes('ausschalten') || userQuery.includes('deaktivieren');
+
+      let newValue = currentValue;
+      let action = '';
+
+      if (wantsTurnOff || (currentValue > 0 && !wantsIncrease && !wantsDecrease && !wantsTurnOn)) {
+        // Turn off
+        newValue = 0;
+        action = language === 'en' ? 'turned off' : 'ausgeschaltet';
+      } else if (wantsTurnOn || currentValue === 0) {
+        // Turn on or increase
+        if (isBinary) {
+          newValue = 1;
+          action = language === 'en' ? 'turned on' : 'eingeschaltet';
+        } else if (isBlueLight) {
+          if (wantsIncrease && currentValue > 0) {
+            newValue = Math.min(5, currentValue + 1);
+            action = language === 'en' ? `increased to level ${newValue}` : `auf Stufe ${newValue} erhöht`;
+          } else if (wantsDecrease && currentValue > 1) {
+            newValue = Math.max(1, currentValue - 1);
+            action = language === 'en' ? `decreased to level ${newValue}` : `auf Stufe ${newValue} verringert`;
+          } else {
+            newValue = currentValue === 0 ? 1 : (currentValue >= 5 ? 0 : currentValue + 1);
+            action = language === 'en' ? (newValue === 0 ? 'turned off' : `set to level ${newValue}`) : (newValue === 0 ? 'ausgeschaltet' : `auf Stufe ${newValue} gesetzt`);
+          }
+        } else {
+          if (wantsIncrease && currentValue > 0) {
+            newValue = 2;
+            action = language === 'en' ? 'increased to full' : 'auf voll erhöht';
+          } else {
+            newValue = currentValue === 0 ? 1 : 2;
+            action = language === 'en' ? (newValue === 1 ? 'turned on (light)' : 'increased to full') : (newValue === 1 ? 'eingeschaltet (leicht)' : 'auf voll erhöht');
+          }
+        }
+      } else if (wantsIncrease) {
+        // Increase
+        if (isBlueLight) {
+          newValue = Math.min(5, currentValue + 1);
+          action = language === 'en' ? `increased to level ${newValue}` : `auf Stufe ${newValue} erhöht`;
+        } else if (!isBinary) {
+          newValue = 2;
+          action = language === 'en' ? 'increased to full' : 'auf voll erhöht';
+        }
+      } else if (wantsDecrease) {
+        // Decrease
+        if (isBlueLight) {
+          newValue = Math.max(0, currentValue - 1);
+          action = language === 'en' ? (newValue === 0 ? 'turned off' : `decreased to level ${newValue}`) : (newValue === 0 ? 'ausgeschaltet' : `auf Stufe ${newValue} verringert`);
+        } else if (!isBinary && currentValue === 2) {
+          newValue = 1;
+          action = language === 'en' ? 'decreased to light' : 'auf leicht verringert';
+        }
+      }
+
+      // Apply the change
+      if (newValue !== currentValue) {
+        setAccessibility(prev => ({ ...prev, [featureKey]: newValue }));
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `✅ <strong>${matchedFeature.name}</strong> ${action}.`
+            : `✅ <strong>${matchedFeature.name}</strong> ${action}.`
+        }]);
+        setTimeout(() => setIsNavitoirOpen(false), 800);
+        return;
+      } else {
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `ℹ️ <strong>${matchedFeature.name}</strong> is already ${currentValue === 0 ? 'off' : (isBlueLight ? `at level ${currentValue}` : (currentValue === 1 ? 'at light level' : 'at full level'))}.`
+            : `ℹ️ <strong>${matchedFeature.name}</strong> ist bereits ${currentValue === 0 ? 'aus' : (isBlueLight ? `auf Stufe ${currentValue}` : (currentValue === 1 ? 'auf leichter Stufe' : 'auf voller Stufe'))}.`
+        }]);
+        return;
+      }
+    }
+
     // Section mapping
     const sectionMap = {
       'about': { id: 'about', name: language === 'en' ? 'About' : 'Über mich' },
