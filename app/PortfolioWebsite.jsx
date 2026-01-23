@@ -228,8 +228,8 @@ export default function PortfolioWebsite() {
           role: 'assistant',
           content:
             language === 'en'
-              ? `Hi, I'm Samuel's AI assistant. If you want to know about him, his experience, skills, education, availability, personality or anything else, I'm here to assist you 😊.\n\nIf you're searching for something or need navigation aid, use ${navitoirIcon}<strong>Navitoir</strong>, my AI assistant for prompt navigation.`
-              : `Hallo, ich bin Samuels KI-Assistent. Wenn Sie mehr über ihn, seine Erfahrung, Fähigkeiten, Ausbildung, Verfügbarkeit, Persönlichkeit oder sonst etwas wissen möchten, helfe ich Ihnen gerne weiter 😊.\n\nWenn Sie nach etwas suchen oder Navigationshilfe benötigen, verwenden Sie ${navitoirIcon}<strong>Navitoir</strong>, meinen KI-Assistenten für schnelle Navigation.`,
+              ? `Hi, I'm Samuel's AI assistant. If you want to know about him, his experience, skills, education, availability, personality or anything else, I'm here to assist you 😊.\n\nIf you're searching for something or need navigation aid, use ${navitoirIcon}<strong>Navitoir</strong>, my assistant for prompt navigation.`
+              : `Hallo, ich bin Samuels KI-Assistent. Wenn Sie mehr über ihn, seine Erfahrung, Fähigkeiten, Ausbildung, Verfügbarkeit, Persönlichkeit oder sonst etwas wissen möchten, helfe ich Ihnen gerne weiter 😊.\n\nWenn Sie nach etwas suchen oder Navigationshilfe benötigen, verwenden Sie ${navitoirIcon}<strong>Navitoir</strong>, meinen Assistenten für schnelle Navigation.`,
         },
       ]);
     }
