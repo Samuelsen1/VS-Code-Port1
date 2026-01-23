@@ -243,8 +243,8 @@ export default function PortfolioWebsite() {
           role: 'assistant',
           content:
             language === 'en'
-              ? "👋 Hi! I'm <strong>Navitoir</strong>, your navigation assistant. I can help you find and navigate to any section of this website!\n\nSay \"go to\" or \"show me\" to navigate.\nSay \"open\" to navigate and open a link.\n\nTry:\"Take me to projects\"\n\"Show certifications\"\n\"Open CV\""
-              : "👋 Hallo! Ich bin <strong>Navitoir</strong>, Ihr Navigationsassistent. Ich kann Ihnen helfen, jeden Bereich dieser Website zu finden!\n\nSagen Sie \"gehe zu\" oder \"zeige mir\" zum Navigieren.\nSagen Sie \"öffne\" zum Navigieren und Link öffnen.\n\nVersuchen Sie:\"Zeige Projekte\"\n\"Zertifikate\"\n\"Öffne Lebenslauf\"",
+              ? "👋 Hi! I'm <strong>Navitoir</strong>, your navigation AI assistant. I can help you find, navigate, and even control any section of this website!\n\nSay \"go to\" or \"show me\" to navigate.\nSay \"open\" to navigate and open a link.\n\nTry:\n\"Take me to projects\"\n\"Open CV\"\n\n(Accessibility): \"Say increase brightness level 3 or increase dyslexia to level 2\""
+              : "👋 Hallo! Ich bin <strong>Navitoir</strong>, Ihr Navigations-KI-Assistent. Ich kann Ihnen helfen, jeden Bereich dieser Website zu finden, zu navigieren und sogar zu steuern!\n\nSagen Sie \"gehe zu\" oder \"zeige mir\" zum Navigieren.\nSagen Sie \"öffne\" zum Navigieren und Link öffnen.\n\nVersuchen Sie:\n\"Zeige Projekte\"\n\"Öffne Lebenslauf\"\n\n(Barrierefreiheit): \"Sagen Sie Helligkeit Stufe 3 erhöhen oder Dyslexie auf Stufe 2 erhöhen\"",
         },
       ]);
     }
@@ -269,6 +269,7 @@ export default function PortfolioWebsite() {
       'dyslexie': { key: 'dyslexia', name: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift' },
       'blue light': { key: 'blueLightFilter', name: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter' },
       'blue light filter': { key: 'blueLightFilter', name: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter' },
+      'brightness': { key: 'blueLightFilter', name: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter' },
       'images': { key: 'hideImages', name: language === 'en' ? 'Hide Images' : 'Bilder verbergen' },
       'image': { key: 'hideImages', name: language === 'en' ? 'Hide Images' : 'Bilder verbergen' },
       'contrast': { key: 'contrast', name: language === 'en' ? 'Contrast' : 'Kontrast' },
@@ -315,6 +316,10 @@ export default function PortfolioWebsite() {
       const isBinary = binaryFeatures.includes(featureKey);
       const isBlueLight = featureKey === 'blueLightFilter';
       
+      // Extract specific level number if mentioned (e.g., "level 3", "to level 2", "level 5")
+      const levelMatch = userQuery.match(/(?:level|stufe|auf)\s*(\d+)/i);
+      const specifiedLevel = levelMatch ? parseInt(levelMatch[1], 10) : null;
+
       // Determine action based on query
       const wantsIncrease = userQuery.includes('increase') || userQuery.includes('max') || userQuery.includes('full') || userQuery.includes('maximum') || userQuery.includes('erhöhen') || userQuery.includes('maximal');
       const wantsDecrease = userQuery.includes('decrease') || userQuery.includes('reduce') || userQuery.includes('lower') || userQuery.includes('reduzieren') || userQuery.includes('verringern');
@@ -323,6 +328,25 @@ export default function PortfolioWebsite() {
 
       let newValue = currentValue;
       let action = '';
+
+      // If specific level is mentioned, jump to that level
+      if (specifiedLevel !== null) {
+        if (isBlueLight) {
+          // Blue light filter: 0-5 levels
+          newValue = Math.max(0, Math.min(5, specifiedLevel));
+          action = language === 'en' ? `set to level ${newValue}` : `auf Stufe ${newValue} gesetzt`;
+        } else if (!isBinary) {
+          // Gradual features: 0, 1, 2 levels
+          newValue = Math.max(0, Math.min(2, specifiedLevel));
+          action = language === 'en' 
+            ? (newValue === 0 ? 'turned off' : (newValue === 1 ? 'set to light level' : 'set to full level'))
+            : (newValue === 0 ? 'ausgeschaltet' : (newValue === 1 ? 'auf leichte Stufe gesetzt' : 'auf volle Stufe gesetzt'));
+        } else {
+          // Binary features: only 0 or 1
+          newValue = specifiedLevel > 0 ? 1 : 0;
+          action = language === 'en' ? (newValue === 1 ? 'turned on' : 'turned off') : (newValue === 1 ? 'eingeschaltet' : 'ausgeschaltet');
+        }
+      } else if (wantsTurnOff || (currentValue > 0 && !wantsIncrease && !wantsDecrease && !wantsTurnOn)) {
 
       if (wantsTurnOff || (currentValue > 0 && !wantsIncrease && !wantsDecrease && !wantsTurnOn)) {
         // Turn off
