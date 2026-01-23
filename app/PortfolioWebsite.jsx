@@ -222,14 +222,14 @@ export default function PortfolioWebsite() {
   // Initial greeting message when chat opens
   useEffect(() => {
     if (isChatOpen && chatMessages.length === 0) {
-      const navitoirIcon = '<img src="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'20\' height=\'20\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%236366f1\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\' style=\'display: inline-block; vertical-align: middle; margin: 0 4px;\'%3E%3Cpolygon points=\'3 11 22 2 13 21 11 13 3 11\'/%3E%3C/svg%3E" alt="Navitoir" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle;" />';
+      const navitoirIcon = '<img src="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'16\' height=\'16\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%236366f1\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\' style=\'display: inline-block; vertical-align: middle; margin-right: 6px; margin-left: 0;\'%3E%3Cpolygon points=\'3 11 22 2 13 21 11 13 3 11\'/%3E%3C/svg%3E" alt="Navitoir" style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; margin-right: 6px;" />';
       setChatMessages([
         {
           role: 'assistant',
           content:
             language === 'en'
-              ? `Hi, I'm Samuel's AI assistant. If you want to know about him, his experience, skills, education, availability, personality or anything else, I'm here to assist you 😊.\n\nIf you're searching for something or need navigation aid, use ${navitoirIcon} <strong>Navitoir</strong>, the AI assistant for prompt navigation.`
-              : `Hallo, ich bin Samuels KI-Assistent. Wenn Sie mehr über ihn, seine Erfahrung, Fähigkeiten, Ausbildung, Verfügbarkeit, Persönlichkeit oder sonst etwas wissen möchten, helfe ich Ihnen gerne weiter 😊.\n\nWenn Sie nach etwas suchen oder Navigationshilfe benötigen, verwenden Sie ${navitoirIcon} <strong>Navitoir</strong>, den KI-Assistenten für schnelle Navigation.`,
+              ? `Hi, I'm Samuel's AI assistant. If you want to know about him, his experience, skills, education, availability, personality or anything else, I'm here to assist you 😊.\n\nIf you're searching for something or need navigation aid, use ${navitoirIcon}<strong>Navitoir</strong>, the AI assistant for prompt navigation.`
+              : `Hallo, ich bin Samuels KI-Assistent. Wenn Sie mehr über ihn, seine Erfahrung, Fähigkeiten, Ausbildung, Verfügbarkeit, Persönlichkeit oder sonst etwas wissen möchten, helfe ich Ihnen gerne weiter 😊.\n\nWenn Sie nach etwas suchen oder Navigationshilfe benötigen, verwenden Sie ${navitoirIcon}<strong>Navitoir</strong>, den KI-Assistenten für schnelle Navigation.`,
         },
       ]);
     }
