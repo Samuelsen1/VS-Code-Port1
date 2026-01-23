@@ -347,8 +347,6 @@ export default function PortfolioWebsite() {
           action = language === 'en' ? (newValue === 1 ? 'turned on' : 'turned off') : (newValue === 1 ? 'eingeschaltet' : 'ausgeschaltet');
         }
       } else if (wantsTurnOff || (currentValue > 0 && !wantsIncrease && !wantsDecrease && !wantsTurnOn)) {
-
-      if (wantsTurnOff || (currentValue > 0 && !wantsIncrease && !wantsDecrease && !wantsTurnOn)) {
         // Turn off
         newValue = 0;
         action = language === 'en' ? 'turned off' : 'ausgeschaltet';
