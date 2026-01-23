@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send, Award, Bot } from 'lucide-react';
+import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send, Award, Bot, Search, Navigation } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,6 +13,13 @@ export default function PortfolioWebsite() {
   const [chatLoading, setChatLoading] = useState(false);
   const chatEndRef = useRef(null);
   const chatInputRef = useRef(null);
+
+  // Navitoir (Navigation AI) state
+  const [isNavitoirOpen, setIsNavitoirOpen] = useState(false);
+  const [navitoirInput, setNavitoirInput] = useState('');
+  const [navitoirMessages, setNavitoirMessages] = useState([]);
+  const navitoirEndRef = useRef(null);
+  const navitoirInputRef = useRef(null);
   
   
   // Animated counter states
@@ -220,12 +227,106 @@ export default function PortfolioWebsite() {
           role: 'assistant',
           content:
             language === 'en'
-              ? "Hi, I'm Samuel's AI assistant. If you want to know about him, his experience, skills, education, availability, personality or anything else, I'm here to assist you 😊."
-              : "Hallo, ich bin Samuels KI-Assistent. Wenn Sie mehr über ihn, seine Erfahrung, Fähigkeiten, Ausbildung, Verfügbarkeit, Persönlichkeit oder sonst etwas wissen möchten, helfe ich Ihnen gerne weiter 😊.",
+              ? "Hi, I'm Samuel's AI assistant. If you want to know about him, his experience, skills, education, availability, personality or anything else, I'm here to assist you 😊.\n\nIf you're searching for something or need navigation aid, use <strong>Navitoir</strong>, the AI assistant for prompt navigation."
+              : "Hallo, ich bin Samuels KI-Assistent. Wenn Sie mehr über ihn, seine Erfahrung, Fähigkeiten, Ausbildung, Verfügbarkeit, Persönlichkeit oder sonst etwas wissen möchten, helfe ich Ihnen gerne weiter 😊.\n\nWenn Sie nach etwas suchen oder Navigationshilfe benötigen, verwenden Sie <strong>Navitoir</strong>, den KI-Assistenten für schnelle Navigation.",
         },
       ]);
     }
   }, [isChatOpen, language, chatMessages.length]);
+
+  // Initial greeting message when Navitoir opens
+  useEffect(() => {
+    if (isNavitoirOpen && navitoirMessages.length === 0) {
+      setNavitoirMessages([
+        {
+          role: 'assistant',
+          content:
+            language === 'en'
+              ? "👋 Hi! I'm <strong>Navitoir</strong>, your navigation assistant. I can help you find and navigate to any section of this website. Just tell me what you're looking for!\n\nTry saying:\n• \"Take me to projects\"\n• \"Show me skills\"\n• \"Go to contact\"\n• \"About section\"\n• \"Experience\""
+              : "👋 Hallo! Ich bin <strong>Navitoir</strong>, Ihr Navigationsassistent. Ich kann Ihnen helfen, jeden Bereich dieser Website zu finden und dorthin zu navigieren. Sagen Sie mir einfach, wonach Sie suchen!\n\nVersuchen Sie zu sagen:\n• \"Zeige mir Projekte\"\n• \"Gehe zu Fähigkeiten\"\n• \"Kontakt\"\n• \"Über mich\"\n• \"Erfahrung\"",
+        },
+      ]);
+    }
+  }, [isNavitoirOpen, language, navitoirMessages.length]);
+
+  // Handle Navitoir navigation
+  const handleNavitoirSubmit = async (e) => {
+    e.preventDefault();
+    if (!navitoirInput.trim()) return;
+
+    const userQuery = navitoirInput.trim().toLowerCase();
+    setNavitoirInput('');
+    setNavitoirMessages(prev => [...prev, { role: 'user', content: userQuery }]);
+
+    // Section mapping
+    const sectionMap = {
+      'about': { id: 'about', name: language === 'en' ? 'About' : 'Über mich' },
+      'projects': { id: 'projects', name: language === 'en' ? 'Projects' : 'Projekte' },
+      'skills': { id: 'skills', name: language === 'en' ? 'Skills' : 'Fähigkeiten' },
+      'experience': { id: 'experience', name: language === 'en' ? 'Experience' : 'Erfahrung' },
+      'contact': { id: 'contact', name: language === 'en' ? 'Contact' : 'Kontakt' },
+      'main': { id: 'main-content', name: language === 'en' ? 'Home' : 'Startseite' },
+      'home': { id: 'main-content', name: language === 'en' ? 'Home' : 'Startseite' },
+    };
+
+    // Find matching section
+    let targetSection = null;
+    for (const [key, section] of Object.entries(sectionMap)) {
+      if (userQuery.includes(key) || userQuery.includes(section.name.toLowerCase())) {
+        targetSection = section;
+        break;
+      }
+    }
+
+    // Also check for common phrases
+    if (!targetSection) {
+      if (userQuery.includes('who') || userQuery.includes('wer') || userQuery.includes('about')) {
+        targetSection = sectionMap['about'];
+      } else if (userQuery.includes('work') || userQuery.includes('portfolio') || userQuery.includes('project')) {
+        targetSection = sectionMap['projects'];
+      } else if (userQuery.includes('ability') || userQuery.includes('technology') || userQuery.includes('tech')) {
+        targetSection = sectionMap['skills'];
+      } else if (userQuery.includes('job') || userQuery.includes('career') || userQuery.includes('history')) {
+        targetSection = sectionMap['experience'];
+      } else if (userQuery.includes('email') || userQuery.includes('reach') || userQuery.includes('message')) {
+        targetSection = sectionMap['contact'];
+      }
+    }
+
+    if (targetSection) {
+      // Navigate to section
+      setTimeout(() => {
+        const element = document.getElementById(targetSection.id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Close Navitoir after navigation
+          setTimeout(() => setIsNavitoirOpen(false), 500);
+        }
+      }, 100);
+
+      setNavitoirMessages(prev => [...prev, {
+        role: 'assistant',
+        content: language === 'en'
+          ? `✅ Navigating to <strong>${targetSection.name}</strong> section...`
+          : `✅ Navigiere zum Bereich <strong>${targetSection.name}</strong>...`
+      }]);
+    } else {
+      // No match found
+      setNavitoirMessages(prev => [...prev, {
+        role: 'assistant',
+        content: language === 'en'
+          ? `I can help you navigate to: <strong>About</strong>, <strong>Projects</strong>, <strong>Skills</strong>, <strong>Experience</strong>, or <strong>Contact</strong>. What would you like to see?`
+          : `Ich kann Sie zu folgenden Bereichen navigieren: <strong>Über mich</strong>, <strong>Projekte</strong>, <strong>Fähigkeiten</strong>, <strong>Erfahrung</strong> oder <strong>Kontakt</strong>. Was möchten Sie sehen?`
+      }]);
+    }
+  };
+
+  // Scroll to bottom of Navitoir chat
+  useEffect(() => {
+    if (navitoirEndRef.current) {
+      navitoirEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [navitoirMessages]);
 
   // Auto-focus chat input when modal opens (for mobile keyboard)
   useEffect(() => {
@@ -2263,10 +2364,37 @@ export default function PortfolioWebsite() {
         </button>
       </div>
 
-      {/* Floating AI Button */}
+      {/* Floating AI Buttons */}
       <div 
-        className="fixed right-6 bottom-6 z-50"
+        className="fixed right-6 bottom-6 z-50 flex flex-col gap-3"
       >
+        {/* Navitoir Button */}
+        <button
+          onClick={() => setIsNavitoirOpen(true)}
+          className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group ${
+            isNavitoirOpen ? 'scale-95' : 'hover:scale-110'
+          }`}
+          style={{
+            background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+            boxShadow: isDarkTheme 
+              ? '0 4px 12px rgba(99, 102, 241, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
+              : '0 4px 15px rgba(99, 102, 241, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
+          }}
+          aria-label={language === 'en' ? 'Navitoir - Navigation Assistant' : 'Navitoir - Navigationsassistent'}
+          title={language === 'en' ? 'Navitoir - Navigation Assistant' : 'Navitoir - Navigationsassistent'}
+        >
+          <Navigation className="w-6 h-6" />
+          {/* Subtle border effect */}
+          <div 
+            className="absolute inset-0 rounded-full pointer-events-none"
+            style={{
+              border: '2px solid rgba(255, 255, 255, 0.15)',
+              boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.05)'
+            }}
+          />
+        </button>
+
+        {/* AI Assistant Button */}
         <button
           onClick={() => setIsChatOpen(true)}
           className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group ${
@@ -2293,6 +2421,95 @@ export default function PortfolioWebsite() {
         </button>
       </div>
       
+      {/* Navitoir Modal */}
+      {isNavitoirOpen && (
+        <div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center md:p-4" onClick={() => setIsNavitoirOpen(false)}>
+          <div 
+            className={`relative w-full md:max-w-md h-[75vh] md:h-[500px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}
+            style={{
+              border: '3px solid #6366f1'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className={`flex items-center justify-between p-4 border-b ${isDarkTheme ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-gradient-to-r from-indigo-50 to-purple-50'}`}>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+                  <Navigation className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className={`font-bold ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>
+                    Navitoir
+                  </h3>
+                  <p className={`text-xs ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
+                    {language === 'en' ? 'Navigation Assistant' : 'Navigationsassistent'}
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setIsNavitoirOpen(false)}
+                className={`p-2 rounded-lg transition-colors ${isDarkTheme ? 'hover:bg-gray-700 text-gray-400 hover:text-white' : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'}`}
+                aria-label="Close Navitoir"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Messages */}
+            <div className={`flex-1 overflow-y-auto p-4 space-y-4 ${isDarkTheme ? 'bg-gray-900' : 'bg-gray-50'}`}>
+              {navitoirMessages.map((message, index) => (
+                <div
+                  key={index}
+                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div
+                    className={`max-w-[80%] rounded-2xl px-4 py-3 ${
+                      message.role === 'user'
+                        ? isDarkTheme
+                          ? 'bg-indigo-600 text-white'
+                          : 'bg-indigo-600 text-white'
+                        : isDarkTheme
+                        ? 'bg-gray-800 text-gray-200 border border-gray-700'
+                        : 'bg-white text-gray-900 border border-gray-200 shadow-sm'
+                    }`}
+                  >
+                    <div 
+                      className="text-sm leading-relaxed prose prose-sm max-w-none"
+                      dangerouslySetInnerHTML={{ __html: formatChatMessage(message.content) }}
+                    />
+                  </div>
+                </div>
+              ))}
+              <div ref={navitoirEndRef} />
+            </div>
+
+            {/* Input Form */}
+            <form onSubmit={handleNavitoirSubmit} className={`p-4 border-t ${isDarkTheme ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-white'}`}>
+              <div className="flex gap-2">
+                <input
+                  ref={navitoirInputRef}
+                  type="text"
+                  inputMode="text"
+                  autoComplete="off"
+                  autoCapitalize="sentences"
+                  value={navitoirInput}
+                  onChange={(e) => setNavitoirInput(e.target.value)}
+                  placeholder={language === 'en' ? 'Search or navigate to a section...' : 'Suchen oder zu einem Bereich navigieren...'}
+                  className={`flex-1 px-4 py-3 rounded-xl border transition-colors ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-indigo-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-indigo-500'} focus:outline-none focus:ring-2 focus:ring-indigo-500/20`}
+                />
+                <button
+                  type="submit"
+                  disabled={!navitoirInput.trim()}
+                  className="px-5 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                >
+                  <Search className="w-4 h-4" />
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
       {/* AI Chatbot Modal */}
       {isChatOpen && (
         <div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center md:p-4" onClick={() => setIsChatOpen(false)}>
