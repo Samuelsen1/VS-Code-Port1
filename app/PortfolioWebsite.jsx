@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send, Award, Bot, Search, Navigation } from 'lucide-react';
+import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, EyeOff, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send, Award, Bot, Search, Navigation } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState('en');
   const [isDarkTheme, setIsDarkTheme] = useState(false); // Light theme by default, toggle for dark/night mode
+  const [featuresEnabled, setFeaturesEnabled] = useState(true); // Controls accessibility panel and AI assistants
   
   // Chatbot state
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -128,6 +129,15 @@ export default function PortfolioWebsite() {
       localStorage.setItem('language', language);
     }
   }, [language]);
+
+  // Close all feature modals when features are disabled
+  useEffect(() => {
+    if (!featuresEnabled) {
+      setIsAccessibilityOpen(false);
+      setIsNavitoirOpen(false);
+      setIsChatOpen(false);
+    }
+  }, [featuresEnabled]);
 
   // Apply dark theme background to html and body to prevent white background on horizontal scroll
   useEffect(() => {
@@ -1675,7 +1685,24 @@ export default function PortfolioWebsite() {
               <a href="#skills" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.skills}</a>
               <a href="#experience" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.experience}</a>
               <a href="#contact" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.contact}</a>
-              {/* Accessibility Theme Toggle */}
+              {/* Features Toggle */}
+              <button
+                onClick={() => {
+                  setFeaturesEnabled(!featuresEnabled);
+                  if (!featuresEnabled === false) {
+                    // When disabling, close all modals
+                    setIsAccessibilityOpen(false);
+                    setIsNavitoirOpen(false);
+                    setIsChatOpen(false);
+                  }
+                }}
+                className={`p-2.5 rounded-xl border transition-all duration-300 flex items-center gap-2 ${featuresEnabled ? 'bg-green-600 text-white border-green-600 shadow-md hover:bg-green-700' : 'bg-gray-400 text-white border-gray-400 shadow-md hover:bg-gray-500'}`}
+                aria-label={featuresEnabled ? (language === 'en' ? 'Disable features' : 'Funktionen deaktivieren') : (language === 'en' ? 'Enable features' : 'Funktionen aktivieren')}
+                title={featuresEnabled ? (language === 'en' ? 'Disable Accessibility & AI Features' : 'Barrierefreiheit & KI-Funktionen deaktivieren') : (language === 'en' ? 'Enable Accessibility & AI Features' : 'Barrierefreiheit & KI-Funktionen aktivieren')}
+              >
+                {featuresEnabled ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+              </button>
+              {/* Theme Toggle */}
               <button
                 onClick={() => setIsDarkTheme(!isDarkTheme)}
                 className={`p-2.5 rounded-xl border transition-all duration-300 flex items-center gap-2 ${isDarkTheme ? 'bg-blue-600 text-white border-blue-600 shadow-md hover:bg-blue-700' : 'bg-amber-500 text-white border-amber-500 shadow-md hover:bg-amber-600'}`}
@@ -1705,6 +1732,21 @@ export default function PortfolioWebsite() {
             .skills}</a>
             <a href="#experience" className="block px-4 py-3 text-gray-700 hover:bg-blue-50">{t[language].nav.experience}</a>
             <a href="#contact" className="block px-4 py-3 text-gray-700 hover:bg-blue-50">{t[language].nav.contact}</a>
+            {/* Mobile Features Toggle */}
+            <button
+              onClick={() => {
+                setFeaturesEnabled(!featuresEnabled);
+                if (!featuresEnabled === false) {
+                  setIsAccessibilityOpen(false);
+                  setIsNavitoirOpen(false);
+                  setIsChatOpen(false);
+                }
+              }}
+              className={`w-full flex items-center justify-center gap-2 px-4 py-3 ${featuresEnabled ? 'bg-green-50 text-green-700' : 'bg-gray-100 text-gray-600'}`}
+            >
+              {featuresEnabled ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+              <span className="font-medium">{featuresEnabled ? (language === 'en' ? 'Disable Features' : 'Funktionen deaktivieren') : (language === 'en' ? 'Enable Features' : 'Funktionen aktivieren')}</span>
+            </button>
             {/* Mobile Theme Toggle */}
             <button
               onClick={() => setIsDarkTheme(!isDarkTheme)}
@@ -2635,88 +2677,92 @@ export default function PortfolioWebsite() {
           )}
 
         {/* Floating Button */}
-        <button
-          onClick={() => setIsAccessibilityOpen(!isAccessibilityOpen)}
-          className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group ${
-            isAccessibilityOpen ? 'scale-95' : 'hover:scale-110'
-          }`}
-          style={{
-            background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
-            boxShadow: isDarkTheme 
-              ? '0 4px 12px rgba(59, 130, 246, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
-              : '0 4px 15px rgba(59, 130, 246, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
-          }}
-          aria-label={language === 'en' ? 'Accessibility options' : 'Barrierefreiheitsoptionen'}
-          title={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
-        >
-          <img src="/images/accessibility.png?v=2" alt="Accessibility" width="64" height="64" loading="lazy" className="w-[60px] h-[60px] brightness-0 invert" style={{ objectFit: 'contain' }} />
-          {/* Subtle border effect */}
-          <div 
-            className="absolute inset-0 rounded-full pointer-events-none"
+        {featuresEnabled && (
+          <button
+            onClick={() => setIsAccessibilityOpen(!isAccessibilityOpen)}
+            className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group ${
+              isAccessibilityOpen ? 'scale-95' : 'hover:scale-110'
+            }`}
             style={{
-              border: '2px solid rgba(255, 255, 255, 0.15)',
-              boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.05)'
+              background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
+              boxShadow: isDarkTheme 
+                ? '0 4px 12px rgba(59, 130, 246, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
+                : '0 4px 15px rgba(59, 130, 246, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
             }}
-          />
-        </button>
+            aria-label={language === 'en' ? 'Accessibility options' : 'Barrierefreiheitsoptionen'}
+            title={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
+          >
+            <img src="/images/accessibility.png?v=2" alt="Accessibility" width="64" height="64" loading="lazy" className="w-[60px] h-[60px] brightness-0 invert" style={{ objectFit: 'contain' }} />
+            {/* Subtle border effect */}
+            <div 
+              className="absolute inset-0 rounded-full pointer-events-none"
+              style={{
+                border: '2px solid rgba(255, 255, 255, 0.15)',
+                boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.05)'
+              }}
+            />
+          </button>
+        )}
       </div>
 
       {/* Floating AI Buttons */}
-      <div 
-        className="fixed right-6 bottom-6 z-50 flex flex-col gap-3"
-      >
-        {/* Navitoir Button */}
-        <button
-          onClick={() => setIsNavitoirOpen(true)}
-          className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group ${
-            isNavitoirOpen ? 'scale-95' : 'hover:scale-110'
-          }`}
-          style={{
-            background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
-            boxShadow: isDarkTheme 
-              ? '0 4px 12px rgba(99, 102, 241, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
-              : '0 4px 15px rgba(99, 102, 241, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
-          }}
-          aria-label={language === 'en' ? 'Navitoir - Navigation Assistant' : 'Navitoir - Navigationsassistent'}
-          title={language === 'en' ? 'Navitoir - Navigation Assistant' : 'Navitoir - Navigationsassistent'}
+      {featuresEnabled && (
+        <div 
+          className="fixed right-6 bottom-6 z-50 flex flex-col gap-3"
         >
-          <Navigation className="w-6 h-6" />
-          {/* Subtle border effect */}
-          <div 
-            className="absolute inset-0 rounded-full pointer-events-none"
+          {/* Navitoir Button */}
+          <button
+            onClick={() => setIsNavitoirOpen(true)}
+            className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group ${
+              isNavitoirOpen ? 'scale-95' : 'hover:scale-110'
+            }`}
             style={{
-              border: '2px solid rgba(255, 255, 255, 0.15)',
-              boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.05)'
+              background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+              boxShadow: isDarkTheme 
+                ? '0 4px 12px rgba(99, 102, 241, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
+                : '0 4px 15px rgba(99, 102, 241, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
             }}
-          />
-        </button>
+            aria-label={language === 'en' ? 'Navitoir - Navigation Assistant' : 'Navitoir - Navigationsassistent'}
+            title={language === 'en' ? 'Navitoir - Navigation Assistant' : 'Navitoir - Navigationsassistent'}
+          >
+            <Navigation className="w-6 h-6" />
+            {/* Subtle border effect */}
+            <div 
+              className="absolute inset-0 rounded-full pointer-events-none"
+              style={{
+                border: '2px solid rgba(255, 255, 255, 0.15)',
+                boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.05)'
+              }}
+            />
+          </button>
 
-        {/* AI Assistant Button */}
-        <button
-          onClick={() => setIsChatOpen(true)}
-          className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group ${
-            isChatOpen ? 'scale-95' : 'hover:scale-110'
-          }`}
-          style={{
-            background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-            boxShadow: isDarkTheme 
-              ? '0 4px 12px rgba(16, 185, 129, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
-              : '0 4px 15px rgba(16, 185, 129, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
-          }}
-          aria-label={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
-          title={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
-        >
-          <img src="/images/ai.png" alt="AI Assistant" width="51" height="51" loading="lazy" className="w-[51px] h-[51px] brightness-0 invert" />
-          {/* Subtle border effect */}
-          <div 
-            className="absolute inset-0 rounded-full pointer-events-none"
+          {/* AI Assistant Button */}
+          <button
+            onClick={() => setIsChatOpen(true)}
+            className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 relative group ${
+              isChatOpen ? 'scale-95' : 'hover:scale-110'
+            }`}
             style={{
-              border: '2px solid rgba(255, 255, 255, 0.15)',
-              boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.05)'
+              background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+              boxShadow: isDarkTheme 
+                ? '0 4px 12px rgba(16, 185, 129, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
+                : '0 4px 15px rgba(16, 185, 129, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
             }}
-          />
-        </button>
-      </div>
+            aria-label={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
+            title={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
+          >
+            <img src="/images/ai.png" alt="AI Assistant" width="51" height="51" loading="lazy" className="w-[51px] h-[51px] brightness-0 invert" />
+            {/* Subtle border effect */}
+            <div 
+              className="absolute inset-0 rounded-full pointer-events-none"
+              style={{
+                border: '2px solid rgba(255, 255, 255, 0.15)',
+                boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.05)'
+              }}
+            />
+          </button>
+        </div>
+      )}
       
       {/* Navitoir Modal */}
       {isNavitoirOpen && (
