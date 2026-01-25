@@ -1,6 +1,0 @@
-flask>=3.0.0
-# Cloud LLM (optional; app works without them, will skip if ImportError)
-openai>=1.0.0
-anthropic>=0.18.0
-# Persist teach on Vercel (optional; uses file when KV not set)
-upstash-redis>=1.0.0

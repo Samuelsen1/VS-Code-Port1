@@ -401,22 +401,6 @@ export async function POST(request) {
       }, { status: 400 });
     }
 
-    // ——— General AI (ai-assistant-site): Wikipedia, web, weather, DeepSeek/OpenAI, Samuel CREATOR ———
-    try {
-      const { runChat } = require('../../../ai-assistant-site/api/chat');
-      const hist = (Array.isArray(history) ? history : [])
-        .filter((m) => m && (m.role === 'user' || m.role === 'assistant'))
-        .map((m) => ({ role: m.role, content: String(m.content || '') }));
-      const { reply } = await runChat({ message: message.trim(), history: hist });
-      return NextResponse.json({
-        response: reply,
-        timestamp: new Date().toISOString(),
-        poweredBy: 'ai',
-      });
-    } catch (e) {
-      console.warn('General AI (ai-assistant-site) path failed, using portfolio fallback:', e?.message || e);
-    }
-
     const isGerman = language === 'de';
     const lowerMessage = message.toLowerCase();
     const topics = extractTopics(message);
