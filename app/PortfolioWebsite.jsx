@@ -2371,54 +2371,6 @@ export default function PortfolioWebsite() {
             </p>
           </div>
 
-          {/* AI Project — General */}
-          <div className="mb-16">
-            <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
-              <span className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <Sparkles className="w-5 h-5 text-white" />
-              </span>
-              {t[language].projects.webProject}
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.filter(p => p.title.en === "General").map((project, index) => (
-                <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
-                  <div className="relative overflow-hidden">
-                    <img src="/images/general.png" alt={project.title[language]} width="420" height="208" loading="lazy" decoding="async" className="w-full h-52 object-contain bg-black transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                  <div className="p-5 flex-1 flex flex-col">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full text-xs font-semibold shadow-md">
-                        {project.category[language]}
-                      </span>
-                    </div>
-                    <h3 className={`text-lg font-bold transition-colors duration-200 mb-2 leading-tight ${isDarkTheme ? 'text-white group-hover:text-blue-300' : 'text-gray-900 group-hover:text-blue-600'}`}>
-                      {project.title[language]}
-                    </h3>
-                    <p className={`mb-3 leading-relaxed flex-1 text-sm ${isDarkTheme ? 'text-blue-100' : 'text-gray-600'}`}>
-                      {project.description[language]}
-                    </p>
-                    <p className={`text-xs mb-3 ${isDarkTheme ? 'text-blue-200' : 'text-gray-500'}`}>
-                      <span className={`font-semibold ${isDarkTheme ? 'text-blue-300' : 'text-blue-700'}`}>{language === 'en' ? 'Tools:' : 'Tools:'}</span>{' '}
-                      {project.tools[language].join(' · ')}
-                    </p>
-                    <div>
-                      <p className={`text-xs font-semibold mb-2 ${isDarkTheme ? 'text-blue-200' : 'text-gray-700'}`}>{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
-                      <div className="space-y-1">
-                        {project.results[language].map((result, i) => (
-                          <div key={i} className="flex items-start gap-2">
-                            <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-                            <span className={`text-xs leading-tight ${isDarkTheme ? 'text-blue-100' : 'text-gray-600'}`}>{result}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-
           {/* E-Learning Modules */}
           <div className="mb-16">
             <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
@@ -2532,7 +2484,7 @@ export default function PortfolioWebsite() {
           </div>
 
           {/* Technical Writing */}
-          <div className="mb-12">
+          <div className="mb-16">
             <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
               <span className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <FileText className="w-5 h-5 text-white" />
@@ -2584,6 +2536,54 @@ export default function PortfolioWebsite() {
                   </a>
                 );
               })}
+            </div>
+          </div>
+
+          {/* AI Project — General */}
+          <div className="mb-12">
+            <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
+              <span className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <Sparkles className="w-5 h-5 text-white" />
+              </span>
+              {t[language].projects.webProject}
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.filter(p => p.title.en === "General").map((project, index) => (
+                <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
+                  <div className="relative overflow-hidden">
+                    <img src="/images/general.png" alt={project.title[language]} width="420" height="208" loading="lazy" decoding="async" className="w-full h-52 object-contain bg-black transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full text-xs font-semibold shadow-md">
+                        {project.category[language]}
+                      </span>
+                    </div>
+                    <h3 className={`text-lg font-bold transition-colors duration-200 mb-2 leading-tight ${isDarkTheme ? 'text-white group-hover:text-blue-300' : 'text-gray-900 group-hover:text-blue-600'}`}>
+                      {project.title[language]}
+                    </h3>
+                    <p className={`mb-3 leading-relaxed flex-1 text-sm ${isDarkTheme ? 'text-blue-100' : 'text-gray-600'}`}>
+                      {project.description[language]}
+                    </p>
+                    <p className={`text-xs mb-3 ${isDarkTheme ? 'text-blue-200' : 'text-gray-500'}`}>
+                      <span className={`font-semibold ${isDarkTheme ? 'text-blue-300' : 'text-blue-700'}`}>{language === 'en' ? 'Tools:' : 'Tools:'}</span>{' '}
+                      {project.tools[language].join(' · ')}
+                    </p>
+                    <div>
+                      <p className={`text-xs font-semibold mb-2 ${isDarkTheme ? 'text-blue-200' : 'text-gray-700'}`}>{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
+                      <div className="space-y-1">
+                        {project.results[language].map((result, i) => (
+                          <div key={i} className="flex items-start gap-2">
+                            <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                            <span className={`text-xs leading-tight ${isDarkTheme ? 'text-blue-100' : 'text-gray-600'}`}>{result}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
 
