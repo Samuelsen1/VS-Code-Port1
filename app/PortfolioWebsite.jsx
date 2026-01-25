@@ -1,5 +1,15 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, EyeOff, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send, Award, Bot, Search, Navigation } from 'lucide-react';
+import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, EyeOff, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send, Award, Bot, Search, Navigation, Copy, Plus } from 'lucide-react';
+
+// Lightweight sanitizer: strip script/iframe/on* to prevent XSS (add DOMPurify for stricter allowlist if needed)
+function sanitizeHtml(html) {
+  if (typeof html !== 'string') return '';
+  return html
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<iframe\b[^>]*>[\s\S]*?<\/iframe>/gi, '')
+    .replace(/\s+on\w+\s*=\s*["'][^"']*["']/gi, '')
+    .replace(/\s+on\w+\s*=\s*[^\s>]+/gi, '');
+}
 
 export default function PortfolioWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,16 +22,30 @@ export default function PortfolioWebsite() {
   const [chatMessages, setChatMessages] = useState([]);
   const [chatInput, setChatInput] = useState('');
   const [chatLoading, setChatLoading] = useState(false);
+  const [chatLastFailed, setChatLastFailed] = useState(null); // for Retry
   const chatEndRef = useRef(null);
   const chatInputRef = useRef(null);
+  const chatModalRef = useRef(null);
 
   // Navitoir (Navigation AI) state
   const [isNavitoirOpen, setIsNavitoirOpen] = useState(false);
   const [navitoirInput, setNavitoirInput] = useState('');
   const [navitoirMessages, setNavitoirMessages] = useState([]);
+  const [navitoirLoading, setNavitoirLoading] = useState(false);
+  const [toast, setToast] = useState(null);
+  const [fabExpanded, setFabExpanded] = useState(false);
   const navitoirEndRef = useRef(null);
   const navitoirInputRef = useRef(null);
-  
+
+  const [reducedMotion, setReducedMotion] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const m = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(m?.matches ?? false);
+    const f = () => setReducedMotion(m?.matches ?? false);
+    m?.addEventListener?.('change', f);
+    return () => m?.removeEventListener?.('change', f);
+  }, []);
   
   // Animated counter states
   const [counts, setCounts] = useState({ improvement: 0, completion: 0, usage: 0 });
@@ -130,6 +154,33 @@ export default function PortfolioWebsite() {
     }
   }, [language]);
 
+  // Hydrate featuresEnabled, isDarkTheme, accessibility from localStorage on mount
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      const f = localStorage.getItem('featuresEnabled');
+      if (f !== null) setFeaturesEnabled(f === 'true');
+      const d = localStorage.getItem('isDarkTheme');
+      if (d !== null) setIsDarkTheme(d === 'true');
+      const a = localStorage.getItem('accessibility');
+      if (a) {
+        const parsed = JSON.parse(a);
+        if (parsed && typeof parsed === 'object') setAccessibility(prev => ({ ...prev, ...parsed }));
+      }
+    } catch (e) { /* ignore */ }
+  }, []);
+
+  // Persist featuresEnabled, isDarkTheme, accessibility to localStorage
+  useEffect(() => {
+    if (typeof window !== 'undefined') localStorage.setItem('featuresEnabled', String(featuresEnabled));
+  }, [featuresEnabled]);
+  useEffect(() => {
+    if (typeof window !== 'undefined') localStorage.setItem('isDarkTheme', String(isDarkTheme));
+  }, [isDarkTheme]);
+  useEffect(() => {
+    if (typeof window !== 'undefined') localStorage.setItem('accessibility', JSON.stringify(accessibility));
+  }, [accessibility]);
+
   // Close all feature modals when features are disabled
   useEffect(() => {
     if (!featuresEnabled) {
@@ -181,42 +232,45 @@ export default function PortfolioWebsite() {
     
     return formatted;
   };
+
+  const sanitizeChatHtml = (html) => sanitizeHtml(html);
   
   // Handle chatbot
-  const handleChatSubmit = async (e) => {
-    e.preventDefault();
-    if (!chatInput.trim()) return;
-    
-    const userMessage = chatInput.trim();
-    setChatInput('');
-    setChatMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+  const handleChatSubmit = async (e, retryMessage) => {
+    e?.preventDefault?.();
+    const toSend = (retryMessage != null && retryMessage !== '') ? retryMessage : chatInput.trim();
+    if (!toSend) return;
+
+    if (retryMessage) {
+      setChatMessages(prev => { const n = [...prev]; if (n[n.length - 1]?.role === 'assistant') n.pop(); return n; });
+    } else {
+      setChatInput('');
+      setChatMessages(prev => [...prev, { role: 'user', content: toSend }]);
+    }
+    setChatLastFailed(null);
     setChatLoading(true);
-    
+
+    const historyForApi = retryMessage ? chatMessages.slice(0, -1) : chatMessages;
+    const errContent = language === 'en' ? 'Sorry, I encountered an error. Please try again or contact Samuel directly at gideonsammysen@gmail.com' : 'Entschuldigung, ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie Samuel direkt unter gideonsammysen@gmail.com';
+
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: userMessage, language: language }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: toSend, language, history: historyForApi.slice(-10) }),
       });
-      
       const data = await response.json();
-      
+
       if (response.ok) {
-        setChatMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
+        setChatMessages(prev => [...prev, { role: 'assistant', content: data.response, poweredBy: data.poweredBy || null }]);
       } else {
-        setChatMessages(prev => [...prev, { 
-          role: 'assistant', 
-          content: 'Sorry, I encountered an error. Please try asking again or contact Samuel directly at gideonsammysen@gmail.com' 
-        }]);
+        setChatMessages(prev => [...prev, { role: 'assistant', content: errContent, isError: true }]);
+        setChatLastFailed(toSend);
       }
     } catch (error) {
       console.error('Chat error:', error);
-      setChatMessages(prev => [...prev, { 
-        role: 'assistant', 
-        content: 'Sorry, I encountered an error. Please try asking again or contact Samuel directly at gideonsammysen@gmail.com' 
-      }]);
+      setChatMessages(prev => [...prev, { role: 'assistant', content: errContent, isError: true }]);
+      setChatLastFailed(toSend);
     } finally {
       setChatLoading(false);
     }
@@ -260,20 +314,52 @@ export default function PortfolioWebsite() {
     }
   }, [isNavitoirOpen, language, navitoirMessages.length]);
 
-  // Handle Navitoir navigation
-  const handleNavitoirSubmit = async (e) => {
-    e.preventDefault();
-    if (!navitoirInput.trim()) return;
+  // Handle Navitoir navigation; chipValue: when provided (e.g. from quick-reply chip), use it instead of input
+  const handleNavitoirSubmit = async (e, chipValue) => {
+    e?.preventDefault?.();
+    const raw = (chipValue != null && String(chipValue).trim() !== '') ? String(chipValue).trim() : navitoirInput.trim();
+    if (!raw) return;
 
-    const userQuery = navitoirInput.trim().toLowerCase();
-    setNavitoirInput('');
+    const userQuery = raw.toLowerCase();
+    if (!chipValue) setNavitoirInput('');
     setNavitoirMessages(prev => [...prev, { role: 'user', content: userQuery }]);
+    setNavitoirLoading(true);
+
+    // Helper: true if query contains any of the terms (enables synonym/typo tolerance)
+    const matchesAny = (terms) => terms.some(t => t && userQuery.includes(t));
+
+    // Handoff: content question (not navigation) -> suggest main AI and open it
+    const contentQ = matchesAny(['tell me about', 'what is his', 'describe his', 'explain his', 'erzähl mir über', 'was ist seine', 'beschreib seine', 'tell me more about', 'erzähl mehr über', 'who is he', 'wer ist er']);
+    const navCmd = matchesAny(['go to', 'show me', 'open', 'zeige', 'öffne', 'gehe zu', 'take me to', 'navigate', 'navigate to']);
+    if (contentQ && !navCmd) {
+      setNavitoirMessages(prev => [...prev, {
+        role: 'assistant',
+        content: language === 'en'
+          ? 'For questions about Samuel, use the green <strong>AI Assistant</strong> — I\'ll open it for you.'
+          : 'Für Fragen über Samuel nutzen Sie den grünen <strong>KI-Assistenten</strong> — ich öffne ihn für Sie.'
+      }]);
+      setNavitoirLoading(false);
+      setIsChatOpen(true);
+      return;
+    }
 
     // Check if user wants to "open" something (navigate + open link)
-    const wantsToOpen = userQuery.includes('open') || userQuery.includes('öffne') || userQuery.includes('öffnen');
+    const wantsToOpen = matchesAny([
+      'open', 'öffne', 'öffnen', 'show', 'zeige', 'display', 'view', 'load', 'launch', 'get', 'fetch', 'give me', 'gib mir',
+      'anzeigen', 'ansehen', 'aufrufen', 'laden', 'öffne mir', 'zeig mir', 'show me', 'display me', 'view the', 'open the',
+      'open up', 'bring up', 'pull up', 'öffnen Sie', 'zeigen Sie', 'ansehen', 'aufmachen', 'hochladen'
+    ]);
 
     // Check for theme switching
-    if (userQuery.includes('dark theme') || userQuery.includes('dark mode') || userQuery.includes('dunkles thema') || userQuery.includes('dunkel')) {
+    const wantsDark = matchesAny([
+      'dark theme', 'dark mode', 'dunkles thema', 'dunkel', 'night', 'night mode', 'nacht', 'nachtmodus',
+      'darker', 'dunkler', 'dark', 'black theme', 'schwarzes thema', 'dunkelmodus'
+    ]);
+    const wantsLight = matchesAny([
+      'light theme', 'light mode', 'helles thema', 'hell', 'day', 'day mode', 'tag', 'daylight',
+      'lighter', 'heller', 'bright', 'bright mode', 'hellmodus', 'light', 'weiß', 'weiss'
+    ]);
+    if (wantsDark && !wantsLight) {
       if (!isDarkTheme) {
         setIsDarkTheme(true);
         setNavitoirMessages(prev => [...prev, {
@@ -282,6 +368,7 @@ export default function PortfolioWebsite() {
             ? `✅ Switched to <strong>Dark Theme</strong>.`
             : `✅ Zu <strong>dunklem Thema</strong> gewechselt.`
         }]);
+        setNavitoirLoading(false);
         setTimeout(() => setIsNavitoirOpen(false), 800);
         return;
       } else {
@@ -291,11 +378,12 @@ export default function PortfolioWebsite() {
             ? `ℹ️ Already using <strong>Dark Theme</strong>.`
             : `ℹ️ Bereits <strong>dunkles Thema</strong> aktiv.`
         }]);
+        setNavitoirLoading(false);
         return;
       }
     }
 
-    if (userQuery.includes('light theme') || userQuery.includes('light mode') || userQuery.includes('helles thema') || userQuery.includes('hell')) {
+    if (wantsLight && !wantsDark) {
       if (isDarkTheme) {
         setIsDarkTheme(false);
         setNavitoirMessages(prev => [...prev, {
@@ -304,6 +392,7 @@ export default function PortfolioWebsite() {
             ? `✅ Switched to <strong>Light Theme</strong>.`
             : `✅ Zu <strong>hellem Thema</strong> gewechselt.`
         }]);
+        setNavitoirLoading(false);
         setTimeout(() => setIsNavitoirOpen(false), 800);
         return;
       } else {
@@ -313,37 +402,69 @@ export default function PortfolioWebsite() {
             ? `ℹ️ Already using <strong>Light Theme</strong>.`
             : `ℹ️ Bereits <strong>helles Thema</strong> aktiv.`
         }]);
+        setNavitoirLoading(false);
         return;
       }
     }
 
-    // Accessibility feature mapping
+    // Accessibility feature mapping: many synonyms per feature; we iterate by key length (longer first)
     const accessibilityMap = {
       'accessibility': { key: null, name: language === 'en' ? 'Accessibility Panel' : 'Barrierefreiheitspanel' },
+      'barrierefreiheit': { key: null, name: language === 'en' ? 'Accessibility Panel' : 'Barrierefreiheitspanel' },
+      'a11y': { key: null, name: language === 'en' ? 'Accessibility Panel' : 'Barrierefreiheitspanel' },
+      'dyslexia font': { key: 'dyslexia', name: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift' },
       'dyslexia': { key: 'dyslexia', name: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift' },
       'dyslexie': { key: 'dyslexia', name: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift' },
-      'blue light': { key: 'blueLightFilter', name: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter' },
+      'dyslexicschrift': { key: 'dyslexia', name: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift' },
+      'readable font': { key: 'dyslexia', name: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift' },
       'blue light filter': { key: 'blueLightFilter', name: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter' },
+      'blue light': { key: 'blueLightFilter', name: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter' },
+      'bluelight': { key: 'blueLightFilter', name: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter' },
+      'blaulicht': { key: 'blueLightFilter', name: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter' },
+      'blaulichtfilter': { key: 'blueLightFilter', name: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter' },
+      'hide images': { key: 'hideImages', name: language === 'en' ? 'Hide Images' : 'Bilder verbergen' },
       'images': { key: 'hideImages', name: language === 'en' ? 'Hide Images' : 'Bilder verbergen' },
       'image': { key: 'hideImages', name: language === 'en' ? 'Hide Images' : 'Bilder verbergen' },
+      'bilder': { key: 'hideImages', name: language === 'en' ? 'Hide Images' : 'Bilder verbergen' },
+      'bilder verbergen': { key: 'hideImages', name: language === 'en' ? 'Hide Images' : 'Bilder verbergen' },
+      'pictures': { key: 'hideImages', name: language === 'en' ? 'Hide Images' : 'Bilder verbergen' },
+      'photos': { key: 'hideImages', name: language === 'en' ? 'Hide Images' : 'Bilder verbergen' },
       'contrast': { key: 'contrast', name: language === 'en' ? 'Contrast' : 'Kontrast' },
+      'kontrast': { key: 'contrast', name: language === 'en' ? 'Contrast' : 'Kontrast' },
       'text size': { key: 'largeText', name: language === 'en' ? 'Larger Text' : 'Größere Schrift' },
       'large text': { key: 'largeText', name: language === 'en' ? 'Larger Text' : 'Größere Schrift' },
       'font size': { key: 'largeText', name: language === 'en' ? 'Larger Text' : 'Größere Schrift' },
-      'spacing': { key: 'textSpacing', name: language === 'en' ? 'Text Spacing' : 'Textabstand' },
+      'larger text': { key: 'largeText', name: language === 'en' ? 'Larger Text' : 'Größere Schrift' },
+      'bigger text': { key: 'largeText', name: language === 'en' ? 'Larger Text' : 'Größere Schrift' },
+      'bigger font': { key: 'largeText', name: language === 'en' ? 'Larger Text' : 'Größere Schrift' },
+      'größere schrift': { key: 'largeText', name: language === 'en' ? 'Larger Text' : 'Größere Schrift' },
       'text spacing': { key: 'textSpacing', name: language === 'en' ? 'Text Spacing' : 'Textabstand' },
+      'spacing': { key: 'textSpacing', name: language === 'en' ? 'Text Spacing' : 'Textabstand' },
+      'textabstand': { key: 'textSpacing', name: language === 'en' ? 'Text Spacing' : 'Textabstand' },
+      'letter spacing': { key: 'textSpacing', name: language === 'en' ? 'Text Spacing' : 'Textabstand' },
+      'stop animations': { key: 'stopAnimations', name: language === 'en' ? 'Stop Animations' : 'Animationen stoppen' },
       'animations': { key: 'stopAnimations', name: language === 'en' ? 'Stop Animations' : 'Animationen stoppen' },
       'animation': { key: 'stopAnimations', name: language === 'en' ? 'Stop Animations' : 'Animationen stoppen' },
+      'animationen': { key: 'stopAnimations', name: language === 'en' ? 'Stop Animations' : 'Animationen stoppen' },
+      'motion': { key: 'stopAnimations', name: language === 'en' ? 'Stop Animations' : 'Animationen stoppen' },
+      'bewegung': { key: 'stopAnimations', name: language === 'en' ? 'Stop Animations' : 'Animationen stoppen' },
       'row height': { key: 'rowHeight', name: language === 'en' ? 'Row Height' : 'Zeilenhöhe' },
       'line height': { key: 'rowHeight', name: language === 'en' ? 'Row Height' : 'Zeilenhöhe' },
-      'focus': { key: 'focusIndicator', name: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige' },
+      'zeilenhöhe': { key: 'rowHeight', name: language === 'en' ? 'Row Height' : 'Zeilenhöhe' },
+      'line spacing': { key: 'rowHeight', name: language === 'en' ? 'Row Height' : 'Zeilenhöhe' },
       'focus indicator': { key: 'focusIndicator', name: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige' },
+      'focus': { key: 'focusIndicator', name: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige' },
+      'fokus': { key: 'focusIndicator', name: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige' },
+      'focus ring': { key: 'focusIndicator', name: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige' },
+      'mark links': { key: 'mark', name: language === 'en' ? 'Mark Links' : 'Links markieren' },
       'links': { key: 'mark', name: language === 'en' ? 'Mark Links' : 'Links markieren' },
       'link': { key: 'mark', name: language === 'en' ? 'Mark Links' : 'Links markieren' },
+      'links markieren': { key: 'mark', name: language === 'en' ? 'Mark Links' : 'Links markieren' },
+      'hyperlink': { key: 'mark', name: language === 'en' ? 'Mark Links' : 'Links markieren' },
     };
 
     // Check for accessibility panel opening
-    if (userQuery.includes('accessibility') || userQuery.includes('barrierefreiheit')) {
+    if (matchesAny(['accessibility', 'barrierefreiheit', 'a11y', 'accessibility panel', 'barrierefreiheitspanel'])) {
       setIsAccessibilityOpen(true);
       setNavitoirMessages(prev => [...prev, {
         role: 'assistant',
@@ -351,14 +472,17 @@ export default function PortfolioWebsite() {
           ? `✅ Opening <strong>Accessibility Panel</strong>...`
           : `✅ Öffne <strong>Barrierefreiheitspanel</strong>...`
       }]);
+      setNavitoirLoading(false);
       setTimeout(() => setIsNavitoirOpen(false), 500);
       return;
     }
 
-    // Check for accessibility feature control
+    // Check for accessibility feature control (iterate longer keys first for specificity)
     let matchedFeature = null;
-    for (const [key, feature] of Object.entries(accessibilityMap)) {
-      if (userQuery.includes(key) && feature.key) {
+    const a11yEntries = Object.entries(accessibilityMap).filter(([, f]) => f.key != null);
+    a11yEntries.sort((a, b) => b[0].length - a[0].length);
+    for (const [key, feature] of a11yEntries) {
+      if (userQuery.includes(key)) {
         matchedFeature = feature;
         break;
       }
@@ -370,15 +494,30 @@ export default function PortfolioWebsite() {
       const isBinary = binaryFeatures.includes(featureKey);
       const isBlueLight = featureKey === 'blueLightFilter';
       
-      // Extract specific level number if mentioned (e.g., "level 3", "to level 2", "level 5")
-      const levelMatch = userQuery.match(/(?:level|stufe|auf)\s*(\d+)/i);
+      // Extract specific level (level 3, stufe 2, auf 5, lvl 4, to 3)
+      const levelMatch = userQuery.match(/(?:level|stufe|auf|lvl|to)\s*(\d+)/i);
       const specifiedLevel = levelMatch ? parseInt(levelMatch[1], 10) : null;
 
-      // Determine action based on query
-      const wantsIncrease = userQuery.includes('increase') || userQuery.includes('max') || userQuery.includes('full') || userQuery.includes('maximum') || userQuery.includes('erhöhen') || userQuery.includes('maximal');
-      const wantsDecrease = userQuery.includes('decrease') || userQuery.includes('reduce') || userQuery.includes('lower') || userQuery.includes('reduzieren') || userQuery.includes('verringern');
-      const wantsTurnOn = userQuery.includes('turn on') || userQuery.includes('enable') || userQuery.includes('open') || userQuery.includes('activate') || userQuery.includes('einschalten') || userQuery.includes('aktivieren');
-      const wantsTurnOff = userQuery.includes('turn off') || userQuery.includes('disable') || userQuery.includes('close') || userQuery.includes('deactivate') || userQuery.includes('ausschalten') || userQuery.includes('deaktivieren');
+      // Action synonyms: many ways to say increase/decrease/on/off
+      const wantsIncrease = matchesAny([
+        'increase', 'max', 'full', 'maximum', 'maximal', 'erhöhen', 'hoch', 'up', 'raise', 'boost', 'more', 'mehr',
+        'stronger', 'stärker', 'strong', 'stark', 'intensify', 'verstärken', 'turn up', 'aufdrehen', 'make stronger',
+        'crank up', 'amplify', 'add', 'plus', 'höher', 'raise the', 'bump up', 'set to max', 'auf maximum'
+      ]);
+      const wantsDecrease = matchesAny([
+        'decrease', 'reduce', 'lower', 'reduzieren', 'verringern', 'less', 'weniger', 'down', 'dim', 'minimize',
+        'weaker', 'schwächer', 'weak', 'schwach', 'turn down', 'abdrehen', 'minus', 'tiefer', 'lower the',
+        'dial down', 'cut', 'reduce the', 'min', 'minimum', 'minimal', 'auf minimum', 'aus'
+      ]);
+      const wantsTurnOn = matchesAny([
+        'turn on', 'enable', 'open', 'activate', 'einschalten', 'aktivieren', 'on', 'an', 'start', 'starten',
+        'use', 'nutzen', 'utilize', 'switch on', 'anschalten', 'aktivieren', 'turn up', 'ein', 'yes', 'ja',
+        'please on', 'bitte an', 'can you turn on', 'can you enable', 'mach an', 'schalt ein'
+      ]);
+      const wantsTurnOff = matchesAny([
+        'turn off', 'disable', 'close', 'deactivate', 'ausschalten', 'deaktivieren', 'off', 'aus', 'stop', 'stoppen',
+        'switch off', 'abschalten', 'no', 'nein', 'remove', 'entfernen', 'kill', 'beenden', 'bitte aus', 'mach aus'
+      ]);
 
       let newValue = currentValue;
       let action = '';
@@ -458,6 +597,7 @@ export default function PortfolioWebsite() {
             ? `✅ <strong>${matchedFeature.name}</strong> ${action}.`
             : `✅ <strong>${matchedFeature.name}</strong> ${action}.`
         }]);
+        setNavitoirLoading(false);
         setTimeout(() => setIsNavitoirOpen(false), 800);
         return;
       } else {
@@ -467,43 +607,86 @@ export default function PortfolioWebsite() {
             ? `ℹ️ <strong>${matchedFeature.name}</strong> is already ${currentValue === 0 ? 'off' : (isBlueLight ? `at level ${currentValue}` : (currentValue === 1 ? 'at light level' : 'at full level'))}.`
             : `ℹ️ <strong>${matchedFeature.name}</strong> ist bereits ${currentValue === 0 ? 'aus' : (isBlueLight ? `auf Stufe ${currentValue}` : (currentValue === 1 ? 'auf leichter Stufe' : 'auf voller Stufe'))}.`
         }]);
+        setNavitoirLoading(false);
         return;
       }
     }
 
-    // Section mapping
-    const sectionMap = {
-      'about': { id: 'about', name: language === 'en' ? 'About' : 'Über mich' },
-      'projects': { id: 'projects', name: language === 'en' ? 'Projects' : 'Projekte' },
-      'skills': { id: 'skills', name: language === 'en' ? 'Skills' : 'Fähigkeiten' },
-      'experience': { id: 'experience', name: language === 'en' ? 'Experience' : 'Erfahrung' },
-      'contact': { id: 'contact', name: language === 'en' ? 'Contact' : 'Kontakt' },
-      'certifications': { id: 'certifications', name: language === 'en' ? 'Certifications' : 'Zertifikate' },
-      'certificate': { id: 'certifications', name: language === 'en' ? 'Certifications' : 'Zertifikate' },
-      'cert': { id: 'certifications', name: language === 'en' ? 'Certifications' : 'Zertifikate' },
-      'main': { id: 'main-content', name: language === 'en' ? 'Home' : 'Startseite' },
-      'home': { id: 'main-content', name: language === 'en' ? 'Home' : 'Startseite' },
-    };
+    // Section mapping: each section has id, name, and an array of trigger terms (longer = more specific)
+    const sectionTerms = [
+      {
+        id: 'about',
+        name: language === 'en' ? 'About' : 'Über mich',
+        terms: ['about me', 'about you', 'about samuel', 'about him', 'who is', 'who are', 'intro', 'introduction', 'bio', 'biography', 'myself', 'overview', 'person', 'samuel', 'über mich', 'über dich', 'wer ist', 'vorstellung', 'einführung', 'steckbrief', 'referenz', 'about', 'who', 'wer', 'you', 'dich', 'ihn', 'read about', 'tell me about']
+      },
+      {
+        id: 'projects',
+        name: language === 'en' ? 'Projects' : 'Projekte',
+        terms: ['projects', 'project', 'portfolio', 'showcase', 'work', 'works', 'what have you done', 'what have you built', 'projekte', 'projekt', 'arbeiten', 'referenzen', 'beispiele', 'samples', 'portfolio work', 'projcts', 'my work', 'deine arbeit', 'your work', 'show me your work', 'zeig projekte', 'take me to projects']
+      },
+      {
+        id: 'skills',
+        name: language === 'en' ? 'Skills' : 'Fähigkeiten',
+        terms: ['skills', 'skill', 'abilities', 'ability', 'technologies', 'technology', 'tech', 'tools', 'what can you do', 'fähigkeiten', 'fähigkeit', 'technologien', 'können', 'was kannst du', 'tools', 'stack', 'expertise', 'kompetenz', 'competencies', 'skils', 'technologie']
+      },
+      {
+        id: 'experience',
+        name: language === 'en' ? 'Experience' : 'Erfahrung',
+        terms: ['experience', 'experiences', 'work experience', 'job', 'jobs', 'career', 'employment', 'history', 'work history', 'where have you worked', 'erfahrung', 'beruf', 'karriere', 'arbeitserfahrung', 'wo hast du gearbeitet', 'experiance', 'employment history', 'job history', 'arbeit', 'berufserfahrung', 'professional experience']
+      },
+      {
+        id: 'certifications',
+        name: language === 'en' ? 'Certifications' : 'Zertifikate',
+        terms: ['certifications', 'certificate', 'certificates', 'cert', 'certs', 'training', 'qualifications', 'credentials', 'credits', 'badges', 'courses', 'zertifikate', 'zertifikat', 'schulungen', 'qualifikationen', 'kurse', 'bildung', 'diploma', 'diplomas', 'qualification', 'trainings', 'cerifications', 'certifictes', 'certs']
+      },
+      {
+        id: 'contact',
+        name: language === 'en' ? 'Contact' : 'Kontakt',
+        terms: ['contact', 'contacts', 'get in touch', 'reach', 'reach out', 'email', 'e-mail', 'message', 'send message', 'how to contact', 'where to contact', 'kontakt', 'kontaktdaten', 'erreichbar', 'nachricht', 'wie kontaktiere ich', 'touch', 'reach me', 'call', 'phone', 'linkedin', 'form', 'formular', 'contct', 'contact you', 'contact info', 'write you', 'schreiben']
+      },
+      {
+        id: 'main-content',
+        name: language === 'en' ? 'Home' : 'Startseite',
+        terms: ['home', 'main', 'top', 'start', 'top of page', 'startseite', 'anfang', 'nach oben', 'hauptseite', 'beginning', 'hero', 'landing', 'above', 'oben', 'back to top', 'zurück nach oben', 'go up', 'scroll up', 'take me to the top', 'go to top']
+      }
+    ];
 
-    // CV mapping
+    // CV / Resume: many ways to ask for it
+    const cvTerms = [
+      'cv', 'resume', 'résumé', 'resumé', 'lebenslauf', 'curriculum', 'curriculum vitae', 'vitae', 'curriculum vitae',
+      'work history', 'job history', 'professional summary', 'berufslebenslauf', 'lebenslauf anzeigen', 'cv anzeigen',
+      'download cv', 'download resume', 'pdf', 'his cv', 'your cv', 'dein lebenslauf', 'ihr lebenslauf', 'view cv', 'see cv'
+    ];
+    const wantsCv = matchesAny(cvTerms);
     const cvUrl = `/cv?lang=${language}`;
 
-    // Certification links mapping
-    const certLinks = {
-      'technical writing': certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link,
-      'technical': certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link,
-      'digital learning': certifications.find(c => c.title.en.toLowerCase().includes('digital learning'))?.link,
-      'uiuc': certifications.find(c => c.issuer?.en?.toLowerCase().includes('illinois'))?.link,
-      'illinois': certifications.find(c => c.issuer?.en?.toLowerCase().includes('illinois'))?.link,
-      'board infinity': certifications.find(c => c.issuer?.en?.toLowerCase().includes('board'))?.link,
-      'board': certifications.find(c => c.issuer?.en?.toLowerCase().includes('board'))?.link,
-      'ef set': certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link,
-      'english': certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link,
-      'c1': certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link,
-    };
+    // Certification links: order matters (more specific first)
+    const certLinkEntries = [
+      ['technical writing certificate', certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link],
+      ['technical writing cert', certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link],
+      ['technical writing', certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link],
+      ['technical cert', certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link],
+      ['technical', certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link],
+      ['digital learning design', certifications.find(c => c.title.en.toLowerCase().includes('digital learning'))?.link],
+      ['digital learning cert', certifications.find(c => c.title.en.toLowerCase().includes('digital learning'))?.link],
+      ['digital learning', certifications.find(c => c.title.en.toLowerCase().includes('digital learning'))?.link],
+      ['uiuc', certifications.find(c => c.issuer?.en?.toLowerCase().includes('illinois'))?.link],
+      ['illinois', certifications.find(c => c.issuer?.en?.toLowerCase().includes('illinois'))?.link],
+      ['university of illinois', certifications.find(c => c.issuer?.en?.toLowerCase().includes('illinois'))?.link],
+      ['board infinity', certifications.find(c => c.issuer?.en?.toLowerCase().includes('board'))?.link],
+      ['board infinity cert', certifications.find(c => c.issuer?.en?.toLowerCase().includes('board'))?.link],
+      ['board', certifications.find(c => c.issuer?.en?.toLowerCase().includes('board'))?.link],
+      ['ef set', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
+      ['efset', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
+      ['english certificate', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
+      ['english cert', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
+      ['english', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
+      ['c1 english', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
+      ['c1', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
+    ].filter(([, link]) => link);
 
     // Check for CV requests
-    if (userQuery.includes('cv') || userQuery.includes('resume') || userQuery.includes('lebenslauf')) {
+    if (wantsCv) {
       if (wantsToOpen) {
         // Navigate to main first, then open CV
         setTimeout(() => {
@@ -516,12 +699,14 @@ export default function PortfolioWebsite() {
             }, 800);
           }
         }, 100);
+        setToast({ text: language === 'en' ? 'Opening CV in new tab' : 'Lebenslauf in neuem Tab öffnen' });
         setNavitoirMessages(prev => [...prev, {
           role: 'assistant',
           content: language === 'en'
             ? `✅ Navigating to homepage, then opening <strong>CV</strong>...`
             : `✅ Navigiere zur Startseite, dann öffne ich den <strong>Lebenslauf</strong>...`
         }]);
+        setNavitoirLoading(false);
         return;
       } else {
         // Just navigate to main (CV link is there)
@@ -538,15 +723,16 @@ export default function PortfolioWebsite() {
             ? `✅ Navigating to <strong>Home</strong> section where you can access the CV...`
             : `✅ Navigiere zum Bereich <strong>Startseite</strong>, wo Sie auf den Lebenslauf zugreifen können...`
         }]);
+        setNavitoirLoading(false);
         return;
       }
     }
 
-    // Check for certification link opening
+    // Check for certification link opening (iterate more specific keys first)
     if (wantsToOpen) {
       let certLink = null;
-      for (const [key, link] of Object.entries(certLinks)) {
-        if (userQuery.includes(key) && link) {
+      for (const [key, link] of certLinkEntries) {
+        if (userQuery.includes(key)) {
           certLink = link;
           break;
         }
@@ -564,39 +750,27 @@ export default function PortfolioWebsite() {
             }, 800);
           }
         }, 100);
+        setToast({ text: language === 'en' ? 'Opening link in new tab' : 'Link in neuem Tab öffnen' });
         setNavitoirMessages(prev => [...prev, {
           role: 'assistant',
           content: language === 'en'
             ? `✅ Navigating to <strong>Certifications</strong> section, then opening the certificate...`
             : `✅ Navigiere zum Bereich <strong>Zertifikate</strong>, dann öffne ich das Zertifikat...`
         }]);
+        setNavitoirLoading(false);
         return;
       }
     }
 
-    // Find matching section
+    // Find best-matching section: score = length of longest matching term (specificity)
     let targetSection = null;
-    for (const [key, section] of Object.entries(sectionMap)) {
-      if (userQuery.includes(key) || userQuery.includes(section.name.toLowerCase())) {
-        targetSection = section;
-        break;
-      }
-    }
-
-    // Also check for common phrases
-    if (!targetSection) {
-      if (userQuery.includes('who') || userQuery.includes('wer') || userQuery.includes('about')) {
-        targetSection = sectionMap['about'];
-      } else if (userQuery.includes('work') || userQuery.includes('portfolio') || userQuery.includes('project')) {
-        targetSection = sectionMap['projects'];
-      } else if (userQuery.includes('ability') || userQuery.includes('technology') || userQuery.includes('tech')) {
-        targetSection = sectionMap['skills'];
-      } else if (userQuery.includes('job') || userQuery.includes('career') || userQuery.includes('history')) {
-        targetSection = sectionMap['experience'];
-      } else if (userQuery.includes('email') || userQuery.includes('reach') || userQuery.includes('message')) {
-        targetSection = sectionMap['contact'];
-      } else if (userQuery.includes('cert') || userQuery.includes('training') || userQuery.includes('qualification')) {
-        targetSection = sectionMap['certifications'];
+    let bestScore = 0;
+    for (const section of sectionTerms) {
+      for (const term of section.terms) {
+        if (userQuery.includes(term) && term.length > bestScore) {
+          bestScore = term.length;
+          targetSection = { id: section.id, name: section.name };
+        }
       }
     }
 
@@ -617,6 +791,7 @@ export default function PortfolioWebsite() {
           ? `✅ Navigating to <strong>${targetSection.name}</strong> section...`
           : `✅ Navigiere zum Bereich <strong>${targetSection.name}</strong>...`
       }]);
+      setNavitoirLoading(false);
     } else {
       // No match found
       setNavitoirMessages(prev => [...prev, {
@@ -625,6 +800,7 @@ export default function PortfolioWebsite() {
           ? `I can help you navigate to: About, Projects, Skills, Experience, Certifications, or Contact. I can also open CV or specific certificates. What would you like to see?`
           : `Ich kann Sie zu folgenden Bereichen navigieren: Über mich, Projekte, Fähigkeiten, Erfahrung, Zertifikate oder Kontakt. Ich kann auch den Lebenslauf oder bestimmte Zertifikate öffnen. Was möchten Sie sehen?`
       }]);
+      setNavitoirLoading(false);
     }
   };
 
@@ -634,6 +810,28 @@ export default function PortfolioWebsite() {
       navitoirEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [navitoirMessages]);
+
+  // Clear toast after delay
+  useEffect(() => {
+    if (toast) {
+      const t = setTimeout(() => setToast(null), 2500);
+      return () => clearTimeout(t);
+    }
+  }, [toast]);
+
+  // Escape to close modals
+  useEffect(() => {
+    if (!isNavitoirOpen) return;
+    const f = (e) => { if (e.key === 'Escape') setIsNavitoirOpen(false); };
+    document.addEventListener('keydown', f);
+    return () => document.removeEventListener('keydown', f);
+  }, [isNavitoirOpen]);
+  useEffect(() => {
+    if (!isChatOpen) return;
+    const f = (e) => { if (e.key === 'Escape') setIsChatOpen(false); };
+    document.addEventListener('keydown', f);
+    return () => document.removeEventListener('keydown', f);
+  }, [isChatOpen]);
 
   // Auto-focus chat input when modal opens (for mobile keyboard)
   useEffect(() => {
@@ -874,6 +1072,7 @@ export default function PortfolioWebsite() {
         projects: "Projects",
         skills: "Skills",
         experience: "Experience",
+        certifications: "Certifications",
         contact: "Contact"
       },
       hero: {
@@ -1014,6 +1213,7 @@ export default function PortfolioWebsite() {
         knowledge: "Knowledge Base Design",
         techWriting: "Technical Documentation",
         github: "GitHub Repository",
+        connect: "Connect",
         copyright: "© 2025 Samuel Afriyie Opoku • Digital Learning Designer & E-Learning Developer",
         built: "Built with React & Tailwind CSS"
       },
@@ -1063,6 +1263,7 @@ export default function PortfolioWebsite() {
         projects: "Projekte",
         skills: "Fähigkeiten",
         experience: "Erfahrung",
+        certifications: "Zertifikate",
         contact: "Kontakt"
       },
       hero: {
@@ -1184,6 +1385,7 @@ export default function PortfolioWebsite() {
         knowledge: "Wissensdatenbank-Design",
         techWriting: "Technische Dokumentation",
         github: "GitHub-Repository",
+        connect: "Verbinden",
         copyright: "© 2025 Samuel Afriyie Opoku • Digital Learning Designer & E-Learning Entwickler",
         built: "Erstellt mit React & Tailwind CSS"
       },
@@ -1684,13 +1886,13 @@ export default function PortfolioWebsite() {
               <a href="#projects" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.projects}</a>
               <a href="#skills" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.skills}</a>
               <a href="#experience" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.experience}</a>
+              <a href="#certifications" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.certifications}</a>
               <a href="#contact" className={`${isDarkTheme ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-blue-600'} transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all hover:after:w-full hover:scale-105`}>{t[language].nav.contact}</a>
               {/* Features Toggle */}
               <button
                 onClick={() => {
                   setFeaturesEnabled(!featuresEnabled);
                   if (!featuresEnabled === false) {
-                    // When disabling, close all modals
                     setIsAccessibilityOpen(false);
                     setIsNavitoirOpen(false);
                     setIsChatOpen(false);
@@ -1701,6 +1903,7 @@ export default function PortfolioWebsite() {
                 title={featuresEnabled ? (language === 'en' ? 'Disable Accessibility & AI Features' : 'Barrierefreiheit & KI-Funktionen deaktivieren') : (language === 'en' ? 'Enable Accessibility & AI Features' : 'Barrierefreiheit & KI-Funktionen aktivieren')}
               >
                 {featuresEnabled ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                <span className="hidden lg:inline text-sm font-medium">{featuresEnabled ? (language === 'en' ? 'Features: On' : 'Funktionen: An') : (language === 'en' ? 'Features: Off' : 'Funktionen: Aus')}</span>
               </button>
               {/* Theme Toggle */}
               <button
@@ -1731,6 +1934,7 @@ export default function PortfolioWebsite() {
             <a href="#skills" className="block px-4 py-3 text-gray-700 hover:bg-blue-50">{t[language].nav
             .skills}</a>
             <a href="#experience" className="block px-4 py-3 text-gray-700 hover:bg-blue-50">{t[language].nav.experience}</a>
+            <a href="#certifications" className="block px-4 py-3 text-gray-700 hover:bg-blue-50">{t[language].nav.certifications}</a>
             <a href="#contact" className="block px-4 py-3 text-gray-700 hover:bg-blue-50">{t[language].nav.contact}</a>
             {/* Mobile Features Toggle */}
             <button
@@ -2125,7 +2329,7 @@ export default function PortfolioWebsite() {
                 return (
                   <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
                     <div className="relative overflow-hidden">
-                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" decoding="async" className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
@@ -2181,7 +2385,7 @@ export default function PortfolioWebsite() {
                 return (
                   <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
                     <div className="relative overflow-hidden rounded-t-2xl">
-                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" className="w-full h-52 object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" decoding="async" className="w-full h-52 object-cover transition-transform duration-700 group-hover:scale-110" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
@@ -2237,7 +2441,7 @@ export default function PortfolioWebsite() {
                 return (
                   <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
                     <div className="relative overflow-hidden rounded-t-2xl">
-                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" className="w-full h-52 object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" decoding="async" className="w-full h-52 object-cover transition-transform duration-700 group-hover:scale-110" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
@@ -2345,6 +2549,7 @@ export default function PortfolioWebsite() {
                         width="56"
                         height="56"
                         loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           console.warn('Experience image failed to load:', item.image);
@@ -2433,6 +2638,7 @@ export default function PortfolioWebsite() {
                       width="400"
                       height="144"
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-36 object-cover transition-transform duration-500 group-hover:scale-105"
                       onError={(e) => {
                         try {
@@ -2534,6 +2740,7 @@ export default function PortfolioWebsite() {
                 <a href="#projects" className={`block transition-colors duration-200 ${isDarkTheme ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-blue-600'}`}>{t[language].nav.projects}</a>
                 <a href="#skills" className={`block transition-colors duration-200 ${isDarkTheme ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-blue-600'}`}>{t[language].nav.skills}</a>
                 <a href="#experience" className={`block transition-colors duration-200 ${isDarkTheme ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-blue-600'}`}>{t[language].nav.experience}</a>
+                <a href="#certifications" className={`block transition-colors duration-200 ${isDarkTheme ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-blue-600'}`}>{t[language].nav.certifications}</a>
               </div>
             </div>
             <div>
@@ -2546,7 +2753,7 @@ export default function PortfolioWebsite() {
               </div>
             </div>
             <div>
-              <h3 className={`text-lg font-bold mb-6 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>Connect</h3>
+              <h3 className={`text-lg font-bold mb-6 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>{t[language].footer.connect}</h3>
               <div className="flex gap-4">
                 <a href="https://www.linkedin.com/in/samuel-o-4b9bbb2a8" target="_blank" rel="noopener noreferrer" className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${isDarkTheme ? 'bg-white/10 text-white hover:bg-blue-600' : 'bg-blue-100 text-blue-600 hover:bg-blue-600 hover:text-white'}`}>
                   <Linkedin className="w-5 h-5" />
@@ -2567,14 +2774,22 @@ export default function PortfolioWebsite() {
             <p className={`text-sm mt-2 ${isDarkTheme ? 'text-gray-500' : 'text-gray-500'}`}>
               {t[language].footer.built}
             </p>
+            <a href="#main-content" className={`inline-block mt-2 text-sm ${isDarkTheme ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'}`}>
+              {language === 'en' ? 'Back to top' : 'Nach oben'}
+            </a>
           </div>
         </div>
       </footer>
 
-      {/* Floating Accessibility Button */}
-      <div 
-        className="fixed left-6 bottom-6 z-50"
-      >
+      {/* Toast */}
+      {toast && (
+        <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-[70] px-4 py-2 rounded-lg shadow-lg text-sm bg-gray-800 text-white">
+          {toast.text}
+        </div>
+      )}
+
+      {/* Floating Accessibility Button - hidden on mobile (use expandable FAB) */}
+      <div className="fixed left-6 bottom-6 z-50 max-md:hidden">
           {isAccessibilityOpen && (
             <div 
               className="absolute bottom-20 left-0 w-80 rounded-3xl shadow-2xl backdrop-blur-xl mb-4 overflow-hidden flex flex-col border"
@@ -2604,10 +2819,10 @@ export default function PortfolioWebsite() {
                 {/* Settings Grid */}
                 <div className="grid grid-cols-2 gap-3">
                   {[
+                    { key: 'largeText', label: language === 'en' ? 'Larger Text' : 'Größere Schrift', fullLabel: language === 'en' ? 'Large Text' : 'Große Schrift', icon: '/images/larger-font.png' },
                     { key: 'contrast', label: language === 'en' ? 'Contrast' : 'Kontrast', fullLabel: language === 'en' ? 'Full Contrast' : 'Voller Kontrast', icon: '/images/contrast.png' },
                     { key: 'blueLightFilter', label: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter', fullLabel: language === 'en' ? 'Strong Filter' : 'Starker Filter', icon: '/images/white-balance.png?v=1' },
                     { key: 'mark', label: language === 'en' ? 'Mark Links' : 'Links markieren', icon: '/images/link.png', isBinary: true },
-                    { key: 'largeText', label: language === 'en' ? 'Larger Text' : 'Größere Schrift', fullLabel: language === 'en' ? 'Large Text' : 'Große Schrift', icon: '/images/larger-font.png' },
                     { key: 'textSpacing', label: language === 'en' ? 'Text Spacing' : 'Textabstand', fullLabel: language === 'en' ? 'Full Spacing' : 'Voller Abstand', icon: '/images/spacing.png' },
                     { key: 'stopAnimations', label: language === 'en' ? 'Stop Animations' : 'Animationen stoppen', icon: '/images/pause-button.png', isBinary: true },
                     { key: 'hideImages', label: language === 'en' ? 'Hide Images' : 'Bilder verbergen', icon: '/images/hide-images.png', isBinary: true },
@@ -2672,6 +2887,9 @@ export default function PortfolioWebsite() {
                   <RotateCcw className="w-4 h-4" />
                   {language === 'en' ? 'Reset All' : 'Alle zurücksetzen'}
                 </button>
+                <a href="/accessibility" className={`block text-center text-sm mt-3 ${isDarkTheme ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-700'}`}>
+                  {language === 'en' ? 'Learn more' : 'Mehr erfahren'}
+                </a>
               </div>
             </div>
           )}
@@ -2705,11 +2923,9 @@ export default function PortfolioWebsite() {
         )}
       </div>
 
-      {/* Floating AI Buttons */}
+      {/* Floating AI Buttons - hidden on mobile (use expandable FAB) */}
       {featuresEnabled && (
-        <div 
-          className="fixed right-6 bottom-6 z-50 flex flex-col gap-3"
-        >
+        <div className="fixed right-6 bottom-6 z-50 flex flex-col gap-3 max-md:hidden">
           {/* Navitoir Button */}
           <button
             onClick={() => setIsNavitoirOpen(true)}
@@ -2763,37 +2979,49 @@ export default function PortfolioWebsite() {
           </button>
         </div>
       )}
+
+      {/* Mobile: single FAB that expands to Accessibility, Navitoir, AI */}
+      {featuresEnabled && (
+        <div className="fixed right-6 bottom-24 z-50 md:hidden flex flex-col items-end gap-2">
+          {fabExpanded && (
+            <>
+              <button onClick={() => { setFabExpanded(false); setIsAccessibilityOpen(true); }} className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg" style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)' }} aria-label={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}>
+                <img src="/images/accessibility.png?v=2" alt="" width="28" height="28" className="w-7 h-7 brightness-0 invert" />
+              </button>
+              <button onClick={() => { setFabExpanded(false); setIsNavitoirOpen(true); }} className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg" style={{ background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)' }} aria-label="Navitoir">
+                <Navigation className="w-6 h-6" />
+              </button>
+              <button onClick={() => { setFabExpanded(false); setIsChatOpen(true); }} className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg" style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)' }} aria-label={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}>
+                <img src="/images/ai.png" alt="" width="28" height="28" className="w-7 h-7 brightness-0 invert" />
+              </button>
+            </>
+          )}
+          <button onClick={() => setFabExpanded(!fabExpanded)} className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg ${fabExpanded ? 'bg-gray-600' : 'bg-indigo-600'}`} aria-label={language === 'en' ? 'Features' : 'Funktionen'} aria-expanded={fabExpanded}>
+            <Plus className={`w-6 h-6 ${fabExpanded ? 'rotate-45' : ''}`} />
+          </button>
+        </div>
+      )}
       
       {/* Navitoir Modal */}
       {isNavitoirOpen && (
         <div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center md:p-4" onClick={() => setIsNavitoirOpen(false)}>
           <div 
-            className={`relative w-full md:max-w-md h-[75vh] md:h-[500px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}
-            style={{
-              border: '3px solid #6366f1'
-            }}
+            className={`relative w-full md:max-w-md max-h-[90vh] h-[75vh] md:h-[500px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}
+            style={{ border: '3px solid #6366f1' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className={`flex items-center justify-between p-4 border-b ${isDarkTheme ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-gradient-to-r from-indigo-50 to-purple-50'}`}>
+            <div className={`flex items-center justify-between p-4 border-b flex-shrink-0 ${isDarkTheme ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-gradient-to-r from-indigo-50 to-purple-50'}`}>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
                   <Navigation className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className={`font-bold ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>
-                    Navitoir
-                  </h3>
-                  <p className={`text-xs ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
-                    {language === 'en' ? 'Navigation Assistant' : 'Navigationsassistent'}
-                  </p>
+                  <h3 className={`font-bold ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>Navitoir</h3>
+                  <p className={`text-xs ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>{language === 'en' ? 'Navigation Assistant' : 'Navigationsassistent'}</p>
                 </div>
               </div>
-              <button
-                onClick={() => setIsNavitoirOpen(false)}
-                className={`p-2 rounded-lg transition-colors ${isDarkTheme ? 'hover:bg-gray-700 text-gray-400 hover:text-white' : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'}`}
-                aria-label="Close Navitoir"
-              >
+              <button onClick={() => setIsNavitoirOpen(false)} className={`p-2 rounded-lg transition-colors ${isDarkTheme ? 'hover:bg-gray-700 text-gray-400 hover:text-white' : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'}`} aria-label="Close Navitoir">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -2801,33 +3029,29 @@ export default function PortfolioWebsite() {
             {/* Messages */}
             <div className={`flex-1 overflow-y-auto p-4 space-y-4 ${isDarkTheme ? 'bg-gray-900' : 'bg-gray-50'}`}>
               {navitoirMessages.map((message, index) => (
-                <div
-                  key={index}
-                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
-                  <div
-                    className={`max-w-[80%] rounded-2xl px-4 py-3 ${
-                      message.role === 'user'
-                        ? isDarkTheme
-                          ? 'bg-indigo-600 text-white'
-                          : 'bg-indigo-600 text-white'
-                        : isDarkTheme
-                        ? 'bg-gray-800 text-gray-200 border border-gray-700'
-                        : 'bg-white text-gray-900 border border-gray-200 shadow-sm'
-                    }`}
-                  >
-                    <div 
-                      className="text-sm leading-relaxed prose prose-sm max-w-none"
-                      dangerouslySetInnerHTML={{ __html: formatChatMessage(message.content) }}
-                    />
+                <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`max-w-[80%] rounded-2xl px-4 py-3 ${message.role === 'user' ? 'bg-indigo-600 text-white' : isDarkTheme ? 'bg-gray-800 text-gray-200 border border-gray-700' : 'bg-white text-gray-900 border border-gray-200 shadow-sm'}`}>
+                    <div className="text-sm leading-relaxed prose prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: sanitizeChatHtml(formatChatMessage(message.content)) }} />
                   </div>
                 </div>
               ))}
+              {navitoirLoading && (
+                <div className="flex justify-start">
+                  <div className={`max-w-[80%] rounded-2xl px-4 py-3 ${isDarkTheme ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200 shadow-sm'}`}>
+                    <span className="text-sm text-gray-500">{language === 'en' ? 'Thinking…' : 'Denke…'}</span>
+                  </div>
+                </div>
+              )}
               <div ref={navitoirEndRef} />
             </div>
 
             {/* Input Form */}
-            <form onSubmit={handleNavitoirSubmit} className={`p-4 border-t ${isDarkTheme ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-white'}`}>
+            <form onSubmit={handleNavitoirSubmit} className={`p-4 border-t flex-shrink-0 ${isDarkTheme ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-white'}`}>
+              <div className="flex flex-wrap gap-2 mb-2">
+                {[ { v: language === 'en' ? 'projects' : 'projekte', l: language === 'en' ? 'Projects' : 'Projekte' }, { v: language === 'en' ? 'contact' : 'kontakt', l: language === 'en' ? 'Contact' : 'Kontakt' }, { v: language === 'en' ? 'open cv' : 'öffne lebenslauf', l: language === 'en' ? 'Open CV' : 'Lebenslauf öffnen' }, { v: language === 'en' ? 'certifications' : 'zertifikate', l: language === 'en' ? 'Certifications' : 'Zertifikate' } ].map(({ v, l }) => (
+                  <button key={v} type="button" onClick={() => handleNavitoirSubmit({ preventDefault: () => {} }, v)} className={`px-3 py-1.5 rounded-lg text-xs font-medium border ${isDarkTheme ? 'bg-gray-800 border-gray-600 text-gray-300 hover:border-indigo-500' : 'bg-gray-100 border-gray-300 text-gray-700 hover:border-indigo-400'}`}>{l}</button>
+                ))}
+              </div>
               <div className="flex gap-2">
                 <input
                   ref={navitoirInputRef}
@@ -2842,7 +3066,7 @@ export default function PortfolioWebsite() {
                 />
                 <button
                   type="submit"
-                  disabled={!navitoirInput.trim()}
+                  disabled={navitoirLoading || !navitoirInput.trim()}
                   className="px-5 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 >
                   <Search className="w-4 h-4" />
@@ -2857,10 +3081,8 @@ export default function PortfolioWebsite() {
       {isChatOpen && (
         <div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center md:p-4" onClick={() => setIsChatOpen(false)}>
           <div 
-            className={`relative w-full md:max-w-md h-[75vh] md:h-[500px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}
-            style={{
-              border: '3px solid #10b981'
-            }}
+            className={`relative w-full md:max-w-md max-h-[90vh] h-[75vh] md:h-[500px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}
+            style={{ border: '3px solid #10b981' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
@@ -2890,38 +3112,46 @@ export default function PortfolioWebsite() {
             {/* Chat Messages */}
             <div className={`flex-1 overflow-y-auto p-4 space-y-4 ${isDarkTheme ? 'bg-gray-900' : 'bg-gray-50'}`}>
               {chatMessages.map((message, index) => (
-                <div
-                  key={index}
-                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
-                  <div
-                    className={`max-w-[80%] rounded-2xl px-4 py-3 ${
-                      message.role === 'user'
-                        ? isDarkTheme
-                          ? 'bg-green-600 text-white'
-                          : 'bg-green-600 text-white'
-                        : isDarkTheme
-                        ? 'bg-gray-800 text-gray-200 border border-gray-700'
-                        : 'bg-white text-gray-900 border border-gray-200 shadow-sm'
-                    }`}
-                  >
-                    <div 
-                      className="text-sm leading-relaxed prose prose-sm max-w-none"
-                      dangerouslySetInnerHTML={{ __html: formatChatMessage(message.content) }}
-                    />
+                <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`max-w-[80%] rounded-2xl px-4 py-3 ${message.role === 'user' ? 'bg-green-600 text-white' : isDarkTheme ? 'bg-gray-800 text-gray-200 border border-gray-700' : 'bg-white text-gray-900 border border-gray-200 shadow-sm'}`}>
+                    <div className="text-sm leading-relaxed prose prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: sanitizeChatHtml(formatChatMessage(message.content)) }} />
+                    {message.role === 'assistant' && (
+                      <button
+                        type="button"
+                        onClick={() => { try { navigator.clipboard?.writeText(message.content); setToast?.({ text: language === 'en' ? 'Copied' : 'Kopiert' }); } catch (_) {} }}
+                        className={`mt-2 text-xs ${isDarkTheme ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-700'} flex items-center gap-1`}
+                        aria-label={language === 'en' ? 'Copy' : 'Kopieren'}
+                      >
+                        <Copy className="w-3 h-3" /> {language === 'en' ? 'Copy' : 'Kopieren'}
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}
               {chatLoading && (
                 <div className="flex justify-start">
                   <div className={`max-w-[80%] rounded-2xl px-4 py-3 ${isDarkTheme ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200 shadow-sm'}`}>
-                    <div className="flex gap-2">
-                      <div className={`w-2 h-2 rounded-full animate-bounce ${isDarkTheme ? 'bg-gray-500' : 'bg-gray-400'}`} style={{ animationDelay: '0ms' }}></div>
-                      <div className={`w-2 h-2 rounded-full animate-bounce ${isDarkTheme ? 'bg-gray-500' : 'bg-gray-400'}`} style={{ animationDelay: '150ms' }}></div>
-                      <div className={`w-2 h-2 rounded-full animate-bounce ${isDarkTheme ? 'bg-gray-500' : 'bg-gray-400'}`} style={{ animationDelay: '300ms' }}></div>
-                    </div>
+                    {reducedMotion ? (
+                      <span className="text-sm text-gray-500">…</span>
+                    ) : (
+                      <div className="flex gap-2">
+                        <div className={`w-2 h-2 rounded-full animate-bounce ${isDarkTheme ? 'bg-gray-500' : 'bg-gray-400'}`} style={{ animationDelay: '0ms' }} />
+                        <div className={`w-2 h-2 rounded-full animate-bounce ${isDarkTheme ? 'bg-gray-500' : 'bg-gray-400'}`} style={{ animationDelay: '150ms' }} />
+                        <div className={`w-2 h-2 rounded-full animate-bounce ${isDarkTheme ? 'bg-gray-500' : 'bg-gray-400'}`} style={{ animationDelay: '300ms' }} />
+                      </div>
+                    )}
                   </div>
                 </div>
+              )}
+              {chatLastFailed && chatMessages.length > 0 && chatMessages[chatMessages.length - 1]?.isError && (
+                <div className="flex justify-start">
+                  <button type="button" onClick={() => handleChatSubmit({ preventDefault: () => {} }, chatLastFailed)} className="px-4 py-2 rounded-xl bg-green-600 text-white text-sm font-medium hover:bg-green-700">
+                    {language === 'en' ? 'Retry' : 'Erneut versuchen'}
+                  </button>
+                </div>
+              )}
+              {chatMessages.length > 0 && chatMessages[chatMessages.length - 1]?.role === 'assistant' && chatMessages[chatMessages.length - 1]?.poweredBy === 'openai' && (
+                <p className="text-xs text-gray-500">Powered by OpenAI. AI may make mistakes.</p>
               )}
               <div ref={chatEndRef} />
             </div>

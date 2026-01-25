@@ -44,9 +44,8 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
+  // Set verification.google to your real code when you have it, or remove this block.
+  // verification: { google: 'your-google-verification-code' },
 }
 
 export default function RootLayout({ children }) {
@@ -54,14 +53,17 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0" />
-        <link rel="icon" href="/images/Instructional_Design_illustration.jpg" />
-        <link rel="apple-touch-icon" href="/images/Instructional_Design_illustration.jpg" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
         <meta name="theme-color" content="#1e3a8a" />
         {/* Additional meta tags for LinkedIn and social sharing */}
         <meta property="og:image:secure_url" content="https://vs-code-port1.vercel.app/images/Instructional_Design_illustration.jpg" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <link rel="alternate" hrefLang="en" href="https://vs-code-port1.vercel.app?lang=en" />
+        <link rel="alternate" hrefLang="de" href="https://vs-code-port1.vercel.app?lang=de" />
+        <meta name="geo.region" content="DE-SH" />
       </head>
       <body>{children}</body>
     </html>

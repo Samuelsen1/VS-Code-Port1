@@ -299,9 +299,99 @@ function extractTopics(message) {
   return topics;
 }
 
+// Free Dictionary API: https://dictionaryapi.dev/ — fetch definition for a term
+async function fetchDefinition(term, lang = 'en') {
+  if (!term || !/^[a-zA-Z0-9\s\-äöüßÄÖÜ]+$/.test(term)) return null;
+  const clean = String(term).trim();
+  const code = lang === 'de' ? 'de' : 'en';
+  try {
+    const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/${code}/${encodeURIComponent(clean)}`, {
+      headers: { 'Accept': 'application/json' },
+      signal: AbortSignal.timeout(4000)
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) return null;
+    const entry = data[0];
+    const word = entry.word || term;
+    const out = [];
+    for (const m of (entry.meanings || []).slice(0, 2)) {
+      const pos = m.partOfSpeech || '';
+      for (const d of (m.definitions || []).slice(0, 1)) {
+        out.push(`${word} (${pos}): ${d.definition}`);
+        if (d.example) out.push(`Example: ${d.example}`);
+      }
+    }
+    return out.length ? out.join('\n') : null;
+  } catch {
+    return null;
+  }
+}
+
+// Detect if the user is asking for a word/phrase definition and extract the term
+function getDefinitionRequest(message) {
+  const m = message.match(/\b(?:define|definition|meaning of|what does|what do)\s+(?:the\s+)?([\w-]+(?:\s+[\w-]+)?)\s*(?:mean)?\??/i)
+    || message.match(/\b(?:was bedeutet|was heißt|bedeutung von|definition von)\s+([\wäöüß-]+(?:\s+[\wäöüß-]+)?)\s*\??/i);
+  return m ? m[1].trim() : null;
+}
+
+// Structure-aware intent: use question word + main predicate to avoid conflating e.g. availability vs experience.
+// "When is he available for full-time employment" -> availability (when + available). "What is his experience" -> experience.
+function classifyIntent(message, language) {
+  const q = message.trim().toLowerCase();
+  const en = language !== 'de';
+
+  // --- AVAILABILITY: when/start/begin + available|verfügbar|start|anfangen OR "available for (full-time )employment"
+  if (/\b(?:when|wann|ab wann)\s+(?:is|ist|can|kann|does|wird)\s+(?:he|samuel|sam|er)\s+(?:available|verfügbar|free|bereit)/i.test(q)) return 'availability';
+  if (/\b(?:when|wann)\s+can\s+(?:he|samuel|sam)\s+start\b/i.test(q)) return 'availability';
+  if (/\b(?:wann|ab wann)\s+kann\s+(?:er|samuel)\s+(?:anfangen|beginnen|starten)\b/i.test(q)) return 'availability';
+  if (/\bavailable\s+for\s+(?:full[- ]?time\s+)?(?:employment|work)\b/i.test(q)) return 'availability';
+  if (/\bverfügbar\s+für\s+(?:Vollzeit[- ]?)?(?:Anstellung|Arbeit|Beschäftigung)\b/i.test(q)) return 'availability';
+  if (/\b(?:when|wann)\s+(?:is|ist)\s+(?:he|samuel|sam|er)\s+free\b/i.test(q)) return 'availability';
+  if (/\b(?:when|wann)\s+(?:can|kann)\s+(?:he|samuel|sam|er)\s+(?:start|begin|anfangen|beginnen)\b/i.test(q)) return 'availability';
+  if (/\b(?:full[- ]?time|Vollzeit)\s+(?:available|verfügbar|employment|Anstellung)\b/i.test(q)) return 'availability';
+  if (/\b(?:start\s+date|Startdatum|Einstieg|Beginn)\b/i.test(q) && /\b(?:when|wann|what|was)\b/i.test(q)) return 'availability';
+
+  // --- EXPERIENCE: what/how much + experience|work history|erfahrung (and NOT when+available)
+  if (/\b(?:what|was|how much|wie viel)\s+(?:is|ist|are|sind)\s+(?:his|seine|their|ihre)\s+(?:work\s+)?(?:experience|history|erfahrung|Berufserfahrung)/i.test(q)) return 'experience';
+  if (/\b(?:tell|erzähl|describe|beschreib)\s+(?:me|mir)\s+(?:about|über)\s+(?:his|seine|their)\s+(?:experience|erfahrung|work\s+history)/i.test(q)) return 'experience';
+  if (/\b(?:work\s+history|employment\s+history|Berufserfahrung|Berufslaufbahn)\b/i.test(q) && !/\b(?:when|wann|available|verfügbar)\b/i.test(q)) return 'experience';
+
+  // --- CONTACT: how/where to contact, email, phone, reach
+  if (/\b(?:how|wie|where|wo)\s+(?:can|kann|do|to)\s+(?:i|we|man)\s+(?:contact|reach|reach out|kontaktieren|erreichen)/i.test(q)) return 'contact';
+  if (/\b(?:email|e-mail|phone|telefon|linkedin)\s+(?:address|number|nummer)?\b/i.test(q) || /\b(?:contact|kontakt)\s+(?:info|information|details|daten)\b/i.test(q)) return 'contact';
+
+  // --- EDUCATION: degree, university, study, master, bachelor
+  if (/\b(?:what|was|which|welche)\s+(?:is|ist|are)\s+(?:his|seine)\s+(?:education|degree|qualification|ausbildung|abschluss|studium)/i.test(q)) return 'education';
+  if (/\b(?:where|wo)\s+(?:did|hat)\s+(?:he|samuel|sam|er)\s+(?:study|studiert|studiert)/i.test(q)) return 'education';
+
+  // --- LOCATION: where based, location, city, country
+  if (/\b(?:where|wo)\s+(?:is|ist)\s+(?:he|samuel|sam|er)\s+(?:based|located|living|living|wohnt|basiert|ansässig)/i.test(q)) return 'location';
+  if (/\b(?:location|standort|wohnort)\s+(?:in|in)\b/i.test(q)) return 'location';
+
+  // --- PORTFOLIO / PROJECTS
+  if (/\b(?:portfolio|projekte|projects|work\s+samples?|beispiele)\b/i.test(q) && /\b(?:show|zeig|view|see|link|links)\b/i.test(q)) return 'portfolio';
+
+  // --- SKILLS / TOOLS
+  if (/\b(?:what|was|which|welche)\s+(?:are|sind)\s+(?:his|seine)\s+(?:skills|abilities|competencies|tools|kompetenzen|fähigkeiten|werkzeuge)/i.test(q)) return 'skills';
+  if (/\b(?:what|welche)\s+(?:tools|software|programs|werkzeuge|programme)\s+(?:does|verwendet)\s+(?:he|er)\s+(?:use|verwenden)/i.test(q)) return 'tools';
+
+  // --- CERTIFICATIONS
+  if (/\b(?:what|was|which|welche)\s+(?:certifications?|certificates?|zertifikate?|trainings?)\s+(?:does|hat)\s+(?:he|er)\s+(?:have|hat)/i.test(q)) return 'certifications';
+
+  // --- ROLE / IDENTITY
+  if (/\b(?:is|ist)\s+(?:he|samuel|sam|er)\s+(?:a|an|ein)\s+\w+\s+(?:designer|developer|writer|teacher|instruktionsdesigner|lerndesigner)/i.test(q)) return 'role';
+  if (/\b(?:primary|primär|main|haupt)\s+(?:role|focus|fokus|career|karriere)\b/i.test(q)) return 'role';
+
+  return 'other';
+}
+
+// Rate limiting: for production, use Vercel's rate limit or Upstash Redis.
+// Example: @upstash/ratelimit or vercel.json / middleware.
+
 export async function POST(request) {
   try {
-    const { message, language = 'en' } = await request.json();
+    const { message, language = 'en', history = [] } = await request.json();
     
     if (!message || message.trim().length === 0) {
       return NextResponse.json({ 
@@ -309,6 +399,22 @@ export async function POST(request) {
           ? 'Bitte geben Sie eine Nachricht ein, damit ich Ihnen helfen kann.' 
           : 'Please provide a message so I can help you.' 
       }, { status: 400 });
+    }
+
+    // ——— General AI (ai-assistant-site): Wikipedia, web, weather, DeepSeek/OpenAI, Samuel CREATOR ———
+    try {
+      const { runChat } = require('../../../ai-assistant-site/api/chat');
+      const hist = (Array.isArray(history) ? history : [])
+        .filter((m) => m && (m.role === 'user' || m.role === 'assistant'))
+        .map((m) => ({ role: m.role, content: String(m.content || '') }));
+      const { reply } = await runChat({ message: message.trim(), history: hist });
+      return NextResponse.json({
+        response: reply,
+        timestamp: new Date().toISOString(),
+        poweredBy: 'ai',
+      });
+    } catch (e) {
+      console.warn('General AI (ai-assistant-site) path failed, using portfolio fallback:', e?.message || e);
     }
 
     const isGerman = language === 'de';
@@ -339,6 +445,86 @@ export async function POST(request) {
       return NextResponse.json({ response, timestamp: new Date().toISOString() });
     }
     
+    // ——— LLM path (OpenAI + Dictionary API): understand everything, respond like a human ———
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (apiKey) {
+      try {
+        let definitionCtx = '';
+        const defTerm = getDefinitionRequest(message);
+        if (defTerm) {
+          const def = await fetchDefinition(defTerm, language === 'de' ? 'de' : 'en');
+          if (def) definitionCtx = `\n\n[DICTIONARY DEFINITION - use when relevant]\n${def}\n[/DICTIONARY DEFINITION]`;
+        }
+        
+        const intent = classifyIntent(message, language);
+        const systemContent = `You are Samuel's friendly AI assistant. Use ONLY the CV and any [DICTIONARY DEFINITION] below. Be concise, natural, and human-like — write as a helpful colleague, not a robot. Answer in the user's language: English if they write in English, German if in German.
+
+SENTENCE STRUCTURE & CONTEXT (important):
+- Pay attention to the main ask from word order and syntax. E.g. "When is he available for full-time employment" asks about AVAILABILITY/start date, not work history. "What is his experience" asks about work history/experience.
+- "When" + "available|start|begin" / "Wann" + "verfügbar|anfangen|beginnen" = availability. "What" + "experience|work history" / "Was" + "Erfahrung|Berufserfahrung" = experience. Do not conflate.
+- For German, use correct syntax and vocabulary (e.g. Verfügbarkeit, Berufserfahrung, Anstellung).
+
+RULES:
+- Base answers on the CV. For jargon (ADDIE, SCORM, WCAG, DITA, LXD, etc.) explain briefly in plain language; you may use the [DICTIONARY DEFINITION] if provided.
+- If asked about something not in the CV or definition, say you don't have that and suggest contacting Samuel: gideonsammysen@gmail.com or +49 171 5811680.
+- Stay on topic: Samuel's skills, experience, education, portfolio, availability, personality, contact. Redirect off-topic gently.
+- Vary tone: warm when appropriate, professional for recruiters. Use short paragraphs and lists when helpful.${definitionCtx}
+
+[DETECTED INTENT from sentence structure: ${intent}]
+
+--- CV DATA ---
+${cvData}
+--- END CV ---`;
+
+        // Build messages: system + last 5 turns from history + new user message
+        const maxHistory = 5;
+        const recent = Array.isArray(history) ? history.slice(-maxHistory * 2) : [];
+        const historyMessages = recent
+          .filter(m => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
+          .map(m => ({ role: m.role, content: String(m.content).trim() }))
+          .slice(-maxHistory * 2);
+
+        const res = await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`,
+          },
+          body: JSON.stringify({
+            model: 'gpt-4o-mini',
+            messages: [
+              { role: 'system', content: systemContent },
+              ...historyMessages,
+              { role: 'user', content: message.trim() },
+            ],
+            max_tokens: 1024,
+            temperature: 0.7,
+          }),
+          signal: AbortSignal.timeout(28000),
+        });
+        
+        if (!res.ok) {
+          const err = await res.text();
+          console.warn('OpenAI API error:', res.status, err);
+          throw new Error('OpenAI request failed');
+        }
+        
+        const data = await res.json();
+        const content = data?.choices?.[0]?.message?.content?.trim();
+        if (content) {
+          return NextResponse.json({
+            response: content,
+            timestamp: new Date().toISOString(),
+            confidence: 0.95,
+            poweredBy: 'openai',
+          });
+        }
+      } catch (e) {
+        console.warn('LLM path failed, using rule-based fallback:', e?.message || e);
+      }
+    }
+    
+    // ——— Rule-based fallback when OPENAI_API_KEY is unset or LLM fails ———
     let response = '';
     let confidence = 0;
     
@@ -501,9 +687,21 @@ export async function POST(request) {
         : "**Contact Information for Samuel:**\n\n📧 **Email:** gideonsammysen@gmail.com\n📱 **Phone:** +49 171 5811680\n📍 **Location:** Lübeck, Germany\n   Address: Große Klosterkoppel 8, 23562 Lübeck\n\n💼 **LinkedIn:** [linkedin.com/in/samuel-o-4b9bbb2a8](https://www.linkedin.com/in/samuel-o-4b9bbb2a8)\n\n**For:**\n• Professional inquiries and opportunities\n• Freelance projects\n• Collaborations\n• Consultations on Digital Learning or Technical Writing\n\nSamuel looks forward to hearing from you! 😊";
     }
     
-    // Experience/Work History
-    else if (topics.includes('experience') || matchesPattern(message, [
+    // Availability (before Experience: "when is he available for full-time employment" = availability, not experience)
+    else if (topics.includes('availability') || classifyIntent(message, language) === 'availability' || matchesPattern(message, [
+      /when\s+(?:is\s+)?(?:he|samuel|sam)\s+available|when\s+can\s+(?:he|samuel|sam)\s+start|available\s+for\s+(?:full[- ]?time\s+)?(?:employment|work)|wann\s+(?:ist\s+)?(?:er|samuel)\s+verfügbar|ab\s+wann|wann\s+kann\s+(?:er|samuel)\s+anfangen|available|availability|start\s+date|when\s+can|free|hire|looking\s+for\s+work|verfügbar|verfügbarkeit|wann.*kann|freie.*zeit|sucht.*arbeit|offen.*für|Vollzeit|full[- ]?time/i
+    ])) {
+      confidence = 1;
+      response = isGerman
+        ? "**Samuels Verfügbarkeit:**\n\n📅 **Vollzeit verfügbar ab:** April/Mai 2026 (nach Abschluss des Masterstudiums)\n\n💼 **Aktuell verfügbar für:**\n• **Freelance-Projekte** – Digital Learning Design oder Technical Writing\n• **Teilzeit-Rollen** – Flexible Zusammenarbeit während des Studiums\n• **Beratungsaufträge** – Expertise in Barrierefreiheit und Instruktionsdesign\n\n**Kontakt:** gideonsammysen@gmail.com\n\n---\n\n📅 **Bevorstehend (Februar 2026):**\nOnline Training Praktikant bei Dräger, Lübeck\n\n🎓 **Aktuell:** Master-Student an der Philipps-Universität Marburg (North American Studies, Medienwissenschaften)\n\n**Schwerpunkte:** Digital Learning Design, Technical Writing, Content-Lokalisierung, Barrierefreiheit"
+        : "**Samuel's Availability:**\n\n📅 **Full-time available from:** April/May 2026 (after Master's completion)\n\n💼 **Currently available for:**\n• **Freelance Projects** – Digital Learning Design or Technical Writing\n• **Part-Time Roles** – Flexible collaboration during studies\n• **Consultation Projects** – Expertise in accessibility and instructional design\n\n**Contact:** gideonsammysen@gmail.com\n\n---\n\n📅 **Upcoming (February 2026):**\nOnline Training Intern at Dräger, Lübeck\n\n🎓 **Currently:** Master's student at Philipps-Universität Marburg (North American Studies, Media Studies)\n\n**Focus Areas:** Digital Learning Design, Technical Writing, Content Localization, Accessibility";
+    }
+    
+    // Experience/Work History (exclude when sentence clearly asks about availability: "when ... available", "available for employment")
+    else if ((topics.includes('experience') || matchesPattern(message, [
       /experience|work history|work|job|career|employment|position|role|what.*done|what.*did|background|erfahrung|arbeit|beruf|karriere|position|was.*gemacht|was.*getan|berufsleben|laufbahn|was.*erfahren/i
+    ])) && classifyIntent(message, language) !== 'availability' && !matchesPattern(message, [
+      /when\s+(?:is\s+)?(?:he|samuel|sam)\s+available|when\s+can\s+(?:he|samuel|sam)\s+start|available\s+for\s+(?:full[- ]?time\s+)?(?:employment|work)|wann\s+(?:ist\s+)?(?:er|samuel)\s+verfügbar|ab\s+wann|wann\s+kann\s+(?:er|samuel)\s+anfangen/i
     ])) {
       confidence = 1;
       response = isGerman
@@ -584,16 +782,6 @@ export async function POST(request) {
       response = isGerman
         ? "**Samuels Barrierefreiheits-Expertise:**\n\n♿ **WCAG 2.1-Konformität:**\n• Alle Projekte folgen den Web Content Accessibility Guidelines\n• Bildschirmleser-Kompatibilität\n• Tastaturnavigation-Unterstützung\n• Kontrastverhältnisse und lesbare Schriftgrößen\n• Alternative Texte für Bilder und Multimedia\n\n♿ **Inklusives Design:**\n• Materialien für diverse Zielgruppen nutzbar\n• Plain Language Principles – klare, einfache Sprache\n• Multiple Lernmodalitäten – visuell, auditiv, kinästhetisch\n• Kultursensible Anpassung von Inhalten\n\n♿ **Praktische Erfahrung:**\n• **25+ barrierefreie Dokumentations-Assets** erstellt nach WCAG 2.1\n• **Erweitertes Barrierefreiheits-Panel** in seinem Portfolio (10+ Funktionen)\n• **Mehrsprachiger Content** (Englisch, Deutsch) mit Barrierefreiheits-Features\n• **Zugängliche E-Learning-Module** mit Text-zu-Sprache, Fokusindikatoren und anpassbaren Anzeigeeinstellungen\n\n**Philosophie:** Barrierefreiheit ist keine Option – sie ist essentiell, um alle Lernenden zu erreichen. Samuel integriert Barrierefreiheit von Anfang an in jeden Projektprozess."
         : "**Samuel's Accessibility Expertise:**\n\n♿ **WCAG 2.1 Compliance:**\n• All projects follow Web Content Accessibility Guidelines\n• Screen reader compatibility\n• Keyboard navigation support\n• Contrast ratios and readable font sizes\n• Alternative text for images and multimedia\n\n♿ **Inclusive Design:**\n• Materials usable by diverse audiences\n• Plain Language Principles – clear, simple language\n• Multiple learning modalities – visual, auditory, kinesthetic\n• Culturally sensitive content adaptation\n\n♿ **Practical Experience:**\n• **Created 25+ accessible documentation assets** following WCAG 2.1\n• **Advanced accessibility panel** in his portfolio (10+ features)\n• **Multilingual content** (English, German) with accessibility features\n• **Accessible e-learning modules** with text-to-speech, focus indicators, and customizable display settings\n\n**Philosophy:** Accessibility is not optional—it's essential for reaching all learners. Samuel integrates accessibility from the start in every project process.";
-    }
-    
-    // Availability
-    else if (topics.includes('availability') || matchesPattern(message, [
-      /available|availability|start date|when can|free|hire|looking for work|verfügbar|verfügbarkeit|wann.*kann|freie.*zeit|sucht.*arbeit|offen.*für/i
-    ])) {
-      confidence = 1;
-      response = isGerman
-        ? "**Samuels Verfügbarkeit:**\n\n📅 **Vollzeit verfügbar ab:** April/Mai 2026 (nach Abschluss des Masterstudiums)\n\n💼 **Aktuell verfügbar für:**\n• **Freelance-Projekte** – Digital Learning Design oder Technical Writing\n• **Teilzeit-Rollen** – Flexible Zusammenarbeit während des Studiums\n• **Beratungsaufträge** – Expertise in Barrierefreiheit und Instruktionsdesign\n\n**Kontakt:** gideonsammysen@gmail.com\n\n---\n\n📅 **Bevorstehend (Februar 2026):**\nOnline Training Praktikant bei Dräger, Lübeck\n\n🎓 **Aktuell:** Master-Student an der Philipps-Universität Marburg (North American Studies, Medienwissenschaften)\n\n**Schwerpunkte:** Digital Learning Design, Technical Writing, Content-Lokalisierung, Barrierefreiheit"
-        : "**Samuel's Availability:**\n\n📅 **Full-time available from:** April/May 2026 (after Master's completion)\n\n💼 **Currently available for:**\n• **Freelance Projects** – Digital Learning Design or Technical Writing\n• **Part-Time Roles** – Flexible collaboration during studies\n• **Consultation Projects** – Expertise in accessibility and instructional design\n\n**Contact:** gideonsammysen@gmail.com\n\n---\n\n📅 **Upcoming (February 2026):**\nOnline Training Intern at Dräger, Lübeck\n\n🎓 **Currently:** Master's student at Philipps-Universität Marburg (North American Studies, Media Studies)\n\n**Focus Areas:** Digital Learning Design, Technical Writing, Content Localization, Accessibility";
     }
     
     // Location
