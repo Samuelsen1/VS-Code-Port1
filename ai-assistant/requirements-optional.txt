@@ -1,0 +1,4 @@
+# Embedding-based learning: semantic match for teach/learn (fully local).
+# Install with: pip install -r requirements-optional.txt
+# ~500MB for model on first run.
+sentence-transformers>=2.2.0

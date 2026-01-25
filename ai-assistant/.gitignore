@@ -1,0 +1,8 @@
+venv/
+.venv-test/
+__pycache__/
+*.pyc
+.env
+.env.local
+learned_embeddings.npy
+.vercel/
