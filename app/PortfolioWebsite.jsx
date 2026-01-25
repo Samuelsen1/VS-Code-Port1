@@ -350,63 +350,6 @@ export default function PortfolioWebsite() {
       'open up', 'bring up', 'pull up', 'öffnen Sie', 'zeigen Sie', 'ansehen', 'aufmachen', 'hochladen'
     ]);
 
-    // Check for theme switching
-    const wantsDark = matchesAny([
-      'dark theme', 'dark mode', 'dunkles thema', 'dunkel', 'night', 'night mode', 'nacht', 'nachtmodus',
-      'darker', 'dunkler', 'dark', 'black theme', 'schwarzes thema', 'dunkelmodus'
-    ]);
-    const wantsLight = matchesAny([
-      'light theme', 'light mode', 'helles thema', 'hell', 'day', 'day mode', 'tag', 'daylight',
-      'lighter', 'heller', 'bright', 'bright mode', 'hellmodus', 'light', 'weiß', 'weiss'
-    ]);
-    if (wantsDark && !wantsLight) {
-      if (!isDarkTheme) {
-        setIsDarkTheme(true);
-        setNavitoirMessages(prev => [...prev, {
-          role: 'assistant',
-          content: language === 'en'
-            ? `✅ Switched to <strong>Dark Theme</strong>.`
-            : `✅ Zu <strong>dunklem Thema</strong> gewechselt.`
-        }]);
-        setNavitoirLoading(false);
-        setTimeout(() => setIsNavitoirOpen(false), 800);
-        return;
-      } else {
-        setNavitoirMessages(prev => [...prev, {
-          role: 'assistant',
-          content: language === 'en'
-            ? `ℹ️ Already using <strong>Dark Theme</strong>.`
-            : `ℹ️ Bereits <strong>dunkles Thema</strong> aktiv.`
-        }]);
-        setNavitoirLoading(false);
-        return;
-      }
-    }
-
-    if (wantsLight && !wantsDark) {
-      if (isDarkTheme) {
-        setIsDarkTheme(false);
-        setNavitoirMessages(prev => [...prev, {
-          role: 'assistant',
-          content: language === 'en'
-            ? `✅ Switched to <strong>Light Theme</strong>.`
-            : `✅ Zu <strong>hellem Thema</strong> gewechselt.`
-        }]);
-        setNavitoirLoading(false);
-        setTimeout(() => setIsNavitoirOpen(false), 800);
-        return;
-      } else {
-        setNavitoirMessages(prev => [...prev, {
-          role: 'assistant',
-          content: language === 'en'
-            ? `ℹ️ Already using <strong>Light Theme</strong>.`
-            : `ℹ️ Bereits <strong>helles Thema</strong> aktiv.`
-        }]);
-        setNavitoirLoading(false);
-        return;
-      }
-    }
-
     // Accessibility feature mapping: many synonyms per feature; we iterate by key length (longer first)
     const accessibilityMap = {
       'accessibility': { key: null, name: language === 'en' ? 'Accessibility Panel' : 'Barrierefreiheitspanel' },
@@ -612,6 +555,62 @@ export default function PortfolioWebsite() {
       }
     }
 
+    // Theme switching (after accessibility so "blue light filter" is not misread as "light theme")
+    const wantsDark = matchesAny([
+      'dark theme', 'dark mode', 'dunkles thema', 'dunkel', 'night', 'night mode', 'nacht', 'nachtmodus',
+      'darker', 'dunkler', 'dark', 'black theme', 'schwarzes thema', 'dunkelmodus'
+    ]);
+    const wantsLight = matchesAny([
+      'light theme', 'light mode', 'helles thema', 'hell', 'day', 'day mode', 'tag', 'daylight',
+      'lighter', 'heller', 'bright', 'bright mode', 'hellmodus', 'light', 'weiß', 'weiss'
+    ]) && !/blue\s*light|bluelight|blaulicht/i.test(userQuery);
+    if (wantsDark && !wantsLight) {
+      if (!isDarkTheme) {
+        setIsDarkTheme(true);
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `✅ Switched to <strong>Dark Theme</strong>.`
+            : `✅ Zu <strong>dunklem Thema</strong> gewechselt.`
+        }]);
+        setNavitoirLoading(false);
+        setTimeout(() => setIsNavitoirOpen(false), 800);
+        return;
+      } else {
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `ℹ️ Already using <strong>Dark Theme</strong>.`
+            : `ℹ️ Bereits <strong>dunkles Thema</strong> aktiv.`
+        }]);
+        setNavitoirLoading(false);
+        return;
+      }
+    }
+    if (wantsLight && !wantsDark) {
+      if (isDarkTheme) {
+        setIsDarkTheme(false);
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `✅ Switched to <strong>Light Theme</strong>.`
+            : `✅ Zu <strong>hellem Thema</strong> gewechselt.`
+        }]);
+        setNavitoirLoading(false);
+        setTimeout(() => setIsNavitoirOpen(false), 800);
+        return;
+      } else {
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `ℹ️ Already using <strong>Light Theme</strong>.`
+            : `ℹ️ Bereits <strong>helles Thema</strong> aktiv.`
+        }]);
+        setNavitoirLoading(false);
+        return;
+      }
+    }
+
     // Section mapping: each section has id, name, and an array of trigger terms (longer = more specific)
     const sectionTerms = [
       {
@@ -622,7 +621,7 @@ export default function PortfolioWebsite() {
       {
         id: 'projects',
         name: language === 'en' ? 'Projects' : 'Projekte',
-        terms: ['projects', 'project', 'portfolio', 'showcase', 'work', 'works', 'what have you done', 'what have you built', 'projekte', 'projekt', 'arbeiten', 'referenzen', 'beispiele', 'samples', 'portfolio work', 'projcts', 'my work', 'deine arbeit', 'your work', 'show me your work', 'zeig projekte', 'take me to projects']
+        terms: ['projects', 'project', 'portfolio', 'showcase', 'work', 'works', 'what have you done', 'what have you built', 'projekte', 'projekt', 'arbeiten', 'referenzen', 'beispiele', 'samples', 'portfolio work', 'projcts', 'my work', 'deine arbeit', 'your work', 'show me your work', 'zeig projekte', 'take me to projects', 'general', 'general ai']
       },
       {
         id: 'skills',
@@ -684,6 +683,12 @@ export default function PortfolioWebsite() {
       ['c1 english', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
       ['c1', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
     ].filter(([, link]) => link);
+
+    // Project links (e.g. General): open in new tab; with wantsToOpen, scroll to projects first
+    const projectLinkEntries = [
+      ['general', 'https://general-ai-wheat.vercel.app'],
+      ['general ai', 'https://general-ai-wheat.vercel.app'],
+    ];
 
     // Check for CV requests
     if (wantsCv) {
@@ -756,6 +761,36 @@ export default function PortfolioWebsite() {
           content: language === 'en'
             ? `✅ Navigating to <strong>Certifications</strong> section, then opening the certificate...`
             : `✅ Navigiere zum Bereich <strong>Zertifikate</strong>, dann öffne ich das Zertifikat...`
+        }]);
+        setNavitoirLoading(false);
+        return;
+      }
+
+      // Check for project links (e.g. General)
+      let projectLink = null;
+      for (const [key, link] of projectLinkEntries) {
+        if (userQuery.includes(key)) {
+          projectLink = link;
+          break;
+        }
+      }
+      if (projectLink) {
+        setTimeout(() => {
+          const projElement = document.getElementById('projects');
+          if (projElement) {
+            projElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => {
+              window.open(projectLink, '_blank');
+              setIsNavitoirOpen(false);
+            }, 800);
+          }
+        }, 100);
+        setToast({ text: language === 'en' ? 'Opening General in new tab' : 'General in neuem Tab öffnen' });
+        setNavitoirMessages(prev => [...prev, {
+          role: 'assistant',
+          content: language === 'en'
+            ? `✅ Navigating to <strong>Projects</strong>, then opening <strong>General</strong>...`
+            : `✅ Navigiere zu <strong>Projekte</strong>, dann öffne ich <strong>General</strong>...`
         }]);
         setNavitoirLoading(false);
         return;
@@ -1094,7 +1129,8 @@ export default function PortfolioWebsite() {
         viewAll: "View Full Portfolio",
         eLearning: "E-Learning Modules",
         knowledge: "Knowledge Base",
-        techWriting: "Technical Writing"
+        techWriting: "Technical Writing",
+        webProject: "Web Project"
       },
       skills: {
         title: "Skills & Technologies",
@@ -1285,7 +1321,8 @@ export default function PortfolioWebsite() {
         viewAll: "Gesamtes Portfolio ansehen",
         eLearning: "E-Learning-Module",
         knowledge: "Wissensdatenbank",
-        techWriting: "Technisches Schreiben"
+        techWriting: "Technisches Schreiben",
+        webProject: "Web-Projekt"
       },
       skills: {
         title: "Fähigkeiten & Technologien",
@@ -1432,6 +1469,30 @@ export default function PortfolioWebsite() {
 
   // Projects with translations
   const projects = [
+    {
+      title: {
+        en: "General",
+        de: "General"
+      },
+      category: {
+        en: "Web Project",
+        de: "Web-Projekt"
+      },
+      description: {
+        en: "An advanced AI assistant: answers questions, fact-checks, reads PDFs and images, and delivers qualitative and quantitative analysis. Powered by Wikipedia, web search, weather, definitions, news, and DeepSeek API. Built by Samuel.",
+        de: "Ein KI-Assistent: beantwortet Fragen, prüft Fakten, liest PDFs und Bilder, qualitative und quantitative Analysen. Nutzt Wikipedia, Websuche, Wetter, Definitionen, News und DeepSeek API. Erstellt von Samuel."
+      },
+      tools: {
+        en: ["Wikipedia", "Web Search", "DeepSeek API", "Vercel", "PDF", "Image Analysis"],
+        de: ["Wikipedia", "Websuche", "DeepSeek API", "Vercel", "PDF", "Bildanalyse"]
+      },
+      results: {
+        en: ["Fact-checking", "PDF & image analysis", "Quantitative and qualitative judgments", "Short, accurate answers"],
+        de: ["Faktenprüfung", "PDF- und Bildanalyse", "Quantitative und qualitative Bewertungen", "Kurze, präzise Antworten"]
+      },
+      link: "https://general-ai-wheat.vercel.app",
+      featured: true
+    },
     {
       title: {
         en: "Plain Language and Inclusivity",
@@ -2308,6 +2369,54 @@ export default function PortfolioWebsite() {
             <p className={`text-xl max-w-2xl mx-auto ${isDarkTheme ? 'text-blue-100' : 'text-gray-600'}`}>
               {t[language].projects.desc}
             </p>
+          </div>
+
+          {/* Web Project — General (AI) */}
+          <div className="mb-16">
+            <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
+              <span className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <Sparkles className="w-5 h-5 text-white" />
+              </span>
+              {t[language].projects.webProject}
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.filter(p => p.title.en === "General").map((project, index) => (
+                <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
+                  <div className="relative overflow-hidden">
+                    <img src="/images/general.png" alt={project.title[language]} width="420" height="208" loading="lazy" decoding="async" className="w-full h-52 object-contain bg-black transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full text-xs font-semibold shadow-md">
+                        {project.category[language]}
+                      </span>
+                    </div>
+                    <h3 className={`text-lg font-bold transition-colors duration-200 mb-2 leading-tight ${isDarkTheme ? 'text-white group-hover:text-blue-300' : 'text-gray-900 group-hover:text-blue-600'}`}>
+                      {project.title[language]}
+                    </h3>
+                    <p className={`mb-3 leading-relaxed flex-1 text-sm ${isDarkTheme ? 'text-blue-100' : 'text-gray-600'}`}>
+                      {project.description[language]}
+                    </p>
+                    <p className={`text-xs mb-3 ${isDarkTheme ? 'text-blue-200' : 'text-gray-500'}`}>
+                      <span className={`font-semibold ${isDarkTheme ? 'text-blue-300' : 'text-blue-700'}`}>{language === 'en' ? 'Tools:' : 'Tools:'}</span>{' '}
+                      {project.tools[language].join(' · ')}
+                    </p>
+                    <div>
+                      <p className={`text-xs font-semibold mb-2 ${isDarkTheme ? 'text-blue-200' : 'text-gray-700'}`}>{language === 'en' ? 'Key Results:' : 'Ergebnisse:'}</p>
+                      <div className="space-y-1">
+                        {project.results[language].map((result, i) => (
+                          <div key={i} className="flex items-start gap-2">
+                            <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                            <span className={`text-xs leading-tight ${isDarkTheme ? 'text-blue-100' : 'text-gray-600'}`}>{result}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* E-Learning Modules */}

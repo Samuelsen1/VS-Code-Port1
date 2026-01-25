@@ -78,6 +78,7 @@ Knowledge Base & Content Systems:
 
 Web Project:
 - Personal Portfolio Website: Responsive, bilingual (EN/DE) technical showcase with accessibility features
+- General (https://general-ai-wheat.vercel.app): Advanced AI assistant — Wikipedia, web search, weather, definitions, news, DeepSeek API; answers questions, fact-checks, reads PDFs and images, qualitative and quantitative analysis. Built by Samuel.
 
 LANGUAGES:
 - English – Native/Bilingual (C1 Advanced certified)
