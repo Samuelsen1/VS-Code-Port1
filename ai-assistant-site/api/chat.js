@@ -90,6 +90,26 @@ async function fetchNews(q, apiKey) {
   return items.map((a) => ({ title: a.title, snippet: trim(a.description || "", 120) }));
 }
 
+/**
+ * Detect if the question is about Samuel (the creator / portfolio owner).
+ * When true: skip Wikipedia and web search, use only CREATOR as context, and never use wiki[0]/web[0] in fallback.
+ */
+function isAboutSamuel(q) {
+  const l = (q || "").toLowerCase().trim();
+  if (!l) return false;
+  if (/\bsamuel\b/.test(l)) return true;
+  if (/\b(creator|your creator|who made you|who created you|who is your owner|about him|about the creator)\b/.test(l)) return true;
+  if (/\babout\s+(samuel|him)\b/.test(l)) return true;
+  if (/\b(what do you know about|tell me about|who is)\s+(samuel|him)\b/.test(l)) return true;
+  if (/^(what do you know|what can you tell)\s*[?.]?\s*$/i.test(q.trim())) return true;
+  if (/\bhis\s+(experience|skills|background|education|work|portfolio|contact|name|thesis|master|degree|job|position|role)\b/.test(l)) return true;
+  if (/\b(what is|what was|what are|where is|how did)\s+his\s+/.test(l)) return true;
+  if (/\b(what does he|where does he|where did he|how did he|does he|is he|can he)\b/.test(l)) return true;
+  return false;
+}
+
+const SAMUEL_FALLBACK = `Samuel Afriyie Opoku is a Digital Learning Designer with 1+ year in e-learning and 3 years teaching. He has a Master's in North American Studies (Media) at Philipps-Universität Marburg (thesis on AI and digital narratives) and a B.Ed. in English from University of Cape Coast, Ghana. Experience: Tanz der Kulturen e.V. (25+ accessible learning assets, 50+ educational resources, 300+ pages localized), Ghana National Service (English teacher), and a Praktikum at Dräger from Feb 2026. Skills: Articulate 360, Adobe Creative Suite, ADDIE, Bloom's Taxonomy, instructional design, technical writing. Languages: English (native), German (B1), Akan (fluent). Contact: gideonsammysen@gmail.com | +49 171 5811680 | Lübeck, Germany. For more detailed answers, set DEEPSEEK_API_KEY or OPENAI_API_KEY in Vercel.`;
+
 const CREATOR = `Your creator is **SAMUEL AFRIYIE OPOKU**, Digital Learning Designer.
 Contact: gideonsammysen@gmail.com | 01715811680 | Große Klosterkoppel 8, 23562 Lübeck. Web portfolio and LinkedIn available.
 Background: 1+ year in e-learning, 3 years teaching; Master's in North American Studies (Media) at Philipps-Universität Marburg — thesis: "AI as Reflection: Human-Technology Relationships in Digital Narratives" (expected 2026); B.Ed. English, University of Cape Coast, Ghana. Skills: Articulate 360, Adobe Creative Suite, ADDIE, Bloom's Taxonomy, LMS, SCORM, instructional design, technical writing. Certifications: Instructional Design (U Illinois), EF SET C1, Technical Writing (Google, Board Infinity). Portfolio: e-learning modules (Articulate Rise), Notion knowledge bases, portfolio website with AI chatbot. Experience: Tanz der Kulturen e.V. (25+ accessible learning assets, 50+ educational resources, 300+ pages localized); Ghana NSS (English teacher); Praktikum at Dräger (from Feb 2026). Languages: English (native), German (B1), Akan (fluent).
@@ -203,6 +223,12 @@ async function fetchOpenAIVision(context, question, imageB64, apiKey, hist = [])
 }
 
 function buildContext(opts) {
+  // About-Samuel: use only CREATOR (and PDF if any). Never inject Wikipedia/web for these.
+  if (opts.aboutSamuel) {
+    const parts = ["Creator (Samuel):\n" + CREATOR];
+    if (opts.pdfText) parts.push("Document (PDF):\n" + opts.pdfText);
+    return parts.join("\n\n");
+  }
   const parts = [];
   if (opts.pdfText) parts.push("Document (PDF):\n" + opts.pdfText);
   if (opts.wiki?.length) parts.push("Wikipedia:\n" + opts.wiki.map((w) => `- ${w.title}: ${w.snippet}`).join("\n"));
@@ -214,6 +240,8 @@ function buildContext(opts) {
 }
 
 function buildFallbackReply(opts) {
+  // Never use wiki[0]/web[0] for about-Samuel — they return wrong articles (e.g. "What the Bleep Do We Know", "What Is Life").
+  if (opts.aboutSamuel) return SAMUEL_FALLBACK;
   if (opts.weather) return opts.weather;
   if (opts.definition) return opts.definition;
   const best = opts.wiki?.[0] || opts.web?.[0];
@@ -249,6 +277,7 @@ async function runChat(opts) {
   if (!q && !imageB64 && !pdfB64) throw new Error("message or file required");
 
   const ql = q.toLowerCase();
+  const aboutSamuel = isAboutSamuel(q);
   const deepseekKey = process.env.DEEPSEEK_API_KEY;
   const openaiKey = process.env.OPENAI_API_KEY;
   const googleKey = process.env.GOOGLE_API_KEY;
@@ -257,7 +286,7 @@ async function runChat(opts) {
   const braveKey = process.env.BRAVE_API_KEY;
   const newsKey = process.env.NEWS_API_KEY;
 
-  const dataOpts = { wiki: [], web: [], weather: null, definition: null, news: [], pdfText: null };
+  const dataOpts = { wiki: [], web: [], weather: null, definition: null, news: [], pdfText: null, aboutSamuel };
   if (pdfB64) {
     try {
       const pdfParse = require("pdf-parse");
@@ -267,12 +296,14 @@ async function runChat(opts) {
     } catch (e) { console.warn("PDF:", e?.message); }
   }
 
-  try { dataOpts.wiki = await fetchWikipedia(q); } catch (e) { console.warn("Wikipedia:", e?.message); }
-
-  if (googleKey && cseId) { try { dataOpts.web = await fetchGoogleSearch(q, googleKey, cseId); } catch (e) { console.warn("Google:", e?.message); } }
-  else if (serperKey) { try { dataOpts.web = await fetchSerper(q, serperKey); } catch (e) { console.warn("Serper:", e?.message); } }
-  else if (braveKey) { try { dataOpts.web = await fetchBrave(q, braveKey); } catch (e) { console.warn("Brave:", e?.message); } }
-  else if (process.env.TAVILY_API_KEY) { try { dataOpts.web = await fetchTavily(q, process.env.TAVILY_API_KEY); } catch (e) { console.warn("Tavily:", e?.message); } }
+  // Skip Wikipedia and web for about-Samuel — they return wrong articles (e.g. "What the Bleep Do We Know", "What Is Life", "Man's Search for Meaning").
+  if (!aboutSamuel) {
+    try { dataOpts.wiki = await fetchWikipedia(q); } catch (e) { console.warn("Wikipedia:", e?.message); }
+    if (googleKey && cseId) { try { dataOpts.web = await fetchGoogleSearch(q, googleKey, cseId); } catch (e) { console.warn("Google:", e?.message); } }
+    else if (serperKey) { try { dataOpts.web = await fetchSerper(q, serperKey); } catch (e) { console.warn("Serper:", e?.message); } }
+    else if (braveKey) { try { dataOpts.web = await fetchBrave(q, braveKey); } catch (e) { console.warn("Brave:", e?.message); } }
+    else if (process.env.TAVILY_API_KEY) { try { dataOpts.web = await fetchTavily(q, process.env.TAVILY_API_KEY); } catch (e) { console.warn("Tavily:", e?.message); } }
+  }
 
   if (/\b(weather|forecast|temperature)\b/.test(ql)) {
     const place = extractPlace(q);
