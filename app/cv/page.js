@@ -382,6 +382,7 @@ export default function DigitalLearningCV() {
               <h3 className="font-bold text-gray-800 mb-1">{language === 'de' ? 'Web-Projekt' : 'Web Project'}</h3>
               <ul className="text-sm text-gray-700 space-y-1 ml-4">
                 <li>• {language === 'de' ? 'Persönliche Portfolio-Website: Responsive, zweisprachige (EN/DE) technische Präsentation mit Barrierefreiheits-Features, KI-Chatbot und Theme-Anpassung' : 'Personal Portfolio Website: Responsive, bilingual (EN/DE) technical showcase with accessibility features, AI chatbot and theme customization'} | <a href="https://vs-code-port1.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.link}</a></li>
+                <li>• <strong>General</strong> ({language === 'de' ? 'KI-Assistent: Wikipedia, Websuche, Wetter, Definitionen, News, DeepSeek API; beantwortet Fragen, prüft Fakten, liest PDFs und Bilder; qualitative und quantitative Analysen' : 'AI assistant: Wikipedia, web search, weather, definitions, news, DeepSeek API; answers questions, fact-checks, reads PDFs and images; qualitative and quantitative analysis'}) | <a href="https://general-ai-wheat.vercel.app" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.link}</a></li>
               </ul>
             </div>
           </div>
