@@ -1130,7 +1130,7 @@ export default function PortfolioWebsite() {
         eLearning: "E-Learning Modules",
         knowledge: "Knowledge Base",
         techWriting: "Technical Writing",
-        webProject: "Web Project"
+        webProject: "AI Project"
       },
       skills: {
         title: "Skills & Technologies",
@@ -1322,7 +1322,7 @@ export default function PortfolioWebsite() {
         eLearning: "E-Learning-Module",
         knowledge: "Wissensdatenbank",
         techWriting: "Technisches Schreiben",
-        webProject: "Web-Projekt"
+        webProject: "AI-Projekt"
       },
       skills: {
         title: "Fähigkeiten & Technologien",
@@ -1475,8 +1475,8 @@ export default function PortfolioWebsite() {
         de: "General"
       },
       category: {
-        en: "Web Project",
-        de: "Web-Projekt"
+        en: "AI Project",
+        de: "AI-Projekt"
       },
       description: {
         en: "An advanced AI assistant: answers questions, fact-checks, reads PDFs and images, and delivers qualitative and quantitative analysis. Powered by Wikipedia, web search, weather, definitions, news, and DeepSeek API. Built by Samuel.",
@@ -2371,7 +2371,7 @@ export default function PortfolioWebsite() {
             </p>
           </div>
 
-          {/* Web Project — General (AI) */}
+          {/* AI Project — General */}
           <div className="mb-16">
             <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
               <span className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
