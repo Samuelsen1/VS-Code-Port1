@@ -3203,33 +3203,33 @@ export default function PortfolioWebsite() {
             <>
               <button 
                 onClick={() => { setFabExpanded(false); setIsAccessibilityOpen(true); }} 
-                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95 border-2 border-white/30" 
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95" 
                 style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)', boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4)' }} 
                 aria-label={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
               >
-                <img src="/images/accessibility.png?v=2" alt="" width="40" height="40" className="w-10 h-10 brightness-0 invert" />
+                <img src="/images/accessibility.png?v=2" alt="" width="54" height="54" className="w-[54px] h-[54px] brightness-0 invert" />
               </button>
               <button 
                 onClick={() => { setFabExpanded(false); setIsNavitoirOpen(true); }} 
-                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95 border-2 border-white/30" 
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95" 
                 style={{ background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)', boxShadow: '0 4px 15px rgba(99, 102, 241, 0.4)' }} 
                 aria-label="Navitoir"
               >
-                <Navigation className="w-10 h-10" />
+                <Navigation className="w-7 h-7" />
               </button>
               <button 
                 onClick={() => { setFabExpanded(false); setIsChatOpen(true); }} 
-                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95 border-2 border-white/30" 
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95" 
                 style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', boxShadow: '0 4px 15px rgba(16, 185, 129, 0.4)' }} 
                 aria-label={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
               >
-                <img src="/images/ai.png" alt="" width="40" height="40" className="w-10 h-10 brightness-0 invert" />
+                <img src="/images/ai.png" alt="" width="54" height="54" className="w-[54px] h-[54px] brightness-0 invert" />
               </button>
             </>
           )}
           <button 
             onClick={() => setFabExpanded(!fabExpanded)} 
-            className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95 border-2 border-white/30 ${fabExpanded ? 'bg-gray-600' : 'bg-indigo-600'}`} 
+            className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95 ${fabExpanded ? 'bg-gray-600' : 'bg-indigo-600'}`} 
             aria-label={language === 'en' ? 'Features' : 'Funktionen'} 
             aria-expanded={fabExpanded}
             style={{ boxShadow: fabExpanded ? '0 4px 15px rgba(75, 85, 99, 0.4)' : '0 4px 15px rgba(99, 102, 241, 0.4)' }}
