@@ -292,8 +292,8 @@ export default function PortfolioWebsite() {
           role: 'assistant',
           content:
             language === 'en'
-              ? `Hi, I'm Samuel's AI assistant. If you want to know about him, his experience, skills, education, availability, personality or anything else, I'm here to assist you 😊.\n\nIf you're searching for something or need navigation aid, use ${navitoirIcon}<strong>Navitoir</strong>, my assistant for prompt navigation.`
-              : `Hallo, ich bin Samuels KI-Assistent. Wenn Sie mehr über ihn, seine Erfahrung, Fähigkeiten, Ausbildung, Verfügbarkeit, Persönlichkeit oder sonst etwas wissen möchten, helfe ich Ihnen gerne weiter 😊.\n\nWenn Sie nach etwas suchen oder Navigationshilfe benötigen, verwenden Sie ${navitoirIcon}<strong>Navitoir</strong>, meinen Assistenten für schnelle Navigation.`,
+              ? `Hi! How can I help you today? 😊`
+              : `Hallo! Wie kann ich Ihnen heute helfen? 😊`,
         },
       ]);
     }
@@ -3299,7 +3299,8 @@ export default function PortfolioWebsite() {
                   value={navitoirInput}
                   onChange={(e) => setNavitoirInput(e.target.value)}
                   placeholder={language === 'en' ? 'Search or navigate to a section...' : 'Suchen oder zu einem Bereich navigieren...'}
-                  className={`flex-1 px-4 py-3 rounded-xl border transition-colors ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-indigo-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-indigo-500'} focus:outline-none focus:ring-2 focus:ring-indigo-500/20`}
+                  className={`flex-1 px-4 py-3 rounded-xl border transition-colors text-base ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-indigo-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-indigo-500'} focus:outline-none focus:ring-2 focus:ring-indigo-500/20`}
+                  style={{ fontSize: '16px' }}
                 />
                 <button
                   type="submit"
@@ -3404,8 +3405,9 @@ export default function PortfolioWebsite() {
                   autoCapitalize="sentences"
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
-                  placeholder={language === 'en' ? 'Ask about skills, experience, education...' : 'Fragen Sie über Fähigkeiten, Erfahrung, Ausbildung...'}
-                  className={`flex-1 px-4 py-3 rounded-xl border transition-colors ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-green-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-green-500/20`}
+                  placeholder={language === 'en' ? 'Ask anything...' : 'Fragen Sie alles...'}
+                  className={`flex-1 px-4 py-3 rounded-xl border transition-colors text-base ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-green-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-green-500/20`}
+                  style={{ fontSize: '16px' }}
                   disabled={chatLoading}
                 />
                 <button
