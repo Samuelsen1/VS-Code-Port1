@@ -3207,7 +3207,7 @@ export default function PortfolioWebsite() {
                 style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)', boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4)' }} 
                 aria-label={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
               >
-                <img src="/images/accessibility.png?v=2" alt="" width="32" height="32" className="w-8 h-8 brightness-0 invert" />
+                <img src="/images/accessibility.png?v=2" alt="" width="40" height="40" className="w-10 h-10 brightness-0 invert" />
               </button>
               <button 
                 onClick={() => { setFabExpanded(false); setIsNavitoirOpen(true); }} 
@@ -3215,7 +3215,7 @@ export default function PortfolioWebsite() {
                 style={{ background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)', boxShadow: '0 4px 15px rgba(99, 102, 241, 0.4)' }} 
                 aria-label="Navitoir"
               >
-                <Navigation className="w-7 h-7" />
+                <Navigation className="w-10 h-10" />
               </button>
               <button 
                 onClick={() => { setFabExpanded(false); setIsChatOpen(true); }} 
@@ -3223,7 +3223,7 @@ export default function PortfolioWebsite() {
                 style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', boxShadow: '0 4px 15px rgba(16, 185, 129, 0.4)' }} 
                 aria-label={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
               >
-                <img src="/images/ai.png" alt="" width="32" height="32" className="w-8 h-8 brightness-0 invert" />
+                <img src="/images/ai.png" alt="" width="40" height="40" className="w-10 h-10 brightness-0 invert" />
               </button>
             </>
           )}
@@ -3234,7 +3234,7 @@ export default function PortfolioWebsite() {
             aria-expanded={fabExpanded}
             style={{ boxShadow: fabExpanded ? '0 4px 15px rgba(75, 85, 99, 0.4)' : '0 4px 15px rgba(99, 102, 241, 0.4)' }}
           >
-            <Plus className={`w-7 h-7 transition-transform duration-300 ${fabExpanded ? 'rotate-45' : ''}`} />
+            <Plus className={`w-10 h-10 transition-transform duration-300 ${fabExpanded ? 'rotate-45' : ''}`} />
           </button>
         </div>
       )}
