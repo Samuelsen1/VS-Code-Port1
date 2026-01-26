@@ -3299,7 +3299,7 @@ export default function PortfolioWebsite() {
                   value={navitoirInput}
                   onChange={(e) => setNavitoirInput(e.target.value)}
                   placeholder={language === 'en' ? 'Search or navigate to a section...' : 'Suchen oder zu einem Bereich navigieren...'}
-                  className={`flex-1 px-4 py-3 rounded-xl border transition-colors text-base ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-indigo-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-indigo-500'} focus:outline-none focus:ring-2 focus:ring-indigo-500/20`}
+                  className={`flex-1 px-4 py-3 rounded-xl border transition-colors ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-indigo-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-indigo-500'} focus:outline-none focus:ring-2 focus:ring-indigo-500/20`}
                   style={{ fontSize: '16px' }}
                 />
                 <button
@@ -3406,7 +3406,7 @@ export default function PortfolioWebsite() {
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
                   placeholder={language === 'en' ? 'Ask anything...' : 'Fragen Sie alles...'}
-                  className={`flex-1 px-4 py-3 rounded-xl border transition-colors text-base ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-green-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-green-500/20`}
+                  className={`flex-1 px-4 py-3 rounded-xl border transition-colors ${isDarkTheme ? 'bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-green-500' : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-green-500/20`}
                   style={{ fontSize: '16px' }}
                   disabled={chatLoading}
                 />
