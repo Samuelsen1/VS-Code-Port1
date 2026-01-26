@@ -2897,7 +2897,114 @@ export default function PortfolioWebsite() {
         </div>
       )}
 
-      {/* Floating Accessibility Button - hidden on mobile (use expandable FAB) */}
+      {/* Accessibility Panel Modal - Mobile (full screen) */}
+      {isAccessibilityOpen && (
+        <div className="fixed inset-0 z-[60] flex items-end justify-center md:hidden" onClick={() => setIsAccessibilityOpen(false)}>
+          <div 
+            className="relative w-full max-h-[90vh] h-[85vh] rounded-t-3xl shadow-2xl overflow-hidden flex flex-col border"
+            style={{
+              background: isDarkTheme ? 'rgba(15,23,42,0.98)' : 'rgba(255,255,255,0.98)',
+              borderColor: 'rgba(59,130,246,0.2)'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header bar - BLUE */}
+            <div 
+              className="flex justify-between items-center px-4 py-3 border-b flex-shrink-0 min-h-[52px]" 
+              style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)', borderColor: 'rgba(255,255,255,0.15)' }}
+            >
+              <h3 className="text-base font-bold text-white">
+                {language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
+              </h3>
+              <button
+                onClick={() => setIsAccessibilityOpen(false)}
+                className="p-1.5 rounded-lg transition-all flex-shrink-0 hover:bg-white/20"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+            </div>
+
+            <div className="overflow-y-auto flex-1 p-5 overscroll-contain">
+                {/* Settings Grid */}
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { key: 'largeText', label: language === 'en' ? 'Larger Text' : 'Größere Schrift', fullLabel: language === 'en' ? 'Large Text' : 'Große Schrift', icon: '/images/larger-font.png' },
+                    { key: 'contrast', label: language === 'en' ? 'Contrast' : 'Kontrast', fullLabel: language === 'en' ? 'Full Contrast' : 'Voller Kontrast', icon: '/images/contrast.png' },
+                    { key: 'blueLightFilter', label: language === 'en' ? 'Blue Light Filter' : 'Blaulichtfilter', fullLabel: language === 'en' ? 'Strong Filter' : 'Starker Filter', icon: '/images/white-balance.png?v=1' },
+                    { key: 'mark', label: language === 'en' ? 'Mark Links' : 'Links markieren', icon: '/images/link.png', isBinary: true },
+                    { key: 'textSpacing', label: language === 'en' ? 'Text Spacing' : 'Textabstand', fullLabel: language === 'en' ? 'Full Spacing' : 'Voller Abstand', icon: '/images/spacing.png' },
+                    { key: 'stopAnimations', label: language === 'en' ? 'Stop Animations' : 'Animationen stoppen', icon: '/images/pause-button.png', isBinary: true },
+                    { key: 'hideImages', label: language === 'en' ? 'Hide Images' : 'Bilder verbergen', icon: '/images/hide-images.png', isBinary: true },
+                    { key: 'dyslexia', label: language === 'en' ? 'Dyslexia Font' : 'Dyslexie-Schrift', fullLabel: language === 'en' ? 'Full Dyslexia' : 'Voll Dyslexie', icon: '/images/dyslexia.png' },
+                    { key: 'rowHeight', label: language === 'en' ? 'Row Height' : 'Zeilenhöhe', fullLabel: language === 'en' ? 'Max Height' : 'Max. Höhe', icon: '/images/row-height.png' },
+                    { key: 'focusIndicator', label: language === 'en' ? 'Focus Indicator' : 'Fokus-Anzeige', fullLabel: language === 'en' ? 'Strong Focus' : 'Starker Fokus', icon: '/images/focus.png' }
+                  ].map(setting => {
+                    const isActive = accessibility[setting.key] > 0;
+                    const isFull = setting.key === 'blueLightFilter' ? accessibility[setting.key] === 5 : accessibility[setting.key] === 2;
+                    const isImageIcon = typeof setting.icon === 'string';
+                    const isBinary = setting.isBinary === true;
+                    const maxLevel = setting.key === 'blueLightFilter' ? 5 : 2;
+                  
+                    return (
+                      <button 
+                        key={setting.key}
+                        onClick={() => toggleAccessibility(setting.key)}
+                        aria-pressed={isActive}
+                        aria-label={`${setting.label}${isActive ? ` - ${isFull ? setting.fullLabel || setting.label : language === 'en' ? 'Enabled' : 'Aktiviert'}` : ''}`}
+                        className={`flex flex-col items-center gap-2 p-3 rounded-2xl transition-all border-2 text-sm font-medium ${
+                          !isActive 
+                            ? (isDarkTheme ? 'bg-transparent border-gray-700/40 hover:border-blue-400/40' : 'bg-gray-50 border-gray-200 hover:border-blue-400/40')
+                            : (isDarkTheme ? 'bg-blue-500/20 border-blue-400' : 'bg-blue-100 border-blue-400')
+                        }`}
+                      >
+                        <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ background: isActive ? 'linear-gradient(90deg,#3b82f6,#2563eb)' : 'transparent' }}>
+                          {isImageIcon ? (
+                            <img src={setting.icon} alt={setting.label} width="24" height="24" loading="lazy" className={`w-6 h-6 ${isActive ? 'brightness-0 invert' : ''}`} />
+                          ) : (
+                            <setting.icon className={`w-6 h-6 ${isActive ? 'text-white' : (isDarkTheme ? 'text-gray-400' : 'text-gray-600')}`} />
+                          )}
+                        </div>
+                        <span className={`text-xs text-center leading-tight ${isActive ? (isDarkTheme ? 'text-blue-100' : 'text-blue-900') : (isDarkTheme ? 'text-gray-300' : 'text-gray-700')}`}>
+                          {!isActive ? setting.label : (isFull && !isBinary ? (setting.fullLabel || setting.label) : setting.label)}
+                        </span>
+                        {/* Intensity bars - 1 for binary, 2-5 for gradual */}
+                        <div className="flex gap-0.5 mt-2">
+                          <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 1 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                          {!isBinary && (
+                            <>
+                              <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 2 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                              {setting.key === 'blueLightFilter' && (
+                                <>
+                                  <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 3 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                                  <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 4 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                                  <span className={`h-1 rounded-sm transition-all ${accessibility[setting.key] >= 5 ? 'bg-blue-600 w-3' : (isDarkTheme ? 'bg-gray-700/30 w-2' : 'bg-gray-300 w-2')}`} />
+                                </>
+                              )}
+                            </>
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Reset Button */}
+                <button
+                  onClick={resetAccessibility}
+                  className={`w-full mt-6 py-2.5 px-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 border ${isDarkTheme ? 'bg-blue-600/20 text-blue-100 border-blue-500/40 hover:bg-blue-600/30' : 'bg-blue-100 text-blue-900 border-blue-300 hover:bg-blue-200'}`}
+                >
+                  <RotateCcw className="w-4 h-4" />
+                  {language === 'en' ? 'Reset All' : 'Alle zurücksetzen'}
+                </button>
+              <a href="/accessibility" className={`block text-center text-sm mt-3 ${isDarkTheme ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-700'}`}>
+                {language === 'en' ? 'Learn more' : 'Mehr erfahren'}
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Floating Accessibility Button - Desktop only (hidden on mobile, use expandable FAB) */}
       <div className="fixed left-6 bottom-6 z-50 max-md:hidden">
           {isAccessibilityOpen && (
             <div 
@@ -3091,22 +3198,43 @@ export default function PortfolioWebsite() {
 
       {/* Mobile: single FAB that expands to Accessibility, Navitoir, AI */}
       {featuresEnabled && (
-        <div className="fixed right-6 bottom-24 z-50 md:hidden flex flex-col items-end gap-2">
+        <div className="fixed right-6 bottom-24 z-50 md:hidden flex flex-col items-end gap-3">
           {fabExpanded && (
             <>
-              <button onClick={() => { setFabExpanded(false); setIsAccessibilityOpen(true); }} className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg" style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)' }} aria-label={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}>
+              <button 
+                onClick={() => { setFabExpanded(false); setIsAccessibilityOpen(true); }} 
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95" 
+                style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)', boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4)' }} 
+                aria-label={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
+              >
                 <img src="/images/accessibility.png?v=2" alt="" width="28" height="28" className="w-7 h-7 brightness-0 invert" />
               </button>
-              <button onClick={() => { setFabExpanded(false); setIsNavitoirOpen(true); }} className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg" style={{ background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)' }} aria-label="Navitoir">
+              <button 
+                onClick={() => { setFabExpanded(false); setIsNavitoirOpen(true); }} 
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95" 
+                style={{ background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)', boxShadow: '0 4px 15px rgba(99, 102, 241, 0.4)' }} 
+                aria-label="Navitoir"
+              >
                 <Navigation className="w-6 h-6" />
               </button>
-              <button onClick={() => { setFabExpanded(false); setIsChatOpen(true); }} className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg" style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)' }} aria-label={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}>
+              <button 
+                onClick={() => { setFabExpanded(false); setIsChatOpen(true); }} 
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95" 
+                style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', boxShadow: '0 4px 15px rgba(16, 185, 129, 0.4)' }} 
+                aria-label={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
+              >
                 <img src="/images/ai.png" alt="" width="28" height="28" className="w-7 h-7 brightness-0 invert" />
               </button>
             </>
           )}
-          <button onClick={() => setFabExpanded(!fabExpanded)} className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg ${fabExpanded ? 'bg-gray-600' : 'bg-indigo-600'}`} aria-label={language === 'en' ? 'Features' : 'Funktionen'} aria-expanded={fabExpanded}>
-            <Plus className={`w-6 h-6 ${fabExpanded ? 'rotate-45' : ''}`} />
+          <button 
+            onClick={() => setFabExpanded(!fabExpanded)} 
+            className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95 ${fabExpanded ? 'bg-gray-600' : 'bg-indigo-600'}`} 
+            aria-label={language === 'en' ? 'Features' : 'Funktionen'} 
+            aria-expanded={fabExpanded}
+            style={{ boxShadow: fabExpanded ? '0 4px 15px rgba(75, 85, 99, 0.4)' : '0 4px 15px rgba(99, 102, 241, 0.4)' }}
+          >
+            <Plus className={`w-6 h-6 transition-transform duration-300 ${fabExpanded ? 'rotate-45' : ''}`} />
           </button>
         </div>
       )}
