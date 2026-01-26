@@ -2901,7 +2901,7 @@ export default function PortfolioWebsite() {
       {isAccessibilityOpen && (
         <div className="fixed inset-0 z-[60] flex items-end justify-center md:hidden" onClick={() => setIsAccessibilityOpen(false)}>
           <div 
-            className="relative w-full max-h-[90vh] h-[85vh] rounded-t-3xl shadow-2xl overflow-hidden flex flex-col border"
+            className="relative w-full max-h-[75vh] h-[70vh] rounded-t-3xl shadow-2xl overflow-hidden flex flex-col border"
             style={{
               background: isDarkTheme ? 'rgba(15,23,42,0.98)' : 'rgba(255,255,255,0.98)',
               borderColor: 'rgba(59,130,246,0.2)'
@@ -3203,38 +3203,38 @@ export default function PortfolioWebsite() {
             <>
               <button 
                 onClick={() => { setFabExpanded(false); setIsAccessibilityOpen(true); }} 
-                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95" 
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95 border-2 border-white/30" 
                 style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)', boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4)' }} 
                 aria-label={language === 'en' ? 'Accessibility' : 'Barrierefreiheit'}
               >
-                <img src="/images/accessibility.png?v=2" alt="" width="28" height="28" className="w-7 h-7 brightness-0 invert" />
+                <img src="/images/accessibility.png?v=2" alt="" width="32" height="32" className="w-8 h-8 brightness-0 invert" />
               </button>
               <button 
                 onClick={() => { setFabExpanded(false); setIsNavitoirOpen(true); }} 
-                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95" 
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95 border-2 border-white/30" 
                 style={{ background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)', boxShadow: '0 4px 15px rgba(99, 102, 241, 0.4)' }} 
                 aria-label="Navitoir"
               >
-                <Navigation className="w-6 h-6" />
+                <Navigation className="w-7 h-7" />
               </button>
               <button 
                 onClick={() => { setFabExpanded(false); setIsChatOpen(true); }} 
-                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95" 
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95 border-2 border-white/30" 
                 style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', boxShadow: '0 4px 15px rgba(16, 185, 129, 0.4)' }} 
                 aria-label={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
               >
-                <img src="/images/ai.png" alt="" width="28" height="28" className="w-7 h-7 brightness-0 invert" />
+                <img src="/images/ai.png" alt="" width="32" height="32" className="w-8 h-8 brightness-0 invert" />
               </button>
             </>
           )}
           <button 
             onClick={() => setFabExpanded(!fabExpanded)} 
-            className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95 ${fabExpanded ? 'bg-gray-600' : 'bg-indigo-600'}`} 
+            className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95 border-2 border-white/30 ${fabExpanded ? 'bg-gray-600' : 'bg-indigo-600'}`} 
             aria-label={language === 'en' ? 'Features' : 'Funktionen'} 
             aria-expanded={fabExpanded}
             style={{ boxShadow: fabExpanded ? '0 4px 15px rgba(75, 85, 99, 0.4)' : '0 4px 15px rgba(99, 102, 241, 0.4)' }}
           >
-            <Plus className={`w-6 h-6 transition-transform duration-300 ${fabExpanded ? 'rotate-45' : ''}`} />
+            <Plus className={`w-7 h-7 transition-transform duration-300 ${fabExpanded ? 'rotate-45' : ''}`} />
           </button>
         </div>
       )}
@@ -3243,7 +3243,7 @@ export default function PortfolioWebsite() {
       {isNavitoirOpen && (
         <div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center md:p-4" onClick={() => setIsNavitoirOpen(false)}>
           <div 
-            className={`relative w-full md:max-w-md max-h-[90vh] h-[75vh] md:h-[500px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}
+            className={`relative w-full md:max-w-md max-h-[75vh] h-[65vh] md:h-[500px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}
             style={{ border: '3px solid #6366f1' }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -3318,7 +3318,7 @@ export default function PortfolioWebsite() {
       {isChatOpen && (
         <div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center md:p-4" onClick={() => setIsChatOpen(false)}>
           <div 
-            className={`relative w-full md:max-w-md max-h-[90vh] h-[75vh] md:h-[500px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}
+            className={`relative w-full md:max-w-md max-h-[75vh] h-[65vh] md:h-[500px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}
             style={{ border: '3px solid #10b981' }}
             onClick={(e) => e.stopPropagation()}
           >
