@@ -292,8 +292,8 @@ export default function PortfolioWebsite() {
           role: 'assistant',
           content:
             language === 'en'
-              ? `Hi! How can I help you today? 😊`
-              : `Hallo! Wie kann ich Ihnen heute helfen? 😊`,
+              ? `Hi! I'm Samuel's AI assistant. If you need information about his profession, availability, personality, experience, education, skills, or anything work-related, I'm here to help. 😊`
+              : `Hallo! Ich bin Samuels KI-Assistent. Wenn Sie Informationen über seinen Beruf, Verfügbarkeit, Persönlichkeit, Erfahrung, Ausbildung, Fähigkeiten oder arbeitsbezogene Themen benötigen, helfe ich Ihnen gerne. 😊`,
         },
       ]);
     }
