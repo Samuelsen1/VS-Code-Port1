@@ -192,7 +192,7 @@ export default function DigitalLearningCV() {
           <div className="mb-4">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
               <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Praktikum Global Academy - Online Training (Bevorstehende Position)' : 'Praktikum Global Academy - Online Training (Upcoming Role)'}</h3>
+                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Praktikum Global Academy - eLearning (Bevorstehende Position)' : 'Praktikum Global Academy - eLearning (Upcoming Role)'}</h3>
                 <p className="text-gray-600 italic">Dräger, Lübeck</p>
               </div>
               <span className="text-sm text-gray-600 font-semibold">{lang.starting} Feb 2026</span>
