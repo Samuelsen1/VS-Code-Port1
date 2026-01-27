@@ -1140,7 +1140,7 @@ export default function PortfolioWebsite() {
         title: "Professional Experience",
         items: [
           {
-            title: { en: "eLearning (Intern)", de: "eLearning (Intern)" },
+            title: { en: "eLearning Developer (Intern)", de: "eLearning Developer (Intern)" },
             company: { en: "Dräger, Lübeck", de: "Dräger, Lübeck" },
             date: { en: "Starting February 2026", de: "Beginn Februar 2026" },
             bullets: { en: [], de: [] },
@@ -1332,7 +1332,7 @@ export default function PortfolioWebsite() {
         title: "Berufserfahrung",
         items: [
           {
-            title: { en: "eLearning (Intern)", de: "eLearning (Praktikant)" },
+            title: { en: "eLearning Developer (Intern)", de: "eLearning Developer (Praktikant)" },
             company: { en: "Dräger, Lübeck", de: "Dräger, Lübeck" },
             date: { en: "Starting February 2026", de: "Beginn Februar 2026" },
             bullets: { en: [], de: [] },
