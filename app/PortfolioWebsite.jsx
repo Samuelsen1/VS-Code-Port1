@@ -828,11 +828,71 @@ export default function PortfolioWebsite() {
       }]);
       setNavitoirLoading(false);
     } else {
-      // No match found
+      // No direct match found – ask the integrated AI for navigation-only help
+      try {
+        const navPrompt = language === 'en'
+          ? [
+              'NAVITOIR NAVIGATION MODE ONLY.',
+              '',
+              'You are Navitoir, the navigation and control assistant for Samuel Afriyie Opoku’s portfolio website (vs-code-port1).',
+              'Only answer questions about:',
+              '- Navigating between sections (Home, About, Projects, Skills, Experience, Certifications, Contact, CV, Accessibility, etc.)',
+              '- Using on-page controls such as the accessibility panel, blue light filter, dyslexia font, theme switching, and floating buttons.',
+              '- Explaining where information is located and how to reach it on the site.',
+              '',
+              'If the user asks about Samuel’s biography, experience, skills, personality, or other CV details, DO NOT answer these directly.',
+              'Instead, politely tell them to use the green "AI Assistant" button for content questions about Samuel.',
+              '',
+              'User navigation question:',
+              `"${raw}"`,
+            ].join('\n')
+          : [
+              'NAVITOIR NUR FÜR NAVIGATION.',
+              '',
+              'Du bist Navitoir, der Navigations- und Steuerungsassistent für Samuels Portfolio-Website (vs-code-port1).',
+              'Beantworte NUR Fragen zu:',
+              '- Navigation zwischen Bereichen (Startseite, Über mich, Projekte, Fähigkeiten, Erfahrung, Zertifikate, Kontakt, Lebenslauf, Barrierefreiheit usw.)',
+              '- Nutzung von Steuerelementen wie Barrierefreiheitspanel, Blaulichtfilter, Dyslexie-Schrift, Theme-Umschaltung und schwebende Buttons.',
+              '- Erklärung, wo sich Informationen auf der Seite befinden und wie man dorthin gelangt.',
+              '',
+              'Wenn der Nutzer nach Biografie, Erfahrung, Fähigkeiten, Persönlichkeit oder anderen CV-Details fragt, ANTWORTE NICHT direkt.',
+              'Bitte verweise stattdessen höflich auf den grünen "KI-Assistent" Button für inhaltliche Fragen über Samuel.',
+              '',
+              'Navigationsfrage des Nutzers:',
+              `"${raw}"`,
+            ].join('\n');
+
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: navPrompt,
+            language,
+            history: navitoirMessages,
+          }),
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          const aiText = (data?.response || data?.reply || '').trim();
+          if (aiText) {
+            setNavitoirMessages(prev => [...prev, {
+              role: 'assistant',
+              content: aiText,
+            }]);
+            setNavitoirLoading(false);
+            return;
+          }
+        }
+      } catch (_) {
+        // ignore AI failure and fall back to static help text
+      }
+
+      // Static fallback if AI is unavailable or returns nothing
       setNavitoirMessages(prev => [...prev, {
         role: 'assistant',
         content: language === 'en'
-          ? `I can help you navigate to: About, Projects, Skills, Experience, Certifications, or Contact. I can also open CV or specific certificates. What would you like to see?`
+          ? `I can help you navigate to: About, Projects, Skills, Experience, Certifications, or Contact. I can also open the CV or specific certificates. What would you like to see?`
           : `Ich kann Sie zu folgenden Bereichen navigieren: Über mich, Projekte, Fähigkeiten, Erfahrung, Zertifikate oder Kontakt. Ich kann auch den Lebenslauf oder bestimmte Zertifikate öffnen. Was möchten Sie sehen?`
       }]);
       setNavitoirLoading(false);
