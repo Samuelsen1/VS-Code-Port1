@@ -455,6 +455,29 @@ export async function POST(request) {
     const isGerman = language === 'de';
     const lowerMessage = message.toLowerCase();
     const topics = extractTopics(message);
+    // Treat questions about Samuel specially – answer from CV-based logic, not General AI
+    const aboutSamuel =
+      /samuel\b|afriyie\b|opoku\b|\bhis\b|\bihm\b|\bsein\b|\bihn\b/i.test(lowerMessage) ||
+      topics.some(t =>
+        [
+          'digital-learning',
+          'technical-writing',
+          'experience',
+          'achievements',
+          'strengths',
+          'education',
+          'certification',
+          'skills',
+          'tools',
+          'portfolio',
+          'contact',
+          'languages',
+          'accessibility',
+          'availability',
+          'location',
+          'personal',
+        ].includes(t),
+      );
     
     // NLU: Extract intent with context for enhanced understanding
     const intent = extractIntentWithContext(message, topics);
@@ -481,15 +504,17 @@ export async function POST(request) {
     }
     
     // ——— Primary path: external General AI (General – Desktop AI assistant) ———
-    // This calls the General AI project (Desktop/ai-assistant deployed to Vercel)
-    // so that all answers are sourced from that AI.
-    const generalReply = await callGeneralAI(message, history);
-    if (generalReply) {
-      return NextResponse.json({
-        response: generalReply,
-        timestamp: new Date().toISOString(),
-        poweredBy: 'general-ai',
-      });
+    // Only for non-Samuel / general questions. Samuel-specific questions are
+    // answered purely from the CV-based logic below (no Wikipedia / web snippets).
+    if (!aboutSamuel) {
+      const generalReply = await callGeneralAI(message, history);
+      if (generalReply) {
+        return NextResponse.json({
+          response: generalReply,
+          timestamp: new Date().toISOString(),
+          poweredBy: 'general-ai',
+        });
+      }
     }
     
     // ——— Fallback LLM path (OpenAI + Dictionary API): understand everything, respond like a human ———
