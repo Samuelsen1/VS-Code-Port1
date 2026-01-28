@@ -730,9 +730,14 @@ ${cvData}
     }
     
     // Digital Learning specific (high priority)
-    if (topics.includes('digital-learning') || matchesPattern(message, [
+    // Do NOT trigger this block for pure education questions like "his education".
+    if (
+      (topics.includes('digital-learning') || matchesPattern(message, [
       /digital learning|e-learning|elearning|instructional design|learning design|lxd|curriculum|course design|learning experience|addie|bloom.*taxonom|articulate|storyline|rise|scorm|moodle|multimedia.*learning|interactive.*module|learning.*outcome|digitales lernen|instruktionsdesign|lerndesign|e-learning.*kompetenz|digital.*kompetenz|lern.*kompetenz|addie.*framework|bloom.*taxonomie/i
-    ])) {
+    ]))
+      && !topics.includes('education')
+      && !/\beducation\b|degree|university|studium|ausbildung|abschluss|bachelor|master/i.test(lowerMessage)
+    ) {
       confidence = 1;
       response = isGerman 
         ? "**Samuels Digital Learning Design Kompetenzen:**\n\n🎓 **Instruktionsdesign & Methodik:**\n• **ADDIE-Framework** – Analyse, Design, Entwicklung, Implementierung, Evaluation\n• **Bloom's Taxonomie** – Strukturierung von Lernzielen und Assessment\n• **Adult Learning Theory** – Erwachsenenbildung und didaktische Prinzipien\n• **Storyboarding** – Entwicklung von Lernpfaden und interaktiven Szenarien\n• **Learning Experience Design (LXD)** – Benutzerzentriertes Design für Lernerfahrungen\n• **Curriculum Development** – Entwicklung von Lehrplänen und Kursstrukturen\n\n📊 **E-Learning-Entwicklung & Technologie:**\n• **Articulate 360** – Storyline (interaktive Module) und Rise (responsive Kurse)\n• **SCORM-Packaging** – Standardskonforme Lernmodul-Erstellung\n• **LMS-Administration** – Moodle, Kursverwaltung und Tracking\n• **Lernanalysen** – Messung von Lernergebnissen und Engagement\n• **Formative & summative Evaluation** – Kontinuierliche Verbesserung von Kursen\n\n🎨 **Multimedia-Erstellung & Content-Produktion:**\n• **Fotobearbeitung** – Infografiken, Poster, Flyer, Bildungsmaterialien (Adobe Photoshop)\n• **Videoerstellung & -bearbeitung** – Videoprojekte und Multimedia-Content (Adobe Premiere Pro)\n• **Layout-Design** – Professionelle Dokumente und Materialien (Adobe InDesign)\n• **Entwicklung interaktiver Module** – Gamification und Benutzerinteraktion\n\n♿ **Barrierefreiheit & Standards:**\n• **WCAG 2.1-Konformität** – Zugängliche Lernmaterialien für alle\n• **Inklusives Design** – Materialien für diverse Lerngruppen\n• **Plain Language Principles** – Klare, verständliche Kommunikation\n• **Ausrichtung auf Lernergebnisse** – Messbare Verbesserungen (40% Verbesserung dokumentiert)\n\n📈 **Erfolge & Impact:**\n• 25+ WCAG-konforme Multimedia-Assets erstellt\n• 50+ Bildungsressourcen strukturiert (200+ Lernende erreicht)\n• Lernverbesserungen von bis zu 40% dokumentiert\n\n**Zertifizierung:** Instructional Design Foundations & Applications – University of Illinois Urbana-Champaign (Aug 2025)"
