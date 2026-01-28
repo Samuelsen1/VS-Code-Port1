@@ -219,6 +219,10 @@ const response = await fetch('https://api.anthropic.com/v1/messages', {
 - Keep API keys in `.env.local`
 - Add `.env.local` to `.gitignore`
 - Use Vercel environment variables for production
+  - `OPENAI_API_KEY` – (optional) portfolio AI fallback
+  - `GENERAL_AI_URL` – (optional) URL of your General AI `/api/chat` endpoint  
+    - Default: `https://general-ai-wheat.vercel.app/api/chat`  
+    - Set this if you deploy General AI under a different domain/path
 
 ❌ **DON'T:**
 - Commit `.env.local` to Git

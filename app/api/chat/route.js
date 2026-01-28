@@ -1,5 +1,9 @@
 import { NextResponse } from 'next/server';
 
+// External General AI endpoint (General – Desktop AI assistant)
+// Override via GENERAL_AI_URL env var if you deploy to a different domain.
+const GENERAL_AI_URL = process.env.GENERAL_AI_URL || 'https://general-ai-wheat.vercel.app/api/chat';
+
 // Samuel's comprehensive CV data
 const cvData = `
 SAMUEL AFRIYIE OPOKU
@@ -387,6 +391,52 @@ function classifyIntent(message, language) {
   return 'other';
 }
 
+// Call external General AI (General – Desktop AI assistant)
+// Returns a reply string or null on failure.
+async function callGeneralAI(message, history) {
+  if (!GENERAL_AI_URL) return null;
+
+  try {
+    const payload = {
+      message: String(message || '').trim(),
+      // Keep history short and in the shape the external API expects
+      history: Array.isArray(history)
+        ? history
+            .filter(m => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
+            .slice(-20)
+            .map(m => ({ role: m.role, content: String(m.content).slice(0, 800) }))
+        : [],
+    };
+
+    if (!payload.message) return null;
+
+    const res = await fetch(GENERAL_AI_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      // Keep in sync with other upstream calls
+      signal: AbortSignal.timeout(28000),
+    });
+
+    if (!res.ok) {
+      console.warn('General AI proxy error:', res.status, await res.text());
+      return null;
+    }
+
+    const data = await res.json();
+    const reply = typeof data?.reply === 'string' && data.reply.trim()
+      ? data.reply.trim()
+      : typeof data?.response === 'string' && data.response.trim()
+      ? data.response.trim()
+      : null;
+
+    return reply;
+  } catch (e) {
+    console.warn('General AI proxy failed:', e?.message || e);
+    return null;
+  }
+}
+
 // Rate limiting: for production, use Vercel's rate limit or Upstash Redis.
 // Example: @upstash/ratelimit or vercel.json / middleware.
 
@@ -430,7 +480,19 @@ export async function POST(request) {
       return NextResponse.json({ response, timestamp: new Date().toISOString() });
     }
     
-    // ——— LLM path (OpenAI + Dictionary API): understand everything, respond like a human ———
+    // ——— Primary path: external General AI (General – Desktop AI assistant) ———
+    // This calls the General AI project (Desktop/ai-assistant deployed to Vercel)
+    // so that all answers are sourced from that AI.
+    const generalReply = await callGeneralAI(message, history);
+    if (generalReply) {
+      return NextResponse.json({
+        response: generalReply,
+        timestamp: new Date().toISOString(),
+        poweredBy: 'general-ai',
+      });
+    }
+    
+    // ——— Fallback LLM path (OpenAI + Dictionary API): understand everything, respond like a human ———
     const apiKey = process.env.OPENAI_API_KEY;
     if (apiKey) {
       try {

@@ -77,6 +77,12 @@ Once redeployed:
 - ✅ 100 emails per day
 - ✅ More than enough for portfolio CV requests!
 
+### General AI (External Assistant) URL:
+- Portfolio chat now proxies questions to your **General AI** (Desktop `ai-assistant` / General-AI project).
+- Default endpoint: `https://general-ai-wheat.vercel.app/api/chat`
+- To point to a different deployment, set **`GENERAL_AI_URL`** in your Vercel project’s Environment Variables.
+- You do **not** need to change code – only this env var.
+
 ### Email Address:
 - Currently sends to: **gideonsammysen@gmail.com**
 - To change: Edit `app/api/request-cv/route.js` line 13
