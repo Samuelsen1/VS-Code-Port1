@@ -1299,7 +1299,7 @@ export default function PortfolioWebsite() {
         desc: "Looking for a digital learning designer who combines learning science with technical expertise? Let's connect and discuss how I can help transform your learning initiatives.",
         email: "Email Me",
         linkedin: "LinkedIn Profile",
-        location: "Based in Marburg, Germany",
+        location: "Große Klosterkoppel 8, 23562 Lübeck",
         phone: "+49 171 5811680"
       },
       footer: {
@@ -1472,7 +1472,7 @@ export default function PortfolioWebsite() {
         desc: "Suchen Sie einen Digital Learning Designer, der Lernwissenschaft mit technischer Expertise verbindet? Lassen Sie uns sprechen, wie ich Ihre Lerninitiativen transformieren kann.",
         email: "E-Mail senden",
         linkedin: "LinkedIn Profil",
-        location: "Standort: Marburg, Deutschland",
+        location: "Große Klosterkoppel 8, 23562 Lübeck",
         phone: "+49 171 5811680"
       },
       footer: {
