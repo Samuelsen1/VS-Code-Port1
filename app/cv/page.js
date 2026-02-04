@@ -39,6 +39,8 @@ export default function DigitalLearningCV() {
       verify: "Verify",
       link: "Link",
       starting: "Starting",
+      present: "Present",
+      since: "Since",
       english: "English",
       german: "German",
       akan: "Akan",
@@ -62,6 +64,8 @@ export default function DigitalLearningCV() {
       verify: "Verifizieren",
       link: "Link",
       starting: "Beginn",
+      present: "heute",
+      since: "Seit",
       english: "Englisch",
       german: "Deutsch",
       akan: "Akan",
@@ -192,16 +196,16 @@ export default function DigitalLearningCV() {
           <div className="mb-4">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
               <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Praktikum Global Academy - eLearning Developer (Bevorstehende Position)' : 'Praktikum Global Academy - eLearning Developer (Upcoming Role)'}</h3>
+                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Praktikum Global Academy - eLearning Developer (Praktikant)' : 'Praktikum Global Academy - eLearning Developer (Intern)'}</h3>
                 <p className="text-gray-600 italic">Dräger, Lübeck</p>
               </div>
-              <span className="text-sm text-gray-600 font-semibold">{lang.starting} Feb 2026</span>
+              <span className="text-sm text-gray-600 font-semibold">Feb 2026 – {lang.present}</span>
             </div>
             <ul className="text-sm text-gray-700 space-y-1 ml-4">
-              <li>• {language === 'de' ? 'Wird die Skript- und Content-Entwicklung für E-Learning-Module unterstützen' : 'Will support script and content development for e-learning modules'}</li>
-              <li>• {language === 'de' ? 'Wird zur Videoproduktion, Bearbeitung und Erstellung von Multimedia-Inhalten beitragen' : 'Will contribute to video production, editing, and multimedia content creation'}</li>
-              <li>• {language === 'de' ? 'Wird Videobearbeitung mit Adobe Premiere durchführen' : 'Will perform video editing with Adobe Premiere'}</li>
-              <li>• {language === 'de' ? 'Wird unabhängige Dokumentations- und Instruktionsprojekte entwickeln' : 'Will develop independent documentation and instructional projects'}</li>
+              <li>• {language === 'de' ? 'Unterstützt die Skript- und Content-Entwicklung für E-Learning-Module' : 'Supporting script and content development for e-learning modules'}</li>
+              <li>• {language === 'de' ? 'Trägt zur Videoproduktion, Bearbeitung und Erstellung von Multimedia-Inhalten bei' : 'Contributing to video production, editing, and multimedia content creation'}</li>
+              <li>• {language === 'de' ? 'Führt Videobearbeitung mit Adobe Premiere Pro durch' : 'Performing video editing with Adobe Premiere Pro'}</li>
+              <li>• {language === 'de' ? 'Entwickelt unabhängige Dokumentations- und Instruktionsprojekte' : 'Developing independent documentation and instructional projects'}</li>
             </ul>
           </div>
 
