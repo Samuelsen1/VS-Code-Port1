@@ -35,10 +35,10 @@ EDUCATION:
 PROFESSIONAL EXPERIENCE:
 
 1. eLearning Developer (Intern) (Feb 2026 – Present) - Dräger, Lübeck
-   - Supporting script and content development for e-learning modules
-   - Contributing to video production, editing, and multimedia content creation
-   - Performing video editing with Adobe Premiere Pro
-   - Developing independent documentation and instructional projects
+   - Script and content development for e-learning modules
+   - Video production, editing, and multimedia content creation
+   - Video editing with Adobe Premiere Pro
+   - Independent documentation and instructional project development
 
 2. Digital Learning Designer (Intern) (June 2025 – November 2025) - Tanz der Kulturen e.V., Hamburg
    - Designed 25+ accessible multimedia learning assets (infographics, promotional materials) in line with WCAG 2.1, expanding reach to diverse learner groups

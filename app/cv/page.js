@@ -202,10 +202,10 @@ export default function DigitalLearningCV() {
               <span className="text-sm text-gray-600 font-semibold">Feb 2026 – {lang.present}</span>
             </div>
             <ul className="text-sm text-gray-700 space-y-1 ml-4">
-              <li>• {language === 'de' ? 'Unterstützt die Skript- und Content-Entwicklung für E-Learning-Module' : 'Supporting script and content development for e-learning modules'}</li>
-              <li>• {language === 'de' ? 'Trägt zur Videoproduktion, Bearbeitung und Erstellung von Multimedia-Inhalten bei' : 'Contributing to video production, editing, and multimedia content creation'}</li>
-              <li>• {language === 'de' ? 'Führt Videobearbeitung mit Adobe Premiere Pro durch' : 'Performing video editing with Adobe Premiere Pro'}</li>
-              <li>• {language === 'de' ? 'Entwickelt unabhängige Dokumentations- und Instruktionsprojekte' : 'Developing independent documentation and instructional projects'}</li>
+              <li>• {language === 'de' ? 'Skript- und Content-Entwicklung für E-Learning-Module' : 'Script and content development for e-learning modules'}</li>
+              <li>• {language === 'de' ? 'Videoproduktion, -bearbeitung und Erstellung von Multimedia-Inhalten' : 'Video production, editing, and multimedia content creation'}</li>
+              <li>• {language === 'de' ? 'Videobearbeitung mit Adobe Premiere Pro' : 'Video editing with Adobe Premiere Pro'}</li>
+              <li>• {language === 'de' ? 'Entwicklung unabhängiger Dokumentations- und Instruktionsprojekte' : 'Independent documentation and instructional project development'}</li>
             </ul>
           </div>
 
