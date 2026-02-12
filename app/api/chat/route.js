@@ -289,8 +289,7 @@ function extractTopics(message) {
       'skills': ['skills', 'abilities', 'competencies', 'expertise', 'proficiency'],
       'experience': ['experience', 'work', 'job', 'career', 'background'],
       'portfolio': ['portfolio', 'projects', 'work', 'examples', 'showcase'],
-      'contact': ['contact', 'email', 'phone', 'reach', 'connect'],
-      'availability': ['available', 'free', 'when', 'start', 'date']
+      'contact': ['contact', 'email', 'phone', 'reach', 'connect']
     };
     
     for (const [topic, concepts] of Object.entries(semanticTargets)) {
