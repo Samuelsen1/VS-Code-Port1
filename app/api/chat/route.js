@@ -280,26 +280,6 @@ function extractTopics(message) {
     }
   }
   
-  // Enhanced NLP: Semantic similarity fallback for missed concepts
-  // If no topics found or confidence is low, use semantic similarity
-  if (topics.length === 0 || lowerMessage.length > 10) {
-    const semanticTargets = {
-      'digital-learning': ['instructional', 'design', 'learning', 'education', 'course'],
-      'technical-writing': ['technical', 'writing', 'documentation', 'guide', 'manual'],
-      'skills': ['skills', 'abilities', 'competencies', 'expertise', 'proficiency'],
-      'experience': ['experience', 'work', 'job', 'career', 'background'],
-      'portfolio': ['portfolio', 'projects', 'work', 'examples', 'showcase'],
-      'contact': ['contact', 'email', 'phone', 'reach', 'connect']
-    };
-    
-    for (const [topic, concepts] of Object.entries(semanticTargets)) {
-      const similarity = calculateSemanticSimilarity(message, concepts);
-      if (similarity > 0.5 && !topics.includes(topic)) {
-        topics.push(topic);
-      }
-    }
-  }
-  
   return topics;
 }
 
