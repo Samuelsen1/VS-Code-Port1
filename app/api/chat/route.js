@@ -503,20 +503,6 @@ export async function POST(request) {
       return NextResponse.json({ response, timestamp: new Date().toISOString() });
     }
     
-    // ——— Primary path: external General AI (General – Desktop AI assistant) ———
-    // Only for non-Samuel / general questions. Samuel-specific questions are
-    // answered purely from the CV-based logic below (no Wikipedia / web snippets).
-    if (!aboutSamuel) {
-      const generalReply = await callGeneralAI(message, history);
-      if (generalReply) {
-        return NextResponse.json({
-          response: generalReply,
-          timestamp: new Date().toISOString(),
-          poweredBy: 'general-ai',
-        });
-      }
-    }
-    
     // ——— Fallback LLM path (OpenAI + Dictionary API): understand everything, respond like a human ———
     const apiKey = process.env.OPENAI_API_KEY;
     if (apiKey) {
