@@ -24,13 +24,13 @@ export default function DigitalLearningCV() {
 
   const t = {
     en: {
-      subtitle: "Digital Learning Designer | Technical Writer",
+      subtitle: "Digital Learning Designer | Web Portfolio",
       linkedin: "LinkedIn Profile",
       portfolio: "Web Portfolio",
       summary: "PROFESSIONAL SUMMARY",
-      summaryText: "Digital Learning Designer with Technical Writing skills. Possesses a unique blend of instructional design expertise and documentation skills. I create clear, accessible and engaging e-learning modules, as well as technical content — from user guides to comprehensive knowledge bases. My approach combines technical communication best practices with learning science (ADDIE, plain language principles) to deliver solutions that educate and empower users.",
-      skills: "SKILLS",
-      tools: "TOOLS & PLATFORMS",
+      summaryText: "Digital Learning Designer with 1+ year of e-learning development experience and 3 years of teaching background. Combines Master's-level media studies expertise with hands-on skills in instructional design, multimedia production, and LMS administration using Articulate 360, Adobe Creative Suite, and web and AI technologies to create accessible, learner-centered digital experiences.",
+      skills: "SKILLS & COMPETENCIES",
+      tools: "TOOLS & TECHNOLOGIES",
       experience: "PROFESSIONAL EXPERIENCE",
       education: "EDUCATION",
       certifications: "CERTIFICATIONS & TRAINING",
@@ -49,13 +49,13 @@ export default function DigitalLearningCV() {
       fluent: "Fluent"
     },
     de: {
-      subtitle: "Digital Learning Designer | Technischer Redakteur",
+      subtitle: "Digital Learning Designer | Web-Portfolio",
       linkedin: "LinkedIn-Profil",
       portfolio: "Web-Portfolio",
       summary: "BERUFLICHE ZUSAMMENFASSUNG",
-      summaryText: "Digital Learning Designer mit Technical Writing-Fähigkeiten. Besitzt eine einzigartige Kombination aus Expertise im Instruktionsdesign und Dokumentationsfähigkeiten. Ich erstelle klare, zugängliche und ansprechende E-Learning-Module sowie technische Inhalte – von Benutzerhandbüchern bis hin zu umfassenden Wissensdatenbanken. Mein Ansatz kombiniert Best Practices der technischen Kommunikation mit Lernwissenschaft (ADDIE, Plain Language Prinzipien), um Lösungen zu liefern, die Nutzer bilden und stärken.",
-      skills: "FÄHIGKEITEN",
-      tools: "TOOLS & PLATTFORMEN",
+      summaryText: "Digital Learning Designer mit über einem Jahr Erfahrung in der E-Learning-Entwicklung und 3 Jahren Unterrichtshintergrund. Verbindet medienwissenschaftliche Master-Expertise mit praktischen Fähigkeiten in Instruktionsdesign, Multimedia-Produktion und LMS-Administration mit Articulate 360, Adobe Creative Suite sowie Web- und KI-Technologien für barrierefreie, lernerzentrierte digitale Erlebnisse.",
+      skills: "FÄHIGKEITEN & KOMPETENZEN",
+      tools: "TOOLS & TECHNOLOGIEN",
       experience: "BERUFSERFAHRUNG",
       education: "AUSBILDUNG",
       certifications: "ZERTIFIZIERUNGEN & WEITERBILDUNG",
@@ -78,12 +78,12 @@ export default function DigitalLearningCV() {
   const lang = t[language] || t.en;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-5xl mx-auto bg-white p-6 md:p-8 shadow-lg">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100 py-8 px-4">
+      <div className="max-w-5xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl ring-1 ring-slate-200/80 p-6 md:p-10">
         {/* Header */}
-        <header className="border-b-4 border-indigo-600 pb-6 mb-6">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">SAMUEL AFRIYIE OPOKU</h1>
-          <p className="text-xl text-indigo-600 font-semibold mb-4">{lang.subtitle}</p>
+        <header className="border-b border-indigo-200/80 pb-6 mb-6">
+          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-900 via-indigo-800 to-indigo-600 bg-clip-text text-transparent mb-2">SAMUEL AFRIYIE OPOKU</h1>
+          <p className="text-xl text-indigo-700 font-semibold mb-4">{lang.subtitle}</p>
           
           <div className="flex flex-wrap gap-3 md:gap-4 text-xs md:text-sm text-gray-700">
             <div className="flex items-center gap-1">
@@ -119,72 +119,54 @@ export default function DigitalLearningCV() {
 
         {/* Skills */}
         <section className="mb-6">
-          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-gray-300 pb-1">{lang.skills}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-3">
-            <div>
-              <h3 className="font-semibold text-gray-800 mb-1 text-sm">{language === 'de' ? 'Instruktionsdesign & E-Learning' : 'Instructional Design & E-Learning'}</h3>
-              <p className="text-xs text-gray-700">{language === 'de' ? 'ADDIE-Framework • Interaktive Module • SCORM-Pakete • LMS-Administration • Blooms Taxonomie • Bewertungsdesign' : "ADDIE framework • Interactive modules • SCORM packages • LMS administration • Bloom's Taxonomy • Assessment design"}</p>
+          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-indigo-100 pb-1">{lang.skills}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="rounded-xl border border-slate-200/80 bg-slate-50/80 p-4">
+              <h3 className="font-semibold text-gray-800 mb-1 text-sm">{language === 'de' ? 'Instruktionsdesign' : 'Instructional Design'}</h3>
+              <p className="text-xs text-gray-700 leading-relaxed">{language === 'de' ? 'ADDIE • Bloom • Erwachsenenlernen • Storyboarding • LXD • Curriculum • Lernergebnisse • kompetenzbasiertes Design' : "ADDIE | Bloom's Taxonomy | Adult Learning Theory | Storyboarding | LXD | Curriculum Development | Learning Outcome Alignment | Competency-Based Design"}</p>
             </div>
-
-            <div>
-              <h3 className="font-semibold text-gray-800 mb-1 text-sm">{language === 'de' ? 'Dokumentation & Technical Writing' : 'Documentation & Technical Writing'}</h3>
-              <p className="text-xs text-gray-700">{language === 'de' ? 'Benutzerhandbücher • API-Dokumentation • Wissensdatenbanken • Technische Spezifikationen • SOPs • Versionshinweise • Content-Lokalisierung' : 'User guides • API docs • Knowledge bases • Technical specs • SOPs • Release notes • Content localization'}</p>
+            <div className="rounded-xl border border-slate-200/80 bg-slate-50/80 p-4">
+              <h3 className="font-semibold text-gray-800 mb-1 text-sm">{language === 'de' ? 'E-Learning-Entwicklung' : 'E-Learning Development'}</h3>
+              <p className="text-xs text-gray-700 leading-relaxed">SCORM • LMS • Learning Analytics • Formative/Summative Evaluation</p>
             </div>
-
-            <div>
-              <h3 className="font-semibold text-gray-800 mb-1 text-sm">{language === 'de' ? 'Informationsarchitektur' : 'Information Architecture'}</h3>
-              <p className="text-xs text-gray-700">{language === 'de' ? 'Content-Strukturierung • Dokumentationsplanung • Benutzerzentriertes Design • Navigationsdesign • Versionskontrolle' : 'Content structuring • Documentation planning • User-centered design • Navigation design • Version control'}</p>
+            <div className="rounded-xl border border-slate-200/80 bg-slate-50/80 p-4">
+              <h3 className="font-semibold text-gray-800 mb-1 text-sm">{language === 'de' ? 'Multimedia-Produktion' : 'Multimedia Production'}</h3>
+              <p className="text-xs text-gray-700 leading-relaxed">{language === 'de' ? 'Fotobearbeitung (Infografiken, Poster, Flyer) • Videoerstellung & -bearbeitung' : 'Photo Editing (Infographics | Posters | Flyers) | Video Creation & Editing'}</p>
             </div>
-
-            <div>
-              <h3 className="font-semibold text-gray-800 mb-1 text-sm">{language === 'de' ? 'Barrierefreiheit & Standards' : 'Accessibility & Standards'}</h3>
-              <p className="text-xs text-gray-700">{language === 'de' ? 'WCAG 2.1-Konformität • Inklusives Design • Plain Language • Bildschirmleser-Kompatibilität • Barrierefreiheits-Audit' : "WCAG 2.1 compliance • Inclusive design • Plain language • Screen reader compatibility • Accessibility auditing"}</p>
+            <div className="rounded-xl border border-slate-200/80 bg-slate-50/80 p-4">
+              <h3 className="font-semibold text-gray-800 mb-1 text-sm">{language === 'de' ? 'Technische Kommunikation' : 'Technical Communication'}</h3>
+              <p className="text-xs text-gray-700 leading-relaxed">{language === 'de' ? 'Benutzerhandbücher • Wissensdatenbanken • interkulturelle Anpassung • Lokalisierung' : 'User Guides | Knowledge-Base Documentation | Cross-Cultural Adaptation | Content Localization'}</p>
             </div>
-
-            <div>
-              <h3 className="font-semibold text-gray-800 mb-1 text-sm">{language === 'de' ? 'Multimedia & Visuelle Kommunikation' : 'Multimedia & Visual Communication'}</h3>
-              <p className="text-xs text-gray-700">{language === 'de' ? 'Videobearbeitung • Infografiken • Visuelle Anleitungen • UI/UX-Dokumentation • Technische Illustrationen' : 'Video editing • Infographics • Visual guides • UI/UX documentation • Technical illustrations'}</p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-gray-800 mb-1 text-sm">{language === 'de' ? 'Technik & Webentwicklung' : 'Technical & Web Development'}</h3>
-              <p className="text-xs text-gray-700">{language === 'de' ? 'HTML/CSS/Markdown • Git/GitHub • Web-Barrierefreiheit • Responsives Design • Code-Dokumentation' : 'HTML/CSS/Markdown • Git/GitHub • Web accessibility • Responsive design • Code documentation'}</p>
+            <div className="rounded-xl border border-slate-200/80 bg-slate-50/80 p-4 md:col-span-2">
+              <h3 className="font-semibold text-gray-800 mb-1 text-sm">{language === 'de' ? 'Zusammenarbeit' : 'Collaboration'}</h3>
+              <p className="text-xs text-gray-700 leading-relaxed">{language === 'de' ? 'Stakeholder-Einbindung • funktionsübergreifende Teamarbeit' : 'Stakeholder Engagement | Cross-Functional Teamwork'}</p>
             </div>
           </div>
         </section>
 
-        {/* Tools & Platforms */}
+        {/* Tools & Technologies */}
         <section className="mb-6">
-          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-gray-300 pb-1">{lang.tools}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2 text-xs">
+          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-indigo-100 pb-1">{lang.tools}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 text-xs">
             <div>
-              <span className="font-semibold text-gray-800">{language === 'de' ? 'E-Learning:' : 'E-Learning:'}</span>
-              <span className="text-gray-700"> Articulate 360 (Storyline, Rise) • Moodle • SCORM Cloud</span>
+              <span className="font-semibold text-gray-800">{language === 'de' ? 'E-Learning & LMS:' : 'E-Learning Authoring & LMS:'}</span>
+              <span className="text-gray-700"> Articulate 360 (Storyline, Rise) • Moodle</span>
             </div>
-
             <div>
               <span className="font-semibold text-gray-800">{language === 'de' ? 'Design & Multimedia:' : 'Design & Multimedia:'}</span>
-              <span className="text-gray-700"> Adobe Creative Suite (Photoshop, InDesign, Premiere Pro) • Figma • Canva</span>
+              <span className="text-gray-700"> Adobe Creative Suite (Premiere Pro, Photoshop, InDesign) • Figma • Descript</span>
             </div>
-
             <div>
-              <span className="font-semibold text-gray-800">{language === 'de' ? 'Dokumentation:' : 'Documentation:'}</span>
-              <span className="text-gray-700"> VS Code • GitHub • Markdown • Notion • Confluence</span>
+              <span className="font-semibold text-gray-800">{language === 'de' ? 'Web & KI:' : 'Web & AI Development:'}</span>
+              <span className="text-gray-700"> HTML • CSS • Markdown • API Integration • Prompt Coding</span>
             </div>
-
             <div>
-              <span className="font-semibold text-gray-800">{language === 'de' ? 'API-Dokumentation:' : 'API Documentation:'}</span>
-              <span className="text-gray-700"> Postman • Swagger/OpenAPI</span>
+              <span className="font-semibold text-gray-800">{language === 'de' ? 'Entwicklung:' : 'Development Tools:'}</span>
+              <span className="text-gray-700"> GitHub • VS Code • Cursor • Vercel</span>
             </div>
-
-            <div>
-              <span className="font-semibold text-gray-800">{language === 'de' ? 'Produktivität:' : 'Productivity:'}</span>
-              <span className="text-gray-700"> Google Workspace • Microsoft 365 • Slack</span>
-            </div>
-
-            <div>
-              <span className="font-semibold text-gray-800">{language === 'de' ? 'Übersetzung:' : 'Translation:'}</span>
-              <span className="text-gray-700"> {language === 'de' ? 'KI-unterstützte Workflows • DeepL • Google Translate' : 'AI-assisted workflows • DeepL • Google Translate'}</span>
+            <div className="md:col-span-2">
+              <span className="font-semibold text-gray-800">{language === 'de' ? 'Produktivität & Zusammenarbeit:' : 'Productivity & Collaboration:'}</span>
+              <span className="text-gray-700"> Google Workspace • Microsoft 365 (Word, PowerPoint, SharePoint, Teams, Excel, Loop, etc.) • Notion</span>
             </div>
           </div>
         </section>
@@ -196,16 +178,16 @@ export default function DigitalLearningCV() {
           <div className="mb-4">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
               <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Praktikum Global Academy - eLearning Developer (Praktikant)' : 'Praktikum Global Academy - eLearning Developer (Intern)'}</h3>
+                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Global Academy – eLearning Developer (Praktikant)' : 'Global Academy – eLearning Developer (Intern)'}</h3>
                 <p className="text-gray-600 italic">Dräger, Lübeck</p>
               </div>
               <span className="text-sm text-gray-600 font-semibold">Feb 2026 – {lang.present}</span>
             </div>
             <ul className="text-sm text-gray-700 space-y-1 ml-4">
-              <li>• {language === 'de' ? 'Skript- und Content-Entwicklung für E-Learning-Module' : 'Script and content development for e-learning modules'}</li>
-              <li>• {language === 'de' ? 'Videoproduktion, -bearbeitung und Erstellung von Multimedia-Inhalten' : 'Video production, editing, and multimedia content creation'}</li>
-              <li>• {language === 'de' ? 'Videobearbeitung mit Adobe Premiere Pro' : 'Video editing with Adobe Premiere Pro'}</li>
-              <li>• {language === 'de' ? 'Entwicklung unabhängiger Dokumentations- und Instruktionsprojekte' : 'Independent documentation and instructional project development'}</li>
+              <li>• {language === 'de' ? 'Mitwirkung an interaktiven E-Learning-Modulen (Articulate 360); Unterstützung bei Skript- und Storyboard-Revisionen für didaktische Klarheit' : 'Assist in producing interactive e-learning modules using Articulate 360; support script and storyboard revisions for instructional clarity and consistency'}</li>
+              <li>• {language === 'de' ? 'Unterstützung der Videoproduktion (Drehs, Schnitt, Audio-Optimierung mit Adobe Premiere Pro)' : 'Support video production across the full workflow, including shoots, editing, and audio optimisation using Adobe Premiere Pro'}</li>
+              <li>• {language === 'de' ? 'Einsatz KI-gestützter Tools für Übersetzungen von E-Learning-Modulen; bessere Erreichbarkeit mehrsprachiger Zielgruppen' : 'Utilise AI-powered tools to create translated versions of e-learning modules, improving accessibility and reach across multilingual audiences'}</li>
+              <li>• {language === 'de' ? 'Schrittweise Übernahme kleinerer E-Learning-Projekte von Konzept bis Lieferung' : 'Progressively take ownership of small-scale e-learning projects, managing them independently from concept through to delivery'}</li>
             </ul>
           </div>
 
@@ -232,10 +214,9 @@ export default function DigitalLearningCV() {
               </span>
             </div>
             <ul className="text-sm text-gray-700 space-y-1 ml-4">
-              <li>• {language === 'de' ? 'Erstellt 25+ barrierefreie Dokumentations-Assets und Unterrichtsmaterialien nach WCAG 2.1-Standards, die Benutzerfreundlichkeit für vielfältige Benutzergruppen gewährleistend' : 'Created 25+ accessible documentation assets and instructional materials following WCAG 2.1 standards, ensuring usability for diverse user groups'}</li>
-              <li>• {language === 'de' ? 'Strukturierte und organisierte 50+ Bildungsressourcen für digitale Plattformen, unterstützte 200+ Nutzer in internationalen Kontexten' : 'Structured and organized 50+ educational resources for digital platforms, supporting 200+ users across international contexts'}</li>
-              <li>• {language === 'de' ? 'Lokalisierte 300+ Seiten deutschen technischen und instruktionalen Inhalts ins Englische mit KI-unterstützten Übersetzungsworkflows, dabei Genauigkeit und natürliche Lesbarkeit erhaltend' : 'Localized 300+ pages of German technical and instructional content into English using AI-assisted translation workflows, maintaining accuracy and natural readability'}</li>
-              <li>• {language === 'de' ? 'Entwickelte Multimedia-Dokumentation, einschließlich Infografiken und visuellen Anleitungen für komplexe Prozesse' : 'Developed multimedia documentation, including infographics and visual guides for complex processes'}</li>
+              <li>• {language === 'de' ? 'Gestaltete 25+ barrierefreie Multimedia-Lerninhalte (Infografiken, Werbematerialien) gemäß WCAG 2.1 und erreichte diverse Lerngruppen' : 'Designed 25+ accessible multimedia learning assets (infographics, promotional materials) in line with WCAG 2.1, expanding reach to diverse learner groups'}</li>
+              <li>• {language === 'de' ? 'Kuratierte und strukturierte 50+ Bildungsressourcen für transkulturelle Kunstpädagogik; Unterstützung von 200+ internationalen, kommunalen und ERASMUS-Lernenden' : 'Curated and structured 50+ educational resources for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners'}</li>
+              <li>• {language === 'de' ? 'Lokalisierte 300+ Seiten deutscher Unterrichtsinhalte (z. B. Rituelle Tanz Pädagogik) ins Englische mit KI-gestützter Übersetzung unter Beibehaltung des natürlichen Flusses' : 'Localized 300+ pages of German instructional content (e.g., Rituelle Tanz Pädagogik book) into English using AI-assisted translation, preserving natural flow'}</li>
             </ul>
           </div>
 
@@ -315,10 +296,10 @@ export default function DigitalLearningCV() {
                 </p>
               </div>
               <span className="text-sm text-gray-600">
-                {language === 'de' ? 'Okt 2023 – Aktuell' : 'Oct 2023 – Present'}
+                {language === 'de' ? 'Okt 2023 – März 2026 (Note: 2,0 | Gut)' : 'Oct 2023 – March 2026 (Grade: 2.0 | Good)'}
               </span>
             </div>
-            <p className="text-sm text-gray-700 italic ml-4">{language === 'de' ? 'Relevante Kurse: Medien | Visuelle Kunst | Schreiben für Forschung | Umstrittene Nachhaltigkeit' : 'Relevant Courses: Media | Visual Art | Writing for Research | Contested Sustainability'}</p>
+            <p className="text-sm text-gray-700 italic ml-4">{language === 'de' ? 'Relevante Kurse: Medien | Visuelle Kunst | Schreiben für Forschung | Campus Fiction & Film (Paulo Freire) | Umstrittene Nachhaltigkeit' : 'Relevant Courses: Media | Visual Art | Writing for Research | Campus Fiction & Film (Paulo Freire: Pedagogy of the Oppressed) | Contested Sustainability'}</p>
             <p className="text-sm text-gray-700 font-semibold ml-4">{language === 'de' ? 'Masterarbeit: "KI als Reflexion: Mensch-Technologie-Beziehungen in digitalen Narrativen"' : 'Master\'s Thesis: "AI as Reflection: Human-Technology Relationships in Digital Narratives"'}</p>
           </div>
 
@@ -327,7 +308,7 @@ export default function DigitalLearningCV() {
               <div>
                 <h3 className="font-bold text-gray-800">{language === 'de' ? 'Bachelor of Education in Englischer Sprache' : "Bachelor of Education in English Language"}</h3>
                 <p className="text-gray-600">{language === 'de' ? 'Universität Cape Coast, Ghana' : 'University of Cape Coast, Ghana'}</p>
-                <p className="text-sm text-gray-700"><span className="font-semibold">CGPA: 3.6/4.0</span> (≈ {language === 'de' ? 'Deutsch 1.4' : 'German 1.4'})</p>
+                <p className="text-sm text-gray-700"><span className="font-semibold">{language === 'de' ? 'Note: 1,4 | First Class Honours' : 'Grade: 1.4 | First Class Honours'}</span></p>
               </div>
               <span className="text-sm text-gray-600">
                 {language === 'de' ? 'Okt 2018 – Okt 2022' : 'Oct 2018 – Oct 2022'}
@@ -339,54 +320,55 @@ export default function DigitalLearningCV() {
 
         {/* Certifications */}
         <section className="mb-6">
-          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-gray-300 pb-1">{lang.certifications}</h2>
+          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-indigo-100 pb-1">{lang.certifications}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
             <ul className="space-y-2 text-sm text-gray-700">
-              <li>• <span className="font-semibold">{language === 'de' ? 'Technical Writing Kurs' : 'Technical Writing Course'}</span> – Google Developers | <a href="https://developers.google.com/profile/badges/profile/created-profile" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a> (April 2025)</li>
-              <li>• <span className="font-semibold">{language === 'de' ? 'Technical Writing Kurs' : 'Technical Writing Course'}</span> – Board Infinity | <a href="https://bit.ly/446fLNy" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a> (April 2025)</li>
-              <li>• <span className="font-semibold">{language === 'de' ? 'API-Dokumentation erstellen' : 'Creating API Documentation'}</span> – LinkedIn Learning | <a href="https://www.linkedin.com/learning/certificates/62450d29357b3ffab0e29b7000b922977b9bddcaeaa9fde4870ca54d92732e0c" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a> ({language === 'de' ? 'Mai 2025' : 'May 2025'})</li>
+              <li>• <span className="font-semibold">{language === 'de' ? 'Instruktionsdesign Grundlagen & Anwendungen' : 'Instructional Design Foundations & Applications'}</span> – University of Illinois Urbana-Champaign | <a href="https://www.coursera.org/account/accomplishments/verify/VA2HACXYEOYV" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a></li>
+              <li>• <span className="font-semibold">{language === 'de' ? 'EF SET Englisch-Zertifikat' : 'EF SET English Certificate'}</span> – C1 Advanced (67/100) | <a href="https://cert.efset.org/1uf78L" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a></li>
+              <li>• <span className="font-semibold">{language === 'de' ? 'Technical Writing Kurs' : 'Technical Writing Course'}</span> – Google Developers | <a href="https://developers.google.com/profile/badges/profile/created-profile" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a></li>
             </ul>
             <ul className="space-y-2 text-sm text-gray-700">
-              <li>• <span className="font-semibold">{language === 'de' ? 'Instruktionsdesign Grundlagen & Anwendungen' : 'Instructional Design Foundations & Applications'}</span> – University of Illinois Urbana-Champaign | <a href="https://www.coursera.org/account/accomplishments/records/VA2HACXYEOYV" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a> (Aug 2025)</li>
-              <li>• <span className="font-semibold">{language === 'de' ? 'EF SET Englisch-Zertifikat' : 'EF SET English Certificate'}</span> – C1 Advanced (67/100) | <a href="https://cert.efset.org/1uf78L" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a> (Feb 2025)</li>
+              <li>• <span className="font-semibold">{language === 'de' ? 'Technical Writing Kurs' : 'Technical Writing Course'}</span> – Board Infinity | <a href="https://bit.ly/446fLNy" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a> (Apr 2025)</li>
+              <li>• <span className="font-semibold">{language === 'de' ? 'MLA International Bibliography' : 'Using the MLA International Bibliography for Research in Foreign Language Studies'}</span> – Philipps-Universität Marburg | <a href="https://www.uni-marburg.de/en" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.verify}</a> (Aug 14, 2025)</li>
             </ul>
           </div>
         </section>
 
         {/* Portfolio Highlights */}
         <section className="mb-6">
-          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-gray-300 pb-1">{lang.portfolioHighlights}</h2>
+          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-indigo-100 pb-1">{lang.portfolioHighlights}</h2>
           
-          <div className="space-y-3">
-            <div>
-              <h3 className="font-bold text-gray-800 mb-1">{language === 'de' ? 'Technische Dokumentation' : 'Technical Documentation'}</h3>
+          <div className="space-y-4">
+            <div className="rounded-xl border border-slate-200/80 bg-white p-4">
+              <h3 className="font-bold text-gray-800 mb-2">{language === 'de' ? 'Produktschulung (Articulate 360)' : 'Product Training (Articulate 360)'}</h3>
               <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                <li>• 2FA {language === 'de' ? 'Benutzerhandbuch' : 'User Guide'} (Microsoft PDF format) | <a href="https://github.com/Samuelsen1/Sample-2" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.link}</a></li>
-                <li>• Postman API {language === 'de' ? 'Dokumentationsanleitung' : 'Documentation Guide'} | <a href="https://github.com/Samuelsen1/Sample-2" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.link}</a></li>
+                <li>• {language === 'de' ? 'Onboarding: Dräger Fundamentals of Controllers (Markenidentität)' : 'Dräger Fundamentals of Controllers — brand identity'} | <a href="/#contact" className="text-indigo-600 hover:underline">{lang.verify}</a></li>
+                <li>• {language === 'de' ? 'Dräger Medical Vacuum Systems — auf Anfrage' : 'Dräger Medical Vacuum Systems — available upon request'} (<a href="/#contact" className="text-indigo-600 hover:underline">{language === 'de' ? 'Kontakt' : 'contact'}</a>)</li>
               </ul>
             </div>
-
             <div>
-              <h3 className="font-bold text-gray-800 mb-1">{language === 'de' ? 'E-Learning-Module' : 'E-Learning Modules'}</h3>
+              <h3 className="font-bold text-gray-800 mb-1">{language === 'de' ? 'E-Learning (Rise)' : 'E-Learning (Articulate Rise)'}</h3>
               <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                <li>• {language === 'de' ? 'Plain Language & Inklusive Kommunikation: Interaktives E-Learning-Modul mit erweitertem Barrierefreiheits-Panel' : 'Plain Language & Inclusive Communication: Interactive E-Learning Module with advanced accessibility panel'} | <a href="https://plain-language-five.vercel.app" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.link}</a></li>
-                <li>• 2FA {language === 'de' ? 'Praktische Einrichtung & Fehlerbehebung' : 'Practical Setup & Troubleshooting'} | <a href="https://360.eu.articulate.com/review/content/8d8ac689-1670-458d-a7b3-0407850b55ef/review" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.link}</a></li>
+                <li>• <a href="https://plain-language-five.vercel.app" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">{language === 'de' ? 'Beispiel 1 — Barrierefreiheits-Panel & Chatbot' : 'Sample 1 — accessibility panel & chatbot'}</a></li>
+                <li>• <a href="https://360.eu.articulate.com/review/content/8d8ac689-1670-458d-a7b3-0407850b55ef/review" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">{language === 'de' ? 'Beispiel 2 — 2FA' : 'Sample 2 — 2FA module'}</a></li>
               </ul>
             </div>
-
             <div>
-              <h3 className="font-bold text-gray-800 mb-1">{language === 'de' ? 'Wissensdatenbank & Content-Systeme' : 'Knowledge Base & Content Systems'}</h3>
+              <h3 className="font-bold text-gray-800 mb-1">{language === 'de' ? 'Poster & Flyer' : 'Posters & Flyers'}</h3>
+              <p className="text-sm text-gray-700 ml-4">{language === 'de' ? 'Kreativinhalte im Marken-Look — Fonts, Farben, Brand-Assets' : 'Creative content aligned with brand identity — fonts, colours, brand assets'}</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-800 mb-1">{language === 'de' ? 'Wissensdatenbank (Notion)' : 'Knowledge Base (Notion)'}</h3>
               <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                <li>• {language === 'de' ? 'ADDIE-basierte Dokumentation für LLMs & Nachhaltigkeit' : 'ADDIE-based Documentation for LLMs & Sustainability'} | <a href="https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d?source=copy_link" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.link}</a></li>
-                <li>• {language === 'de' ? 'Wissensdatenbank für Nachhaltigkeit und Klimawandel' : 'Sustainability and Climate Change Knowledge Base'} | <a href="https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f?source=copy_link" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.link}</a></li>
+                <li>• <a href="https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">LLMs & Sustainability</a></li>
+                <li>• <a href="https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">{language === 'de' ? 'Klimawandel & Nachhaltigkeit' : 'Sustainability & climate change'}</a></li>
               </ul>
             </div>
-
             <div>
-              <h3 className="font-bold text-gray-800 mb-1">{language === 'de' ? 'Web-Projekt' : 'Web Project'}</h3>
+              <h3 className="font-bold text-gray-800 mb-1">{language === 'de' ? 'Portfolio-Website & KI' : 'Portfolio Website & AI'}</h3>
               <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                <li>• {language === 'de' ? 'Persönliche Portfolio-Website: Responsive, zweisprachige (EN/DE) technische Präsentation mit Barrierefreiheits-Features, KI-Chatbot und Theme-Anpassung' : 'Personal Portfolio Website: Responsive, bilingual (EN/DE) technical showcase with accessibility features, AI chatbot and theme customization'} | <a href="https://vs-code-port1.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.link}</a></li>
-                <li>• <strong>General</strong> ({language === 'de' ? 'KI-Assistent: Wikipedia, Websuche, Wetter, Definitionen, News, DeepSeek API; beantwortet Fragen, prüft Fakten, liest PDFs und Bilder; qualitative und quantitative Analysen' : 'AI assistant: Wikipedia, web search, weather, definitions, news, DeepSeek API; answers questions, fact-checks, reads PDFs and images; qualitative and quantitative analysis'}) | <a href="https://general-ai-wheat.vercel.app" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline cursor-pointer">{lang.link}</a></li>
+                <li>• <a href="https://vs-code-port1.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">{language === 'de' ? 'Responsive, zweisprachig (EN/DE), Dark/Light, KI & Barrierefreiheit' : 'Responsive bilingual EN/DE, dark/light theme, AI & accessibility'}</a></li>
+                <li>• <a href="https://general-ai-wheat.vercel.app" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">{language === 'de' ? 'KI-Assistent (thesis-inspiriert) — Q&A, Fakten, PDFs, Analyse' : 'Thesis-inspired AI — Q&A, fact-check, PDFs, analysis'}</a></li>
               </ul>
             </div>
           </div>

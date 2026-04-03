@@ -661,20 +661,22 @@ export default function PortfolioWebsite() {
 
     // Certification links: order matters (more specific first)
     const certLinkEntries = [
-      ['technical writing certificate', certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link],
-      ['technical writing cert', certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link],
-      ['technical writing', certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link],
-      ['technical cert', certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link],
-      ['technical', certifications.find(c => c.title.en.toLowerCase().includes('technical writing'))?.link],
-      ['digital learning design', certifications.find(c => c.title.en.toLowerCase().includes('digital learning'))?.link],
-      ['digital learning cert', certifications.find(c => c.title.en.toLowerCase().includes('digital learning'))?.link],
-      ['digital learning', certifications.find(c => c.title.en.toLowerCase().includes('digital learning'))?.link],
+      ['technical writing certificate', certifications.find(c => c.title.en.toLowerCase().includes('technical writing') && c.issuer?.en?.toLowerCase().includes('board'))?.link],
+      ['technical writing cert', certifications.find(c => c.title.en.toLowerCase().includes('technical writing') && c.issuer?.en?.toLowerCase().includes('board'))?.link],
+      ['technical writing', certifications.find(c => c.title.en.toLowerCase().includes('technical writing') && c.issuer?.en?.toLowerCase().includes('board'))?.link],
+      ['technical cert', certifications.find(c => c.title.en.toLowerCase().includes('technical writing') && c.issuer?.en?.toLowerCase().includes('board'))?.link],
+      ['technical', certifications.find(c => c.title.en.toLowerCase().includes('technical writing') && c.issuer?.en?.toLowerCase().includes('board'))?.link],
+      ['digital learning design', certifications.find(c => { const x = c.title.en.toLowerCase(); return x.includes('digital learning') || x.includes('instructional design'); })?.link],
+      ['digital learning cert', certifications.find(c => { const x = c.title.en.toLowerCase(); return x.includes('digital learning') || x.includes('instructional design'); })?.link],
+      ['digital learning', certifications.find(c => { const x = c.title.en.toLowerCase(); return x.includes('digital learning') || x.includes('instructional design'); })?.link],
       ['uiuc', certifications.find(c => c.issuer?.en?.toLowerCase().includes('illinois'))?.link],
       ['illinois', certifications.find(c => c.issuer?.en?.toLowerCase().includes('illinois'))?.link],
       ['university of illinois', certifications.find(c => c.issuer?.en?.toLowerCase().includes('illinois'))?.link],
       ['board infinity', certifications.find(c => c.issuer?.en?.toLowerCase().includes('board'))?.link],
       ['board infinity cert', certifications.find(c => c.issuer?.en?.toLowerCase().includes('board'))?.link],
-      ['board', certifications.find(c => c.issuer?.en?.toLowerCase().includes('board'))?.link],
+      ['board', certifications.find(c => c.issuer?.en?.toLowerCase().includes('board infinity'))?.link],
+      ['google technical writing', certifications.find(c => c.issuer?.en?.toLowerCase().includes('google developers'))?.link],
+      ['mla', certifications.find(c => c.title.en.toLowerCase().includes('mla'))?.link],
       ['ef set', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
       ['efset', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
       ['english certificate', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
@@ -1173,15 +1175,15 @@ export default function PortfolioWebsite() {
       hero: {
         available: "Available for Opportunities",
         title: "Digital Learning Designer",
-        subtitle: "Technical Writing & Documentation",
-        desc: "Transforming complex concepts into engaging, high-impact digital learning experiences. Leveraging learning science, multimedia design, and technical communication to create scalable, accessible solutions that drive measurable results.",
+        subtitle: "E-Learning • Multimedia • Instructional Design",
+        desc: "1+ years building e-learning and multimedia, grounded in Master's-level media studies. I combine instructional design, Articulate 360, Adobe Creative Suite, and web/AI tools to deliver accessible, learner-centered digital experiences.",
         viewProjects: "View Projects",
         getInTouch: "Get In Touch",
         viewCV: "View CV"
       },
       about: {
         title: "About Me",
-        desc: "Digital Learning Designer specializing in creating engaging, accessible educational experiences that transform how people learn. I combine instructional design expertise (ADDIE, Bloom's Taxonomy, Adult Learning Theory) with modern technology to develop impactful e-learning modules, interactive courses, and multimedia content. With a strong foundation in technical communication, I also create clear documentation, user guides, and knowledge bases that make complex information accessible to diverse audiences. Committed to WCAG 2.1 accessibility standards and measurable learning outcomes."
+        desc: "Digital Learning Designer with 1+ year of e-learning development and 3 years of teaching experience. I blend Master's-level media studies with hands-on instructional design, multimedia production, and LMS work using Articulate 360, Adobe Creative Suite, and web/AI technologies. I build accessible, learner-centered modules, knowledge bases, and cross-cultural content—from stakeholder workshops to SCORM-ready delivery."
       },
       projects: {
         title: "Featured Projects",
@@ -1200,10 +1202,23 @@ export default function PortfolioWebsite() {
         title: "Professional Experience",
         items: [
           {
-            title: { en: "eLearning Developer (Intern)", de: "eLearning Developer (Intern)" },
+            title: { en: "Global Academy – eLearning Developer (Intern)", de: "Global Academy – eLearning Developer (Intern)" },
             company: { en: "Dräger, Lübeck", de: "Dräger, Lübeck" },
             date: { en: "February 2026 – Present", de: "Februar 2026 – heute" },
-            bullets: { en: [], de: [] },
+            bullets: {
+              en: [
+                "Assist in producing interactive e-learning modules with Articulate 360; support script and storyboard revisions for clarity and consistency",
+                "Support end-to-end video production: shoots, editing, and audio optimisation with Adobe Premiere Pro",
+                "Use AI-powered tools for translated e-learning versions, improving reach across multilingual audiences",
+                "Take ownership of small-scale e-learning projects from concept through delivery"
+              ],
+              de: [
+                "Mitwirkung an interaktiven E-Learning-Modulen (Articulate 360); Unterstützung bei Skript- und Storyboard-Revisionen",
+                "Unterstützung der Videoproduktion: Drehs, Schnitt und Audio-Optimierung mit Adobe Premiere Pro",
+                "KI-gestützte Übersetzungen von E-Learning-Modulen für mehrsprachige Zielgruppen",
+                "Übernahme kleinerer E-Learning-Projekte von Konzept bis Lieferung"
+              ]
+            },
             highlight: true,
             icon: "briefcase",
             iconBg: "bg-blue-100",
@@ -1310,7 +1325,7 @@ export default function PortfolioWebsite() {
         techWriting: "Technical Documentation",
         github: "GitHub Repository",
         connect: "Connect",
-        copyright: "© 2025 Samuel Afriyie Opoku • Digital Learning Designer & E-Learning Developer",
+        copyright: "© 2026 Samuel Afriyie Opoku • Digital Learning Designer & E-Learning Developer",
         built: "Built with React & Tailwind CSS"
       },
       impact: {
@@ -1321,34 +1336,34 @@ export default function PortfolioWebsite() {
       },
       aboutCards: [
         {
-          title: "Learning Science",
-          desc: "Applying ADDIE framework, cognitive load theory, and evidence-based instructional strategies to create effective learning experiences."
+          title: "Instructional & LXD",
+          desc: "ADDIE, Bloom, adult learning theory, storyboarding, curriculum design, and competency-based learning outcomes."
         },
         {
-          title: "Technical Skills",
-          desc: "Full-stack toolkit spanning e-learning authoring (Articulate 360) and multimedia design (Adobe Suite)."
+          title: "Production & LMS",
+          desc: "Articulate 360, SCORM, Moodle, learning analytics, and multimedia pipelines with Adobe + Descript."
         },
         {
-          title: "Measurable Impact",
-          desc: "Delivering learning solutions with proven results: 40% knowledge gains, 96% completion rates, and sustained behavioral change."
+          title: "Communication & Collaboration",
+          desc: "User guides, knowledge bases, localization, stakeholder engagement, and cross-functional teamwork."
         }
       ],
       skillsCategories: [
         {
-          title: "Digital Learning Design",
-          items: ["ADDIE Framework", "Bloom's Taxonomy", "Adult Learning Theory", "Storyboarding", "LXD", "Curriculum Development"]
+          title: "Instructional Design",
+          items: ["ADDIE", "Bloom's Taxonomy", "Adult Learning Theory", "Storyboarding", "LXD", "Curriculum Development", "Learning Outcome Alignment"]
         },
         {
-          title: "E-Learning Tools",
-          items: ["Articulate 360 (Storyline, Rise)", "Moodle", "SCORM", "Adobe Premiere Pro", "Adobe Photoshop", "Figma"]
+          title: "E-Learning & Multimedia",
+          items: ["Articulate 360 (Storyline, Rise)", "SCORM", "Moodle", "Learning Analytics", "Premiere Pro", "Photoshop", "InDesign", "Figma", "Descript"]
         },
         {
-          title: "Content Creation",
-          items: ["Technical Writing", "Multimedia Design", "Knowledge Base Documentation", "Cross-Cultural Adaptation"]
+          title: "Technical Communication",
+          items: ["User Guides", "Knowledge Bases", "Cross-Cultural Adaptation", "Content Localization", "WCAG 2.1"]
         },
         {
-          title: "Web & Development Tools",
-          items: ["HTML", "CSS", "Markdown", "GitHub", "VS Code", "Vercel"]
+          title: "Web, AI & Workflow",
+          items: ["HTML", "CSS", "Markdown", "API Integration", "Prompt Coding", "GitHub", "VS Code", "Cursor", "Vercel", "Google Workspace", "Microsoft 365", "Notion"]
         }
       ]
     },
@@ -1365,15 +1380,15 @@ export default function PortfolioWebsite() {
       hero: {
         available: "Verfügbar für neue Möglichkeiten",
         title: "Digital Learning Designer",
-        subtitle: "Technical Writing & Dokumentation",
-        desc: "Komplexe Konzepte in ansprechende, wirkungsvolle digitale Lernerfahrungen verwandeln. Lernwissenschaft, Multimediadesign und technische Kommunikation für skalierbare, barrierefreie Lösungen mit messbaren Ergebnissen.",
+        subtitle: "E-Learning • Multimedia • Instruktionsdesign",
+        desc: "Über ein Jahr E-Learning und Multimedia, fundiert mit einem Master in Medienwissenschaften. Ich verbinde Instruktionsdesign, Articulate 360, Adobe Creative Suite und Web/KI-Tools für barrierefreie, lernerzentrierte digitale Erlebnisse.",
         viewProjects: "Projekte ansehen",
         getInTouch: "Kontakt aufnehmen",
-        viewCV: "Lebenslauf anfordern"
+        viewCV: "Lebenslauf ansehen"
       },
       about: {
         title: "Über mich",
-        desc: "Als Digital Learning Designer spezialisiere ich mich auf die Entwicklung ansprechender, barrierefreier Bildungserlebnisse, die die Art, wie Menschen lernen, transformieren. Ich kombiniere Instructional Design-Expertise (ADDIE, Bloom's Taxonomie, Erwachsenenlerntheorie) mit moderner Technologie, um wirkungsvolle E-Learning-Module, interaktive Kurse und Multimedia-Inhalte zu entwickeln. Mit fundiertem Hintergrund in technischer Kommunikation erstelle ich auch klare Dokumentationen, Benutzerhandbücher und Wissensdatenbanken, die komplexe Informationen für diverse Zielgruppen zugänglich machen. Engagiert für WCAG 2.1-Barrierefreiheit und messbare Lernergebnisse."
+        desc: "Digital Learning Designer mit über einem Jahr E-Learning-Entwicklung und drei Jahren Unterrichtserfahrung. Master in Medienwissenschaften plus Praxis in Instruktionsdesign, Multimedia und LMS mit Articulate 360, Adobe Creative Suite und Web/KI. Ich entwickle barrierefreie, lernerzentrierte Module, Wissensdatenbanken und interkulturelle Inhalte — von Stakeholder-Workshops bis zur SCORM-fertigen Auslieferung."
       },
       projects: {
         title: "Ausgewählte Projekte",
@@ -1392,29 +1407,42 @@ export default function PortfolioWebsite() {
         title: "Berufserfahrung",
         items: [
           {
-            title: { en: "eLearning Developer (Intern)", de: "eLearning Developer (Praktikant)" },
+            title: { en: "Global Academy – eLearning Developer (Intern)", de: "Global Academy – eLearning Developer (Intern)" },
             company: { en: "Dräger, Lübeck", de: "Dräger, Lübeck" },
             date: { en: "February 2026 – Present", de: "Februar 2026 – heute" },
-            bullets: { en: [], de: [] },
+            bullets: {
+              en: [
+                "Assist in producing interactive e-learning modules with Articulate 360; support script and storyboard revisions for clarity and consistency",
+                "Support end-to-end video production: shoots, editing, and audio optimisation with Adobe Premiere Pro",
+                "Use AI-powered tools for translated e-learning versions, improving reach across multilingual audiences",
+                "Take ownership of small-scale e-learning projects from concept through delivery"
+              ],
+              de: [
+                "Mitwirkung an interaktiven E-Learning-Modulen (Articulate 360); Unterstützung bei Skript- und Storyboard-Revisionen",
+                "Unterstützung der Videoproduktion: Drehs, Schnitt und Audio-Optimierung mit Adobe Premiere Pro",
+                "KI-gestützte Übersetzungen von E-Learning-Modulen für mehrsprachige Zielgruppen",
+                "Übernahme kleinerer E-Learning-Projekte von Konzept bis Lieferung"
+              ]
+            },
             highlight: true,
             icon: "briefcase",
             iconBg: "bg-blue-100",
             image: "/images/drager.png?v=2"
           },
           {
-            title: { en: "Web & Digital Learning Design Intern", de: "Digital Learning Designer (Praktikant)" },
+            title: { en: "Digital Learning Designer (Intern)", de: "Digital Learning Designer (Praktikant)" },
             company: { en: "Tanz der Kulturen e.V., Hamburg", de: "Tanz der Kulturen e.V., Hamburg" },
-            date: { en: "June 2025 – October 2025", de: "Juni 2025 – Oktober 2025" },
+            date: { en: "June 2025 – November 2025", de: "Juni 2025 – November 2025" },
             bullets: {
               en: [
-                "Designed and documented instructional materials for both digital and print use",
-                "Contributed to rebuilding the website on an e-commerce platform",
-                "Used AI to translate German brand content into English while preserving its voice and natural flow"
+                "Designed 25+ accessible multimedia learning assets (infographics, promotional materials) in line with WCAG 2.1, expanding reach to diverse learner groups",
+                "Curated and structured 50+ educational resources for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners",
+                "Localized 300+ pages of German instructional content (e.g., <em>Rituelle Tanz Pädagogik</em> book) into English using AI-assisted translation, preserving natural flow"
               ],
               de: [
-                "Gestaltete und dokumentierte Lehrmaterialien für digitale und gedruckte Verwendung",
-                "Wirkte beim Wiederaufbau der Website auf einer E‑Commerce-Plattform mit",
-                "Verwendete KI, um deutsche Markeninhalte ins Englische zu übersetzen und dabei Stimme und natürlichen Ausdruck zu bewahren"
+                "Gestaltete 25+ barrierefreie Multimedia-Lerninhalte (Infografiken, Werbematerialien) gemäß WCAG 2.1 und erreichte diverse Lerngruppen",
+                "Kuratierte und strukturierte 50+ Lernressourcen für transkulturelle Kunstpädagogik und unterstützte 200+ internationale, kommunale und ERASMUS-Lernende",
+                "Lokalisierte 300+ Seiten deutscher Unterrichtsinhalte (z.B. <em>Rituelle Tanz Pädagogik</em> Buch) ins Englische mit KI-gestützter Übersetzung unter Beibehaltung des natürlichen Flusses"
               ]
             },
             highlight: false,
@@ -1429,12 +1457,14 @@ export default function PortfolioWebsite() {
             date: { en: "January 2023 – October 2023", de: "Januar 2023 – Oktober 2023" },
             bullets: {
               en: [
-                "Designed, delivered and assessed English lessons, improving students' comprehension and speaking skills",
-                "Managed administrative tasks including student records and scheduling"
+                "Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy, enhancing comprehension, writing, and speaking skills",
+                "Assessed student progress using formative and summative methods to inform lesson adaptation",
+                "Managed administrative tasks, including student records, scheduling, and correspondence"
               ],
               de: [
-                "Unterrichtsstunden entworfen, durchgeführt und bewertet, wodurch das Verständnis und die Sprechfertigkeit der Lernenden verbessert wurden",
-                "Verwaltungsaufgaben wie Schülerakten und Zeitplanung verwaltet"
+                "Unterrichtsstunden unter Verwendung von Lernzielen im Einklang mit Blooms Taxonomie entworfen und durchgeführt, um Verständnis, Schreib- und Sprechfähigkeiten zu verbessern",
+                "Schülerfortschritt mittels formativer und summativer Methoden bewertet, um die Unterrichtsanpassung zu informieren",
+                "Verwaltungsaufgaben wie Schülerakten, Zeitplanung und Korrespondenz verwaltet"
               ]
             },
             highlight: false,
@@ -1446,21 +1476,38 @@ export default function PortfolioWebsite() {
           {
             title: { en: "English Language Teaching Assistant (Intern)", de: "Englischlehrassistent (Praktikant)" },
             company: { en: "Ghana Education Service, Kumasi", de: "Ghana Education Service, Kumasi" },
-            date: { en: "June 2021 – Dec 2021", de: "Juni 2021 – Dez 2021" },
+            date: { en: "June 2021 – December 2021", de: "Juni 2021 – Dezember 2021" },
             bullets: {
               en: [
-                "Researched, wrote, and developed a method (box-part-letter), which helped 40% of first-year students gain legible handwriting.",
-                "Designed and facilitated lessons integrating formative and summative assessment principles."
+                "Developed a box-part-letter handwriting method, improving first-year student performance by 40%",
+                "Facilitated lessons integrating assessment strategies and instructional scaffolding aligned to learning outcomes"
               ],
               de: [
-                "Forschte, schrieb und entwickelte eine Methode (Box-Part-Letter), die 40% der Erstklässler zu leserlicher Handschrift verhalf.",
-                "Unterrichtseinheiten gestaltet und durchgeführt, die formative und summative Bewertungsprinzipien integrierten."
+                "Entwickelte eine Box-Part-Letter-Methode für die Handschrift, die die Leistung von Erstklässlern um 40% verbesserte",
+                "Unterrichtseinheiten mit Bewertungsstrategien und Unterrichtsstützung im Einklang mit Lernzielen durchgeführt"
               ]
             },
             highlight: false,
             icon: "book",
             iconBg: "bg-gray-100",
             image: "/images/ges.jpeg"
+          },
+          {
+            title: { en: "English Language Teacher (Working Student)", de: "Englischlehrer (Arbeitender Student)" },
+            company: { en: "Kovak Hill Educational Centre, Kumasi", de: "Kovak Hill Educational Centre, Kumasi" },
+            date: { en: "January 2020 – June 2020", de: "Januar 2020 – Juni 2020" },
+            bullets: {
+              en: [
+                "Developed and implemented lesson plans following ADDIE principles, ensuring alignment with curriculum standards and learner engagement strategies"
+              ],
+              de: [
+                "Unterrichtspläne nach ADDIE-Prinzipien entwickelt und durchgeführt, um Übereinstimmung mit Lehrplannormen und Lernerbeteiligungsstrategien sicherzustellen"
+              ]
+            },
+            highlight: false,
+            icon: "book",
+            iconBg: "bg-gray-100",
+            image: "/images/Kovak.png"
           }
         ]
       },
@@ -1483,7 +1530,7 @@ export default function PortfolioWebsite() {
         techWriting: "Technische Dokumentation",
         github: "GitHub-Repository",
         connect: "Verbinden",
-        copyright: "© 2025 Samuel Afriyie Opoku • Digital Learning Designer & E-Learning Entwickler",
+        copyright: "© 2026 Samuel Afriyie Opoku • Digital Learning Designer & E-Learning Entwickler",
         built: "Erstellt mit React & Tailwind CSS"
       },
       impact: {
@@ -1494,34 +1541,34 @@ export default function PortfolioWebsite() {
       },
       aboutCards: [
         {
-          title: "Lernwissenschaft",
-          desc: "ADDIE-Framework, kognitive Belastungstheorie und evidenzbasierte Instruktionsstrategien für effektive Lernerfahrungen anwenden."
+          title: "Instruktionsdesign & LXD",
+          desc: "ADDIE, Bloom, Erwachsenenlerntheorie, Storyboarding, Curriculumentwicklung und kompetenzbasierte Lernergebnisse."
         },
         {
-          title: "Technische Fähigkeiten",
-          desc: "Full-Stack-Toolkit für E-Learning-Autorentools (Articulate 360) und Multimediadesign (Adobe Suite)."
+          title: "Produktion & LMS",
+          desc: "Articulate 360, SCORM, Moodle, Learning Analytics und Multimedia-Pipelines mit Adobe und Descript."
         },
         {
-          title: "Messbare Wirkung",
-          desc: "Lernlösungen mit nachweisbaren Ergebnissen: 40% Wissenszuwachs, 96% Abschlussrate und nachhaltige Verhaltensänderung."
+          title: "Kommunikation & Zusammenarbeit",
+          desc: "Benutzerhandbücher, Wissensdatenbanken, Lokalisierung, Stakeholder und funktionsübergreifende Teams."
         }
       ],
       skillsCategories: [
         {
-          title: "Digitales Lerndesign",
-          items: ["ADDIE-Framework", "Bloom's Taxonomie", "Erwachsenenlerntheorie", "Storyboarding", "LXD", "Curriculumentwicklung"]
+          title: "Instruktionsdesign",
+          items: ["ADDIE", "Bloom's Taxonomie", "Erwachsenenlerntheorie", "Storyboarding", "LXD", "Curriculumentwicklung", "Lernziel-Ausrichtung"]
         },
         {
-          title: "E-Learning-Tools",
-          items: ["Articulate 360 (Storyline, Rise)", "Moodle", "SCORM", "Adobe Premiere Pro", "Adobe Photoshop", "Figma"]
+          title: "E-Learning & Multimedia",
+          items: ["Articulate 360 (Storyline, Rise)", "SCORM", "Moodle", "Learning Analytics", "Premiere Pro", "Photoshop", "InDesign", "Figma", "Descript"]
         },
         {
-          title: "Content-Erstellung",
-          items: ["Technisches Schreiben", "Multimediadesign", "Wissensdatenbank-Dokumentation", "Interkulturelle Anpassung"]
+          title: "Technische Kommunikation",
+          items: ["Benutzerhandbücher", "Wissensdatenbanken", "Interkulturelle Anpassung", "Content-Lokalisierung", "WCAG 2.1"]
         },
         {
-          title: "Web & Entwicklungstools",
-          items: ["HTML", "CSS", "Markdown", "GitHub", "VS Code", "Vercel"]
+          title: "Web, KI & Workflow",
+          items: ["HTML", "CSS", "Markdown", "API-Integration", "Prompt Coding", "GitHub", "VS Code", "Cursor", "Vercel", "Google Workspace", "Microsoft 365", "Notion"]
         }
       ]
     }
@@ -1529,6 +1576,54 @@ export default function PortfolioWebsite() {
 
   // Projects with translations
   const projects = [
+    {
+      title: {
+        en: "Dräger Fundamentals of Controllers",
+        de: "Dräger Fundamentals of Controllers"
+      },
+      category: {
+        en: "Product Training",
+        de: "Produktschulung"
+      },
+      description: {
+        en: "Articulate 360 product onboarding on controller fundamentals with Dräger brand identity. Sample or review access on request.",
+        de: "Articulate-360-Produktonboarding zu Controller-Grundlagen mit Dräger-Markenidentität. Beispiel oder Review-Zugang auf Anfrage."
+      },
+      tools: {
+        en: ["Articulate 360", "Adobe Premiere Pro", "Brand guidelines"],
+        de: ["Articulate 360", "Adobe Premiere Pro", "Markenrichtlinien"]
+      },
+      results: {
+        en: ["Brand-aligned learning", "Technical product context", "Script & storyboard iteration"],
+        de: ["Markenkonformes Lernen", "Technischer Produktkontext", "Skript- und Storyboard-Iteration"]
+      },
+      link: "/#contact",
+      featured: true
+    },
+    {
+      title: {
+        en: "Dräger Medical Vacuum Systems",
+        de: "Dräger Medical Vacuum Systems"
+      },
+      category: {
+        en: "Product Training",
+        de: "Produktschulung"
+      },
+      description: {
+        en: "Interactive Articulate 360 onboarding for medical vacuum systems. Available upon request for portfolio review.",
+        de: "Interaktives Articulate-360-Onboarding für Medizin-Vakuumsysteme. Zur Portfolio-Sichtung auf Anfrage verfügbar."
+      },
+      tools: {
+        en: ["Articulate 360", "Multimedia", "Technical accuracy review"],
+        de: ["Articulate 360", "Multimedia", "Technische Prüfung"]
+      },
+      results: {
+        en: ["Clinical context", "Step-by-step workflows", "Assessment alignment"],
+        de: ["Klinischer Kontext", "Schritt-für-Schritt-Workflows", "Abgleich mit Assessments"]
+      },
+      link: "/#contact",
+      featured: true
+    },
     {
       title: {
         en: "General",
@@ -1622,7 +1717,7 @@ export default function PortfolioWebsite() {
         en: ["WCAG compliance", "Universal design", "Improved learner outcomes"],
         de: ["WCAG-Konformität", "Universelles Design", "Verbesserte Lernergebnisse"]
       },
-      link: "https://example.com/e-learning-accessibility",
+      link: "https://plain-language-five.vercel.app",
       featured: false
     },
     {
@@ -1726,8 +1821,8 @@ export default function PortfolioWebsite() {
   const certifications = [
     {
       title: {
-        en: "Digital Learning Design Foundations & Applications",
-        de: "Grundlagen & Anwendungen des Digitalen Lerndesigns"
+        en: "Instructional Design Foundations & Applications",
+        de: "Instruktionsdesign Grundlagen & Anwendungen"
       },
       issuer: {
         en: "University of Illinois Urbana-Champaign",
@@ -1739,22 +1834,6 @@ export default function PortfolioWebsite() {
       },
       link: "https://www.coursera.org/account/accomplishments/verify/VA2HACXYEOYV",
       image: "/images/uiuc.png"
-    },
-    {
-      title: {
-        en: "Technical Writing Course",
-        de: "Kurs Technisches Schreiben"
-      },
-      issuer: {
-        en: "Board Infinity",
-        de: "Board Infinity"
-      },
-      date: {
-        en: "Apr 2025",
-        de: "Apr 2025"
-      },
-      link: "https://www.coursera.org/account/accomplishments/verify/CDOSFZ44QK27?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course",
-      image: "/images/board_infinity.svg"
     },
     {
       title: {
@@ -1771,6 +1850,52 @@ export default function PortfolioWebsite() {
       },
       link: "https://cert.efset.org/1uf78L",
       image: "/images/efset.png"
+    },
+    {
+      title: {
+        en: "Technical Writing (Google Developers)",
+        de: "Technisches Schreiben (Google Developers)"
+      },
+      issuer: {
+        en: "Google Developers",
+        de: "Google Developers"
+      },
+      date: {
+        en: "2025",
+        de: "2025"
+      },
+      link: "https://developers.google.com/profile/badges/profile/created-profile"
+    },
+    {
+      title: {
+        en: "Technical Writing (Board Infinity)",
+        de: "Technisches Schreiben (Board Infinity)"
+      },
+      issuer: {
+        en: "Board Infinity",
+        de: "Board Infinity"
+      },
+      date: {
+        en: "Apr 2025",
+        de: "Apr 2025"
+      },
+      link: "https://bit.ly/446fLNy",
+      image: "/images/board_infinity.svg"
+    },
+    {
+      title: {
+        en: "Using the MLA International Bibliography",
+        de: "MLA International Bibliography (Forschung)"
+      },
+      issuer: {
+        en: "Philipps-Universität Marburg",
+        de: "Philipps-Universität Marburg"
+      },
+      date: {
+        en: "Aug 2025",
+        de: "Aug 2025"
+      },
+      link: "https://www.uni-marburg.de/en"
     }
   ];
 
@@ -1785,7 +1910,7 @@ export default function PortfolioWebsite() {
   ];
 
   return (
-    <div className={`min-h-screen ${isDarkTheme ? 'bg-slate-950' : 'bg-white'}`}>
+    <div className={`min-h-screen ${isDarkTheme ? 'bg-slate-950' : 'bg-gradient-to-b from-slate-50 via-white to-indigo-50/50'}`}>
       <style>{`
         @keyframes float-up-down {
           0%, 100% { transform: translateY(0px); }

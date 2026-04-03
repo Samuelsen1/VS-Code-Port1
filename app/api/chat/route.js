@@ -7,40 +7,46 @@ const GENERAL_AI_URL = process.env.GENERAL_AI_URL || 'https://general-ai-wheat.v
 // Samuel's comprehensive CV data
 const cvData = `
 SAMUEL AFRIYIE OPOKU
-Digital Learning Designer | Technical Writer
+Digital Learning Designer | Web Portfolio: https://vs-code-port1.vercel.app
 Location: Große Klosterkoppel 8, 23562 Lübeck
 Phone: +49 171 5811680
 Email: gideonsammysen@gmail.com
 LinkedIn: https://www.linkedin.com/in/samuel-o-4b9bbb2a8
 
 PROFESSIONAL SUMMARY:
-Digital Learning Designer with Technical Writing skills. Possesses a unique blend of instructional design expertise and documentation skills. Creates clear, accessible and engaging e-learning modules, as well as technical content — from user guides to comprehensive knowledge bases. Approach combines technical communication best practices with learning science (ADDIE, plain language principles) to deliver solutions that educate and empower users.
+Digital Learning Designer with 1+ year of e-learning development experience and 3 years of teaching background. Combines Master's-level media studies expertise with hands-on skills in instructional design, multimedia production, and LMS administration using Articulate 360, Adobe Creative Suite, and web and AI technologies to create accessible, learner-centered digital experiences.
 
-CORE COMPETENCIES:
-- Documentation & Content Development: User Guides, Knowledge Base Design, Technical Specifications, Process Documentation, Content Localization
-- E-Learning Authoring & LMS: Articulate 360 (Storyline, Rise), Moodle, SCORM
-- Information Architecture: Content Structuring, Documentation Planning, User-Centered Design, Cross-Referencing, Version Control
-- Technical Skills: Markdown, HTML, CSS, GitHub, VS Code, SCORM Packaging, Web Technologies
-- Tools & Platforms: Notion, Adobe Creative Suite (Photoshop, InDesign, Premiere Pro), Figma, Articulate 360, Moodle, Google Workspace, Microsoft 365
-- Accessibility & Standards: WCAG 2.1 Compliance, Inclusive Design, Plain Language Principles
+SKILLS & COMPETENCIES:
+Instructional Design: ADDIE | Bloom's Taxonomy | Adult Learning Theory | Storyboarding | Learning Experience Design (LXD) | Curriculum Development | Learning Outcome Alignment | Competency-Based Design
+E-Learning Development: SCORM Packaging | LMS Administration | Learning Analytics | Formative/Summative Evaluation
+Multimedia Production: Photo Editing (Infographics | Posters | Flyers) | Video Creation & Editing
+Technical Communication: User Guides | Knowledge-Base Documentation | Cross-Cultural Content Adaptation | Content Localization
+Collaboration: Stakeholder Engagement | Cross-Functional Teamwork
+
+TOOLS & TECHNOLOGIES:
+E-Learning Authoring & LMS: Articulate 360 (Storyline, Rise) | Moodle
+Design & Multimedia: Adobe Creative Suite (Premiere Pro, Photoshop, InDesign) | Figma | Descript
+Web & AI Development: HTML | CSS | Markdown | API Integration | Prompt Coding
+Development Tools: GitHub | VS Code | Cursor | Vercel
+Productivity & Collaboration: Google Workspace | Microsoft 365 (Word, PowerPoint, SharePoint, Teams, Excel, Loop, etc.) | Notion
 
 EDUCATION:
-- Master's in North American Studies (Media Studies) - Philipps-Universität Marburg, Germany (Oct 2023 – Present)
-  Relevant Courses: Media, Visual Art, Writing for Research, Contested Sustainability
+- Master's in North American Studies (Media Studies) (Grade: 2.0 | Gut) (Oct 2023 – March 2026) - Philipps-Universität Marburg, Germany
+  Relevant Courses: Media | Visual Art | Writing for Research | Campus Fiction & Film (Paulo Freire: Pedagogy of the Oppressed) | Contested Sustainability
   Master's Thesis: "AI as Reflection: Human-Technology Relationships in Digital Narratives"
-  
-- Bachelor of Education in English Language (CGPA: 3.6/4.0 ≈ German 1.4) - University of Cape Coast, Ghana (Oct 2018 – Oct 2022)
-  Relevant Courses: Educational Psychology, General Curriculum Studies, Assessment & Evaluation, Educating Individuals with Diverse Learning Needs, Research Methods in Education, Educational Statistics, Language & Linguistics, Semantics, Translation, English in Multilingual Contexts
+
+- Bachelor of Education in English Language (Grade: 1.4 | First Class Honours) (Oct 2018 – Oct 2022) - University of Cape Coast, Ghana
+  Relevant Courses: Educational Psychology | General Curriculum Studies | Assessment & Evaluation | Educating Individuals with Diverse Learning Needs | Research Methods in Education | Educational Statistics | Language & Linguistics | Semantics | Translation | English in Multilingual Contexts
 
 PROFESSIONAL EXPERIENCE:
 
-1. eLearning Developer (Intern) (Feb 2026 – Present) - Dräger, Lübeck
-   - Script and content development for e-learning modules
-   - Video production, editing, and multimedia content creation
-   - Video editing with Adobe Premiere Pro
-   - Independent documentation and instructional project development
+1. Global Academy – eLearning Developer (Intern) (Feb 2026 – Present) - Dräger, Lübeck
+   - Assist in producing interactive e-learning modules using Articulate 360; support script and storyboard revisions for instructional clarity and consistency
+   - Support video production across the full workflow, including shoots, editing, and audio optimisation using Adobe Premiere Pro
+   - Utilise AI-powered tools to create translated versions of e-learning modules, improving accessibility and reach across multilingual audiences
+   - Progressively take ownership of small-scale e-learning projects, managing them independently from concept through to delivery
 
-2. Digital Learning Designer (Intern) (June 2025 – November 2025) - Tanz der Kulturen e.V., Hamburg
+2. Digital Learning Designer (Intern) (June 2025 – Nov 2025) - Tanz der Kulturen e.V., Hamburg
    - Designed 25+ accessible multimedia learning assets (infographics, promotional materials) in line with WCAG 2.1, expanding reach to diverse learner groups
    - Curated and structured 50+ educational resources for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners
    - Localized 300+ pages of German instructional content (e.g., Rituelle Tanz Pädagogik book) into English using AI-assisted translation, preserving natural flow
@@ -50,7 +56,7 @@ PROFESSIONAL EXPERIENCE:
    - Assessed student progress using formative and summative methods to inform lesson adaptation
    - Managed administrative tasks, including student records, scheduling, and correspondence
 
-4. English Language Teaching Assistant (Intern) (June 2021 – December 2021) - Ghana Education Service, Kumasi
+4. English Language Teaching Assistant (Intern) (June 2021 – Dec 2021) - Ghana Education Service, Kumasi
    - Developed a box-part-letter handwriting method, improving first-year student performance by 40%
    - Facilitated lessons integrating assessment strategies and instructional scaffolding aligned to learning outcomes
 
@@ -58,41 +64,29 @@ PROFESSIONAL EXPERIENCE:
    - Developed and implemented lesson plans following ADDIE principles, ensuring alignment with curriculum standards and learner engagement strategies
 
 CERTIFICATIONS & TRAINING:
-- Digital Learning Design Foundations & Applications – University of Illinois Urbana-Champaign (Aug 2025)
-- Technical Writing Course – Board Infinity (Apr 2025)
-- Technical Writing Course – Google Developers (Apr 2025)
-- Creating API Documentation – LinkedIn Learning (May 2025)
-- EF SET English Certificate – C1 Advanced (67/100) (Feb 2025)
+- Instructional Design Foundations & Applications – University of Illinois Urbana-Champaign
+- EF SET English Certificate – C1 Advanced (67/100)
+- Technical Writing Course – Google Developers
+- Technical Writing Course – Board Infinity (April 2025)
+- Using the MLA International Bibliography for Research in Foreign Language Studies – Philipps-Universität Marburg (Aug 14, 2025)
 
 PORTFOLIO HIGHLIGHTS:
-Technical Documentation:
-- 2FA User Guide (Microsoft PDF format)
-- Postman API Documentation Guide
-- Welth Health Platform (DITA XML)
-
-E-Learning Modules:
-- Plain Language & Inclusive Communication: Interactive E-Learning Module with advanced accessibility panel
-- Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)
-- E-Learning Accessibility Best Practices
-
-Knowledge Base & Content Systems:
-- ADDIE-based Documentation for LLMs & Sustainability
-- Climate Change Mitigation Guide
-- Sustainability and Climate Change Knowledge Base
-
-Web Project:
-- Personal Portfolio Website: Responsive, bilingual (EN/DE) technical showcase with accessibility features
-- General (https://general-ai-wheat.vercel.app): Advanced AI assistant — Wikipedia, web search, weather, definitions, news, DeepSeek API; answers questions, fact-checks, reads PDFs and images, qualitative and quantitative analysis. Built by Samuel.
+Product Training (Articulate 360): Interactive onboarding on Dräger Fundamentals of Controllers (brand identity) | Interactive onboarding on Dräger Medical Vacuum Systems (available upon request)
+E-Learning (Rise): Interactive courses with assessments & multimedia — Sample 1 (accessibility panel & chatbot); Sample 2
+Posters & Flyers: Creative content aligned with brand identity
+Knowledge Base (Notion): ADDIE-based LLMs & Sustainability | Climate change resources
+Portfolio Website: Bilingual (EN/DE), dark/light theme, AI assistants, advanced accessibility
+AI (Thesis-inspired): Advanced assistant — Q&A, fact-check, PDF reading, analysis — https://general-ai-wheat.vercel.app
 
 LANGUAGES:
-- English – Native/Bilingual (C1 Advanced certified)
-- German – B1 (Intermediate)
+- English – Native/Bilingual
+- German – B1 Intermediate
 - Akan – Fluent
 
 PERSONAL ATTRIBUTES:
 - Height: 184cm
 - Natural talents: Creativity in drawing, naturally soothing singing voice
-- Personality: Quiet, observant, curious (actively digging for new skills), empathetic, reserved but friendly
+- Personality: Quiet, observant, curious (actively learning new skills), empathetic, reserved but friendly
 `;
 
 // Enhanced pattern matching with fuzzy logic and semantic similarity
@@ -749,8 +743,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Verfügbarkeit:**\n\n📅 **Vollzeit verfügbar ab:** April/Mai 2026 (nach Abschluss des verpflichtenden Teils seiner Masterarbeit)\n\n💼 **Aktuell verfügbar für:**\n• **Freelance-Projekte** – Digital Learning Design oder Technical Writing\n• **Teilzeit-Rollen** – Flexible Zusammenarbeit während des Studiums\n• **Beratungsaufträge** – Expertise in Barrierefreiheit und Instruktionsdesign\n\n**Kontakt:** gideonsammysen@gmail.com\n\n---\n\n💼 **Aktuell:** eLearning Developer Praktikant bei Dräger, Lübeck\n\n🎓 **Aktuell:** Master-Student an der Philipps-Universität Marburg (North American Studies, Medienwissenschaften)\n\n**Schwerpunkte:** Digital Learning Design, Technical Writing, Content-Lokalisierung, Barrierefreiheit"
-        : "**Samuel's Availability:**\n\n📅 **Full-time available from:** April/May 2026 (after completing the mandatory part of his internship)\n\n💼 **Currently available for:**\n• **Freelance Projects** – Digital Learning Design or Technical Writing\n• **Part-Time Roles** – Flexible collaboration during studies\n• **Consultation Projects** – Expertise in accessibility and instructional design\n\n**Contact:** gideonsammysen@gmail.com\n\n---\n\n💼 **Current:** eLearning Developer Intern at Dräger, Lübeck\n\n🎓 **Currently:** Master's student at Philipps-Universität Marburg (North American Studies, Media Studies)\n\n**Focus Areas:** Digital Learning Design, Technical Writing, Content Localization, Accessibility";
+        ? "**Samuels Verfügbarkeit:**\n\n📅 **Vollzeit verfügbar ab:** April/Mai 2026 (nach Abschluss des verpflichtenden Teils seiner Masterarbeit)\n\n💼 **Aktuell verfügbar für:**\n• **Freelance-Projekte** – Digital Learning Design oder Technical Writing\n• **Teilzeit-Rollen** – Flexible Zusammenarbeit während des Studiums\n• **Beratungsaufträge** – Expertise in Barrierefreiheit und Instruktionsdesign\n\n**Kontakt:** gideonsammysen@gmail.com\n\n---\n\n💼 **Aktuell:** Global Academy – eLearning Developer (Praktikant) bei Dräger, Lübeck\n\n🎓 **Aktuell:** Master-Student an der Philipps-Universität Marburg (North American Studies, Medienwissenschaften)\n\n**Schwerpunkte:** Digital Learning Design, Technical Writing, Content-Lokalisierung, Barrierefreiheit"
+        : "**Samuel's Availability:**\n\n📅 **Full-time available from:** April/May 2026 (after completing the mandatory part of his master's thesis requirements)\n\n💼 **Currently available for:**\n• **Freelance Projects** – Digital Learning Design or Technical Writing\n• **Part-Time Roles** – Flexible collaboration during studies\n• **Consultation Projects** – Expertise in accessibility and instructional design\n\n**Contact:** gideonsammysen@gmail.com\n\n---\n\n💼 **Current:** Global Academy – eLearning Developer (Intern) at Dräger, Lübeck\n\n🎓 **Currently:** Master's student at Philipps-Universität Marburg (North American Studies, Media Studies)\n\n**Focus Areas:** Digital Learning Design, Technical Writing, Content Localization, Accessibility";
     }
     
     // Experience/Work History (exclude when sentence clearly asks about availability: "when ... available", "available for employment")
@@ -761,8 +755,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Berufserfahrung im Überblick:**\n\n🎯 **Aktuell (seit Februar 2026):**\n**eLearning Developer Praktikant** bei **Dräger, Lübeck**\n• E-Learning-Skript- und Storyboard-Entwicklung\n• Produktion interaktiver Module (Articulate 360)\n• Videoproduktion, -bearbeitung und -dreharbeiten (Adobe Premiere Pro)\n• Entwicklung unabhängiger Dokumentations- und Lehrprojekte\n\n📚 **Zuletzt (Juni–November 2025):**\n**Digital Learning Designer (Praktikant)** bei **Tanz der Kulturen e.V., Hamburg**\n• **25+ barrierefreie Multimedia-Lerninhalte** gestaltet (Infografiken, Werbematerialien) nach WCAG 2.1-Standards, Erweiterung der Reichweite auf diverse Lerngruppen\n• **50+ Bildungsressourcen** kuratiert und strukturiert für transkulturelle Kunstpädagogik, Unterstützung von 200+ internationalen, kommunalen und ERASMUS-Lernenden\n• **300+ Seiten** deutscher Unterrichtsinhalte (z.B. 'Rituelle Tanz Pädagogik' Buch) ins Englische lokalisiert mit KI-gestützter Übersetzung unter Beibehaltung des natürlichen Flusses\n\n👨‍🏫 **Januar–Oktober 2023:**\n**Englischlehrer & Verwaltungsassistent** bei **Ghana National Service Scheme, Kumasi**\n• Englischunterricht entworfen und durchgeführt mit Lernzielen nach Bloom's Taxonomie\n• Verbesserung von Verständnis, Schreib- und Sprechfertigkeiten\n• Schülerfortschritt mittels formativer und summativer Methoden bewertet\n• Verwaltungsaufgaben verwaltet (Schülerakten, Zeitplanung, Korrespondenz)\n\n👨‍🏫 **Juni–Dezember 2021:**\n**Englischlehrassistent (Praktikant)** bei **Ghana Education Service, Kumasi**\n• **Box-Part-Letter-Handschriftmethode** entwickelt, die die Leistung von Erstklässlern um **40% verbesserte**\n• Unterrichtseinheiten durchgeführt mit Bewertungsstrategien und Unterrichtsstützung\n\n👨‍🏫 **Januar–Juni 2020:**\n**Englischlehrer (Arbeitender Student)** bei **Kovak Hill Educational Centre, Kumasi**\n• Unterrichtspläne nach ADDIE-Prinzipien entwickelt und durchgeführt\n• Übereinstimmung mit Lehrplannormen und Lernerbeteiligungsstrategien sichergestellt\n\n**Gesamt:** 1+ Jahr Digital Learning Design + 3+ Jahre Lehre"
-        : "**Samuel's Professional Experience Overview:**\n\n🎯 **Current (February 2026 – Present):**\n**eLearning Developer Intern** at **Dräger, Lübeck**\n• E-learning script and storyboard development\n• Interactive module production (Articulate 360)\n• Video production, editing, and shoots (Adobe Premiere Pro)\n• Independent documentation and instructional project development\n\n📚 **Most Recent (June–November 2025):**\n**Digital Learning Designer (Intern)** at **Tanz der Kulturen e.V., Hamburg**\n• **Designed 25+ accessible multimedia learning assets** (infographics, promotional materials) in line with WCAG 2.1, expanding reach to diverse learner groups\n• **Curated and structured 50+ educational resources** for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners\n• **Localized 300+ pages** of German instructional content (e.g., 'Rituelle Tanz Pädagogik' book) into English using AI-assisted translation, preserving natural flow\n\n👨‍🏫 **January–October 2023:**\n**English Language Teacher & Administrative Assistant** at **Ghana National Service Scheme, Kumasi**\n• Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy\n• Enhanced comprehension, writing, and speaking skills\n• Assessed student progress using formative and summative methods\n• Managed administrative tasks (student records, scheduling, correspondence)\n\n👨‍🏫 **June–December 2021:**\n**English Language Teaching Assistant (Intern)** at **Ghana Education Service, Kumasi**\n• **Developed box-part-letter handwriting method** that improved first-year student performance by **40%**\n• Facilitated lessons integrating assessment strategies and instructional scaffolding\n\n👨‍🏫 **January–June 2020:**\n**English Language Teacher (Working Student)** at **Kovak Hill Educational Centre, Kumasi**\n• Developed and implemented lesson plans following ADDIE principles\n• Ensured alignment with curriculum standards and learner engagement strategies\n\n**Total:** 1+ year Digital Learning Design + 3+ years Teaching";
+        ? "**Samuels Berufserfahrung im Überblick:**\n\n🎯 **Aktuell (seit Februar 2026):**\n**Global Academy – eLearning Developer (Praktikant)** bei **Dräger, Lübeck**\n• Mitwirkung an interaktiven E-Learning-Modulen (Articulate 360); Unterstützung bei Skript- und Storyboard-Revisionen für Klarheit und Konsistenz\n• Videoproduktion: Drehs, Schnitt und Audio-Optimierung mit Adobe Premiere Pro\n• KI-gestützte Übersetzungen von E-Learning-Modulen für mehrsprachige Zielgruppen\n• Übernahme kleinerer E-Learning-Projekte von Konzept bis Lieferung\n\n📚 **Zuletzt (Juni–November 2025):**\n**Digital Learning Designer (Praktikant)** bei **Tanz der Kulturen e.V., Hamburg**\n• **25+ barrierefreie Multimedia-Lerninhalte** gestaltet (Infografiken, Werbematerialien) nach WCAG 2.1-Standards, Erweiterung der Reichweite auf diverse Lerngruppen\n• **50+ Bildungsressourcen** kuratiert und strukturiert für transkulturelle Kunstpädagogik, Unterstützung von 200+ internationalen, kommunalen und ERASMUS-Lernenden\n• **300+ Seiten** deutscher Unterrichtsinhalte (z.B. 'Rituelle Tanz Pädagogik' Buch) ins Englische lokalisiert mit KI-gestützter Übersetzung unter Beibehaltung des natürlichen Flusses\n\n👨‍🏫 **Januar–Oktober 2023:**\n**Englischlehrer & Verwaltungsassistent** bei **Ghana National Service Scheme, Kumasi**\n• Englischunterricht entworfen und durchgeführt mit Lernzielen nach Bloom's Taxonomie\n• Verbesserung von Verständnis, Schreib- und Sprechfertigkeiten\n• Schülerfortschritt mittels formativer und summativer Methoden bewertet\n• Verwaltungsaufgaben verwaltet (Schülerakten, Zeitplanung, Korrespondenz)\n\n👨‍🏫 **Juni–Dezember 2021:**\n**Englischlehrassistent (Praktikant)** bei **Ghana Education Service, Kumasi**\n• **Box-Part-Letter-Handschriftmethode** entwickelt, die die Leistung von Erstklässlern um **40% verbesserte**\n• Unterrichtseinheiten durchgeführt mit Bewertungsstrategien und Unterrichtsstützung\n\n👨‍🏫 **Januar–Juni 2020:**\n**Englischlehrer (Arbeitender Student)** bei **Kovak Hill Educational Centre, Kumasi**\n• Unterrichtspläne nach ADDIE-Prinzipien entwickelt und durchgeführt\n• Übereinstimmung mit Lehrplannormen und Lernerbeteiligungsstrategien sichergestellt\n\n**Gesamt:** 1+ Jahr Digital Learning Design + 3+ Jahre Lehre"
+        : "**Samuel's Professional Experience Overview:**\n\n🎯 **Current (February 2026 – Present):**\n**Global Academy – eLearning Developer (Intern)** at **Dräger, Lübeck**\n• Assist in producing interactive e-learning modules with Articulate 360; support script and storyboard revisions for clarity and consistency\n• Support end-to-end video production: shoots, editing, and audio optimisation with Adobe Premiere Pro\n• Use AI-powered tools for translated e-learning versions, improving reach across multilingual audiences\n• Take ownership of small-scale e-learning projects from concept through delivery\n\n📚 **Most Recent (June–November 2025):**\n**Digital Learning Designer (Intern)** at **Tanz der Kulturen e.V., Hamburg**\n• **Designed 25+ accessible multimedia learning assets** (infographics, promotional materials) in line with WCAG 2.1, expanding reach to diverse learner groups\n• **Curated and structured 50+ educational resources** for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners\n• **Localized 300+ pages** of German instructional content (e.g., 'Rituelle Tanz Pädagogik' book) into English using AI-assisted translation, preserving natural flow\n\n👨‍🏫 **January–October 2023:**\n**English Language Teacher & Administrative Assistant** at **Ghana National Service Scheme, Kumasi**\n• Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy\n• Enhanced comprehension, writing, and speaking skills\n• Assessed student progress using formative and summative methods\n• Managed administrative tasks (student records, scheduling, correspondence)\n\n👨‍🏫 **June–December 2021:**\n**English Language Teaching Assistant (Intern)** at **Ghana Education Service, Kumasi**\n• **Developed box-part-letter handwriting method** that improved first-year student performance by **40%**\n• Facilitated lessons integrating assessment strategies and instructional scaffolding\n\n👨‍🏫 **January–June 2020:**\n**English Language Teacher (Working Student)** at **Kovak Hill Educational Centre, Kumasi**\n• Developed and implemented lesson plans following ADDIE principles\n• Ensured alignment with curriculum standards and learner engagement strategies\n\n**Total:** 1+ year Digital Learning Design + 3+ years Teaching";
     }
     
     // Skills (general)
@@ -846,8 +840,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "📍 **Samuels Standort:**\n\n**Aktuell basiert in:** Große Klosterkoppel 8, 23562 Lübeck\n\n🇩🇪 **In Deutschland seit:** 2023\n\n🎓 **Studiert an:** Philipps-Universität Marburg\n   (ca. 2,5 Stunden von Lübeck entfernt)\n\n💼 **Aktuelle Position:** Dräger, Lübeck (eLearning Developer Praktikant)\n\n🌍 **Hintergrund:**\n• Ursprünglich aus Ghana (Kumasi)\n• Lebt und studiert seit 2023 in Deutschland\n• Erfahrung mit internationaler Zusammenarbeit und multikulturellen Umgebungen\n\n**Offen für:**\n• Remote-Arbeit\n• Vor-Ort-Möglichkeiten in Deutschland\n• Reise für Projekte und Konferenzen\n\n**Kontakt:** +49 171 5811680 (Deutsche Telefonnummer)"
-        : "📍 **Samuel's Location:**\n\n**Currently based in:** Große Klosterkoppel 8, 23562 Lübeck\n\n🇩🇪 **In Germany since:** 2023\n\n🎓 **Studying at:** Philipps-Universität Marburg\n   (approximately 2.5 hours from Lübeck)\n\n💼 **Current Position:** Dräger, Lübeck (eLearning Developer Intern)\n\n🌍 **Background:**\n• Originally from Ghana (Kumasi)\n• Living and studying in Germany since 2023\n• Experience with international collaboration and multicultural environments\n\n**Open to:**\n• Remote work\n• On-site opportunities in Germany\n• Travel for projects and conferences\n\n**Contact:** +49 171 5811680 (German phone number)";
+        ? "📍 **Samuels Standort:**\n\n**Aktuell basiert in:** Große Klosterkoppel 8, 23562 Lübeck\n\n🇩🇪 **In Deutschland seit:** 2023\n\n🎓 **Studiert an:** Philipps-Universität Marburg\n   (ca. 2,5 Stunden von Lübeck entfernt)\n\n💼 **Aktuelle Position:** Dräger, Lübeck (Global Academy – eLearning Developer Praktikant)\n\n🌍 **Hintergrund:**\n• Ursprünglich aus Ghana (Kumasi)\n• Lebt und studiert seit 2023 in Deutschland\n• Erfahrung mit internationaler Zusammenarbeit und multikulturellen Umgebungen\n\n**Offen für:**\n• Remote-Arbeit\n• Vor-Ort-Möglichkeiten in Deutschland\n• Reise für Projekte und Konferenzen\n\n**Kontakt:** +49 171 5811680 (Deutsche Telefonnummer)"
+        : "📍 **Samuel's Location:**\n\n**Currently based in:** Große Klosterkoppel 8, 23562 Lübeck\n\n🇩🇪 **In Germany since:** 2023\n\n🎓 **Studying at:** Philipps-Universität Marburg\n   (approximately 2.5 hours from Lübeck)\n\n💼 **Current Position:** Dräger, Lübeck (Global Academy – eLearning Developer Intern)\n\n🌍 **Background:**\n• Originally from Ghana (Kumasi)\n• Living and studying in Germany since 2023\n• Experience with international collaboration and multicultural environments\n\n**Open to:**\n• Remote work\n• On-site opportunities in Germany\n• Travel for projects and conferences\n\n**Contact:** +49 171 5811680 (German phone number)";
     }
     
     // Personal attributes
