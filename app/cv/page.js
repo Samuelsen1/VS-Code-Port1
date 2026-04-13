@@ -339,7 +339,6 @@ export default function DigitalLearningCV() {
           <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-indigo-100 pb-1">{lang.portfolioHighlights}</h2>
           
           <div className="space-y-4">
-            <div className="rounded-xl border border-slate-200/80 bg-white p-4">
               <h3 className="font-bold text-gray-800 mb-2">{language === 'de' ? 'Produktschulung (Articulate 360)' : 'Product Training (Articulate 360)'}</h3>
               <ul className="text-sm text-gray-700 space-y-1 ml-4">
                 <li>• {language === 'de' ? 'Onboarding: Dräger Fundamentals of Controllers (Markenidentität)' : 'Dräger Fundamentals of Controllers'}</li>
