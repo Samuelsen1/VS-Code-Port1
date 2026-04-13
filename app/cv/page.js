@@ -354,7 +354,7 @@ export default function DigitalLearningCV() {
             </div>
             <div>
               <h3 className="font-bold text-gray-800 mb-1">{language === 'de' ? 'Poster & Flyer' : 'Posters & Flyers'}</h3>
-              <p className="text-sm text-gray-700 ml-4">{language === 'de' ? 'Kreativinhalte im Marken-Look — Fonts, Farben, Brand-Assets' : 'Creative content aligned with brand identity — fonts, colours, brand assets'}</p>
+                <li>• <a href="https://https://www.notion.so/Creative-Designs-29ff017e613b8001b910ef2b3ce88191?source=copy_link" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">'Kreativinhalte im Marken-Look — Fonts, Farben, Brand-Assets' : 'Creative content aligned with brand identity — fonts, colours, brand assets</a></li>
             </div>
             <div>
               <h3 className="font-bold text-gray-800 mb-1">{language === 'de' ? 'Wissensdatenbank (Notion)' : 'Knowledge Base (Notion)'}</h3>
