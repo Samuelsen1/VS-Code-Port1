@@ -342,8 +342,8 @@ export default function DigitalLearningCV() {
             <div className="rounded-xl border border-slate-200/80 bg-white p-4">
               <h3 className="font-bold text-gray-800 mb-2">{language === 'de' ? 'Produktschulung (Articulate 360)' : 'Product Training (Articulate 360)'}</h3>
               <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                <li>• {language === 'de' ? 'Onboarding: Dräger Fundamentals of Controllers (Markenidentität)' : 'Dräger Fundamentals of Controllers — brand identity'} | <a href="/#contact" className="text-indigo-600 hover:underline"></a></li>
-                <li>• {language === 'de' ? 'Dräger Medical Vacuum Systems — auf Anfrage' : 'Dräger Medical Vacuum Systems — available upon request'} (<a href="/#contact" className="text-indigo-600 hover:underline"></a>)</li>
+                <li>• {language === 'de' ? 'Onboarding: Dräger Fundamentals of Controllers (Markenidentität)' : 'Dräger Fundamentals of Controllers — brand identity'}</li>
+                <li>• {language === 'de' ? 'Dräger Medical Vacuum Systems — auf Anfrage' : 'Dräger Medical Vacuum Systems — available upon request'}</li>
               </ul>
             </div>
             <div>
