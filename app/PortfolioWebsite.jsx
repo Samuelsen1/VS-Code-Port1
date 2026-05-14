@@ -675,8 +675,6 @@ export default function PortfolioWebsite() {
       ['board infinity', certifications.find(c => c.issuer?.en?.toLowerCase().includes('board'))?.link],
       ['board infinity cert', certifications.find(c => c.issuer?.en?.toLowerCase().includes('board'))?.link],
       ['board', certifications.find(c => c.issuer?.en?.toLowerCase().includes('board infinity'))?.link],
-      ['google technical writing', certifications.find(c => c.issuer?.en?.toLowerCase().includes('google developers'))?.link],
-      ['mla', certifications.find(c => c.title.en.toLowerCase().includes('mla'))?.link],
       ['ef set', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
       ['efset', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
       ['english certificate', certifications.find(c => c.title.en.toLowerCase().includes('ef set'))?.link],
@@ -1650,6 +1648,30 @@ export default function PortfolioWebsite() {
     },
     {
       title: {
+        en: "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility",
+        de: "E-Learning-Projekt (Articulate Rise): Gemeinsam gegen den Klimawandel"
+      },
+      category: {
+        en: "E-Learning Module",
+        de: "E-Learning-Modul"
+      },
+      description: {
+        en: "An Articulate Rise module on climate change awareness, learner responsibility, and collective action. Designed for engaging, accessible environmental learning.",
+        de: "Ein Articulate Rise-Modul zur Sensibilisierung für den Klimawandel, gemeinschaftliche Verantwortung und kollektives Handeln. Entwickelt für ein ansprechendes, barrierefreies Umweltlernen."
+      },
+      tools: {
+        en: ["Articulate Rise", "Figma", "InVideo AI", "Copilot", "VS Code", "Vercel"],
+        de: ["Articulate Rise", "Figma", "InVideo AI", "Copilot", "VS Code", "Vercel"]
+      },
+      results: {
+        en: ["Climate awareness", "Learner engagement", "Inclusive environmental learning"],
+        de: ["Klimabewusstsein", "Nutzerbindung", "Inklusives Umweltlernen"]
+      },
+      link: "https://spectacular-dango-d6bec1.netlify.app/#/",
+      featured: false
+    },
+    {
+      title: {
         en: "Plain Language and Inclusivity",
         de: "Einfache Sprache und Inklusivität"
       },
@@ -1671,30 +1693,6 @@ export default function PortfolioWebsite() {
       },
       link: "https://plain-language-five.vercel.app",
       featured: true
-    },
-    {
-      title: {
-        en: "Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)",
-        de: "Praktische Einrichtung und Fehlerbehebung bei Zwei-Faktor-Authentifizierung (2FA)"
-      },
-      category: {
-        en: "E-Learning Module",
-        de: "E-Learning-Modul"
-      },
-      description: {
-        en: "A practical Articulate Rise module covering setup and troubleshooting steps for common 2FA flows.",
-        de: "Ein praktisches Articulate Rise-Modul zur Einrichtung und Fehlerbehebung bei gängigen 2FA-Prozessen."
-      },
-      tools: {
-        en: ["Articulate Rise", "Figma"],
-        de: ["Articulate Rise", "Figma"]
-      },
-      results: {
-        en: ["Step-by-step troubleshooting", "Improved account recovery", "Clear user instructions"],
-        de: ["Schrittweise Fehlerbehebung", "Verbesserte Kontowiederherstellung", "Klare Nutzeranweisungen"]
-      },
-      link: "https://360.eu.articulate.com/review/content/8d8ac689-1670-458d-a7b3-0407850b55ef/review",
-      featured: false
     },
     {
       title: {
@@ -1853,21 +1851,6 @@ export default function PortfolioWebsite() {
     },
     {
       title: {
-        en: "Technical Writing (Google Developers)",
-        de: "Technisches Schreiben (Google Developers)"
-      },
-      issuer: {
-        en: "Google Developers",
-        de: "Google Developers"
-      },
-      date: {
-        en: "2025",
-        de: "2025"
-      },
-      link: "https://developers.google.com/profile/badges/profile/created-profile"
-    },
-    {
-      title: {
         en: "Technical Writing (Board Infinity)",
         de: "Technisches Schreiben (Board Infinity)"
       },
@@ -1881,21 +1864,6 @@ export default function PortfolioWebsite() {
       },
       link: "https://bit.ly/446fLNy",
       image: "/images/board_infinity.svg"
-    },
-    {
-      title: {
-        en: "Using the MLA International Bibliography",
-        de: "MLA International Bibliography (Forschung)"
-      },
-      issuer: {
-        en: "Philipps-Universität Marburg",
-        de: "Philipps-Universität Marburg"
-      },
-      date: {
-        en: "Aug 2025",
-        de: "Aug 2025"
-      },
-      link: "https://www.uni-marburg.de/en"
     }
   ];
 
@@ -2566,12 +2534,12 @@ export default function PortfolioWebsite() {
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.filter(p => [
-                "Plain Language and Inclusivity",
-                "Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)"
+                "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility",
+                "Plain Language and Inclusivity"
               ].includes(p.title.en)).map((project, index) => {
                 let imgSrc = "";
                 if (project.title.en === "Plain Language and Inclusivity") imgSrc = "/images/b1.png";
-                else if (project.title.en === "Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)") imgSrc = "/images/b2.png";
+                else if (project.title.en === "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility") imgSrc = "/images/b2.png";
                 return (
                   <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
                     <div className="relative overflow-hidden">
@@ -3611,5 +3579,3 @@ export default function PortfolioWebsite() {
     </div>
   );
 }
-
-
