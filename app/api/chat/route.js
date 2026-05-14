@@ -14,37 +14,35 @@ Email: gideonsammysen@gmail.com
 LinkedIn: https://www.linkedin.com/in/samuel-o-4b9bbb2a8
 
 PROFESSIONAL SUMMARY:
-Digital Learning Designer with 1+ year of e-learning development experience and 3 years of teaching background. Combines Master's-level media studies expertise with hands-on skills in instructional design, multimedia production, and LMS administration using Articulate 360, Adobe Creative Suite, and web and AI technologies to create accessible, learner-centered digital experiences.
+Digital Learning Designer combining instructional design theory and practice. Master's in Media Studies and Bachelor's in Education. Develops accessible, learner-centered e-learning using Articulate 360, Adobe Creative Suite, AI tools, and LMS platforms, with experience in medtech and nonprofit sectors.
 
 SKILLS & COMPETENCIES:
-Instructional Design: ADDIE | Bloom's Taxonomy | Adult Learning Theory | Storyboarding | Learning Experience Design (LXD) | Curriculum Development | Learning Outcome Alignment | Competency-Based Design
-E-Learning Development: SCORM Packaging | LMS Administration | Learning Analytics | Formative/Summative Evaluation
+Instructional Design: ADDIE | Bloom's Taxonomy | Adult Learning Theory | Storyboarding | LXD | Curriculum Development
+E-Learning Development: SCORM Packaging | LMS Administration | Learning Analytics
 Multimedia Production: Photo Editing (Infographics | Posters | Flyers) | Video Creation & Editing
 Technical Communication: User Guides | Knowledge-Base Documentation | Cross-Cultural Content Adaptation | Content Localization
-Collaboration: Stakeholder Engagement | Cross-Functional Teamwork
 
 TOOLS & TECHNOLOGIES:
 E-Learning Authoring & LMS: Articulate 360 (Storyline, Rise) | Moodle
-Design & Multimedia: Adobe Creative Suite (Premiere Pro, Photoshop, InDesign) | Figma | Descript
-Web & AI Development: HTML | CSS | Markdown | API Integration | Prompt Coding
+Design & Multimedia: Adobe Creative Suite (Premiere Pro, Photoshop, InDesign) | Figma | Synthesia | Descript | Canva
+Web & AI Development: HTML | CSS | XML | Markdown | API Integration | Prompt Coding
 Development Tools: GitHub | VS Code | Cursor | Vercel
-Productivity & Collaboration: Google Workspace | Microsoft 365 (Word, PowerPoint, SharePoint, Teams, Excel, Loop, etc.) | Notion
+Productivity & Collaboration: Google Workspace | Microsoft 365 (Word, PowerPoint, SharePoint, Teams, Excel) | Notion | Confluence
 
 EDUCATION:
 - Master's in North American Studies (Media Studies) (Grade: 2.0 | Gut) (Oct 2023 – March 2026) - Philipps-Universität Marburg, Germany
-  Relevant Courses: Media | Visual Art | Writing for Research | Campus Fiction & Film (Paulo Freire: Pedagogy of the Oppressed) | Contested Sustainability
   Master's Thesis: "AI as Reflection: Human-Technology Relationships in Digital Narratives"
 
 - Bachelor of Education in English Language (Grade: 1.4 | First Class Honours) (Oct 2018 – Oct 2022) - University of Cape Coast, Ghana
-  Relevant Courses: Educational Psychology | General Curriculum Studies | Assessment & Evaluation | Educating Individuals with Diverse Learning Needs | Research Methods in Education | Educational Statistics | Language & Linguistics | Semantics | Translation | English in Multilingual Contexts
+  Bachelor's Thesis: "The Box-Part-Letter Method: A Structured Approach to Handwriting Instruction"
 
 PROFESSIONAL EXPERIENCE:
 
-1. Global Academy – eLearning Developer (Intern) (Feb 2026 – Present) - Dräger, Lübeck
-   - Assist in producing interactive e-learning modules using Articulate 360; support script and storyboard revisions for instructional clarity and consistency
-   - Support video production across the full workflow, including shoots, editing, and audio optimisation using Adobe Premiere Pro
-   - Utilise AI-powered tools to create translated versions of e-learning modules, improving accessibility and reach across multilingual audiences
-   - Progressively take ownership of small-scale e-learning projects, managing them independently from concept through to delivery
+1. E-Learning Developer (Intern) (Feb 2026 – Present) - Dräger, Lübeck
+   - Develop interactive e-learning modules using Articulate 360, contributing to script and storyboard refinement for instructional clarity and consistency
+   - Manage end-to-end video production, including shoots, editing, and audio optimisation using Adobe Premiere Pro
+   - Utilise AI-powered tools to create multilingual versions of e-learning modules, improving accessibility and global reach
+   - Progressively take ownership of e-learning projects, managing them independently from concept through to delivery
 
 2. Digital Learning Designer (Intern) (June 2025 – Nov 2025) - Tanz der Kulturen e.V., Hamburg
    - Designed 25+ accessible multimedia learning assets (infographics, promotional materials) in line with WCAG 2.1, expanding reach to diverse learner groups
@@ -53,7 +51,6 @@ PROFESSIONAL EXPERIENCE:
 
 3. English Language Teacher & Administrative Assistant (Jan 2023 – Oct 2023) - Ghana National Service Scheme, Kumasi
    - Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy, enhancing comprehension, writing, and speaking skills
-   - Assessed student progress using formative and summative methods to inform lesson adaptation
    - Managed administrative tasks, including student records, scheduling, and correspondence
 
 4. English Language Teaching Assistant (Intern) (June 2021 – Dec 2021) - Ghana Education Service, Kumasi
@@ -64,24 +61,24 @@ PROFESSIONAL EXPERIENCE:
    - Developed and implemented lesson plans following ADDIE principles, ensuring alignment with curriculum standards and learner engagement strategies
 
 CERTIFICATIONS & TRAINING:
-- Instructional Design Foundations & Applications – University of Illinois Urbana-Champaign
-- EF SET English Certificate – C1 Advanced (67/100)
-- Technical Writing Course – Google Developers
-- Technical Writing Course – Board Infinity (April 2025)
-- Using the MLA International Bibliography for Research in Foreign Language Studies – Philipps-Universität Marburg (Aug 14, 2025)
+- Instructional Design Foundations & Applications – University of Illinois Urbana-Champaign (Aug 14, 2025)
+- EF SET English Certificate – C1 Advanced (67/100) (Feb 10, 2025)
+- Technical Writing Course – Board Infinity (April 2, 2025)
 
 PORTFOLIO HIGHLIGHTS:
-Product Training (Articulate 360): Interactive onboarding on Dräger Fundamentals of Controllers (brand identity) | Interactive onboarding on Dräger Medical Vacuum Systems (available upon request)
-E-Learning (Rise): Interactive courses with assessments & multimedia — Sample 1 (accessibility panel & chatbot); Sample 2
-Posters & Flyers: Creative content aligned with brand identity
-Knowledge Base (Notion): ADDIE-based LLMs & Sustainability | Climate change resources
-Portfolio Website: Bilingual (EN/DE), dark/light theme, AI assistants, advanced accessibility
-AI (Thesis-inspired): Advanced assistant — Q&A, fact-check, PDF reading, analysis — https://general-ai-wheat.vercel.app
+E-Learning (Articulate Rise): Combating Climate Change: A Collective Responsibility — https://spectacular-dango-d6bec1.netlify.app/#/
+Product Training (Articulate 360): Dräger Fundamentals of Controllers | Dräger X-am 2800/5800 (sales training) | Dräger Medical Vacuum Systems (samples on request)
+Plain Language & Inclusive Communication (Rise) — https://plain-language-five.vercel.app
+Poster (Figma): Creative content aligned with brand identity
+Knowledge Base (Notion): ADDIE-based documentation for LLMs & Sustainability | Climate change resources
+Portfolio Website: Bilingual (EN/DE), dark/light theme, AI assistants, advanced accessibility — https://vs-code-port1.vercel.app
+AI: Prompt-engineered advanced assistant (LLM) — https://general-ai-wheat.vercel.app
+Technical writing samples (DITA, guides): https://github.com/Samuelsen1/Tech-Writing-Samples
 
 LANGUAGES:
 - English – Native/Bilingual
-- German – B1 Intermediate
-- Akan – Fluent
+- German – B1 Intermediate (B2 in progress)
+- Akan – Native
 
 PERSONAL ATTRIBUTES:
 - Height: 184cm
@@ -364,21 +361,55 @@ function classifyIntent(message, language) {
   return 'other';
 }
 
-// Call external General AI (General – Desktop AI assistant)
-// Returns a reply string or null on failure.
-async function callGeneralAI(message, history) {
+/** Parse General AI response: JSON { reply } or SSE data: {"t":"..."} lines (same as Desktop ai-assistant). */
+async function parseGeneralAiBody(res) {
+  const ct = (res.headers.get('content-type') || '').toLowerCase();
+  if (ct.includes('text/event-stream')) {
+    const raw = await res.text();
+    let full = '';
+    let errMsg = null;
+    for (const line of raw.split('\n')) {
+      if (!line.startsWith('data: ')) continue;
+      const payload = line.slice(6).trim();
+      if (!payload || payload === '[DONE]') continue;
+      try {
+        const j = JSON.parse(payload);
+        if (j.err) errMsg = String(j.err);
+        if (j.t) full += j.t;
+      } catch (_) {
+        // ignore malformed SSE lines
+      }
+    }
+    if (errMsg) throw new Error(errMsg);
+    const t = full.trim();
+    return t || null;
+  }
+  const data = await res.json();
+  const reply = typeof data?.reply === 'string' && data.reply.trim()
+    ? data.reply.trim()
+    : typeof data?.response === 'string' && data.response.trim()
+      ? data.response.trim()
+      : null;
+  return reply;
+}
+
+// Call external General AI (same stack as Desktop /Users/macbook/Desktop/ai-assistant — Wikipedia, web, news, DeepSeek/OpenAI).
+// Always send authoritative CV text as `portfolio` so answers about Samuel stay accurate while keeping full "General" capabilities.
+async function callGeneralAI(message, history, lang, portfolioCv) {
   if (!GENERAL_AI_URL) return null;
 
   try {
     const payload = {
       message: String(message || '').trim(),
-      // Keep history short and in the shape the external API expects
       history: Array.isArray(history)
         ? history
             .filter(m => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
             .slice(-20)
-            .map(m => ({ role: m.role, content: String(m.content).slice(0, 800) }))
+            .map(m => ({ role: m.role, content: String(m.content).slice(0, 4000) }))
         : [],
+      lang: lang === 'de' ? 'de' : 'en',
+      appState: { language: lang === 'de' ? 'de' : 'en' },
+      portfolio: typeof portfolioCv === 'string' ? portfolioCv : '',
     };
 
     if (!payload.message) return null;
@@ -387,23 +418,15 @@ async function callGeneralAI(message, history) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
-      // Keep in sync with other upstream calls
-      signal: AbortSignal.timeout(28000),
+      signal: AbortSignal.timeout(60000),
     });
 
     if (!res.ok) {
-      console.warn('General AI proxy error:', res.status, await res.text());
+      console.warn('General AI proxy error:', res.status, await res.text().catch(() => ''));
       return null;
     }
 
-    const data = await res.json();
-    const reply = typeof data?.reply === 'string' && data.reply.trim()
-      ? data.reply.trim()
-      : typeof data?.response === 'string' && data.response.trim()
-      ? data.response.trim()
-      : null;
-
-    return reply;
+    return await parseGeneralAiBody(res);
   } catch (e) {
     console.warn('General AI proxy failed:', e?.message || e);
     return null;
@@ -428,69 +451,18 @@ export async function POST(request) {
     const isGerman = language === 'de';
     const lowerMessage = message.toLowerCase();
     const topics = extractTopics(message);
-    // Treat questions about Samuel specially – answer from CV-based logic, not General AI
-    const aboutSamuel =
-      /samuel\b|afriyie\b|opoku\b|\bhis\b|\bihm\b|\bsein\b|\bihn\b/i.test(lowerMessage) ||
-      topics.some(t =>
-        [
-          'digital-learning',
-          'technical-writing',
-          'experience',
-          'achievements',
-          'strengths',
-          'education',
-          'certification',
-          'skills',
-          'tools',
-          'portfolio',
-          'contact',
-          'languages',
-          'accessibility',
-          'availability',
-          'location',
-          'personal',
-        ].includes(t),
-      );
-    
-    // NLU: Extract intent with context for enhanced understanding
-    const intent = extractIntentWithContext(message, topics);
-    
-    // Enhanced welcome messages
-    const greetings = {
-      en: [
-        /^(hi|hello|hey|greetings|good morning|good afternoon|good evening|hi there|hey there|sup|what's up|howdy)\s*$/i,
-        /^(hi|hello|hey)\s+(samuel|sam|sir)/i
-      ],
-      de: [
-        /^(hallo|hi|hey|guten tag|guten morgen|guten abend|moin|servus|grüß|tag)\s*$/i,
-        /^(hallo|hi|hey)\s+(samuel|sam|herr)/i
-      ]
-    };
-    
-    // Check for greeting
-    if (greetings[language].some(pattern => pattern.test(message.trim()))) {
-      const response = isGerman
-        ? "Guten Tag! 👋 Ich bin Samuels KI-Assistent.\n\nIch beantworte gerne Fragen über Samuel und seine Expertise in **Digital Learning Design** und **Technical Writing**.\n\n**Was ich Ihnen erzählen kann:**\n\n🎓 **Digital Learning Design**\n• E-Learning-Entwicklung mit Articulate 360\n• Instruktionsdesign (ADDIE, Bloom's Taxonomie)\n• Multimedia-Erstellung und Videobearbeitung\n• SCORM und LMS-Integration\n\n📝 **Technical Writing**\n• Benutzerhandbücher und API-Dokumentation\n• Wissensdatenbanken und Content-Lokalisierung\n• Technische Dokumentation und Prozessdokumentation\n\n💼 **Weitere Themen**\n• Berufserfahrung und Ausbildung\n• Portfolio und Zertifikate\n• Kontaktinformationen\n• Verfügbarkeit und Standort\n\n**Beispiel-Fragen:**\n• 'Was sind Samuels Hauptkompetenzen?'\n• 'Erzähle mir über seine Digital Learning Erfahrung'\n• 'Wie kann ich Samuel kontaktieren?'\n• 'Welche Tools verwendet er für E-Learning?'\n\nStellen Sie gerne eine Frage – ich helfe Ihnen sofort! 😊"
-        : "Hello! 👋 I'm Samuel's AI assistant.\n\nI'm here to answer questions about Samuel and his expertise in **Digital Learning Design** and **Technical Writing**.\n\n**What I can tell you about:**\n\n🎓 **Digital Learning Design**\n• E-learning development with Articulate 360\n• Instructional design (ADDIE, Bloom's Taxonomy)\n• Multimedia creation and video editing\n• SCORM and LMS integration\n\n📝 **Technical Writing**\n• User guides and API documentation\n• Knowledge bases and content localization\n• Technical documentation and process documentation\n\n💼 **Additional Topics**\n• Work experience and education\n• Portfolio and certifications\n• Contact information\n• Availability and location\n\n**Example Questions:**\n• 'What are Samuel's core competencies?'\n• 'Tell me about his digital learning experience'\n• 'How can I contact Samuel?'\n• 'What tools does he use for e-learning?'\n\nFeel free to ask me anything – I'm here to help! 😊";
-      
-      return NextResponse.json({ response, timestamp: new Date().toISOString() });
+
+    // ——— Primary path: General AI (100% same brain as Desktop ai-assistant) + embedded CV ———
+    const generalReply = await callGeneralAI(message, history, isGerman ? 'de' : 'en', cvData);
+    if (generalReply) {
+      return NextResponse.json({
+        response: generalReply,
+        timestamp: new Date().toISOString(),
+        poweredBy: 'general-ai',
+      });
     }
-    
-    // ——— Primary path: external General AI (General – Desktop AI assistant) ———
-    // Only for non-Samuel / general questions. Samuel-specific questions are
-    // answered purely from the CV-based logic below (no Wikipedia / web snippets).
-    if (!aboutSamuel) {
-      const generalReply = await callGeneralAI(message, history);
-      if (generalReply) {
-        return NextResponse.json({
-          response: generalReply,
-          timestamp: new Date().toISOString(),
-          poweredBy: 'general-ai',
-        });
-      }
-    }
-    
-    // ——— Fallback LLM path (OpenAI + Dictionary API): understand everything, respond like a human ———
+
+    // ——— Fallback LLM path (OpenAI + Dictionary API) ———
     const apiKey = process.env.OPENAI_API_KEY;
     if (apiKey) {
       try {
@@ -688,8 +660,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Portfolio:**\n\n**Portfolio-Website:**\n🔗 **https://vs-code-port1.vercel.app**\n\nDie Portfolio-Website enthält:\n• Interaktive E-Learning-Module mit Barrierefreiheits-Features\n• Technische Dokumentation (2FA Guides, API-Dokumentation)\n• Wissensdatenbanken (Klimawandel, Nachhaltigkeit)\n• Zweisprachige Unterstützung (EN/DE)\n• Erweiterte Barrierefreiheits-Funktionen\n\n**Weitere Portfolio-Links:**\n• GitHub Technical Writing Samples: https://github.com/Samuelsen1/Tech-Writing-Samples\n• Notion Knowledge Bases (siehe Portfolio-Website für Links)\n\n**Hinweis:** Die Portfolio-Website zeigt die Konvergenz zwischen Instruktionsdesign und Technical Writing, da modernes Instruktionsdesign zunehmend mit Dokumentation, Onboarding und Produktlernen überschneidet.\n\n**Für spezifische Projekt-Links fragen Sie:** 'Was sind einige Beispiele oder Samples?' oder 'Zeige mir Portfolio-Projekte mit Links'"
-        : "**Samuel's Portfolio:**\n\n**Portfolio Website:**\n🔗 **https://vs-code-port1.vercel.app**\n\nThe portfolio website includes:\n• Interactive e-learning modules with accessibility features\n• Technical documentation (2FA guides, API documentation)\n• Knowledge bases (climate change, sustainability)\n• Bilingual support (EN/DE)\n• Advanced accessibility features\n\n**Additional Portfolio Links:**\n• GitHub Technical Writing Samples: https://github.com/Samuelsen1/Tech-Writing-Samples\n• Notion Knowledge Bases (see portfolio website for links)\n\n**Note:** The portfolio website demonstrates the convergence between instructional design and technical writing, as modern instructional design increasingly overlaps with documentation, onboarding, and product learning.\n\n**For specific project links, ask:** 'What are some examples or samples?' or 'Show me portfolio projects with links'";
+        ? "**Samuels Portfolio:**\n\n**Portfolio-Website:**\n🔗 **https://vs-code-port1.vercel.app**\n\nDie Portfolio-Website enthält:\n• Interaktive E-Learning-Module mit Barrierefreiheits-Features\n• Technische Dokumentation (API-Dokumentation)\n• Wissensdatenbanken (Klimawandel, Nachhaltigkeit)\n• Zweisprachige Unterstützung (EN/DE)\n• Erweiterte Barrierefreiheits-Funktionen\n\n**Weitere Portfolio-Links:**\n• GitHub Technical Writing Samples: https://github.com/Samuelsen1/Tech-Writing-Samples\n• Notion Knowledge Bases (siehe Portfolio-Website für Links)\n\n**Hinweis:** Die Portfolio-Website zeigt die Konvergenz zwischen Instruktionsdesign und Technical Writing, da modernes Instruktionsdesign zunehmend mit Dokumentation, Onboarding und Produktlernen überschneidet.\n\n**Für spezifische Projekt-Links fragen Sie:** 'Was sind einige Beispiele oder Samples?' oder 'Zeige mir Portfolio-Projekte mit Links'"
+        : "**Samuel's Portfolio:**\n\n**Portfolio Website:**\n🔗 **https://vs-code-port1.vercel.app**\n\nThe portfolio website includes:\n• Interactive e-learning modules with accessibility features\n• Technical documentation (API documentation)\n• Knowledge bases (climate change, sustainability)\n• Bilingual support (EN/DE)\n• Advanced accessibility features\n\n**Additional Portfolio Links:**\n• GitHub Technical Writing Samples: https://github.com/Samuelsen1/Tech-Writing-Samples\n• Notion Knowledge Bases (see portfolio website for links)\n\n**Note:** The portfolio website demonstrates the convergence between instructional design and technical writing, as modern instructional design increasingly overlaps with documentation, onboarding, and product learning.\n\n**For specific project links, ask:** 'What are some examples or samples?' or 'Show me portfolio projects with links'";
     }
     
     // Portfolio projects (detailed) - includes specific links
@@ -698,8 +670,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Portfolio-Highlights mit Links:**\n\n**Portfolio-Website:** https://vs-code-port1.vercel.app\n\n🎓 **E-Learning-Module (Primärfokus):**\n• **Plain Language & Inclusive Communication** – Interaktives Modul mit erweitertem Barrierefreiheits-Panel (WCAG 2.1)\n   🔗 https://plain-language-five.vercel.app\n• **Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)** – Schritt-für-Schritt-Anleitung\n   🔗 https://360.eu.articulate.com/review/content/8d8ac689-1670-458d-a7b3-0407850b55ef/review\n• **E-Learning Accessibility Best Practices** – Best Practices für barrierefreies Design\n\n📚 **Wissensdatenbanken (ADDIE-basiert):**\n• **LLMs, Sustainability and Climate Change** – Theoretisch vollständiger ADDIE-Leitfaden\n   🔗 https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d\n• **Climate Change Mitigation Guide** – Umfassende Bildungsressource\n   🔗 https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f\n\n📄 **Technische Dokumentation (Sekundärfokus):**\n• **Technical Documentation (GitHub)** – Postman API Guide & 2FA Knowledge Base\n   🔗 https://github.com/Samuelsen1/Sample-2\n• **Welth Health Platform** – DITA XML Dokumentation für Gesundheitsmanagement\n   🔗 https://github.com/Samuelsen1/Tech-Writing-Samples\n\n**Welche Projekte repräsentieren den Primärfokus?** Die interaktiven E-Learning-Module (z.B. Plain Language & Inclusive Communication), barrierefreiheitsfokussierten Lernprojekte und Instruktionsdesign-Fallstudien.\n\n**Welche Projekte zeigen Technical Writing?** Die API-Dokumentation, GitHub-Repositories und DITA XML-Projekte zeigen Technical Writing-Fähigkeiten."
-        : "**Samuel's Portfolio Highlights with Links:**\n\n**Portfolio Website:** https://vs-code-port1.vercel.app\n\n🎓 **E-Learning Modules (Primary Focus):**\n• **Plain Language & Inclusive Communication** – Interactive module with advanced accessibility panel (WCAG 2.1)\n   🔗 https://plain-language-five.vercel.app\n• **Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)** – Step-by-step troubleshooting guide\n   🔗 https://360.eu.articulate.com/review/content/8d8ac689-1670-458d-a7b3-0407850b55ef/review\n• **E-Learning Accessibility Best Practices** – Best practices for accessible design\n\n📚 **Knowledge Bases (ADDIE-based):**\n• **LLMs, Sustainability and Climate Change** – Theoretically complete ADDIE-based guide\n   🔗 https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d\n• **Climate Change Mitigation Guide** – Comprehensive educational resource\n   🔗 https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f\n\n📄 **Technical Documentation (Secondary Focus):**\n• **Technical Documentation (GitHub)** – Postman API Guide & 2FA Knowledge Base\n   🔗 https://github.com/Samuelsen1/Sample-2\n• **Welth Health Platform** – DITA XML documentation for health management\n   🔗 https://github.com/Samuelsen1/Tech-Writing-Samples\n\n**Which projects represent the primary focus?** The interactive e-learning modules (e.g., Plain Language & Inclusive Communication), accessibility-focused learning projects, and instructional design case studies.\n\n**Which projects show technical writing capability?** The API documentation, GitHub repositories, and DITA XML projects demonstrate technical writing skills.";
+        ? "**Samuels Portfolio-Highlights mit Links:**\n\n**Portfolio-Website:** https://vs-code-port1.vercel.app\n\n🎓 **E-Learning-Module (Primärfokus):**\n• **E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility** – Klimawandelbewusstsein und kollektive Verantwortung\n   🔗 https://spectacular-dango-d6bec1.netlify.app/#/\n• **Plain Language & Inclusive Communication** – Interaktives Modul mit erweitertem Barrierefreiheits-Panel (WCAG 2.1)\n   🔗 https://plain-language-five.vercel.app\n• **E-Learning Accessibility Best Practices** – Best Practices für barrierefreies Design (siehe Plain-Language-Modul)\n\n🏭 **Produkt- & Vertriebstrainings (Dräger, auf Anfrage):**\n• Dräger Fundamentals of Controllers | Dräger X-am 2800/5800 | Dräger Medical Vacuum Systems — Kontakt über Portfolio\n\n📚 **Wissensdatenbanken (ADDIE-basiert):**\n• **LLMs, Sustainability and Climate Change** – Theoretisch vollständiger ADDIE-Leitfaden\n   🔗 https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d\n• **Climate Change Mitigation Guide** – Umfassende Bildungsressource\n   🔗 https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f\n\n📄 **Technische Dokumentation (Beispiele):**\n• **Welth Health Platform** – DITA XML und Benutzerführung\n   🔗 https://github.com/Samuelsen1/Tech-Writing-Samples\n\n🤖 **KI:** **General** – Prompt-engineerierter Assistent\n   🔗 https://general-ai-wheat.vercel.app\n\n**Welche Projekte repräsentieren den Primärfokus?** E-Learning in Articulate Rise (Klima, Plain Language/Barrierefreiheit) sowie Dräger-Schulungsmodule.\n\n**Technical Writing?** Notion-Wissensdatenbanken und das GitHub-Repository Tech-Writing-Samples."
+        : "**Samuel's Portfolio Highlights with Links:**\n\n**Portfolio Website:** https://vs-code-port1.vercel.app\n\n🎓 **E-Learning Modules (Primary Focus):**\n• **E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility** – Climate awareness and collective responsibility\n   🔗 https://spectacular-dango-d6bec1.netlify.app/#/\n• **Plain Language & Inclusive Communication** – Interactive module with advanced accessibility panel (WCAG 2.1)\n   🔗 https://plain-language-five.vercel.app\n• **E-Learning Accessibility Best Practices** – Accessible design patterns (via Plain Language module)\n\n🏭 **Product & Sales Training (Dräger, on request):**\n• Dräger Fundamentals of Controllers | Dräger X-am 2800/5800 | Dräger Medical Vacuum Systems — contact via portfolio\n\n📚 **Knowledge Bases (ADDIE-based):**\n• **LLMs, Sustainability and Climate Change** – Theoretically complete ADDIE-based guide\n   🔗 https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d\n• **Climate Change Mitigation Guide** – Comprehensive educational resource\n   🔗 https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f\n\n📄 **Technical Writing Samples:**\n• **Welth Health Platform** – DITA XML and user-focused guides\n   🔗 https://github.com/Samuelsen1/Tech-Writing-Samples\n\n🤖 **AI:** **General** – Prompt-engineered assistant\n   🔗 https://general-ai-wheat.vercel.app\n\n**Primary focus:** Articulate Rise e-learning (climate, plain language/accessibility) and Dräger training modules.\n\n**Technical writing:** Notion knowledge bases and the Tech-Writing-Samples GitHub repository.";
     }
     
     // Digital Learning specific (high priority)
@@ -723,8 +695,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Technical Writing Kompetenzen:**\n\n📝 **Dokumentationstypen & Formate:**\n• **Benutzerhandbücher & Anleitungen** – Schritt-für-Schritt-Anleitungen (z.B. 2FA-Setup)\n• **API-Dokumentation** – REST APIs, Postman, Entwickler-Dokumentation\n• **Wissensdatenbank-Design** – Strukturierte Content-Systeme (Notion)\n• **Technische Spezifikationen** – Detaillierte technische Dokumentation\n• **Prozessdokumentation** – Workflows und Verfahrensbeschreibungen\n• **DITA XML** – Strukturierte XML-Dokumentation für technische Systeme\n• **Content-Lokalisierung** – Übersetzung und Anpassung (300+ Seiten Deutsch→Englisch)\n\n🏗️ **Informationsarchitektur & Strukturierung:**\n• **Inhaltsstrukturierung & -organisation** – Logische Hierarchien und Navigation\n• **Dokumentationsplanung** – Strategische Content-Entwicklung\n• **Benutzerzentrierter Designansatz** – Fokus auf Lesbarkeit und Verständlichkeit\n• **Querverweise & Navigation** – Verbesserte Benutzerführung\n• **Versionskontrolle** – GitHub für Dokumentationsmanagement\n• **Multi-Level-Strategien** – Anpassung an verschiedene Zielgruppen\n\n💻 **Technische Fähigkeiten & Tools:**\n• **Markdown, HTML, CSS** – Formatierung und Web-Dokumentation\n• **GitHub & VS Code** – Versionierung und Entwicklungsumgebung\n• **SCORM-Packaging** – Technische Standards für Lernmodule\n• **Web-Technologien** – Moderne Dokumentationsplattformen\n• **Notion, Figma** – Content-Management und Design-Tools\n\n♿ **Standards & Qualitätssicherung:**\n• **WCAG 2.1-Konformität** – Barrierefreie Dokumentation\n• **Plain Language Principles** – Klare, einfache Sprache\n• **Inklusives Design** – Zugängliche Content-Erstellung\n• **Konsistenz & Best Practices** – Einheitliche Dokumentationsstandards\n\n📚 **Portfolio-Beispiele:**\n• 2FA User Guide (Microsoft PDF Format)\n• Postman API Documentation Guide\n• Welth Health Platform (DITA XML)\n• Klimawandel-Wissensdatenbank (ADDIE-basiert)\n\n**Zertifizierungen:**\n• Technical Writing – Google Developers (Apr 2025)\n• Technical Writing – Board Infinity (Apr 2025)\n• Creating API Documentation – LinkedIn Learning (Mai 2025)"
-        : "**Samuel's Technical Writing Competencies:**\n\n📝 **Documentation Types & Formats:**\n• **User Guides & Manuals** – Step-by-step instructions (e.g., 2FA setup)\n• **API Documentation** – REST APIs, Postman, developer documentation\n• **Knowledge Base Design** – Structured content systems (Notion)\n• **Technical Specifications** – Detailed technical documentation\n• **Process Documentation** – Workflows and procedure descriptions\n• **DITA XML** – Structured XML documentation for technical systems\n• **Content Localization** – Translation and adaptation (300+ pages German→English)\n\n🏗️ **Information Architecture & Structuring:**\n• **Content Structuring & Organization** – Logical hierarchies and navigation\n• **Documentation Planning** – Strategic content development\n• **User-Centered Design Approach** – Focus on readability and comprehension\n• **Cross-Referencing & Navigation** – Improved user guidance\n• **Version Control** – GitHub for documentation management\n• **Multi-Level Strategies** – Adaptation to different target audiences\n\n💻 **Technical Skills & Tools:**\n• **Markdown, HTML, CSS** – Formatting and web documentation\n• **GitHub & VS Code** – Versioning and development environment\n• **SCORM Packaging** – Technical standards for learning modules\n• **Web Technologies** – Modern documentation platforms\n• **Notion, Figma** – Content management and design tools\n\n♿ **Standards & Quality Assurance:**\n• **WCAG 2.1 Compliance** – Accessible documentation\n• **Plain Language Principles** – Clear, simple language\n• **Inclusive Design** – Accessible content creation\n• **Consistency & Best Practices** – Uniform documentation standards\n\n📚 **Portfolio Examples:**\n• 2FA User Guide (Microsoft PDF Format)\n• Postman API Documentation Guide\n• Welth Health Platform (DITA XML)\n• Climate Change Knowledge Base (ADDIE-based)\n\n**Certifications:**\n• Technical Writing – Google Developers (Apr 2025)\n• Technical Writing – Board Infinity (Apr 2025)\n• Creating API Documentation – LinkedIn Learning (May 2025)";
+        ? "**Samuels Technical Writing Kompetenzen:**\n\n📝 **Dokumentationstypen & Formate:**\n• **Benutzerhandbücher & Anleitungen** – Schritt-für-Schritt-Anleitungen und klare Verfahren\n• **API-Dokumentation** – REST APIs, Postman, Entwickler-Dokumentation\n• **Wissensdatenbank-Design** – Strukturierte Content-Systeme (Notion)\n• **Technische Spezifikationen** – Detaillierte technische Dokumentation\n• **Prozessdokumentation** – Workflows und Verfahrensbeschreibungen\n• **DITA XML** – Strukturierte XML-Dokumentation für technische Systeme\n• **Content-Lokalisierung** – Übersetzung und Anpassung (300+ Seiten Deutsch→Englisch)\n\n🏗️ **Informationsarchitektur & Strukturierung:**\n• **Inhaltsstrukturierung & -organisation** – Logische Hierarchien und Navigation\n• **Dokumentationsplanung** – Strategische Content-Entwicklung\n• **Benutzerzentrierter Designansatz** – Fokus auf Lesbarkeit und Verständlichkeit\n• **Querverweise & Navigation** – Verbesserte Benutzerführung\n• **Versionskontrolle** – GitHub für Dokumentationsmanagement\n• **Multi-Level-Strategien** – Anpassung an verschiedene Zielgruppen\n\n💻 **Technische Fähigkeiten & Tools:**\n• **Markdown, HTML, CSS, XML** – Formatierung und Web-Dokumentation\n• **GitHub & VS Code** – Versionierung und Entwicklungsumgebung\n• **SCORM-Packaging** – Technische Standards für Lernmodule\n• **Web-Technologien** – Moderne Dokumentationsplattformen\n• **Notion, Figma** – Content-Management und Design-Tools\n\n♿ **Standards & Qualitätssicherung:**\n• **WCAG 2.1-Konformität** – Barrierefreie Dokumentation\n• **Plain Language Principles** – Klare, einfache Sprache\n• **Inklusives Design** – Zugängliche Content-Erstellung\n• **Konsistenz & Best Practices** – Einheitliche Dokumentationsstandards\n\n📚 **Portfolio-Beispiele:**\n• Welth Health Platform (DITA XML) – GitHub Tech-Writing-Samples\n• ADDIE-basierte Wissensdatenbanken (Notion)\n\n**Zertifizierungen:**\n• Technical Writing – Board Infinity (Apr 2025)"
+        : "**Samuel's Technical Writing Competencies:**\n\n📝 **Documentation Types & Formats:**\n• **User Guides & Manuals** – Step-by-step procedures and clear workflows\n• **API Documentation** – REST APIs, Postman, developer documentation\n• **Knowledge Base Design** – Structured content systems (Notion)\n• **Technical Specifications** – Detailed technical documentation\n• **Process Documentation** – Workflows and procedure descriptions\n• **DITA XML** – Structured XML documentation for technical systems\n• **Content Localization** – Translation and adaptation (300+ pages German→English)\n\n🏗️ **Information Architecture & Structuring:**\n• **Content Structuring & Organization** – Logical hierarchies and navigation\n• **Documentation Planning** – Strategic content development\n• **User-Centered Design Approach** – Focus on readability and comprehension\n• **Cross-Referencing & Navigation** – Improved user guidance\n• **Version Control** – GitHub for documentation management\n• **Multi-Level Strategies** – Adaptation to different target audiences\n\n💻 **Technical Skills & Tools:**\n• **Markdown, HTML, CSS, XML** – Formatting and web documentation\n• **GitHub & VS Code** – Versioning and development environment\n• **SCORM Packaging** – Technical standards for learning modules\n• **Web Technologies** – Modern documentation platforms\n• **Notion, Figma** – Content management and design tools\n\n♿ **Standards & Quality Assurance:**\n• **WCAG 2.1 Compliance** – Accessible documentation\n• **Plain Language Principles** – Clear, simple language\n• **Inclusive Design** – Accessible content creation\n• **Consistency & Best Practices** – Uniform documentation standards\n\n📚 **Portfolio Examples:**\n• Welth Health Platform (DITA XML) – GitHub Tech-Writing-Samples\n• ADDIE-based knowledge bases (Notion)\n\n**Certifications:**\n• Technical Writing – Board Infinity (Apr 2025)";
     }
     
     // Contact information
@@ -743,8 +715,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Verfügbarkeit:**\n\n📅 **Vollzeit verfügbar ab:** April/Mai 2026 (nach Abschluss des verpflichtenden Teils seiner Masterarbeit)\n\n💼 **Aktuell verfügbar für:**\n• **Freelance-Projekte** – Digital Learning Design oder Technical Writing\n• **Teilzeit-Rollen** – Flexible Zusammenarbeit während des Studiums\n• **Beratungsaufträge** – Expertise in Barrierefreiheit und Instruktionsdesign\n\n**Kontakt:** gideonsammysen@gmail.com\n\n---\n\n💼 **Aktuell:** Global Academy – eLearning Developer (Praktikant) bei Dräger, Lübeck\n\n🎓 **Aktuell:** Master-Student an der Philipps-Universität Marburg (North American Studies, Medienwissenschaften)\n\n**Schwerpunkte:** Digital Learning Design, Technical Writing, Content-Lokalisierung, Barrierefreiheit"
-        : "**Samuel's Availability:**\n\n📅 **Full-time available from:** April/May 2026 (after completing the mandatory part of his master's thesis requirements)\n\n💼 **Currently available for:**\n• **Freelance Projects** – Digital Learning Design or Technical Writing\n• **Part-Time Roles** – Flexible collaboration during studies\n• **Consultation Projects** – Expertise in accessibility and instructional design\n\n**Contact:** gideonsammysen@gmail.com\n\n---\n\n💼 **Current:** Global Academy – eLearning Developer (Intern) at Dräger, Lübeck\n\n🎓 **Currently:** Master's student at Philipps-Universität Marburg (North American Studies, Media Studies)\n\n**Focus Areas:** Digital Learning Design, Technical Writing, Content Localization, Accessibility";
+        ? "**Samuels Verfügbarkeit:**\n\n📅 **Vollzeit verfügbar ab:** April/Mai 2026 (nach Abschluss des verpflichtenden Teils seiner Masterarbeit)\n\n💼 **Aktuell verfügbar für:**\n• **Freelance-Projekte** – Digital Learning Design oder Technical Writing\n• **Teilzeit-Rollen** – Flexible Zusammenarbeit während des Studiums\n• **Beratungsaufträge** – Expertise in Barrierefreiheit und Instruktionsdesign\n\n**Kontakt:** gideonsammysen@gmail.com\n\n---\n\n💼 **Aktuell:** E-Learning Developer (Praktikant) bei Dräger, Lübeck\n\n🎓 **Aktuell:** Master-Student an der Philipps-Universität Marburg (North American Studies, Medienwissenschaften)\n\n**Schwerpunkte:** Digital Learning Design, Technical Writing, Content-Lokalisierung, Barrierefreiheit"
+        : "**Samuel's Availability:**\n\n📅 **Full-time available from:** April/May 2026 (after completing the mandatory part of his master's thesis requirements)\n\n💼 **Currently available for:**\n• **Freelance Projects** – Digital Learning Design or Technical Writing\n• **Part-Time Roles** – Flexible collaboration during studies\n• **Consultation Projects** – Expertise in accessibility and instructional design\n\n**Contact:** gideonsammysen@gmail.com\n\n---\n\n💼 **Current:** E-Learning Developer (Intern) at Dräger, Lübeck\n\n🎓 **Currently:** Master's student at Philipps-Universität Marburg (North American Studies, Media Studies)\n\n**Focus Areas:** Digital Learning Design, Technical Writing, Content Localization, Accessibility";
     }
     
     // Experience/Work History (exclude when sentence clearly asks about availability: "when ... available", "available for employment")
@@ -755,8 +727,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Berufserfahrung im Überblick:**\n\n🎯 **Aktuell (seit Februar 2026):**\n**Global Academy – eLearning Developer (Praktikant)** bei **Dräger, Lübeck**\n• Mitwirkung an interaktiven E-Learning-Modulen (Articulate 360); Unterstützung bei Skript- und Storyboard-Revisionen für Klarheit und Konsistenz\n• Videoproduktion: Drehs, Schnitt und Audio-Optimierung mit Adobe Premiere Pro\n• KI-gestützte Übersetzungen von E-Learning-Modulen für mehrsprachige Zielgruppen\n• Übernahme kleinerer E-Learning-Projekte von Konzept bis Lieferung\n\n📚 **Zuletzt (Juni–November 2025):**\n**Digital Learning Designer (Praktikant)** bei **Tanz der Kulturen e.V., Hamburg**\n• **25+ barrierefreie Multimedia-Lerninhalte** gestaltet (Infografiken, Werbematerialien) nach WCAG 2.1-Standards, Erweiterung der Reichweite auf diverse Lerngruppen\n• **50+ Bildungsressourcen** kuratiert und strukturiert für transkulturelle Kunstpädagogik, Unterstützung von 200+ internationalen, kommunalen und ERASMUS-Lernenden\n• **300+ Seiten** deutscher Unterrichtsinhalte (z.B. 'Rituelle Tanz Pädagogik' Buch) ins Englische lokalisiert mit KI-gestützter Übersetzung unter Beibehaltung des natürlichen Flusses\n\n👨‍🏫 **Januar–Oktober 2023:**\n**Englischlehrer & Verwaltungsassistent** bei **Ghana National Service Scheme, Kumasi**\n• Englischunterricht entworfen und durchgeführt mit Lernzielen nach Bloom's Taxonomie\n• Verbesserung von Verständnis, Schreib- und Sprechfertigkeiten\n• Schülerfortschritt mittels formativer und summativer Methoden bewertet\n• Verwaltungsaufgaben verwaltet (Schülerakten, Zeitplanung, Korrespondenz)\n\n👨‍🏫 **Juni–Dezember 2021:**\n**Englischlehrassistent (Praktikant)** bei **Ghana Education Service, Kumasi**\n• **Box-Part-Letter-Handschriftmethode** entwickelt, die die Leistung von Erstklässlern um **40% verbesserte**\n• Unterrichtseinheiten durchgeführt mit Bewertungsstrategien und Unterrichtsstützung\n\n👨‍🏫 **Januar–Juni 2020:**\n**Englischlehrer (Arbeitender Student)** bei **Kovak Hill Educational Centre, Kumasi**\n• Unterrichtspläne nach ADDIE-Prinzipien entwickelt und durchgeführt\n• Übereinstimmung mit Lehrplannormen und Lernerbeteiligungsstrategien sichergestellt\n\n**Gesamt:** 1+ Jahr Digital Learning Design + 3+ Jahre Lehre"
-        : "**Samuel's Professional Experience Overview:**\n\n🎯 **Current (February 2026 – Present):**\n**Global Academy – eLearning Developer (Intern)** at **Dräger, Lübeck**\n• Assist in producing interactive e-learning modules with Articulate 360; support script and storyboard revisions for clarity and consistency\n• Support end-to-end video production: shoots, editing, and audio optimisation with Adobe Premiere Pro\n• Use AI-powered tools for translated e-learning versions, improving reach across multilingual audiences\n• Take ownership of small-scale e-learning projects from concept through delivery\n\n📚 **Most Recent (June–November 2025):**\n**Digital Learning Designer (Intern)** at **Tanz der Kulturen e.V., Hamburg**\n• **Designed 25+ accessible multimedia learning assets** (infographics, promotional materials) in line with WCAG 2.1, expanding reach to diverse learner groups\n• **Curated and structured 50+ educational resources** for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners\n• **Localized 300+ pages** of German instructional content (e.g., 'Rituelle Tanz Pädagogik' book) into English using AI-assisted translation, preserving natural flow\n\n👨‍🏫 **January–October 2023:**\n**English Language Teacher & Administrative Assistant** at **Ghana National Service Scheme, Kumasi**\n• Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy\n• Enhanced comprehension, writing, and speaking skills\n• Assessed student progress using formative and summative methods\n• Managed administrative tasks (student records, scheduling, correspondence)\n\n👨‍🏫 **June–December 2021:**\n**English Language Teaching Assistant (Intern)** at **Ghana Education Service, Kumasi**\n• **Developed box-part-letter handwriting method** that improved first-year student performance by **40%**\n• Facilitated lessons integrating assessment strategies and instructional scaffolding\n\n👨‍🏫 **January–June 2020:**\n**English Language Teacher (Working Student)** at **Kovak Hill Educational Centre, Kumasi**\n• Developed and implemented lesson plans following ADDIE principles\n• Ensured alignment with curriculum standards and learner engagement strategies\n\n**Total:** 1+ year Digital Learning Design + 3+ years Teaching";
+        ? "**Samuels Berufserfahrung im Überblick:**\n\n🎯 **Aktuell (seit Februar 2026):**\n**E-Learning Developer (Praktikant)** bei **Dräger, Lübeck**\n• Entwickelt interaktive E-Learning-Module mit Articulate 360; wirkt an Skript- und Storyboard-Verfeinerung für didaktische Klarheit und Konsistenz\n• Verantwortet die Videoendproduktion inklusive Drehs, Schnitt und Audiooptimierung mit Adobe Premiere Pro\n• Nutzt KI-gestützte Tools für mehrsprachige Versionen der E-Learning-Module und verbessert Zugänglichkeit und globale Reichweite\n• Übernimmt sukzessive die eigenständige Projektverantwortung von der Konzeption bis zur Auslieferung\n\n📚 **Zuletzt (Juni–November 2025):**\n**Digital Learning Designer (Praktikant)** bei **Tanz der Kulturen e.V., Hamburg**\n• **25+ barrierefreie Multimedia-Lerninhalte** gestaltet (Infografiken, Werbematerialien) nach WCAG 2.1-Standards, Erweiterung der Reichweite auf diverse Lerngruppen\n• **50+ Bildungsressourcen** kuratiert und strukturiert für transkulturelle Kunstpädagogik, Unterstützung von 200+ internationalen, kommunalen und ERASMUS-Lernenden\n• **300+ Seiten** deutscher Unterrichtsinhalte (z.B. 'Rituelle Tanz Pädagogik' Buch) ins Englische lokalisiert mit KI-gestützter Übersetzung unter Beibehaltung des natürlichen Flusses\n\n👨‍🏫 **Januar–Oktober 2023:**\n**Englischlehrer & Verwaltungsassistent** bei **Ghana National Service Scheme, Kumasi**\n• Englischunterricht entworfen und durchgeführt mit Lernzielen nach Bloom's Taxonomie\n• Verbesserung von Verständnis, Schreib- und Sprechfertigkeiten\n• Verwaltungsaufgaben verwaltet (Schülerakten, Zeitplanung, Korrespondenz)\n\n👨‍🏫 **Juni–Dezember 2021:**\n**Englischlehrassistent (Praktikant)** bei **Ghana Education Service, Kumasi**\n• **Box-Part-Letter-Handschriftmethode** entwickelt, die die Leistung von Erstklässlern um **40% verbesserte**\n• Unterrichtseinheiten durchgeführt mit Bewertungsstrategien und Unterrichtsstützung\n\n👨‍🏫 **Januar–Juni 2020:**\n**Englischlehrer (Arbeitender Student)** bei **Kovak Hill Educational Centre, Kumasi**\n• Unterrichtspläne nach ADDIE-Prinzipien entwickelt und durchgeführt\n• Übereinstimmung mit Lehrplannormen und Lernerbeteiligungsstrategien sichergestellt\n\n**Gesamt:** 1+ Jahr Digital Learning Design + 3+ Jahre Lehre"
+        : "**Samuel's Professional Experience Overview:**\n\n🎯 **Current (February 2026 – Present):**\n**E-Learning Developer (Intern)** at **Dräger, Lübeck**\n• Develop interactive e-learning modules using Articulate 360, contributing to script and storyboard refinement for instructional clarity and consistency\n• Manage end-to-end video production, including shoots, editing, and audio optimisation using Adobe Premiere Pro\n• Utilise AI-powered tools to create multilingual versions of e-learning modules, improving accessibility and global reach\n• Progressively take ownership of e-learning projects, managing them independently from concept through to delivery\n\n📚 **Most Recent (June–November 2025):**\n**Digital Learning Designer (Intern)** at **Tanz der Kulturen e.V., Hamburg**\n• **Designed 25+ accessible multimedia learning assets** (infographics, promotional materials) in line with WCAG 2.1, expanding reach to diverse learner groups\n• **Curated and structured 50+ educational resources** for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners\n• **Localized 300+ pages** of German instructional content (e.g., 'Rituelle Tanz Pädagogik' book) into English using AI-assisted translation, preserving natural flow\n\n👨‍🏫 **January–October 2023:**\n**English Language Teacher & Administrative Assistant** at **Ghana National Service Scheme, Kumasi**\n• Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy\n• Enhanced comprehension, writing, and speaking skills\n• Managed administrative tasks (student records, scheduling, correspondence)\n\n👨‍🏫 **June–December 2021:**\n**English Language Teaching Assistant (Intern)** at **Ghana Education Service, Kumasi**\n• **Developed box-part-letter handwriting method** that improved first-year student performance by **40%**\n• Facilitated lessons integrating assessment strategies and instructional scaffolding\n\n👨‍🏫 **January–June 2020:**\n**English Language Teacher (Working Student)** at **Kovak Hill Educational Centre, Kumasi**\n• Developed and implemented lesson plans following ADDIE principles\n• Ensured alignment with curriculum standards and learner engagement strategies\n\n**Total:** 1+ year Digital Learning Design + 3+ years Teaching";
     }
     
     // Skills (general)
@@ -790,8 +762,8 @@ ${cvData}
     ) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Portfolio-Highlights:**\n\n📄 **Technische Dokumentation:**\n• **2FA User Guide** – Microsoft PDF-Format, praktische Anleitung\n• **Postman API Documentation Guide** – Entwickler-freundliche API-Dokumentation\n• **Welth Health Platform** – DITA XML-Dokumentation für Gesundheitsmanagement\n\n🎓 **E-Learning-Module:**\n• **Plain Language & Inclusive Communication** – Interaktives E-Learning-Modul mit erweitertem Barrierefreiheits-Panel (WCAG 2.1)\n• **Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)** – Schritt-für-Schritt-Anleitung\n• **E-Learning Accessibility Best Practices** – Best Practices für barrierefreies E-Learning\n\n📚 **Wissensdatenbanken & Content-Systeme:**\n• **ADDIE-basierte Dokumentation für LLMs & Nachhaltigkeit** – Theoretisch vollständiger Leitfaden\n• **Climate Change Mitigation Guide** – Umfassende Bildungsressource zu Klimawissenschaft\n• **Sustainability and Climate Change Knowledge Base** – Strukturierte Wissensdatenbank\n\n🌐 **Web-Projekte:**\n• **Persönliche Portfolio-Website** – Responsive, zweisprachig (EN/DE) mit erweiterten Barrierefreiheitsfunktionen\n• Dark/Light Theme Toggle\n• KI-Assistent mit zweisprachiger Unterstützung\n\n**Alle Projekte zeigen:** Benutzerzentriertes Design, WCAG 2.1-Konformität und messbare Ergebnisse."
-        : "**Samuel's Portfolio Highlights:**\n\n📄 **Technical Documentation:**\n• **2FA User Guide** – Microsoft PDF format, practical setup guide\n• **Postman API Documentation Guide** – Developer-friendly API documentation\n• **Welth Health Platform** – DITA XML documentation for health management\n\n🎓 **E-Learning Modules:**\n• **Plain Language & Inclusive Communication** – Interactive e-learning module with advanced accessibility panel (WCAG 2.1)\n• **Practical Setup and Troubleshooting of Two-Factor Authentication (2FA)** – Step-by-step troubleshooting guide\n• **E-Learning Accessibility Best Practices** – Best practices for accessible e-learning design\n\n📚 **Knowledge Bases & Content Systems:**\n• **ADDIE-based Documentation for LLMs & Sustainability** – Theoretically complete guide\n• **Climate Change Mitigation Guide** – Comprehensive educational resource on climate science\n• **Sustainability and Climate Change Knowledge Base** – Structured knowledge base system\n\n🌐 **Web Projects:**\n• **Personal Portfolio Website** – Responsive, bilingual (EN/DE) with advanced accessibility features\n• Dark/Light theme toggle\n• AI assistant with bilingual support\n\n**All projects demonstrate:** User-centered design, WCAG 2.1 compliance, and measurable outcomes.";
+        ? "**Samuels Portfolio-Highlights:**\n\n🎓 **E-Learning (Articulate Rise):**\n• **Combating Climate Change: A Collective Responsibility** – öffentliches Rise-Modul\n• **Plain Language & Inclusive Communication** – Barrierefreiheits-Panel (WCAG 2.1)\n• **E-Learning Accessibility Best Practices** – integriert im Plain-Language-Modul\n\n🏭 **Dräger-Schulungen (auf Anfrage):** Fundamentals of Controllers | X-am 2800/5800 | Medical Vacuum Systems\n\n📚 **Wissensdatenbanken (Notion):** LLMs & Nachhaltigkeit | Klimawandel-Minderung\n\n📄 **Technical Writing:** Welth Health Platform (DITA) – GitHub Tech-Writing-Samples\n\n🌐 **Web & KI:** Portfolio-Website (EN/DE, Barrierefreiheit) | General KI-Assistent\n\n**Alle Projekte zeigen:** Benutzerzentriertes Design, WCAG-orientierte Arbeit und messbare Ergebnisse."
+        : "**Samuel's Portfolio Highlights:**\n\n🎓 **E-Learning (Articulate Rise):**\n• **Combating Climate Change: A Collective Responsibility** – public Rise module\n• **Plain Language & Inclusive Communication** – accessibility panel (WCAG 2.1)\n• **E-Learning Accessibility Best Practices** – embedded in the Plain Language module\n\n🏭 **Dräger training (on request):** Fundamentals of Controllers | X-am 2800/5800 | Medical Vacuum Systems\n\n📚 **Knowledge bases (Notion):** LLMs & sustainability | climate mitigation\n\n📄 **Technical writing:** Welth Health Platform (DITA) – GitHub Tech-Writing-Samples\n\n🌐 **Web & AI:** Portfolio site (EN/DE, accessibility) | General AI assistant\n\n**Across projects:** User-centered design, WCAG-oriented work, and measurable outcomes.";
     }
     
     // Tools/Software
@@ -810,8 +782,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Zertifizierungen & Weiterbildung:**\n\n📜 **Digital Learning Design Foundations & Applications**\nUniversity of Illinois Urbana-Champaign (August 2025)\n\n📜 **Technical Writing Course**\nGoogle Developers (April 2025)\n\n📜 **Technical Writing Course**\nBoard Infinity (April 2025)\n\n📜 **Creating API Documentation**\nLinkedIn Learning (Mai 2025)\n\n📜 **EF SET English Certificate**\nC1 Advanced (67/100) (Februar 2025)\n\n**Hinweis:** Alle Zertifizierungen stammen aus 2025 und zeigen Samuels aktive Weiterentwicklung seiner Fähigkeiten in Digital Learning Design und Technical Writing. Er bleibt auf dem neuesten Stand der Branchentrends und Best Practices."
-        : "**Samuel's Certifications & Training:**\n\n📜 **Digital Learning Design Foundations & Applications**\nUniversity of Illinois Urbana-Champaign (August 2025)\n\n📜 **Technical Writing Course**\nGoogle Developers (April 2025)\n\n📜 **Technical Writing Course**\nBoard Infinity (April 2025)\n\n📜 **Creating API Documentation**\nLinkedIn Learning (May 2025)\n\n📜 **EF SET English Certificate**\nC1 Advanced (67/100) (February 2025)\n\n**Note:** All certifications are from 2025, demonstrating Samuel's active skill development in Digital Learning Design and Technical Writing. He stays current with industry trends and best practices.";
+        ? "**Samuels Zertifizierungen & Weiterbildung:**\n\n📜 **Instructional Design Foundations & Applications**\nUniversity of Illinois Urbana-Champaign (14. Aug 2025)\n\n📜 **Technical Writing Course**\nBoard Infinity (2. Apr 2025)\n\n📜 **EF SET English Certificate**\nC1 Advanced (67/100) (10. Feb 2025)\n\n**Hinweis:** Zertifikate decken Instructional Design, technische Kommunikation und Englischniveau ab."
+        : "**Samuel's Certifications & Training:**\n\n📜 **Instructional Design Foundations & Applications**\nUniversity of Illinois Urbana-Champaign (Aug 14, 2025)\n\n📜 **Technical Writing Course**\nBoard Infinity (April 2, 2025)\n\n📜 **EF SET English Certificate**\nC1 Advanced (67/100) (Feb 10, 2025)\n\n**Note:** Credentials cover instructional design, technical communication, and English proficiency.";
     }
     
     // Languages
@@ -840,8 +812,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "📍 **Samuels Standort:**\n\n**Aktuell basiert in:** Große Klosterkoppel 8, 23562 Lübeck\n\n🇩🇪 **In Deutschland seit:** 2023\n\n🎓 **Studiert an:** Philipps-Universität Marburg\n   (ca. 2,5 Stunden von Lübeck entfernt)\n\n💼 **Aktuelle Position:** Dräger, Lübeck (Global Academy – eLearning Developer Praktikant)\n\n🌍 **Hintergrund:**\n• Ursprünglich aus Ghana (Kumasi)\n• Lebt und studiert seit 2023 in Deutschland\n• Erfahrung mit internationaler Zusammenarbeit und multikulturellen Umgebungen\n\n**Offen für:**\n• Remote-Arbeit\n• Vor-Ort-Möglichkeiten in Deutschland\n• Reise für Projekte und Konferenzen\n\n**Kontakt:** +49 171 5811680 (Deutsche Telefonnummer)"
-        : "📍 **Samuel's Location:**\n\n**Currently based in:** Große Klosterkoppel 8, 23562 Lübeck\n\n🇩🇪 **In Germany since:** 2023\n\n🎓 **Studying at:** Philipps-Universität Marburg\n   (approximately 2.5 hours from Lübeck)\n\n💼 **Current Position:** Dräger, Lübeck (Global Academy – eLearning Developer Intern)\n\n🌍 **Background:**\n• Originally from Ghana (Kumasi)\n• Living and studying in Germany since 2023\n• Experience with international collaboration and multicultural environments\n\n**Open to:**\n• Remote work\n• On-site opportunities in Germany\n• Travel for projects and conferences\n\n**Contact:** +49 171 5811680 (German phone number)";
+        ? "📍 **Samuels Standort:**\n\n**Aktuell basiert in:** Große Klosterkoppel 8, 23562 Lübeck\n\n🇩🇪 **In Deutschland seit:** 2023\n\n🎓 **Studiert an:** Philipps-Universität Marburg\n   (ca. 2,5 Stunden von Lübeck entfernt)\n\n💼 **Aktuelle Position:** Dräger, Lübeck (E-Learning Developer Praktikant)\n\n🌍 **Hintergrund:**\n• Ursprünglich aus Ghana (Kumasi)\n• Lebt und studiert seit 2023 in Deutschland\n• Erfahrung mit internationaler Zusammenarbeit und multikulturellen Umgebungen\n\n**Offen für:**\n• Remote-Arbeit\n• Vor-Ort-Möglichkeiten in Deutschland\n• Reise für Projekte und Konferenzen\n\n**Kontakt:** +49 171 5811680 (Deutsche Telefonnummer)"
+        : "📍 **Samuel's Location:**\n\n**Currently based in:** Große Klosterkoppel 8, 23562 Lübeck\n\n🇩🇪 **In Germany since:** 2023\n\n🎓 **Studying at:** Philipps-Universität Marburg\n   (approximately 2.5 hours from Lübeck)\n\n💼 **Current Position:** Dräger, Lübeck (E-Learning Developer Intern)\n\n🌍 **Background:**\n• Originally from Ghana (Kumasi)\n• Living and studying in Germany since 2023\n• Experience with international collaboration and multicultural environments\n\n**Open to:**\n• Remote work\n• On-site opportunities in Germany\n• Travel for projects and conferences\n\n**Contact:** +49 171 5811680 (German phone number)";
     }
     
     // Personal attributes
@@ -863,8 +835,8 @@ ${cvData}
           : "**Why is Samuel good at Digital Learning Design?**\n\nSamuel has a strong pedagogical foundation (Bachelor's in English Education, Master's in Media Studies) combined with practical experience:\n\n🎓 **Theoretical Foundation:**\n• Instructional design methodology (ADDIE, Bloom's Taxonomy)\n• Adult learning theory\n• Learning psychology and assessment\n\n💼 **Practical Experience:**\n• **Created 25+ WCAG-compliant multimedia assets**\n• **Structured 50+ educational resources** (reaching 200+ learners)\n• **300+ pages** of content localization (German→English)\n• **Measurable Results:** Documented 40% improvement in learning outcomes\n\n🎯 **Combined Expertise:**\nHis experience in teaching (3+ years) and Digital Learning Design (1+ year) gives him deep understanding of how people learn and how to create effective e-learning experiences.\n\n**Certification:** Instructional Design Foundations & Applications – University of Illinois (2025)";
       } else if (topics.includes('technical-writing')) {
         response = isGerman
-          ? "**Warum ist Samuel gut in Technical Writing?**\n\nSamuel kombiniert starke Schreibfähigkeiten mit technischem Verständnis und Benutzerzentriertheit:\n\n📝 **Schreib-Expertise:**\n• Englisch als Muttersprache (C1 Advanced zertifiziert)\n• Wissenschaftliches Schreiben (Masterstudium)\n• Unterrichtserfahrung verbessert Klarheit und Struktur\n\n🔧 **Technisches Verständnis:**\n• API-Dokumentation (Postman, REST APIs)\n• Markdown, HTML, CSS für Web-Dokumentation\n• GitHub für Versionskontrolle\n• SCORM-Packaging verstehen\n\n🎯 **Benutzerzentriertheit:**\nSein Instruktionsdesign-Hintergrund hilft ihm, technische Konzepte so zu erklären, dass Benutzer sie verstehen und anwenden können.\n\n📚 **Bewiesene Erfahrung:**\n• 300+ Seiten Content-Lokalisierung (Deutsch→Englisch)\n• 2FA User Guides, API-Dokumentation\n• Wissensdatenbank-Design (Notion)\n\n**Zertifizierungen:** Technical Writing – Google Developers & Board Infinity (2025)"
-          : "**Why is Samuel good at Technical Writing?**\n\nSamuel combines strong writing skills with technical understanding and user-centeredness:\n\n📝 **Writing Expertise:**\n• Native English speaker (C1 Advanced certified)\n• Academic writing (Master's program)\n• Teaching experience enhances clarity and structure\n\n🔧 **Technical Understanding:**\n• API documentation (Postman, REST APIs)\n• Markdown, HTML, CSS for web documentation\n• GitHub for version control\n• Understanding of SCORM packaging\n\n🎯 **User-Centeredness:**\nHis instructional design background helps him explain technical concepts in ways users understand and can apply.\n\n📚 **Proven Experience:**\n• 300+ pages of content localization (German→English)\n• 2FA User Guides, API documentation\n• Knowledge base design (Notion)\n\n**Certifications:** Technical Writing – Google Developers & Board Infinity (2025)";
+          ? "**Warum ist Samuel gut in Technical Writing?**\n\nSamuel kombiniert starke Schreibfähigkeiten mit technischem Verständnis und Benutzerzentriertheit:\n\n📝 **Schreib-Expertise:**\n• Englisch als Muttersprache (C1 Advanced zertifiziert)\n• Wissenschaftliches Schreiben (Masterstudium)\n• Unterrichtserfahrung verbessert Klarheit und Struktur\n\n🔧 **Technisches Verständnis:**\n• API-Dokumentation (Postman, REST APIs)\n• Markdown, HTML, CSS, XML für Web-Dokumentation\n• GitHub für Versionskontrolle\n• SCORM-Packaging verstehen\n\n🎯 **Benutzerzentriertheit:**\nSein Instruktionsdesign-Hintergrund hilft ihm, technische Konzepte so zu erklären, dass Benutzer sie verstehen und anwenden können.\n\n📚 **Bewiesene Erfahrung:**\n• 300+ Seiten Content-Lokalisierung (Deutsch→Englisch)\n• Wissensdatenbank-Design (Notion)\n• DITA-/Tech-Writing-Samples auf GitHub\n\n**Zertifizierung:** Technical Writing – Board Infinity (2025)"
+          : "**Why is Samuel good at Technical Writing?**\n\nSamuel combines strong writing skills with technical understanding and user-centeredness:\n\n📝 **Writing Expertise:**\n• Native English speaker (C1 Advanced certified)\n• Academic writing (Master's program)\n• Teaching experience enhances clarity and structure\n\n🔧 **Technical Understanding:**\n• API documentation (Postman, REST APIs)\n• Markdown, HTML, CSS, XML for web documentation\n• GitHub for version control\n• Understanding of SCORM packaging\n\n🎯 **User-Centeredness:**\nHis instructional design background helps him explain technical concepts in ways users understand and can apply.\n\n📚 **Proven Experience:**\n• 300+ pages of content localization (German→English)\n• Knowledge base design (Notion)\n• DITA / tech-writing samples on GitHub\n\n**Certification:** Technical Writing – Board Infinity (2025)";
       } else {
         response = isGerman
           ? "**Warum ist Barrierefreiheit wichtig für Samuel?**\n\nSamuel glaubt, dass Barrierefreiheit essentiell ist, um **alle Lernenden zu erreichen** – nicht nur eine Option.\n\n♿ **Grundprinzipien:**\n• **Inklusivität:** Lernen sollte für alle zugänglich sein, unabhängig von Fähigkeiten oder Hintergründen\n• **WCAG 2.1-Konformität:** Einhaltung etablierter Standards\n• **Plain Language:** Klare, verständliche Kommunikation für diverse Zielgruppen\n\n💼 **Praktische Umsetzung:**\n• Alle Projekte folgen WCAG 2.1-Richtlinien\n• 25+ barrierefreie Assets erstellt\n• Erweitertes Barrierefreiheits-Panel im Portfolio\n• Mehrsprachiger Content mit Barrierefreiheits-Features\n\n**Philosophie:** Barrierefreiheit ist ein integraler Bestandteil von gutem Design – kein zusätzliches Feature, sondern eine Grundvoraussetzung."

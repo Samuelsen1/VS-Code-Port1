@@ -1174,14 +1174,14 @@ export default function PortfolioWebsite() {
         available: "Available for Opportunities",
         title: "Digital Learning Designer",
         subtitle: "E-Learning • Multimedia • Instructional Design",
-        desc: "1+ years building e-learning and multimedia, grounded in Master's-level media studies. I combine instructional design, Articulate 360, Adobe Creative Suite, and web/AI tools to deliver accessible, learner-centered digital experiences.",
+        desc: "Instructional design theory and practice, grounded in a Master's in Media Studies and a Bachelor's in Education. I build accessible, learner-centered e-learning with Articulate 360, Adobe Creative Suite, AI tools, and LMS platforms — including medtech and nonprofit experience.",
         viewProjects: "View Projects",
         getInTouch: "Get In Touch",
         viewCV: "View CV"
       },
       about: {
         title: "About Me",
-        desc: "Digital Learning Designer with 1+ year of e-learning development and 3 years of teaching experience. I blend Master's-level media studies with hands-on instructional design, multimedia production, and LMS work using Articulate 360, Adobe Creative Suite, and web/AI technologies. I build accessible, learner-centered modules, knowledge bases, and cross-cultural content—from stakeholder workshops to SCORM-ready delivery."
+        desc: "Digital Learning Designer combining instructional design theory and practice. Master's in Media Studies and Bachelor's in Education. I develop accessible, learner-centered e-learning using Articulate 360, Adobe Creative Suite, AI tools, and LMS platforms, with experience in medtech and nonprofit sectors."
       },
       projects: {
         title: "Featured Projects",
@@ -1200,21 +1200,21 @@ export default function PortfolioWebsite() {
         title: "Professional Experience",
         items: [
           {
-            title: { en: "Global Academy – eLearning Developer (Intern)", de: "Global Academy – eLearning Developer (Intern)" },
+            title: { en: "E-Learning Developer (Intern)", de: "E-Learning-Entwickler (Praktikant)" },
             company: { en: "Dräger, Lübeck", de: "Dräger, Lübeck" },
             date: { en: "February 2026 – Present", de: "Februar 2026 – heute" },
             bullets: {
               en: [
-                "Assist in producing interactive e-learning modules with Articulate 360; support script and storyboard revisions for clarity and consistency",
-                "Support end-to-end video production: shoots, editing, and audio optimisation with Adobe Premiere Pro",
-                "Use AI-powered tools for translated e-learning versions, improving reach across multilingual audiences",
-                "Take ownership of small-scale e-learning projects from concept through delivery"
+                "Develop interactive e-learning modules using Articulate 360, contributing to script and storyboard refinement for instructional clarity and consistency",
+                "Manage end-to-end video production, including shoots, editing, and audio optimisation using Adobe Premiere Pro",
+                "Utilise AI-powered tools to create multilingual versions of e-learning modules, improving accessibility and global reach",
+                "Progressively take ownership of e-learning projects, managing them independently from concept through to delivery"
               ],
               de: [
-                "Mitwirkung an interaktiven E-Learning-Modulen (Articulate 360); Unterstützung bei Skript- und Storyboard-Revisionen",
-                "Unterstützung der Videoproduktion: Drehs, Schnitt und Audio-Optimierung mit Adobe Premiere Pro",
-                "KI-gestützte Übersetzungen von E-Learning-Modulen für mehrsprachige Zielgruppen",
-                "Übernahme kleinerer E-Learning-Projekte von Konzept bis Lieferung"
+                "Entwickelt interaktive E-Learning-Module mit Articulate 360 und wirkt an der Verfeinerung von Skript und Storyboard mit – für didaktische Klarheit und Konsistenz",
+                "Verantwortet die Videoendproduktion inklusive Drehs, Schnitt und Audiooptimierung mit Adobe Premiere Pro",
+                "Nutzt KI-gestützte Tools für mehrsprachige Versionen der E-Learning-Module und verbessert Zugänglichkeit und globale Reichweite",
+                "Übernimmt sukzessive die eigenständige Projektverantwortung von der Konzeption bis zur Auslieferung"
               ]
             },
             highlight: true,
@@ -1251,12 +1251,10 @@ export default function PortfolioWebsite() {
             bullets: {
               en: [
                 "Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy, enhancing comprehension, writing, and speaking skills",
-                "Assessed student progress using formative and summative methods to inform lesson adaptation",
                 "Managed administrative tasks, including student records, scheduling, and correspondence"
               ],
               de: [
                 "Unterrichtsstunden unter Verwendung von Lernzielen im Einklang mit Blooms Taxonomie entworfen und durchgeführt, um Verständnis, Schreib- und Sprechfähigkeiten zu verbessern",
-                "Schülerfortschritt mittels formativer und summativer Methoden bewertet, um die Unterrichtsanpassung zu informieren",
                 "Verwaltungsaufgaben wie Schülerakten, Zeitplanung und Korrespondenz verwaltet"
               ]
             },
@@ -1349,11 +1347,11 @@ export default function PortfolioWebsite() {
       skillsCategories: [
         {
           title: "Instructional Design",
-          items: ["ADDIE", "Bloom's Taxonomy", "Adult Learning Theory", "Storyboarding", "LXD", "Curriculum Development", "Learning Outcome Alignment"]
+          items: ["ADDIE", "Bloom's Taxonomy", "Adult Learning Theory", "Storyboarding", "LXD", "Curriculum Development"]
         },
         {
           title: "E-Learning & Multimedia",
-          items: ["Articulate 360 (Storyline, Rise)", "SCORM", "Moodle", "Learning Analytics", "Premiere Pro", "Photoshop", "InDesign", "Figma", "Descript"]
+          items: ["Articulate 360 (Storyline, Rise)", "SCORM", "Moodle", "Learning Analytics", "Premiere Pro", "Photoshop", "InDesign", "Figma", "Synthesia", "Descript", "Canva"]
         },
         {
           title: "Technical Communication",
@@ -1361,7 +1359,7 @@ export default function PortfolioWebsite() {
         },
         {
           title: "Web, AI & Workflow",
-          items: ["HTML", "CSS", "Markdown", "API Integration", "Prompt Coding", "GitHub", "VS Code", "Cursor", "Vercel", "Google Workspace", "Microsoft 365", "Notion"]
+          items: ["HTML", "CSS", "XML", "Markdown", "API Integration", "Prompt Coding", "GitHub", "VS Code", "Cursor", "Vercel", "Google Workspace", "Microsoft 365", "Notion", "Confluence"]
         }
       ]
     },
@@ -1379,14 +1377,14 @@ export default function PortfolioWebsite() {
         available: "Verfügbar für neue Möglichkeiten",
         title: "Digital Learning Designer",
         subtitle: "E-Learning • Multimedia • Instruktionsdesign",
-        desc: "Über ein Jahr E-Learning und Multimedia, fundiert mit einem Master in Medienwissenschaften. Ich verbinde Instruktionsdesign, Articulate 360, Adobe Creative Suite und Web/KI-Tools für barrierefreie, lernerzentrierte digitale Erlebnisse.",
+        desc: "Theorie und Praxis des Instruktionsdesigns, fundiert mit einem Master in Medienwissenschaften und einem Bachelor in Pädagogik. Ich entwickle barrierefreies, lernerzentriertes E-Learning mit Articulate 360, Adobe Creative Suite, KI-Tools und LMS — inklusive Erfahrung in Medtech und Nonprofit.",
         viewProjects: "Projekte ansehen",
         getInTouch: "Kontakt aufnehmen",
         viewCV: "Lebenslauf ansehen"
       },
       about: {
         title: "Über mich",
-        desc: "Digital Learning Designer mit über einem Jahr E-Learning-Entwicklung und drei Jahren Unterrichtserfahrung. Master in Medienwissenschaften plus Praxis in Instruktionsdesign, Multimedia und LMS mit Articulate 360, Adobe Creative Suite und Web/KI. Ich entwickle barrierefreie, lernerzentrierte Module, Wissensdatenbanken und interkulturelle Inhalte — von Stakeholder-Workshops bis zur SCORM-fertigen Auslieferung."
+        desc: "Digital Learning Designer mit Verbindung von Theorie und Praxis im Instruktionsdesign. Master in Medienwissenschaften und Bachelor in Pädagogik. Ich entwickle barrierefreies, lernerzentriertes E-Learning mit Articulate 360, Adobe Creative Suite, KI-Tools und LMS-Plattformen — mit Erfahrung in Medtech und Nonprofit."
       },
       projects: {
         title: "Ausgewählte Projekte",
@@ -1405,21 +1403,21 @@ export default function PortfolioWebsite() {
         title: "Berufserfahrung",
         items: [
           {
-            title: { en: "Global Academy – eLearning Developer (Intern)", de: "Global Academy – eLearning Developer (Intern)" },
+            title: { en: "E-Learning Developer (Intern)", de: "E-Learning-Entwickler (Praktikant)" },
             company: { en: "Dräger, Lübeck", de: "Dräger, Lübeck" },
             date: { en: "February 2026 – Present", de: "Februar 2026 – heute" },
             bullets: {
               en: [
-                "Assist in producing interactive e-learning modules with Articulate 360; support script and storyboard revisions for clarity and consistency",
-                "Support end-to-end video production: shoots, editing, and audio optimisation with Adobe Premiere Pro",
-                "Use AI-powered tools for translated e-learning versions, improving reach across multilingual audiences",
-                "Take ownership of small-scale e-learning projects from concept through delivery"
+                "Develop interactive e-learning modules using Articulate 360, contributing to script and storyboard refinement for instructional clarity and consistency",
+                "Manage end-to-end video production, including shoots, editing, and audio optimisation using Adobe Premiere Pro",
+                "Utilise AI-powered tools to create multilingual versions of e-learning modules, improving accessibility and global reach",
+                "Progressively take ownership of e-learning projects, managing them independently from concept through to delivery"
               ],
               de: [
-                "Mitwirkung an interaktiven E-Learning-Modulen (Articulate 360); Unterstützung bei Skript- und Storyboard-Revisionen",
-                "Unterstützung der Videoproduktion: Drehs, Schnitt und Audio-Optimierung mit Adobe Premiere Pro",
-                "KI-gestützte Übersetzungen von E-Learning-Modulen für mehrsprachige Zielgruppen",
-                "Übernahme kleinerer E-Learning-Projekte von Konzept bis Lieferung"
+                "Entwickelt interaktive E-Learning-Module mit Articulate 360 und wirkt an der Verfeinerung von Skript und Storyboard mit – für didaktische Klarheit und Konsistenz",
+                "Verantwortet die Videoendproduktion inklusive Drehs, Schnitt und Audiooptimierung mit Adobe Premiere Pro",
+                "Nutzt KI-gestützte Tools für mehrsprachige Versionen der E-Learning-Module und verbessert Zugänglichkeit und globale Reichweite",
+                "Übernimmt sukzessive die eigenständige Projektverantwortung von der Konzeption bis zur Auslieferung"
               ]
             },
             highlight: true,
@@ -1456,12 +1454,10 @@ export default function PortfolioWebsite() {
             bullets: {
               en: [
                 "Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy, enhancing comprehension, writing, and speaking skills",
-                "Assessed student progress using formative and summative methods to inform lesson adaptation",
                 "Managed administrative tasks, including student records, scheduling, and correspondence"
               ],
               de: [
                 "Unterrichtsstunden unter Verwendung von Lernzielen im Einklang mit Blooms Taxonomie entworfen und durchgeführt, um Verständnis, Schreib- und Sprechfähigkeiten zu verbessern",
-                "Schülerfortschritt mittels formativer und summativer Methoden bewertet, um die Unterrichtsanpassung zu informieren",
                 "Verwaltungsaufgaben wie Schülerakten, Zeitplanung und Korrespondenz verwaltet"
               ]
             },
@@ -1554,11 +1550,11 @@ export default function PortfolioWebsite() {
       skillsCategories: [
         {
           title: "Instruktionsdesign",
-          items: ["ADDIE", "Bloom's Taxonomie", "Erwachsenenlerntheorie", "Storyboarding", "LXD", "Curriculumentwicklung", "Lernziel-Ausrichtung"]
+          items: ["ADDIE", "Bloom's Taxonomie", "Erwachsenenlerntheorie", "Storyboarding", "LXD", "Curriculumentwicklung"]
         },
         {
           title: "E-Learning & Multimedia",
-          items: ["Articulate 360 (Storyline, Rise)", "SCORM", "Moodle", "Learning Analytics", "Premiere Pro", "Photoshop", "InDesign", "Figma", "Descript"]
+          items: ["Articulate 360 (Storyline, Rise)", "SCORM", "Moodle", "Learning Analytics", "Premiere Pro", "Photoshop", "InDesign", "Figma", "Synthesia", "Descript", "Canva"]
         },
         {
           title: "Technische Kommunikation",
@@ -1566,7 +1562,7 @@ export default function PortfolioWebsite() {
         },
         {
           title: "Web, KI & Workflow",
-          items: ["HTML", "CSS", "Markdown", "API-Integration", "Prompt Coding", "GitHub", "VS Code", "Cursor", "Vercel", "Google Workspace", "Microsoft 365", "Notion"]
+          items: ["HTML", "CSS", "XML", "Markdown", "API-Integration", "Prompt Coding", "GitHub", "VS Code", "Cursor", "Vercel", "Google Workspace", "Microsoft 365", "Notion", "Confluence"]
         }
       ]
     }
@@ -1574,6 +1570,30 @@ export default function PortfolioWebsite() {
 
   // Projects with translations
   const projects = [
+    {
+      title: {
+        en: "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility",
+        de: "E-Learning-Projekt (Articulate Rise): Klimawandel bekämpfen – eine gemeinsame Verantwortung"
+      },
+      category: {
+        en: "E-Learning Module",
+        de: "E-Learning-Modul"
+      },
+      description: {
+        en: "An Articulate Rise module on climate change awareness, learner responsibility, and collective action. Designed for engaging, accessible environmental learning.",
+        de: "Ein Articulate Rise-Modul zur Sensibilisierung für den Klimawandel, gemeinschaftliche Verantwortung und kollektives Handeln. Entwickelt für ein ansprechendes, barrierefreies Umweltlernen."
+      },
+      tools: {
+        en: ["Articulate Rise", "Figma", "InVideo AI", "Copilot", "VS Code", "Vercel"],
+        de: ["Articulate Rise", "Figma", "InVideo AI", "Copilot", "VS Code", "Vercel"]
+      },
+      results: {
+        en: ["Climate awareness", "Learner engagement", "Inclusive environmental learning"],
+        de: ["Klimabewusstsein", "Nutzerbindung", "Inklusives Umweltlernen"]
+      },
+      link: "https://spectacular-dango-d6bec1.netlify.app/#/",
+      featured: true
+    },
     {
       title: {
         en: "Dräger Fundamentals of Controllers",
@@ -1594,6 +1614,30 @@ export default function PortfolioWebsite() {
       results: {
         en: ["Brand-aligned learning", "Technical product context", "Script & storyboard iteration"],
         de: ["Markenkonformes Lernen", "Technischer Produktkontext", "Skript- und Storyboard-Iteration"]
+      },
+      link: "/#contact",
+      featured: true
+    },
+    {
+      title: {
+        en: "Dräger X-am 2800/5800",
+        de: "Dräger X-am 2800/5800"
+      },
+      category: {
+        en: "Sales Training",
+        de: "Vertriebstrainings"
+      },
+      description: {
+        en: "Sales-focused Articulate 360 module on portable gas detection. Sample or review access on request.",
+        de: "Vertriebsorientiertes Articulate-360-Modul zu tragbaren Gaswarngeräten. Beispiel oder Review-Zugang auf Anfrage."
+      },
+      tools: {
+        en: ["Articulate 360", "Adobe Premiere Pro", "Product messaging"],
+        de: ["Articulate 360", "Adobe Premiere Pro", "Produktbotschaften"]
+      },
+      results: {
+        en: ["Product positioning", "Scenario-based practice", "Assessment alignment"],
+        de: ["Produktpositionierung", "Szenarienbasiertes Üben", "Abgleich mit Assessments"]
       },
       link: "/#contact",
       featured: true
@@ -1765,30 +1809,6 @@ export default function PortfolioWebsite() {
       },
       link: "https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f?source=copy_link",
       featured: true
-    },
-    {
-      title: {
-        en: "Technical Documentation (GitHub)",
-        de: "Technische Dokumentation (GitHub)"
-      },
-      category: {
-        en: "Technical Writing",
-        de: "Technisches Schreiben"
-      },
-      description: {
-        en: "User guide for Postman and a knowledge-base article for 2FA hosted on GitHub.",
-        de: "Benutzerhandbuch für Postman und ein Wissensdatenbank-Artikel zu 2FA auf GitHub."
-      },
-      tools: {
-        en: ["GitHub"],
-        de: ["GitHub"]
-      },
-      results: {
-        en: ["Developer-friendly docs", "Knowledge-base integration", "Clear procedures"],
-        de: ["Entwicklerfreundliche Dokumente", "Wissensdatenbank-Integration", "Klare Abläufe"]
-      },
-      link: "https://github.com/Samuelsen1/Sample-2",
-      featured: false
     },
     {
       title: {
