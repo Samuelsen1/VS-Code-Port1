@@ -1584,8 +1584,8 @@ export default function PortfolioWebsite() {
         de: "Ein Articulate Rise-Modul zur Sensibilisierung für den Klimawandel, gemeinschaftliche Verantwortung und kollektives Handeln. Entwickelt für ein ansprechendes, barrierefreies Umweltlernen."
       },
       tools: {
-        en: ["Articulate Rise", "Figma", "InVideo AI", "Copilot", "VS Code", "Vercel"],
-        de: ["Articulate Rise", "Figma", "InVideo AI", "Copilot", "VS Code", "Vercel"]
+        en: ["Articulate Rise", "Figma", "InVideo AI", "Premiere Pro", "Canva", "Copilot", "VS Code", "Vercel"],
+        de: ["Articulate Rise", "Figma", "InVideo AI", "Premiere Pro", "Canva", "Copilot", "VS Code", "Vercel"]
       },
       results: {
         en: ["Climate awareness", "Learner engagement", "Inclusive environmental learning"],
