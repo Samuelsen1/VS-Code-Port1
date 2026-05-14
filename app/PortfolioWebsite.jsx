@@ -1692,30 +1692,6 @@ export default function PortfolioWebsite() {
     },
     {
       title: {
-        en: "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility",
-        de: "E-Learning-Projekt (Articulate Rise): Gemeinsam gegen den Klimawandel"
-      },
-      category: {
-        en: "E-Learning Module",
-        de: "E-Learning-Modul"
-      },
-      description: {
-        en: "An Articulate Rise module on climate change awareness, learner responsibility, and collective action. Designed for engaging, accessible environmental learning.",
-        de: "Ein Articulate Rise-Modul zur Sensibilisierung für den Klimawandel, gemeinschaftliche Verantwortung und kollektives Handeln. Entwickelt für ein ansprechendes, barrierefreies Umweltlernen."
-      },
-      tools: {
-        en: ["Articulate Rise", "Figma", "InVideo AI", "Copilot", "VS Code", "Vercel"],
-        de: ["Articulate Rise", "Figma", "InVideo AI", "Copilot", "VS Code", "Vercel"]
-      },
-      results: {
-        en: ["Climate awareness", "Learner engagement", "Inclusive environmental learning"],
-        de: ["Klimabewusstsein", "Nutzerbindung", "Inklusives Umweltlernen"]
-      },
-      link: "https://spectacular-dango-d6bec1.netlify.app/#/",
-      featured: false
-    },
-    {
-      title: {
         en: "Plain Language and Inclusivity",
         de: "Einfache Sprache und Inklusivität"
       },
@@ -1809,6 +1785,30 @@ export default function PortfolioWebsite() {
       },
       link: "https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f?source=copy_link",
       featured: true
+    },
+    {
+      title: {
+        en: "Technical Documentation (GitHub)",
+        de: "Technische Dokumentation (GitHub)"
+      },
+      category: {
+        en: "Technical Writing",
+        de: "Technisches Schreiben"
+      },
+      description: {
+        en: "User guide for Postman and a knowledge-base article for 2FA hosted on GitHub.",
+        de: "Benutzerhandbuch für Postman und ein Wissensdatenbank-Artikel zu 2FA auf GitHub."
+      },
+      tools: {
+        en: ["GitHub"],
+        de: ["GitHub"]
+      },
+      results: {
+        en: ["Developer-friendly docs", "Knowledge-base integration", "Clear procedures"],
+        de: ["Entwicklerfreundliche Dokumente", "Wissensdatenbank-Integration", "Klare Abläufe"]
+      },
+      link: "https://github.com/Samuelsen1/Sample-2",
+      featured: false
     },
     {
       title: {
@@ -2558,8 +2558,8 @@ export default function PortfolioWebsite() {
                 "Plain Language and Inclusivity"
               ].includes(p.title.en)).map((project, index) => {
                 let imgSrc = "";
-                if (project.title.en === "Plain Language and Inclusivity") imgSrc = "/images/b1.png";
-                else if (project.title.en === "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility") imgSrc = "/images/b2.png";
+                if (project.title.en === "Plain Language and Inclusivity") imgSrc = "/images/b2.png";
+                else if (project.title.en === "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility") imgSrc = "/images/b1.png";
                 return (
                   <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
                     <div className="relative overflow-hidden">
