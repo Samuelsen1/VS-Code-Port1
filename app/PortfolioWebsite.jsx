@@ -2557,9 +2557,7 @@ export default function PortfolioWebsite() {
                 "E-Learning Project (Articulate Rise & Synthesia): Cybersecurity Essentials for Every Employee",
                 "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility"
               ].includes(p.title.en)).map((project, index) => {
-                let imgSrc = "";
-                if (project.title.en === "E-Learning Project (Articulate Rise & Synthesia): Cybersecurity Essentials for Every Employee") imgSrc = "/images/b2.png";
-                else if (project.title.en === "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility") imgSrc = "/images/b1.png";
+                const imgSrc = index === 0 ? "/images/b1.png" : "/images/b2.png";
                 return (
                   <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
                     <div className="relative overflow-hidden">
