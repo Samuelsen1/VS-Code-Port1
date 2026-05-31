@@ -1572,26 +1572,26 @@ export default function PortfolioWebsite() {
   const projects = [
     {
       title: {
-        en: "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility",
-        de: "E-Learning-Projekt (Articulate Rise): Klimawandel bekämpfen – eine gemeinsame Verantwortung"
+        en: "E-Learning Project (Articulate Rise & Synthesia): Cybersecurity Essentials for Every Employee",
+        de: "E-Learning-Projekt (Articulate Rise & Synthesia): Cybersicherheit für alle Mitarbeitenden"
       },
       category: {
         en: "E-Learning Module",
         de: "E-Learning-Modul"
       },
       description: {
-        en: "An Articulate Rise module on climate change awareness, learner responsibility, and collective action. Designed for engaging, accessible environmental learning.",
-        de: "Ein Articulate Rise-Modul zur Sensibilisierung für den Klimawandel, gemeinschaftliche Verantwortung und kollektives Handeln. Entwickelt für ein ansprechendes, barrierefreies Umweltlernen."
+        en: "A learner-centered Articulate Rise and Synthesia course on cybersecurity essentials for every employee, focusing on practical awareness, secure habits, and organisational safety.",
+        de: "Ein lernzentrierter Articulate Rise- und Synthesia-Kurs zu den Grundlagen der Cybersicherheit für alle Mitarbeitenden, mit Fokus auf praktische Sensibilisierung, sichere Gewohnheiten und organisatorische Sicherheit."
       },
       tools: {
-        en: ["Articulate Rise", "Figma", "InVideo AI", "Premiere Pro", "Canva", "Copilot", "VS Code", "Vercel"],
-        de: ["Articulate Rise", "Figma", "InVideo AI", "Premiere Pro", "Canva", "Copilot", "VS Code", "Vercel"]
+        en: ["Articulate Rise", "Synthesia", "Figma", "InVideo AI", "Premiere Pro", "Canva", "Copilot", "VS Code", "Vercel"],
+        de: ["Articulate Rise", "Synthesia", "Figma", "InVideo AI", "Premiere Pro", "Canva", "Copilot", "VS Code", "Vercel"]
       },
       results: {
-        en: ["Climate awareness", "Learner engagement", "Inclusive environmental learning"],
-        de: ["Klimabewusstsein", "Nutzerbindung", "Inklusives Umweltlernen"]
+        en: ["Cybersecurity awareness", "Employee risk reduction", "Accessible, modern training"],
+        de: ["Cybersicherheitsbewusstsein", "Reduzierung von Nutzer-Risiken", "Barrierefreies, modernes Training"]
       },
-      link: "https://spectacular-dango-d6bec1.netlify.app/#/",
+      link: "https://charming-sprinkles-d9df51.netlify.app/",
       featured: true
     },
     {
@@ -1692,26 +1692,26 @@ export default function PortfolioWebsite() {
     },
     {
       title: {
-        en: "Plain Language and Inclusivity",
-        de: "Einfache Sprache und Inklusivität"
+        en: "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility",
+        de: "E-Learning-Projekt (Articulate Rise): Klimawandel bekämpfen – eine gemeinsame Verantwortung"
       },
       category: {
         en: "E-Learning Module",
         de: "E-Learning-Modul"
       },
       description: {
-        en: "Created with Articulate Rise, focusing on making content accessible and inclusive for all users. Features enhanced accessibility controls including text-to-speech, focus indicators, and customizable display settings.",
-        de: "Erstellt mit Articulate Rise, mit Fokus auf barrierefreie und inklusive Inhalte für alle Nutzer. Mit erweiterten Barrierefreiheitsfunktionen wie Text-zu-Sprache, Fokusindikatoren und anpassbaren Anzeigeeinstellungen."
+        en: "An Articulate Rise module on climate change awareness, learner responsibility, and collective action. Designed for engaging, accessible environmental learning.",
+        de: "Ein Articulate Rise-Modul zur Sensibilisierung für den Klimawandel, gemeinschaftliche Verantwortung und kollektives Handeln. Entwickelt für ein ansprechendes, barrierefreies Umweltlernen."
       },
       tools: {
-        en: ["Articulate Rise", "Figma", "InVideo AI", "Copilot", "VS Code", "Vercel", "SCORM Cloud"],
-        de: ["Articulate Rise", "Figma", "InVideo AI", "Copilot", "VS Code", "Vercel", "SCORM Cloud"]
+        en: ["Articulate Rise", "Figma", "InVideo AI", "Premiere Pro", "Canva", "Copilot", "VS Code", "Vercel"],
+        de: ["Articulate Rise", "Figma", "InVideo AI", "Premiere Pro", "Canva", "Copilot", "VS Code", "Vercel"]
       },
       results: {
-        en: ["Enhanced accessibility features", "WCAG compliance", "Improved user engagement", "Clear communication"],
-        de: ["Erweiterte Barrierefreiheitsfunktionen", "WCAG-Konformität", "Erhöhte Nutzerbindung", "Klare Kommunikation"]
+        en: ["Climate awareness", "Learner engagement", "Inclusive environmental learning"],
+        de: ["Klimabewusstsein", "Nutzerbindung", "Inklusives Umweltlernen"]
       },
-      link: "https://plain-language-five.vercel.app",
+      link: "https://spectacular-dango-d6bec1.netlify.app/#/",
       featured: true
     },
     {
@@ -2554,11 +2554,11 @@ export default function PortfolioWebsite() {
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.filter(p => [
-                "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility",
-                "Plain Language and Inclusivity"
+                "E-Learning Project (Articulate Rise & Synthesia): Cybersecurity Essentials for Every Employee",
+                "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility"
               ].includes(p.title.en)).map((project, index) => {
                 let imgSrc = "";
-                if (project.title.en === "Plain Language and Inclusivity") imgSrc = "/images/b2.png";
+                if (project.title.en === "E-Learning Project (Articulate Rise & Synthesia): Cybersecurity Essentials for Every Employee") imgSrc = "/images/b2.png";
                 else if (project.title.en === "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility") imgSrc = "/images/b1.png";
                 return (
                   <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
