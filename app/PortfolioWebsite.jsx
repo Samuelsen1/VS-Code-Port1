@@ -3346,10 +3346,10 @@ export default function PortfolioWebsite() {
               isChatOpen ? 'scale-95' : 'hover:scale-110'
             }`}
             style={{
-              background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+              background: 'linear-gradient(135deg, #10b98100 0%, #8dccb800 100%)',
               boxShadow: isDarkTheme 
-                ? '0 4px 12px rgba(16, 185, 129, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
-                : '0 4px 15px rgba(16, 185, 129, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
+                ? '0 4px 12px rgba(26, 85, 187, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1)' 
+                : '0 4px 15px rgba(16, 53, 185, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
             }}
             aria-label={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
             title={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
