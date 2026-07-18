@@ -2038,7 +2038,7 @@ export default function PortfolioWebsite() {
           box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.3), 0 8px 16px -4px rgba(0, 0, 0, 0.1);
         }
         .text-gradient {
-          background: linear-gradient(135deg, #1e40af 0%, #3b82f6 40%, #6366f1 70%, #8b5cf6 100%);
+          background: linear-gradient(135deg, #1e40af 0%, #3b82f6 40%, #6366f1 70%, #8a5cf600 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
