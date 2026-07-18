@@ -2015,7 +2015,7 @@ export default function PortfolioWebsite() {
           outline-offset: 2px;
         }
         .glass-dark {
-          background: rgba(15, 23, 42, 0.9);
+          background: rgba(15, 23, 42, 0);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
         }
@@ -3391,7 +3391,7 @@ export default function PortfolioWebsite() {
               <button 
                 onClick={() => { setFabExpanded(false); setIsChatOpen(true); }} 
                 className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:scale-110 active:scale-95 border-2 border-white/30" 
-                style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', boxShadow: '0 4px 15px rgba(16, 185, 129, 0.4)' }} 
+                style={{ background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)', boxShadow: '0 4px 15px rgba(99, 102, 241, 0.4)' }} 
                 aria-label={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
               >
                 <img src="/images/general.png" alt="" width="54" height="54" className="w-[54px] h-[54px]" />
@@ -3491,7 +3491,7 @@ export default function PortfolioWebsite() {
         <div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center md:p-4" onClick={() => setIsChatOpen(false)}>
           <div 
             className={`relative w-full md:max-w-md max-h-[75vh] h-[65vh] md:h-[500px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}
-            style={{ border: '3px solid #10b981' }}
+            style={{ border: '3px solid #1018b9' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
