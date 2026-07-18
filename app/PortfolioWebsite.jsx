@@ -3354,7 +3354,7 @@ export default function PortfolioWebsite() {
             aria-label={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
             title={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
           >
-            <img src="/images/ai.png" alt="AI Assistant" width="51" height="51" loading="lazy" className="w-[51px] h-[51px] brightness-0 invert" />
+            <img src="/images/general.png" alt="AI Assistant" width="51" height="51" loading="lazy" className="w-[51px] h-[51px]" />
             {/* Subtle border effect */}
             <div 
               className="absolute inset-0 rounded-full pointer-events-none"
@@ -3394,7 +3394,7 @@ export default function PortfolioWebsite() {
                 style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', boxShadow: '0 4px 15px rgba(16, 185, 129, 0.4)' }} 
                 aria-label={language === 'en' ? 'AI Assistant' : 'KI-Assistent'}
               >
-                <img src="/images/ai.png" alt="" width="54" height="54" className="w-[54px] h-[54px] brightness-0 invert" />
+                <img src="/images/general.png" alt="" width="54" height="54" className="w-[54px] h-[54px]" />
               </button>
             </>
           )}
