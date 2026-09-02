@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, Trending Up, FileText, Sun, Moon, Volume2, Eye, EyeOff, Lightbulb, Type, Square, RotateCcw, Type as TypeIcon, MessageCircle, Send, X, Search, Plus, Navigation, Copy, Check } from 'lucide-react';
+import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, Trending Up, FileText, Sun, Moon, Volume2, Eye, EyeOff, Lightbulb, Type, Square, RotateCcw, Type as TypeIcon, MessageCircle, Send, X, Search, Plus, Navigation, Copy, Check, Phone, Award } from 'lucide-react';
 import sanitizeHtml from 'sanitize-html';
 
 // Lightweight sanitizer: strip script/iframe/on* to prevent XSS (add DOMPurify for stricter allowlist if needed)
@@ -830,6 +830,3 @@ export default function PortfolioWebsite() {
     </div>
   );
 }
-
-// Add missing import for Phone
-import { Phone, Award } from 'lucide-react';
