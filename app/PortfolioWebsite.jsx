@@ -559,7 +559,7 @@ setChatMessages([
       },
       about: {
         title: "About Me",
-        desc: "I'm a freelance instructional designer — not a student or intern. I combine a Master's in Media Studies with hands-on e-learning production for medtech and art/cultural clients. Right now I'm contracted with Node Center for Curatorial Studies in Berlin, turning specialist content into structured microlearning in Articulate Rise. I work end-to-end: stakeholder input, storyboarding, multimedia, localization, and WCAG-minded delivery."
+        desc: "I'm a freelance instructional designer with a Master's in Media Studies and hands-on e-learning production for medtech and art/cultural clients. Currently contracted with Node Center for Curatorial Studies in Berlin, I turn specialist content into structured microlearning in Articulate Rise — from stakeholder input and storyboarding through multimedia, localization, and accessible delivery."
       },
       projects: {
         title: "Featured Projects",
@@ -762,7 +762,7 @@ setChatMessages([
       },
       about: {
         title: "Über mich",
-        desc: "Ich bin Freelance-Instruktionsdesigner — kein Student, kein Praktikant. Master in Medienwissenschaften plus E-Learning-Produktion für Medtech und Kunst/Kultur. Derzeit für Node Center for Curatorial Studies in Berlin: Fachcontent in strukturiertes Microlearning (Articulate Rise). End-to-end: Stakeholder-Input, Storyboarding, Multimedia, Lokalisierung, WCAG-orientierte Auslieferung."
+        desc: "Ich bin Freelance-Instruktionsdesigner mit Master in Medienwissenschaften und Praxis in E-Learning-Produktion für Medtech und Kunst/Kultur. Derzeit für Node Center for Curatorial Studies in Berlin entwickle ich aus Fachcontent strukturiertes Microlearning in Articulate Rise — von Stakeholder-Input und Storyboarding bis Multimedia, Lokalisierung und barrierefreier Auslieferung."
       },
       projects: {
         title: "Ausgewählte Projekte",
