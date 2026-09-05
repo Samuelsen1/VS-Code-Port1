@@ -50,4 +50,4 @@ Built with love and accessibility in mind.
 Making the web better for everyone, one feature at a time.
 
 "Education is the most powerful weapon which you can use to change the world."
-— Nelson Mandela
+- Nelson Mandela
