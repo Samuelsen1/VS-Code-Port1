@@ -158,7 +158,7 @@ export default function PortfolioWebsite() {
       const a = localStorage.getItem('accessibility');
       if (a) {
         const parsed = JSON.parse(a);
-        if (parsed && typeof parsed === 'object') setAccessibility(prev => ({ ...prev...parsed }));
+        if (parsed && typeof parsed === 'object') setAccessibility(prev => ({ ...prev, ...parsed }));
       }
     } catch (e) { /* ignore */ }
   }, []);
