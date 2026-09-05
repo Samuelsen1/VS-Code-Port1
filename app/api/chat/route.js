@@ -6,15 +6,19 @@ const GENERAL_AI_URL = process.env.GENERAL_AI_URL || 'https://general-ai-wheat.v
 
 // Samuel's comprehensive CV data
 const cvData = `
-SAMUEL AFRIYIE OPOKU
-Digital Learning Designer | Web Portfolio: https://vs-code-port1.vercel.app
+SAMUEL OPOKU
+Digital Learning Designer | Freelance Instructional Designer
 Location: Große Klosterkoppel 8, 23562 Lübeck
 Phone: +49 171 5811680
 Email: gideonsammysen@gmail.com
 LinkedIn: https://www.linkedin.com/in/samuel-o-4b9bbb2a8
+Website: https://vs-code-port1.vercel.app
+
+PROFESSIONAL STATUS:
+Freelance Instructional Designer — not a student, not an intern. Currently contracted with Node Center for Curatorial Studies (Berlin) since August 2026.
 
 PROFESSIONAL SUMMARY:
-Digital Learning Designer combining instructional design theory and practice. Master's in Media Studies and Bachelor's in Education. Develops accessible, learner-centered e-learning using Articulate 360, Adobe Creative Suite, AI tools, and LMS platforms, with experience in medtech and nonprofit sectors.
+Digital Learning Designer combining instructional design theory and practice. Master's in Media Studies (completed March 2026, grade 2.3) and Bachelor's in Education (First Class Honours). Develops accessible, learner-centered e-learning using Articulate 360, Adobe Creative Suite, AI tools, and LMS platforms, with experience in medtech and art/cultural sectors.
 
 SKILLS & COMPETENCIES:
 Instructional Design: ADDIE | Bloom's Taxonomy | Adult Learning Theory | Storyboarding | LXD | Curriculum Development
@@ -25,12 +29,12 @@ Technical Communication: User Guides | Knowledge-Base Documentation | Cross-Cult
 TOOLS & TECHNOLOGIES:
 E-Learning Authoring & LMS: Articulate 360 (Storyline, Rise) | Moodle
 Design & Multimedia: Adobe Creative Suite (Premiere Pro, Photoshop, InDesign) | Figma | Synthesia | Descript | Canva
-Web & AI Development: HTML | CSS | XML | Markdown | API Integration | Prompt Coding
+Web & AI Development: HTML | CSS | Markdown | API Integration | Prompt Coding
 Development Tools: GitHub | VS Code | Cursor | Vercel
 Productivity & Collaboration: Google Workspace | Microsoft 365 (Word, PowerPoint, SharePoint, Teams, Excel) | Notion | Confluence
 
 EDUCATION:
-- Master's in North American Studies (Media Studies) (Grade: 2.0 | Gut) (Oct 2023 – March 2026) - Philipps-Universität Marburg, Germany
+- Master's in North American Studies (Media Studies) (Grade: 2.3 | Gut) (Oct 2023 – March 2026) - Philipps-Universität Marburg, Germany
   Master's Thesis: "AI as Reflection: Human-Technology Relationships in Digital Narratives"
 
 - Bachelor of Education in English Language (Grade: 1.4 | First Class Honours) (Oct 2018 – Oct 2022) - University of Cape Coast, Ghana
@@ -38,27 +42,27 @@ EDUCATION:
 
 PROFESSIONAL EXPERIENCE:
 
-1. E-Learning Developer (Intern) (Feb 2026 – Present) - Dräger, Lübeck
-   - Develop interactive e-learning modules using Articulate 360, contributing to script and storyboard refinement for instructional clarity and consistency
-   - Manage end-to-end video production, including shoots, editing, and audio optimisation using Adobe Premiere Pro
-   - Utilise AI-powered tools to create multilingual versions of e-learning modules, improving accessibility and global reach
-   - Progressively take ownership of e-learning projects, managing them independently from concept through to delivery
+1. Instructional Designer (Freelance) (Aug 2026 – Present) - Node Center for Curatorial Studies, Berlin
+   - Translates subject-matter input into structured, learner-friendly content, applying instructional design principles to a specialist, non-technical audience
+   - Designs and develops e-learning modules in Articulate Rise for museum and curatorial staff
+   - Manages iterative stakeholder review cycles, translating feedback into refined tone, structure, and visual design
 
-2. Digital Learning Designer (Intern) (June 2025 – Nov 2025) - Tanz der Kulturen e.V., Hamburg
-   - Designed 25+ accessible multimedia learning assets (infographics, promotional materials) in line with WCAG 2.1, expanding reach to diverse learner groups
+2. E-Learning Developer (Intern) (Feb 2026 – July 2026) - Dräger, Lübeck
+   - Produced and edited instructional videos (Adobe Premiere Pro) for global product training on medical and safety equipment, from shoot to final cut
+   - Built and transferred existing e-learning content into Articulate Rise, restructuring PowerPoint materials to align with Corporate Identity standards
+   - Utilised AI-powered tools to create multilingual versions of e-learning modules, improving accessibility and global reach
+
+3. Digital Learning Designer (Intern) (June 2025 – Nov 2025) - Tanz der Kulturen e.V., Hamburg
+   - Designed 25+ accessible multimedia learning assets (infographics, promotional materials) in line with WCAG 2.1 using Figma, expanding reach to diverse learner groups
    - Curated and structured 50+ educational resources for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners
    - Localized 300+ pages of German instructional content (e.g., Rituelle Tanz Pädagogik book) into English using AI-assisted translation, preserving natural flow
 
-3. English Language Teacher & Administrative Assistant (Jan 2023 – Oct 2023) - Ghana National Service Scheme, Kumasi
+4. English Language Teacher & Administrative Assistant (Jan 2023 – Oct 2023) - Ghana National Service Scheme, Kumasi
    - Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy, enhancing comprehension, writing, and speaking skills
    - Managed administrative tasks, including student records, scheduling, and correspondence
 
-4. English Language Teaching Assistant (Intern) (June 2021 – Dec 2021) - Ghana Education Service, Kumasi
-   - Developed a box-part-letter handwriting method, improving first-year student performance by 40%
+5. English Language Teaching Assistant (Intern) (June 2021 – Dec 2021) - Ghana Education Service, Kumasi
    - Facilitated lessons integrating assessment strategies and instructional scaffolding aligned to learning outcomes
-
-5. English Language Teacher (Working Student) (Jan 2020 – June 2020) - Kovak Hill Educational Centre, Kumasi
-   - Developed and implemented lesson plans following ADDIE principles, ensuring alignment with curriculum standards and learner engagement strategies
 
 CERTIFICATIONS & TRAINING:
 - Instructional Design Foundations & Applications – University of Illinois Urbana-Champaign (Aug 14, 2025)
@@ -66,18 +70,15 @@ CERTIFICATIONS & TRAINING:
 - Technical Writing Course – Board Infinity (April 2, 2025)
 
 PORTFOLIO HIGHLIGHTS:
-E-Learning (Articulate Rise): Combating Climate Change: A Collective Responsibility — https://spectacular-dango-d6bec1.netlify.app/#/
-Product Training (Articulate 360): Dräger Fundamentals of Controllers | Dräger X-am 2800/5800 (sales training) | Dräger Medical Vacuum Systems (samples on request)
-Plain Language & Inclusive Communication (Rise) — https://plain-language-five.vercel.app
-Poster (Figma): Creative content aligned with brand identity
-Knowledge Base (Notion): ADDIE-based documentation for LLMs & Sustainability | Climate change resources
-Portfolio Website: Bilingual (EN/DE), dark/light theme, AI assistants, advanced accessibility — https://vs-code-port1.vercel.app
-AI: Prompt-engineered advanced assistant (LLM) — https://general-ai-wheat.vercel.app
-Technical writing samples (DITA, guides): https://github.com/Samuelsen1/Tech-Writing-Samples
+- E-Learning (Articulate Rise): Cybersecurity Essentials for Every Employee
+- E-Learning (Articulate Rise): Combating Climate Change: A Collective Responsibility
+- Product Training: Dräger Fundamentals of Controllers
+- Sales Training: Dräger X-am 2800/5800
+- Product Training: Dräger Vacuum Systems
 
 LANGUAGES:
 - English – Native/Bilingual
-- German – B1 Intermediate (B2 in progress)
+- German – B1 Intermediate
 - Akan – Native
 
 PERSONAL ATTRIBUTES:
@@ -608,8 +609,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Rollen-Priorisierung für Recruiter:**\n\n🎯 **Primäre Priorität:**\n**Instruktionsdesign, Digital Learning Design oder E-Learning-Entwicklung** sollten priorisiert werden. Das sind Samuels Hauptkompetenzen und Karriereziel.\n\n📝 **Sekundäre Option:**\n**Technical Writing und Dokumentationsspezialist-Rollen** sind eine starke sekundäre Option, insbesondere dort, wo Dokumentation, Lernen und Benutzerunterstützung sich überschneiden.\n\n**Verfügbarkeit:** Samuel ist verfügbar für Vollzeit-Rollen ab April/Mai 2026 (nach Abschluss des verpflichtenden Teils seiner Masterarbeit).\n\n**Kontakt:** gideonsammysen@gmail.com für Anfragen"
-        : "**Role Prioritization for Recruiters:**\n\n🎯 **Primary Priority:**\n**Instructional Design, Digital Learning Design, or E-Learning Development** should be prioritized. These are Samuel's core competencies and career goals.\n\n📝 **Secondary Option:**\n**Technical Writing and Documentation Specialist roles** are a strong secondary option, particularly where documentation, learning, and user enablement intersect.\n\n**Availability:** Samuel is available for full-time roles starting April/May 2026 (after completing the mandatory part of his internship).\n\n**Contact:** gideonsammysen@gmail.com for inquiries";
+        ? "**Rollen-Priorisierung für Recruiter:**\n\n🎯 **Primäre Priorität:**\n**Instruktionsdesign, Digital Learning Design oder E-Learning-Entwicklung** sollten priorisiert werden. Das sind Samuels Hauptkompetenzen und Karriereziel.\n\n📝 **Sekundäre Option:**\n**Technical Writing und Dokumentationsspezialist-Rollen** sind eine starke sekundäre Option, insbesondere dort, wo Dokumentation, Lernen und Benutzerunterstützung sich überschneiden.\n\n**Verfügbarkeit:** Samuel ist Freelance-Instruktionsdesigner (Node Center for Curatorial Studies) und offen für weitere Freelance- und Vertragsprojekte.\n\n**Kontakt:** gideonsammysen@gmail.com für Anfragen"
+        : "**Role Prioritization for Recruiters:**\n\n🎯 **Primary Priority:**\n**Instructional Design, Digital Learning Design, or E-Learning Development** should be prioritized. These are Samuel's core competencies and career goals.\n\n📝 **Secondary Option:**\n**Technical Writing and Documentation Specialist roles** are a strong secondary option, particularly where documentation, learning, and user enablement intersect.\n\n**Availability:** Samuel is a freelance instructional designer, currently at Node Center for Curatorial Studies, and open to additional freelance and contract work.\n\n**Contact:** gideonsammysen@gmail.com for inquiries";
     }
     
     // Secondary role - Technical Writing
@@ -638,8 +639,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Karrierewechsel? Nein.**\n\nNein. Instruktionsdesign bleibt mein primärer Karriereweg. Technical Writing ergänzt diese Arbeit, indem es Dokumentationsqualität, Informationsarchitektur und Benutzerunterstützung stärkt.\n\n**Perspektive:** Ich sehe Technical Writing als eine wertvolle parallele Spezialisierung, die skalierbare Lernsysteme, Produktadoption und Benutzererfolg unterstützt – nicht als vorübergehende Beschäftigung.\n\n**Hauptziel:** Vollzeit-Rollen in Instruktionsdesign, Digital Learning Design oder E-Learning-Entwicklung ab April/Mai 2026 (nach Abschluss des verpflichtenden Teils meiner Masterarbeit)."
-        : "**Switching Careers? No.**\n\nNo. Instructional design remains my primary career path. Technical writing complements this work by strengthening documentation quality, information architecture, and user support.\n\n**Perspective:** I see technical writing as a valuable parallel specialization that supports scalable learning systems, product adoption, and user success—not as a temporary pursuit.\n\n**Main Goal:** Full-time roles in Instructional Design, Digital Learning Design, or E-Learning Development starting April/May 2026 (after completing the mandatory part of my internship).";
+        ? "**Karrierewechsel? Nein.**\n\nNein. Instruktionsdesign bleibt mein primärer Karriereweg. Technical Writing ergänzt diese Arbeit, indem es Dokumentationsqualität, Informationsarchitektur und Benutzerunterstützung stärkt.\n\n**Perspektive:** Ich sehe Technical Writing als eine wertvolle parallele Spezialisierung, die skalierbare Lernsysteme, Produktadoption und Benutzererfolg unterstützt – nicht als vorübergehende Beschäftigung.\n\n**Hauptziel:** Freelance- und Vertragsarbeit in Instruktionsdesign und E-Learning; derzeit Node Center for Curatorial Studies."
+        : "**Switching Careers? No.**\n\nNo. Instructional design remains my primary career path. Technical writing complements this work by strengthening documentation quality, information architecture, and user support.\n\n**Perspective:** I see technical writing as a valuable parallel specialization that supports scalable learning systems, product adoption, and user success—not as a temporary pursuit.\n\n**Main Goal:** Freelance and contract instructional design and e-learning work; currently engaged with Node Center for Curatorial Studies.";
     }
     
     // Team fit / Hybrid/Remote
@@ -648,8 +649,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Team-Fit und Arbeitsmodalitäten:**\n\n**Mit welchen Teams arbeite ich am besten?**\nSamuel arbeitet gut mit Lern- & Entwicklungsteams, HR, Produktteams, Fachexperten, Ingenieuren und Compliance-Stakeholdern zusammen – besonders in strukturierten, dokumentationsorientierten Umgebungen.\n\n**Arbeitsmodalitäten:**\n• **Vor-Ort** – Verfügbar in Deutschland (Lübeck/Marburg)\n• **Hybrid** – Flexible Kombination aus vor Ort und remote\n• **Remote** – Vollständig remote je nach Team-Bedarf und Projektstruktur\n\n**Verfügbar ab:** April/Mai 2026 für Vollzeit-Rollen (nach Abschluss des verpflichtenden Teils seiner Masterarbeit)"
-        : "**Team Fit & Work Modalities:**\n\n**What types of teams do I work best with?**\nSamuel works well with learning & development teams, HR, product teams, SMEs, engineers, and compliance stakeholders—especially in structured, documentation-driven environments.\n\n**Work Modalities:**\n• **On-Site** – Available in Germany (Lübeck/Marburg)\n• **Hybrid** – Flexible combination of on-site and remote\n• **Remote** – Fully remote depending on team needs and project structure\n\n**Available from:** April/May 2026 for full-time roles (after completing the mandatory part of his internship).";
+        ? "**Team-Fit und Arbeitsmodalitäten:**\n\n**Mit welchen Teams arbeite ich am besten?**\nSamuel arbeitet gut mit Lern- & Entwicklungsteams, HR, Produktteams, Fachexperten, Ingenieuren und Compliance-Stakeholdern zusammen – besonders in strukturierten, dokumentationsorientierten Umgebungen.\n\n**Arbeitsmodalitäten:**\n• **Vor-Ort** – Verfügbar in Deutschland (Lübeck/Marburg)\n• **Hybrid** – Flexible Kombination aus vor Ort und remote\n• **Remote** – Vollständig remote je nach Team-Bedarf und Projektstruktur\n\n**Aktuell:** Freelance bei Node Center for Curatorial Studies; offen für weitere Projekte"
+        : "**Team Fit & Work Modalities:**\n\n**What types of teams do I work best with?**\nSamuel works well with learning & development teams, HR, product teams, SMEs, engineers, and compliance stakeholders—especially in structured, documentation-driven environments.\n\n**Work Modalities:**\n• **On-Site** – Available in Germany (Lübeck/Marburg)\n• **Hybrid** – Flexible combination of on-site and remote\n• **Remote** – Fully remote depending on team needs and project structure\n\n**Currently:** Freelance at Node Center for Curatorial Studies; open to additional projects.";
     }
     
     // Portfolio with link
@@ -715,8 +716,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Verfügbarkeit:**\n\n📅 **Vollzeit verfügbar ab:** April/Mai 2026 (nach Abschluss des verpflichtenden Teils seiner Masterarbeit)\n\n💼 **Aktuell verfügbar für:**\n• **Freelance-Projekte** – Digital Learning Design oder Technical Writing\n• **Teilzeit-Rollen** – Flexible Zusammenarbeit während des Studiums\n• **Beratungsaufträge** – Expertise in Barrierefreiheit und Instruktionsdesign\n\n**Kontakt:** gideonsammysen@gmail.com\n\n---\n\n💼 **Aktuell:** E-Learning Developer (Praktikant) bei Dräger, Lübeck\n\n🎓 **Aktuell:** Master-Student an der Philipps-Universität Marburg (North American Studies, Medienwissenschaften)\n\n**Schwerpunkte:** Digital Learning Design, Technical Writing, Content-Lokalisierung, Barrierefreiheit"
-        : "**Samuel's Availability:**\n\n📅 **Full-time available from:** April/May 2026 (after completing the mandatory part of his master's thesis requirements)\n\n💼 **Currently available for:**\n• **Freelance Projects** – Digital Learning Design or Technical Writing\n• **Part-Time Roles** – Flexible collaboration during studies\n• **Consultation Projects** – Expertise in accessibility and instructional design\n\n**Contact:** gideonsammysen@gmail.com\n\n---\n\n💼 **Current:** E-Learning Developer (Intern) at Dräger, Lübeck\n\n🎓 **Currently:** Master's student at Philipps-Universität Marburg (North American Studies, Media Studies)\n\n**Focus Areas:** Digital Learning Design, Technical Writing, Content Localization, Accessibility";
+        ? "**Samuels Verfügbarkeit:**\n\n💼 **Aktuelle Rolle:** Freelance Instructional Designer bei **Node Center for Curatorial Studies**, Berlin (seit August 2026)\n\n📋 **Status:** Kein Student, kein Praktikant — Master abgeschlossen (März 2026)\n\n✅ **Offen für:**\n• Weitere Freelance-Projekte (Instruktionsdesign & E-Learning)\n• Vertrags- und Beratungsarbeit (Medtech, Kultur/Museum, Corporate L&D)\n• Remote, hybrid oder vor Ort in Deutschland\n\n**Kontakt:** gideonsammysen@gmail.com"
+        : "**Samuel's Availability:**\n\n💼 **Current role:** Freelance Instructional Designer at **Node Center for Curatorial Studies**, Berlin (since August 2026)\n\n📋 **Status:** Not a student or intern — Master's completed March 2026\n\n✅ **Open to:**\n• Additional freelance instructional design & e-learning projects\n• Contract and consulting work (medtech, cultural/museum, corporate L&D)\n• Remote, hybrid, or on-site in Germany\n\n**Contact:** gideonsammysen@gmail.com";
     }
     
     // Experience/Work History (exclude when sentence clearly asks about availability: "when ... available", "available for employment")
@@ -727,8 +728,44 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Berufserfahrung im Überblick:**\n\n🎯 **Aktuell (seit Februar 2026):**\n**E-Learning Developer (Praktikant)** bei **Dräger, Lübeck**\n• Entwickelt interaktive E-Learning-Module mit Articulate 360; wirkt an Skript- und Storyboard-Verfeinerung für didaktische Klarheit und Konsistenz\n• Verantwortet die Videoendproduktion inklusive Drehs, Schnitt und Audiooptimierung mit Adobe Premiere Pro\n• Nutzt KI-gestützte Tools für mehrsprachige Versionen der E-Learning-Module und verbessert Zugänglichkeit und globale Reichweite\n• Übernimmt sukzessive die eigenständige Projektverantwortung von der Konzeption bis zur Auslieferung\n\n📚 **Zuletzt (Juni–November 2025):**\n**Digital Learning Designer (Praktikant)** bei **Tanz der Kulturen e.V., Hamburg**\n• **25+ barrierefreie Multimedia-Lerninhalte** gestaltet (Infografiken, Werbematerialien) nach WCAG 2.1-Standards, Erweiterung der Reichweite auf diverse Lerngruppen\n• **50+ Bildungsressourcen** kuratiert und strukturiert für transkulturelle Kunstpädagogik, Unterstützung von 200+ internationalen, kommunalen und ERASMUS-Lernenden\n• **300+ Seiten** deutscher Unterrichtsinhalte (z.B. 'Rituelle Tanz Pädagogik' Buch) ins Englische lokalisiert mit KI-gestützter Übersetzung unter Beibehaltung des natürlichen Flusses\n\n👨‍🏫 **Januar–Oktober 2023:**\n**Englischlehrer & Verwaltungsassistent** bei **Ghana National Service Scheme, Kumasi**\n• Englischunterricht entworfen und durchgeführt mit Lernzielen nach Bloom's Taxonomie\n• Verbesserung von Verständnis, Schreib- und Sprechfertigkeiten\n• Verwaltungsaufgaben verwaltet (Schülerakten, Zeitplanung, Korrespondenz)\n\n👨‍🏫 **Juni–Dezember 2021:**\n**Englischlehrassistent (Praktikant)** bei **Ghana Education Service, Kumasi**\n• **Box-Part-Letter-Handschriftmethode** entwickelt, die die Leistung von Erstklässlern um **40% verbesserte**\n• Unterrichtseinheiten durchgeführt mit Bewertungsstrategien und Unterrichtsstützung\n\n👨‍🏫 **Januar–Juni 2020:**\n**Englischlehrer (Arbeitender Student)** bei **Kovak Hill Educational Centre, Kumasi**\n• Unterrichtspläne nach ADDIE-Prinzipien entwickelt und durchgeführt\n• Übereinstimmung mit Lehrplannormen und Lernerbeteiligungsstrategien sichergestellt\n\n**Gesamt:** 1+ Jahr Digital Learning Design + 3+ Jahre Lehre"
-        : "**Samuel's Professional Experience Overview:**\n\n🎯 **Current (February 2026 – Present):**\n**E-Learning Developer (Intern)** at **Dräger, Lübeck**\n• Develop interactive e-learning modules using Articulate 360, contributing to script and storyboard refinement for instructional clarity and consistency\n• Manage end-to-end video production, including shoots, editing, and audio optimisation using Adobe Premiere Pro\n• Utilise AI-powered tools to create multilingual versions of e-learning modules, improving accessibility and global reach\n• Progressively take ownership of e-learning projects, managing them independently from concept through to delivery\n\n📚 **Most Recent (June–November 2025):**\n**Digital Learning Designer (Intern)** at **Tanz der Kulturen e.V., Hamburg**\n• **Designed 25+ accessible multimedia learning assets** (infographics, promotional materials) in line with WCAG 2.1, expanding reach to diverse learner groups\n• **Curated and structured 50+ educational resources** for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners\n• **Localized 300+ pages** of German instructional content (e.g., 'Rituelle Tanz Pädagogik' book) into English using AI-assisted translation, preserving natural flow\n\n👨‍🏫 **January–October 2023:**\n**English Language Teacher & Administrative Assistant** at **Ghana National Service Scheme, Kumasi**\n• Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy\n• Enhanced comprehension, writing, and speaking skills\n• Managed administrative tasks (student records, scheduling, correspondence)\n\n👨‍🏫 **June–December 2021:**\n**English Language Teaching Assistant (Intern)** at **Ghana Education Service, Kumasi**\n• **Developed box-part-letter handwriting method** that improved first-year student performance by **40%**\n• Facilitated lessons integrating assessment strategies and instructional scaffolding\n\n👨‍🏫 **January–June 2020:**\n**English Language Teacher (Working Student)** at **Kovak Hill Educational Centre, Kumasi**\n• Developed and implemented lesson plans following ADDIE principles\n• Ensured alignment with curriculum standards and learner engagement strategies\n\n**Total:** 1+ year Digital Learning Design + 3+ years Teaching";
+        ? "**Samuels Berufserfahrung im Überblick:**
+
+🎯 **Aktuell (seit August 2026):**
+**Instructional Designer (Freelance)** bei **Node Center for Curatorial Studies**, Berlin
+• Übersetzt Fachinput in strukturierte, lernfreundliche Inhalte für spezialisierte, nicht-technische Zielgruppen
+• Konzipiert und entwickelt E-Learning-Module in Articulate Rise für Museum- und Kuratoren-Teams
+• Steuert iterative Stakeholder-Review-Zyklen
+
+🏭 **Zuletzt (Feb–Juli 2026):**
+**E-Learning Developer (Praktikant)** bei **Dräger, Lübeck**
+• Produzierte und schnitt Lehrvideos (Premiere Pro) für globale Produktschulungen
+• E-Learning-Inhalte in Articulate Rise (Corporate Identity)
+• Mehrsprachige E-Learning-Versionen mit KI
+
+📚 **Juni–Nov 2025:** **Digital Learning Designer (Praktikant)** bei **Tanz der Kulturen e.V., Hamburg** — 25+ Figma-Assets, 50+ Ressourcen, 300+ Seiten lokalisiert
+
+👨‍🏫 **Früher:** Englischunterricht (NSS 2023, GES 2021)
+
+**Status:** Freelance-Instruktionsdesigner — Master abgeschlossen März 2026; kein Student, kein Praktikant."
+        : "**Samuel's Professional Experience Overview:**
+
+🎯 **Current (August 2026 – Present):**
+**Instructional Designer (Freelance)** at **Node Center for Curatorial Studies**, Berlin
+• Translates subject-matter input into structured, learner-friendly content for specialist, non-technical audiences
+• Designs and develops e-learning modules in Articulate Rise for museum and curatorial staff
+• Manages iterative stakeholder review cycles, refining tone, structure, and visual design
+
+🏭 **Recent (February – July 2026):**
+**E-Learning Developer (Intern)** at **Dräger, Lübeck**
+• Produced and edited instructional videos (Adobe Premiere Pro) for global product training
+• Built and transferred e-learning into Articulate Rise; restructured PowerPoint to Corporate Identity standards
+• AI-powered multilingual e-learning versions
+
+📚 **June – November 2025:** **Digital Learning Designer (Intern)** at **Tanz der Kulturen e.V., Hamburg** — 25+ Figma assets, 50+ curated resources, 300+ pages localized DE→EN
+
+👨‍🏫 **Earlier:** English teaching at Ghana National Service Scheme (2023) and Ghana Education Service (2021)
+
+**Status:** Freelance instructional designer — Master's completed March 2026; not a student or intern."
     }
     
     // Skills (general)
@@ -747,8 +784,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Ausbildung:**\n\n🎓 **Master in North American Studies (Medienwissenschaften)**\nPhilipps-Universität Marburg, Deutschland (Oktober 2023 – Aktuell)\n\n**Relevante Kurse:**\n• Medien, Visuelle Kunst\n• Wissenschaftliches Schreiben für Forschung\n• Umstrittene Nachhaltigkeit\n\n**Masterarbeit:**\n'KI als Reflexion: Mensch-Technologie-Beziehungen in digitalen Narrativen'\n\n**Fokus:** Analyse der Wechselwirkung zwischen Mensch und Technologie in digitalen Medien und Narrativen.\n\n---\n\n🎓 **Bachelor of Education in Englischer Sprache**\nUniversity of Cape Coast, Ghana (Oktober 2018 – Oktober 2022)\n**Abschluss:** CGPA 3.6/4.0 (≈ Deutsche Note 1.4 – Sehr gut)\n\n**Relevante Kurse:**\n• Pädagogische Psychologie\n• Lehrplanstudien (Curriculum Studies)\n• Bewertung & Evaluation (Assessment & Evaluation)\n• Erziehung von Personen mit vielfältigen Lernbedürfnissen\n• Forschungsmethoden in der Bildung\n• Bildungsstatistik\n• Sprachwissenschaften & Linguistik\n• Semantik & Übersetzung\n• Englisch in mehrsprachigen Kontexten\n\n**Pädagogischer Hintergrund:** Samuel's Bachelor-Abschluss in Englischer Bildung bildet die Grundlage für seine Instruktionsdesign-Expertise und Unterrichtserfahrung.\n\n**Kontinuierliche Weiterbildung:** Samuel hält seine Fähigkeiten durch aktuelle Zertifizierungen in Digital Learning Design und Technical Writing auf dem neuesten Stand."
-        : "**Samuel's Education:**\n\n🎓 **Master's in North American Studies (Media Studies)**\nPhilipps-Universität Marburg, Germany (October 2023 – Present)\n\n**Relevant Courses:**\n• Media, Visual Art\n• Writing for Research\n• Contested Sustainability\n\n**Master's Thesis:**\n'AI as Reflection: Human-Technology Relationships in Digital Narratives'\n\n**Focus:** Analysis of the interplay between humans and technology in digital media and narratives.\n\n---\n\n🎓 **Bachelor of Education in English Language**\nUniversity of Cape Coast, Ghana (October 2018 – October 2022)\n**Degree:** CGPA 3.6/4.0 (≈ German 1.4 – Excellent)\n\n**Relevant Courses:**\n• Educational Psychology\n• Curriculum Studies\n• Assessment & Evaluation\n• Educating Individuals with Diverse Learning Needs\n• Research Methods in Education\n• Educational Statistics\n• Language & Linguistics\n• Semantics & Translation\n• English in Multilingual Contexts\n\n**Educational Foundation:** Samuel's Bachelor's degree in English Education forms the foundation for his instructional design expertise and teaching experience.\n\n**Continuous Learning:** Samuel keeps his skills current with recent certifications in Digital Learning Design and Technical Writing.";
+        ? "**Samuels Ausbildung:**\n\n🎓 **Master in North American Studies (Medienwissenschaften)**\nPhilipps-Universität Marburg, Deutschland (Oktober 2023 – März 2026, abgeschlossen, Note 2,3)\n\n**Relevante Kurse:**\n• Medien, Visuelle Kunst\n• Wissenschaftliches Schreiben für Forschung\n• Umstrittene Nachhaltigkeit\n\n**Masterarbeit:**\n'KI als Reflexion: Mensch-Technologie-Beziehungen in digitalen Narrativen'\n\n**Fokus:** Analyse der Wechselwirkung zwischen Mensch und Technologie in digitalen Medien und Narrativen.\n\n---\n\n🎓 **Bachelor of Education in Englischer Sprache**\nUniversity of Cape Coast, Ghana (Oktober 2018 – Oktober 2022)\n**Abschluss:** CGPA 3.6/4.0 (≈ Deutsche Note 1.4 – Sehr gut)\n\n**Relevante Kurse:**\n• Pädagogische Psychologie\n• Lehrplanstudien (Curriculum Studies)\n• Bewertung & Evaluation (Assessment & Evaluation)\n• Erziehung von Personen mit vielfältigen Lernbedürfnissen\n• Forschungsmethoden in der Bildung\n• Bildungsstatistik\n• Sprachwissenschaften & Linguistik\n• Semantik & Übersetzung\n• Englisch in mehrsprachigen Kontexten\n\n**Pädagogischer Hintergrund:** Samuel's Bachelor-Abschluss in Englischer Bildung bildet die Grundlage für seine Instruktionsdesign-Expertise und Unterrichtserfahrung.\n\n**Kontinuierliche Weiterbildung:** Samuel hält seine Fähigkeiten durch aktuelle Zertifizierungen in Digital Learning Design und Technical Writing auf dem neuesten Stand."
+        : "**Samuel's Education:**\n\n🎓 **Master's in North American Studies (Media Studies)**\nPhilipps-Universität Marburg, Germany (October 2023 – March 2026, completed, grade 2.3)\n\n**Relevant Courses:**\n• Media, Visual Art\n• Writing for Research\n• Contested Sustainability\n\n**Master's Thesis:**\n'AI as Reflection: Human-Technology Relationships in Digital Narratives'\n\n**Focus:** Analysis of the interplay between humans and technology in digital media and narratives.\n\n---\n\n🎓 **Bachelor of Education in English Language**\nUniversity of Cape Coast, Ghana (October 2018 – October 2022)\n**Degree:** CGPA 3.6/4.0 (≈ German 1.4 – Excellent)\n\n**Relevant Courses:**\n• Educational Psychology\n• Curriculum Studies\n• Assessment & Evaluation\n• Educating Individuals with Diverse Learning Needs\n• Research Methods in Education\n• Educational Statistics\n• Language & Linguistics\n• Semantics & Translation\n• English in Multilingual Contexts\n\n**Educational Foundation:** Samuel's Bachelor's degree in English Education forms the foundation for his instructional design expertise and teaching experience.\n\n**Continuous Learning:** Samuel keeps his skills current with recent certifications in Digital Learning Design and Technical Writing.";
     }
     
     // Portfolio/Projects (general overview – only when user is NOT explicitly asking for links)
@@ -763,7 +800,7 @@ ${cvData}
       confidence = 1;
       response = isGerman
         ? "**Samuels Portfolio-Highlights:**\n\n🎓 **E-Learning (Articulate Rise):**\n• **Combating Climate Change: A Collective Responsibility** – öffentliches Rise-Modul\n• **Plain Language & Inclusive Communication** – Barrierefreiheits-Panel (WCAG 2.1)\n• **E-Learning Accessibility Best Practices** – integriert im Plain-Language-Modul\n\n🏭 **Dräger-Schulungen (auf Anfrage):** Fundamentals of Controllers | X-am 2800/5800 | Medical Vacuum Systems\n\n📚 **Wissensdatenbanken (Notion):** LLMs & Nachhaltigkeit | Klimawandel-Minderung\n\n📄 **Technical Writing:** Welth Health Platform (DITA) – GitHub Tech-Writing-Samples\n\n🌐 **Web & KI:** Portfolio-Website (EN/DE, Barrierefreiheit) | General KI-Assistent\n\n**Alle Projekte zeigen:** Benutzerzentriertes Design, WCAG-orientierte Arbeit und messbare Ergebnisse."
-        : "**Samuel's Portfolio Highlights:**\n\n🎓 **E-Learning (Articulate Rise):**\n• **Combating Climate Change: A Collective Responsibility** – public Rise module\n• **Plain Language & Inclusive Communication** – accessibility panel (WCAG 2.1)\n• **E-Learning Accessibility Best Practices** – embedded in the Plain Language module\n\n🏭 **Dräger training (on request):** Fundamentals of Controllers | X-am 2800/5800 | Medical Vacuum Systems\n\n📚 **Knowledge bases (Notion):** LLMs & sustainability | climate mitigation\n\n📄 **Technical writing:** Welth Health Platform (DITA) – GitHub Tech-Writing-Samples\n\n🌐 **Web & AI:** Portfolio site (EN/DE, accessibility) | General AI assistant\n\n**Across projects:** User-centered design, WCAG-oriented work, and measurable outcomes.";
+        : "**Samuel's Portfolio Highlights:**\n\n🎓 **E-Learning (Articulate Rise):**\n• **Cybersecurity Essentials for Every Employee** – Articulate Rise & Synthesia\n• **Combating Climate Change: A Collective Responsibility** – public Rise module\n• **Plain Language & Inclusive Communication** – accessibility panel (WCAG 2.1)\n• **E-Learning Accessibility Best Practices** – embedded in the Plain Language module\n\n🏭 **Dräger training (on request):** Fundamentals of Controllers | X-am 2800/5800 | Medical Vacuum Systems\n\n📚 **Knowledge bases (Notion):** LLMs & sustainability | climate mitigation\n\n📄 **Technical writing:** Welth Health Platform (DITA) – GitHub Tech-Writing-Samples\n\n🌐 **Web & AI:** Portfolio site (EN/DE, accessibility) | General AI assistant\n\n**Across projects:** User-centered design, WCAG-oriented work, and measurable outcomes.";
     }
     
     // Tools/Software
@@ -792,8 +829,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Sprachen:**\n\n🗣️ **Englisch** – Muttersprache/Bilingual (C1 Advanced zertifiziert, 67/100)\n• Professionelle Kommunikation in Englisch\n• Technical Writing und Dokumentation auf Englisch\n• Unterrichtserfahrung in Englisch als Fremdsprache\n\n🗣️ **Deutsch** – B1 (Mittelstufe)\n• Lebt und studiert seit 2023 in Deutschland\n• Lokalisierungserfahrung: 300+ Seiten Deutsch→Englisch\n• Arbeitet aktiv daran, sein Deutsch zu verbessern\n\n🗣️ **Akan** – Fließend (Ghanaische Muttersprache)\n• Muttersprachliche Kenntnisse\n• Kulturelle Kommunikation\n\n**Lokalisierungserfahrung:** Samuel hat 300+ Seiten deutschen Unterrichtsinhalts ins Englische lokalisiert und dabei den natürlichen Fluss und die Stimme bewahrt. Diese Erfahrung zeigt seine Fähigkeit, zwischen Sprachen und Kulturen zu vermitteln."
-        : "**Samuel's Languages:**\n\n🗣️ **English** – Native/Bilingual (C1 Advanced certified, 67/100)\n• Professional communication in English\n• Technical writing and documentation in English\n• Teaching experience in English as a foreign language\n\n🗣️ **German** – B1 (Intermediate)\n• Living and studying in Germany since 2023\n• Localization experience: 300+ pages German→English\n• Actively working to improve German proficiency\n\n🗣️ **Akan** – Fluent (Ghanaian native language)\n• Native-level proficiency\n• Cultural communication\n\n**Localization Experience:** Samuel has localized 300+ pages of German instructional content into English, preserving natural flow and voice. This experience demonstrates his ability to bridge languages and cultures.";
+        ? "**Samuels Sprachen:**\n\n🗣️ **Englisch** – Muttersprache/Bilingual (C1 Advanced zertifiziert, 67/100)\n• Professionelle Kommunikation in Englisch\n• Technical Writing und Dokumentation auf Englisch\n• Unterrichtserfahrung in Englisch als Fremdsprache\n\n🗣️ **Deutsch** – B1 (Mittelstufe)\n• Lebt seit 2023 in Deutschland; Master abgeschlossen März 2026\n• Lokalisierungserfahrung: 300+ Seiten Deutsch→Englisch\n• Arbeitet aktiv daran, sein Deutsch zu verbessern\n\n🗣️ **Akan** – Fließend (Ghanaische Muttersprache)\n• Muttersprachliche Kenntnisse\n• Kulturelle Kommunikation\n\n**Lokalisierungserfahrung:** Samuel hat 300+ Seiten deutschen Unterrichtsinhalts ins Englische lokalisiert und dabei den natürlichen Fluss und die Stimme bewahrt. Diese Erfahrung zeigt seine Fähigkeit, zwischen Sprachen und Kulturen zu vermitteln."
+        : "**Samuel's Languages:**\n\n🗣️ **English** – Native/Bilingual (C1 Advanced certified, 67/100)\n• Professional communication in English\n• Technical writing and documentation in English\n• Teaching experience in English as a foreign language\n\n🗣️ **German** – B1 (Intermediate)\n• Living in Germany since 2023; Master's completed March 2026\n• Localization experience: 300+ pages German→English\n• Actively working to improve German proficiency\n\n🗣️ **Akan** – Fluent (Ghanaian native language)\n• Native-level proficiency\n• Cultural communication\n\n**Localization Experience:** Samuel has localized 300+ pages of German instructional content into English, preserving natural flow and voice. This experience demonstrates his ability to bridge languages and cultures.";
     }
     
     // Accessibility
@@ -812,8 +849,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "📍 **Samuels Standort:**\n\n**Aktuell basiert in:** Große Klosterkoppel 8, 23562 Lübeck\n\n🇩🇪 **In Deutschland seit:** 2023\n\n🎓 **Studiert an:** Philipps-Universität Marburg\n   (ca. 2,5 Stunden von Lübeck entfernt)\n\n💼 **Aktuelle Position:** Dräger, Lübeck (E-Learning Developer Praktikant)\n\n🌍 **Hintergrund:**\n• Ursprünglich aus Ghana (Kumasi)\n• Lebt und studiert seit 2023 in Deutschland\n• Erfahrung mit internationaler Zusammenarbeit und multikulturellen Umgebungen\n\n**Offen für:**\n• Remote-Arbeit\n• Vor-Ort-Möglichkeiten in Deutschland\n• Reise für Projekte und Konferenzen\n\n**Kontakt:** +49 171 5811680 (Deutsche Telefonnummer)"
-        : "📍 **Samuel's Location:**\n\n**Currently based in:** Große Klosterkoppel 8, 23562 Lübeck\n\n🇩🇪 **In Germany since:** 2023\n\n🎓 **Studying at:** Philipps-Universität Marburg\n   (approximately 2.5 hours from Lübeck)\n\n💼 **Current Position:** Dräger, Lübeck (E-Learning Developer Intern)\n\n🌍 **Background:**\n• Originally from Ghana (Kumasi)\n• Living and studying in Germany since 2023\n• Experience with international collaboration and multicultural environments\n\n**Open to:**\n• Remote work\n• On-site opportunities in Germany\n• Travel for projects and conferences\n\n**Contact:** +49 171 5811680 (German phone number)";
+        ? "📍 **Samuels Standort:**\n\n**Aktuell basiert in:** Große Klosterkoppel 8, 23562 Lübeck\n\n🇩🇪 **In Deutschland seit:** 2023\n\n🎓 **Ausbildung:** Master abgeschlossen an der Philipps-Universität Marburg (März 2026)\n\n💼 **Aktuelle Rolle:** Freelance Instructional Designer — Node Center for Curatorial Studies, Berlin\n\n🌍 **Hintergrund:**\n• Ursprünglich aus Ghana (Kumasi)\n• Lebt seit 2023 in Deutschland; Master abgeschlossen März 2026\n• Erfahrung mit internationaler Zusammenarbeit und multikulturellen Umgebungen\n\n**Offen für:**\n• Remote-Arbeit\n• Vor-Ort-Möglichkeiten in Deutschland\n• Reise für Projekte und Konferenzen\n\n**Kontakt:** +49 171 5811680 (Deutsche Telefonnummer)"
+        : "📍 **Samuel's Location:**\n\n**Currently based in:** Große Klosterkoppel 8, 23562 Lübeck\n\n🇩🇪 **In Germany since:** 2023\n\n🎓 **Education:** Master's completed at Philipps-Universität Marburg (March 2026)\n\n💼 **Current role:** Freelance Instructional Designer — Node Center for Curatorial Studies, Berlin\n\n🌍 **Background:**\n• Originally from Ghana (Kumasi)\n• Living in Germany since 2023; Master's completed March 2026\n• Experience with international collaboration and multicultural environments\n\n**Open to:**\n• Remote work\n• On-site opportunities in Germany\n• Travel for projects and conferences\n\n**Contact:** +49 171 5811680 (German phone number)";
     }
     
     // Personal attributes
@@ -873,13 +910,13 @@ ${cvData}
         if (matchesPattern(message, [/samuel|sam|him|his|ihm|sein|ihn/i])) {
           confidence = 0.6;
           response = isGerman
-            ? "Ich kann Ihnen gerne über Samuel helfen! Es scheint, als hätten Sie eine spezifische Frage. Lassen Sie mich Ihnen helfen:\n\n**Samuel ist Experte in:**\n🎓 **Digital Learning Design** (Instruktionsdesign, E-Learning-Entwicklung, Articulate 360)\n📝 **Technical Writing** (API-Dokumentation, Benutzerhandbücher, Wissensdatenbanken)\n\n**Häufige Fragen:**\n• 'Was sind seine Hauptkompetenzen?' – Digital Learning Design & Technical Writing\n• 'Welche Erfahrung hat er?' – Über 1 Jahr Digital Learning Design + 3 Jahre Lehre\n• 'Wo ist er verfügbar?' – Vollzeit ab April/Mai 2026 (nach Abschluss des verpflichtenden Teils seiner Masterarbeit)\n• 'Wie kann ich ihn kontaktieren?' – gideonsammysen@gmail.com oder +49 171 5811680\n• 'Zeige mir sein Portfolio' – Projekte mit Links verfügbar\n\n**Könnten Sie Ihre Frage spezifizieren?** Zum Beispiel:\n• 'Erzähle mir über seine Digital Learning Erfahrung'\n• 'Was sind seine Technical Writing Fähigkeiten?'\n• 'Welche Tools verwendet er?'\n• 'Zeige mir Portfolio-Projekte mit Links'\n\nIch helfe gerne! 😊"
-            : "I'd be happy to help you learn about Samuel! It seems like you have a specific question. Let me help:\n\n**Samuel is an expert in:**\n🎓 **Digital Learning Design** (Instructional Design, E-Learning Development, Articulate 360)\n📝 **Technical Writing** (API Documentation, User Guides, Knowledge Bases)\n\n**Common Questions:**\n• 'What are his core competencies?' – Digital Learning Design & Technical Writing\n• 'What experience does he have?' – Over 1 year Digital Learning Design + 3 years Teaching\n• 'When is he available?' – Full-time from April/May 2026 (after completing the mandatory part of his internship)\n• 'How can I contact him?' – gideonsammysen@gmail.com or +49 171 5811680\n• 'Show me his portfolio' – Projects with links available\n\n**Could you specify your question?** For example:\n• 'Tell me about his digital learning experience'\n• 'What are his technical writing skills?'\n• 'What tools does he use?'\n• 'Show me portfolio projects with links'\n\nI'm here to help! 😊";
+            ? "Ich kann Ihnen gerne über Samuel helfen! Es scheint, als hätten Sie eine spezifische Frage. Lassen Sie mich Ihnen helfen:\n\n**Samuel ist Experte in:**\n🎓 **Digital Learning Design** (Instruktionsdesign, E-Learning-Entwicklung, Articulate 360)\n📝 **Technical Writing** (API-Dokumentation, Benutzerhandbücher, Wissensdatenbanken)\n\n**Häufige Fragen:**\n• 'Was sind seine Hauptkompetenzen?' – Digital Learning Design & Technical Writing\n• 'Welche Erfahrung hat er?' – Über 1 Jahr Digital Learning Design + 3 Jahre Lehre\n• 'Wo ist er verfügbar?' – Freelance-Instruktionsdesigner — offen für neue Projekte\n• 'Wie kann ich ihn kontaktieren?' – gideonsammysen@gmail.com oder +49 171 5811680\n• 'Zeige mir sein Portfolio' – Projekte mit Links verfügbar\n\n**Könnten Sie Ihre Frage spezifizieren?** Zum Beispiel:\n• 'Erzähle mir über seine Digital Learning Erfahrung'\n• 'Was sind seine Technical Writing Fähigkeiten?'\n• 'Welche Tools verwendet er?'\n• 'Zeige mir Portfolio-Projekte mit Links'\n\nIch helfe gerne! 😊"
+            : "I'd be happy to help you learn about Samuel! It seems like you have a specific question. Let me help:\n\n**Samuel is an expert in:**\n🎓 **Digital Learning Design** (Instructional Design, E-Learning Development, Articulate 360)\n📝 **Technical Writing** (API Documentation, User Guides, Knowledge Bases)\n\n**Common Questions:**\n• 'What are his core competencies?' – Digital Learning Design & Technical Writing\n• 'What experience does he have?' – Over 1 year Digital Learning Design + 3 years Teaching\n• 'When is he available?' – Freelance instructional designer — open to new projects\n• 'How can I contact him?' – gideonsammysen@gmail.com or +49 171 5811680\n• 'Show me his portfolio' – Projects with links available\n\n**Could you specify your question?** For example:\n• 'Tell me about his digital learning experience'\n• 'What are his technical writing skills?'\n• 'What tools does he use?'\n• 'Show me portfolio projects with links'\n\nI'm here to help! 😊";
         } else {
           // Very vague question - provide general context
           response = isGerman
-            ? "Ich bin Samuels KI-Assistent und helfe gerne bei Fragen über ihn! Samuel ist ein **Digital Learning Designer** mit Expertise in **Technical Writing**, der lernerzentrierte E-Learning-Erfahrungen und technische Dokumentation erstellt.\n\n**Schnelle Fakten:**\n• **Primärer Fokus:** Instructional Design & Digital Learning Design\n• **Sekundärer Fokus:** Technical Writing & Dokumentation\n• **Verfügbar:** Vollzeit ab April/Mai 2026 (nach Abschluss des verpflichtenden Teils seiner Masterarbeit)\n• **Standort:** Große Klosterkoppel 8, 23562 Lübeck\n• **Kontakt:** gideonsammysen@gmail.com\n\n**Sie können mich fragen:**\n• Über seine Kompetenzen und Fähigkeiten\n• Über seine Berufserfahrung und Ausbildung\n• Über sein Portfolio und Projekte\n• Über Kontaktinformationen und Verfügbarkeit\n• Über seine Tools und Technologien\n\n**Beispiel-Fragen:**\n• 'Was sind Samuels Hauptkompetenzen?'\n• 'Erzähle mir über seine Erfahrung'\n• 'Zeige mir Portfolio-Projekte mit Links'\n• 'Wie kann ich Samuel kontaktieren?'\n\n**Was möchten Sie wissen?** 😊"
-            : "I'm Samuel's AI assistant and I'm happy to help with questions about him! Samuel is a **Digital Learning Designer** with expertise in **Technical Writing**, creating learner-centered e-learning experiences and technical documentation.\n\n**Quick Facts:**\n• **Primary Focus:** Instructional Design & Digital Learning Design\n• **Secondary Focus:** Technical Writing & Documentation\n• **Available:** Full-time from April/May 2026 (after completing the mandatory part of his internship)\n• **Location:** Große Klosterkoppel 8, 23562 Lübeck\n• **Contact:** gideonsammysen@gmail.com\n\n**You can ask me about:**\n• His competencies and skills\n• His work experience and education\n• His portfolio and projects\n• Contact information and availability\n• His tools and technologies\n\n**Example Questions:**\n• 'What are Samuel's core competencies?'\n• 'Tell me about his experience'\n• 'Show me portfolio projects with links'\n• 'How can I contact Samuel?'\n\n**What would you like to know?** 😊";
+            ? "Ich bin Samuels KI-Assistent und helfe gerne bei Fragen über ihn! Samuel ist ein **Digital Learning Designer** mit Expertise in **Technical Writing**, der lernerzentrierte E-Learning-Erfahrungen und technische Dokumentation erstellt.\n\n**Schnelle Fakten:**\n• **Primärer Fokus:** Instructional Design & Digital Learning Design\n• **Sekundärer Fokus:** Technical Writing & Dokumentation\n• **Verfügbar:** Freelance-Instruktionsdesigner — offen für neue Projekte\n• **Standort:** Große Klosterkoppel 8, 23562 Lübeck\n• **Kontakt:** gideonsammysen@gmail.com\n\n**Sie können mich fragen:**\n• Über seine Kompetenzen und Fähigkeiten\n• Über seine Berufserfahrung und Ausbildung\n• Über sein Portfolio und Projekte\n• Über Kontaktinformationen und Verfügbarkeit\n• Über seine Tools und Technologien\n\n**Beispiel-Fragen:**\n• 'Was sind Samuels Hauptkompetenzen?'\n• 'Erzähle mir über seine Erfahrung'\n• 'Zeige mir Portfolio-Projekte mit Links'\n• 'Wie kann ich Samuel kontaktieren?'\n\n**Was möchten Sie wissen?** 😊"
+            : "I'm Samuel's AI assistant and I'm happy to help with questions about him! Samuel is a **Digital Learning Designer** with expertise in **Technical Writing**, creating learner-centered e-learning experiences and technical documentation.\n\n**Quick Facts:**\n• **Primary Focus:** Instructional Design & Digital Learning Design\n• **Secondary Focus:** Technical Writing & Documentation\n• **Available:** Freelance instructional designer — open to new projects\n• **Location:** Große Klosterkoppel 8, 23562 Lübeck\n• **Contact:** gideonsammysen@gmail.com\n\n**You can ask me about:**\n• His competencies and skills\n• His work experience and education\n• His portfolio and projects\n• Contact information and availability\n• His tools and technologies\n\n**Example Questions:**\n• 'What are Samuel's core competencies?'\n• 'Tell me about his experience'\n• 'Show me portfolio projects with links'\n• 'How can I contact Samuel?'\n\n**What would you like to know?** 😊";
         }
       } else {
         // Not a clear question - provide helpful suggestions
