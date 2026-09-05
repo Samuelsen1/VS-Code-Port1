@@ -130,7 +130,7 @@ export default function DigitalLearningCV() {
           <div className="mb-4">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
               <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Instructional Designer' : 'Instructional Designer'}</h3>
+                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Instructional Designer (Freelance)' : 'Instructional Designer (Freelance)'}</h3>
                 <p className="text-gray-600 italic">Node Center for Curatorial Studies, Berlin</p>
               </div>
               <span className="text-sm text-gray-600 font-semibold">Aug 2026 – Present</span>

@@ -42,7 +42,7 @@ EDUCATION:
 
 PROFESSIONAL EXPERIENCE:
 
-1. Instructional Designer (Aug 2026 – Present) - Node Center for Curatorial Studies, Berlin
+1. Instructional Designer (Freelance) (Aug 2026 – Present) - Node Center for Curatorial Studies, Berlin
    - Translates subject-matter input into structured, learner-friendly content, applying instructional design principles to a specialist, non-technical audience
    - Designs and develops e-learning modules in Articulate Rise for museum and curatorial staff
    - Manages iterative stakeholder review cycles, translating feedback into refined tone, structure, and visual design

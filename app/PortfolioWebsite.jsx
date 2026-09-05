@@ -578,7 +578,7 @@ setChatMessages([
         title: "Professional Experience",
         items: [
           {
-            title: { en: "Instructional Designer", de: "Instructional Designer" },
+            title: { en: "Instructional Designer (Freelance)", de: "Instructional Designer (Freelance)" },
             company: { en: "Node Center for Curatorial Studies, Berlin", de: "Node Center for Curatorial Studies, Berlin" },
             date: { en: "August 2026 – Present", de: "August 2026 – heute" },
             bullets: {
@@ -781,7 +781,7 @@ setChatMessages([
         title: "Berufserfahrung",
         items: [
           {
-            title: { en: "Instructional Designer", de: "Instructional Designer" },
+            title: { en: "Instructional Designer (Freelance)", de: "Instructional Designer (Freelance)" },
             company: { en: "Node Center for Curatorial Studies, Berlin", de: "Node Center for Curatorial Studies, Berlin" },
             date: { en: "August 2026 – Present", de: "August 2026 – heute" },
             bullets: {
