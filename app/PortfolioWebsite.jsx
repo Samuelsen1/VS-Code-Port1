@@ -158,7 +158,7 @@ export default function PortfolioWebsite() {
       const a = localStorage.getItem('accessibility');
       if (a) {
         const parsed = JSON.parse(a);
-        if (parsed && typeof parsed === 'object') setAccessibility(prev => ({ ...prev, ...parsed }));
+        if (parsed && typeof parsed === 'object') setAccessibility(prev => ({ ...prev...parsed }));
       }
     } catch (e) { /* ignore */ }
   }, []);
@@ -549,17 +549,17 @@ setChatMessages([
         contact: "Contact"
       },
       hero: {
-        available: "Freelance Instructional Designer",
+        available: "Instructional Designer",
         title: "Digital Learning Designer",
         subtitle: "E-Learning • Instructional Design • Multimedia",
-        desc: "Freelance instructional designer combining theory and practice — Master's in Media Studies, Bachelor's in Education. I build accessible, learner-centered modules with Articulate 360, Adobe Creative Suite, and AI tools. Currently designing microlearning for Node Center for Curatorial Studies; prior work spans medtech (Dräger) and art/cultural education.",
+        desc: "Instructional designer combining theory and practice. Master's in Media Studies, Bachelor's in Education. I build accessible, learner-centered modules with Articulate 360, Adobe Creative Suite, and AI tools. Currently designing microlearning for Node Center for Curatorial Studies; prior work spans medtech (Dräger) and art/cultural education.",
         viewProjects: "View Projects",
         getInTouch: "Get In Touch",
         viewCV: "View CV"
       },
       about: {
         title: "About Me",
-        desc: "I'm a freelance instructional designer with a Master's in Media Studies and hands-on e-learning production for medtech and art/cultural clients. Currently contracted with Node Center for Curatorial Studies in Berlin, I turn specialist content into structured microlearning in Articulate Rise — from stakeholder input and storyboarding through multimedia, localization, and accessible delivery."
+        desc: "I'm an instructional designer with a Master's in Media Studies and hands-on e-learning production for medtech and art/cultural clients. Currently contracted with Node Center for Curatorial Studies in Berlin, I turn specialist content into structured microlearning in Articulate Rise, from stakeholder input and storyboarding through multimedia, localization, and accessible delivery."
       },
       projects: {
         title: "Featured Projects",
@@ -578,7 +578,7 @@ setChatMessages([
         title: "Professional Experience",
         items: [
           {
-            title: { en: "Instructional Designer (Freelance)", de: "Instructional Designer (Freelance)" },
+            title: { en: "Instructional Designer", de: "Instructional Designer" },
             company: { en: "Node Center for Curatorial Studies, Berlin", de: "Node Center for Curatorial Studies, Berlin" },
             date: { en: "August 2026 – Present", de: "August 2026 – heute" },
             bullets: {
@@ -588,7 +588,7 @@ setChatMessages([
                 "Manages iterative stakeholder review cycles, translating feedback into refined tone, structure, and visual design"
               ],
               de: [
-                "Übersetzt Fachinput in strukturierte, lernfreundliche Inhalte — Instruktionsdesign für ein spezialisiertes, nicht-technisches Publikum",
+                "Übersetzt Fachinput in strukturierte, lernfreundliche Inhalte. Instruktionsdesign für ein spezialisiertes, nicht-technisches Publikum",
                 "Konzipiert und entwickelt E-Learning-Module in Articulate Rise für Museum- und Kuratoren-Teams",
                 "Steuert iterative Stakeholder-Review-Zyklen und verfeinert Ton, Struktur und visuelles Design anhand des Feedbacks"
               ]
@@ -609,7 +609,7 @@ setChatMessages([
                 "Utilised AI-powered tools to create multilingual versions of e-learning modules, improving accessibility and global reach"
               ],
               de: [
-                "Produzierte und schnitt Lehrvideos (Adobe Premiere Pro) für globale Produktschulungen — von Dreh bis Final Cut",
+                "Produzierte und schnitt Lehrvideos (Adobe Premiere Pro) für globale Produktschulungen. von Dreh bis Final Cut",
                 "Baute bestehende E-Learning-Inhalte in Articulate Rise um und strukturierte PowerPoint-Materialien nach Corporate Identity",
                 "Nutze KI-Tools für mehrsprachige E-Learning-Versionen und verbesserte globale Reichweite"
               ]
@@ -631,7 +631,7 @@ setChatMessages([
               ],
               de: [
                 "Gestaltete 25+ Multimedia-Lernassets (Infografiken, Werbematerialien) mit Figma für diverse Lerngruppen",
-                "Kuratierte und strukturierte 50+ Lernressourcen für multikulturelle Kunstpädagogik — 200+ internationale, community- und ERASMUS-Lernende",
+                "Kuratierte und strukturierte 50+ Lernressourcen für multikulturelle Kunstpädagogik. 200+ internationale, community- und ERASMUS-Lernende",
                 "Lokalisierte 300+ Seiten deutscher Unterrichtsinhalte (z.B. <em>Rituelle Tanz Pädagogik</em> Buch) ins Englische mit KI-Unterstützung"
               ]
             },
@@ -685,7 +685,7 @@ setChatMessages([
       },
       contact: {
         title: "Let's Create Something Great Together",
-        desc: "Looking for a freelance instructional designer for e-learning, microlearning, or multimedia learning assets? I collaborate with museums, cultural institutions, medtech, and nonprofits. Let's discuss your project.",
+        desc: "Looking for an instructional designer for e-learning, microlearning, or multimedia learning assets? I collaborate with museums, cultural institutions, medtech, and nonprofits. Let's connect.",
         email: "Email Me",
         linkedin: "LinkedIn Profile",
         location: "Große Klosterkoppel 8, 23562 Lübeck",
@@ -699,7 +699,7 @@ setChatMessages([
         techWriting: "Technical Documentation",
         github: "GitHub Repository",
         connect: "Connect",
-        copyright: "© 2026 Samuel Opoku • Freelance Instructional Designer",
+        copyright: "© 2026 Samuel Opoku • Instructional Designer",
         built: "Built with React & Tailwind CSS"
       },
       impact: {
@@ -752,17 +752,17 @@ setChatMessages([
         contact: "Kontakt"
       },
       hero: {
-        available: "Freelance Instruktionsdesigner",
+        available: "Instruktionsdesigner",
         title: "Digital Learning Designer",
         subtitle: "E-Learning • Instruktionsdesign • Multimedia",
-        desc: "Freelance Instruktionsdesigner mit Master in Medienwissenschaften und Bachelor in Pädagogik. Ich entwickle barrierefreie, lernerzentrierte Module mit Articulate 360, Adobe Creative Suite und KI. Aktuell Microlearning für Node Center for Curatorial Studies; zuvor Medtech (Dräger) und Kunst-/Kulturbildung.",
+        desc: "Instruktionsdesigner mit Master in Medienwissenschaften und Bachelor in Pädagogik. Ich entwickle barrierefreie, lernerzentrierte Module mit Articulate 360, Adobe Creative Suite und KI. Aktuell Microlearning für Node Center for Curatorial Studies; zuvor Medtech (Dräger) und Kunst-/Kulturbildung.",
         viewProjects: "Projekte ansehen",
         getInTouch: "Kontakt aufnehmen",
         viewCV: "Lebenslauf ansehen"
       },
       about: {
         title: "Über mich",
-        desc: "Ich bin Freelance-Instruktionsdesigner mit Master in Medienwissenschaften und Praxis in E-Learning-Produktion für Medtech und Kunst/Kultur. Derzeit für Node Center for Curatorial Studies in Berlin entwickle ich aus Fachcontent strukturiertes Microlearning in Articulate Rise — von Stakeholder-Input und Storyboarding bis Multimedia, Lokalisierung und barrierefreier Auslieferung."
+        desc: "Ich bin Instruktionsdesigner mit Master in Medienwissenschaften und Praxis in E-Learning-Produktion für Medtech und Kunst/Kultur. Derzeit für Node Center for Curatorial Studies in Berlin entwickle ich aus Fachcontent strukturiertes Microlearning in Articulate Rise, von Stakeholder-Input und Storyboarding bis Multimedia, Lokalisierung und barrierefreier Auslieferung."
       },
       projects: {
         title: "Ausgewählte Projekte",
@@ -781,7 +781,7 @@ setChatMessages([
         title: "Berufserfahrung",
         items: [
           {
-            title: { en: "Instructional Designer (Freelance)", de: "Instructional Designer (Freelance)" },
+            title: { en: "Instructional Designer", de: "Instructional Designer" },
             company: { en: "Node Center for Curatorial Studies, Berlin", de: "Node Center for Curatorial Studies, Berlin" },
             date: { en: "August 2026 – Present", de: "August 2026 – heute" },
             bullets: {
@@ -791,7 +791,7 @@ setChatMessages([
                 "Manages iterative stakeholder review cycles, translating feedback into refined tone, structure, and visual design"
               ],
               de: [
-                "Übersetzt Fachinput in strukturierte, lernfreundliche Inhalte — Instruktionsdesign für ein spezialisiertes, nicht-technisches Publikum",
+                "Übersetzt Fachinput in strukturierte, lernfreundliche Inhalte. Instruktionsdesign für ein spezialisiertes, nicht-technisches Publikum",
                 "Konzipiert und entwickelt E-Learning-Module in Articulate Rise für Museum- und Kuratoren-Teams",
                 "Steuert iterative Stakeholder-Review-Zyklen und verfeinert Ton, Struktur und visuelles Design anhand des Feedbacks"
               ]
@@ -812,7 +812,7 @@ setChatMessages([
                 "Utilised AI-powered tools to create multilingual versions of e-learning modules, improving accessibility and global reach"
               ],
               de: [
-                "Produzierte und schnitt Lehrvideos (Adobe Premiere Pro) für globale Produktschulungen — von Dreh bis Final Cut",
+                "Produzierte und schnitt Lehrvideos (Adobe Premiere Pro) für globale Produktschulungen. von Dreh bis Final Cut",
                 "Baute bestehende E-Learning-Inhalte in Articulate Rise um und strukturierte PowerPoint-Materialien nach Corporate Identity",
                 "Nutze KI-Tools für mehrsprachige E-Learning-Versionen und verbesserte globale Reichweite"
               ]
@@ -834,7 +834,7 @@ setChatMessages([
               ],
               de: [
                 "Gestaltete 25+ Multimedia-Lernassets (Infografiken, Werbematerialien) mit Figma für diverse Lerngruppen",
-                "Kuratierte und strukturierte 50+ Lernressourcen für multikulturelle Kunstpädagogik — 200+ internationale, community- und ERASMUS-Lernende",
+                "Kuratierte und strukturierte 50+ Lernressourcen für multikulturelle Kunstpädagogik. 200+ internationale, community- und ERASMUS-Lernende",
                 "Lokalisierte 300+ Seiten deutscher Unterrichtsinhalte (z.B. <em>Rituelle Tanz Pädagogik</em> Buch) ins Englische mit KI-Unterstützung"
               ]
             },
@@ -888,7 +888,7 @@ setChatMessages([
       },
       contact: {
         title: "Lassen Sie uns gemeinsam Großartiges schaffen",
-        desc: "Suchen Sie einen Digital Learning Designer, der Lernwissenschaft mit technischer Expertise verbindet? Lassen Sie uns sprechen, wie ich Ihre Lerninitiativen transformieren kann.",
+        desc: "Suchen Sie einen Instruktionsdesigner für E-Learning, Microlearning oder Multimedia? Ich arbeite mit Museen, Kultureinrichtungen, Medtech und Nonprofits zusammen. Lassen Sie uns sprechen.",
         email: "E-Mail senden",
         linkedin: "LinkedIn Profil",
         location: "Große Klosterkoppel 8, 23562 Lübeck",
@@ -902,7 +902,7 @@ setChatMessages([
         techWriting: "Technische Dokumentation",
         github: "GitHub-Repository",
         connect: "Verbinden",
-        copyright: "© 2026 Samuel Opoku • Freelance Instruktionsdesigner",
+        copyright: "© 2026 Samuel Opoku • Instruktionsdesigner",
         built: "Erstellt mit React & Tailwind CSS"
       },
       impact: {
@@ -2086,7 +2086,7 @@ setChatMessages([
             </div>
           </div>
 
-          {/* AI Project — General */}
+          {/* AI Project. General */}
           <div className="mb-12">
             <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
               <span className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -2134,7 +2134,7 @@ setChatMessages([
             </div>
           </div>
 
-          {/* ...existing code... (removed 'View Full Portfolio' hyperlink) */}
+          {/* ...existing code.. (removed 'View Full Portfolio' hyperlink) */}
         </div>
       </section>
 

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Accessibility — Samuel Afriyie Opoku',
+  title: 'Accessibility - Samuel Afriyie Opoku',
   description: 'Learn about the accessibility features on this portfolio: contrast, larger text, blue light filter, dyslexia font, and more.',
 };
 

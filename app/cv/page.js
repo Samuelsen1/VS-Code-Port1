@@ -45,7 +45,7 @@ export default function DigitalLearningCV() {
       subtitle: 'Digital Learning Designer | Professionelle Website',
       summary: 'BERUFLICHE ZUSAMMENFASSUNG',
       summaryText:
-        'Digital Learning Designer mit Verbindung von Instruktionsdesign-Theorie und -Praxis. Master in Medienwissenschaften und Bachelor in Pädagogik. Entwickelt barrierefreies, lernerzentriertes E-Learning mit Articulate 360, Adobe Creative Suite, KI-Tools und LMS — mit Erfahrung in Medtech und Kunst-/Kultursektor.',
+        'Digital Learning Designer mit Verbindung von Instruktionsdesign-Theorie und -Praxis. Master in Medienwissenschaften und Bachelor in Pädagogik. Entwickelt barrierefreies, lernerzentriertes E-Learning mit Articulate 360, Adobe Creative Suite, KI-Tools und LMS. mit Erfahrung in Medtech und Kunst-/Kultursektor.',
       skills: 'FÄHIGKEITEN & KOMPETENZEN',
       tools: 'TOOLS & TECHNOLOGIEN',
       experience: 'BERUFSERFAHRUNG',
@@ -130,13 +130,13 @@ export default function DigitalLearningCV() {
           <div className="mb-4">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
               <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Instructional Designer (Freelance)' : 'Instructional Designer (Freelance)'}</h3>
+                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Instructional Designer' : 'Instructional Designer'}</h3>
                 <p className="text-gray-600 italic">Node Center for Curatorial Studies, Berlin</p>
               </div>
               <span className="text-sm text-gray-600 font-semibold">Aug 2026 – Present</span>
             </div>
             <ul className="text-sm text-gray-700 space-y-1 ml-4">
-              <li>• {language === 'de' ? 'Übersetzt Fachinput in strukturierte, lernfreundliche Inhalte — Instruktionsdesign für ein spezialisiertes, nicht-technisches Publikum' : 'Translates subject-matter input into structured, learner-friendly content, applying instructional design principles to a specialist, non-technical audience'}</li>
+              <li>• {language === 'de' ? 'Übersetzt Fachinput in strukturierte, lernfreundliche Inhalte. Instruktionsdesign für ein spezialisiertes, nicht-technisches Publikum' : 'Translates subject-matter input into structured, learner-friendly content, applying instructional design principles to a specialist, non-technical audience'}</li>
               <li>• {language === 'de' ? 'Konzipiert und entwickelt E-Learning-Module in Articulate Rise für Museum- und Kuratoren-Teams' : 'Designs and develops e-learning modules in Articulate Rise for museum and curatorial staff'}</li>
               <li>• {language === 'de' ? 'Steuert iterative Stakeholder-Review-Zyklen und verfeinert Ton, Struktur und visuelles Design anhand des Feedbacks' : 'Manages iterative stakeholder review cycles, translating feedback into refined tone, structure, and visual design'}</li>
             </ul>
@@ -151,7 +151,7 @@ export default function DigitalLearningCV() {
               <span className="text-sm text-gray-600">Feb 2026 – July 2026</span>
             </div>
             <ul className="text-sm text-gray-700 space-y-1 ml-4">
-              <li>• {language === 'de' ? 'Produzierte und schnitt Lehrvideos (Adobe Premiere Pro) für globale Produktschulungen — von Dreh bis Final Cut' : 'Produced and edited instructional videos (Adobe Premiere Pro) for global product training on medical and safety equipment, from shoot to final cut'}</li>
+              <li>• {language === 'de' ? 'Produzierte und schnitt Lehrvideos (Adobe Premiere Pro) für globale Produktschulungen. von Dreh bis Final Cut' : 'Produced and edited instructional videos (Adobe Premiere Pro) for global product training on medical and safety equipment, from shoot to final cut'}</li>
               <li>• {language === 'de' ? 'Baute bestehende E-Learning-Inhalte in Articulate Rise um und strukturierte PowerPoint-Materialien nach Corporate Identity' : 'Built and transferred existing e-learning content into Articulate Rise, restructuring PowerPoint materials to align with Corporate Identity standards'}</li>
               <li>• {language === 'de' ? 'Nutze KI-Tools für mehrsprachige E-Learning-Versionen und verbesserte globale Reichweite' : 'Utilised AI-powered tools to create multilingual versions of e-learning modules, improving accessibility and global reach'}</li>
             </ul>
@@ -167,7 +167,7 @@ export default function DigitalLearningCV() {
             </div>
             <ul className="text-sm text-gray-700 space-y-1 ml-4">
               <li>• {language === 'de' ? 'Gestaltete 25+ Multimedia-Lernassets (Infografiken, Werbematerialien) mit Figma für diverse Lerngruppen' : 'Designed 25+ accessible multimedia learning assets (infographics, promotional materials) using Figma, expanding reach to diverse learner groups'}</li>
-              <li>• {language === 'de' ? 'Kuratierte und strukturierte 50+ Bildungsressourcen für multikulturelle Kunstpädagogik — 200+ internationale, community- und ERASMUS-Lernende' : 'Curated and structured 50+ educational resources for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners'}</li>
+              <li>• {language === 'de' ? 'Kuratierte und strukturierte 50+ Bildungsressourcen für multikulturelle Kunstpädagogik. 200+ internationale, community- und ERASMUS-Lernende' : 'Curated and structured 50+ educational resources for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners'}</li>
               <li>• {language === 'de' ? 'Lokalisierte 300+ Seiten deutscher Unterrichtsinhalte (z. B. Rituelle Tanz Pädagogik) ins Englische mit KI-Unterstützung' : 'Localized 300+ pages of German instructional content (e.g., Rituelle Tanz Pädagogik book) into English using AI-assisted translation, preserving natural flow'}</li>
             </ul>
           </div>

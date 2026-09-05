@@ -2,7 +2,7 @@ import './globals.css'
 
 export const metadata = {
   metadataBase: new URL('https://vs-code-port1.vercel.app'),
-  title: 'Samuel Afriyie Opoku — Digital Learning Designer',
+  title: 'Samuel Afriyie Opoku | Digital Learning Designer',
   description: 'Digital Learning Designer creating engaging, accessible e-learning experiences and technical documentation. Specialized in instructional design, WCAG compliance, and multimedia content development.',
   keywords: ['Digital Learning Designer', 'Instructional Designer', 'E-Learning Developer', 'Technical Writing', 'WCAG', 'Accessibility', 'ADDIE', 'Articulate Storyline', 'Samuel Afriyie Opoku', 'Lübeck', 'Germany'],
   authors: [{ name: 'Samuel Afriyie Opoku' }],
@@ -15,7 +15,7 @@ export const metadata = {
     locale: 'en_US',
     url: 'https://vs-code-port1.vercel.app',
     siteName: 'Samuel Afriyie Opoku Portfolio',
-    title: 'Samuel Afriyie Opoku — Digital Learning Designer',
+    title: 'Samuel Afriyie Opoku | Digital Learning Designer',
     description: 'Digital Learning Designer creating engaging, accessible e-learning experiences and technical documentation. Specialized in instructional design, WCAG compliance, and multimedia content development.',
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Samuel Afriyie Opoku — Digital Learning Designer',
+    title: 'Samuel Afriyie Opoku | Digital Learning Designer',
     description: 'Digital Learning Designer creating engaging, accessible e-learning experiences and technical documentation.',
     images: ['https://vs-code-port1.vercel.app/images/Instructional_Design_illustration.jpg'],
   },
