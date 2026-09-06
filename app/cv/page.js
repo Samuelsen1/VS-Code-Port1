@@ -146,7 +146,16 @@ export default function DigitalLearningCV() {
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
               <div>
                 <h3 className="font-bold text-gray-800">{language === 'de' ? 'E-Learning-Entwickler (Praktikant)' : 'E-Learning Developer (Intern)'}</h3>
-                <p className="text-gray-600 italic">Dräger, Lübeck</p>
+                <p className="text-gray-600 italic">
+                  Dräger, Lübeck{' '}
+                  <a href="https://drive.google.com/file/d/15W9tFZRaDM4CbpP7KWVTY_ywBX3F5KZ3/view" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline not-italic">
+                    {language === 'de' ? 'Referenz DE' : 'Reference DE'}
+                  </a>
+                  {' | '}
+                  <a href="https://drive.google.com/file/d/1XRjTGkBp7XVaQRw8PzUJkDDhObFNSRLv/view" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline not-italic">
+                    {language === 'de' ? 'Referenz EN' : 'Reference EN'}
+                  </a>
+                </p>
               </div>
               <span className="text-sm text-gray-600">Feb 2026 – July 2026</span>
             </div>

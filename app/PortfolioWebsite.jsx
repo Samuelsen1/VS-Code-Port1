@@ -617,7 +617,11 @@ setChatMessages([
             highlight: false,
             icon: "briefcase",
             iconBg: "bg-blue-100",
-            image: "/images/drager.png?v=2"
+            image: "/images/drager.png?v=2",
+            references: [
+              { label: { en: "Reference DE", de: "Referenz DE" }, url: "https://drive.google.com/file/d/15W9tFZRaDM4CbpP7KWVTY_ywBX3F5KZ3/view" },
+              { label: { en: "Reference EN", de: "Referenz EN" }, url: "https://drive.google.com/file/d/1XRjTGkBp7XVaQRw8PzUJkDDhObFNSRLv/view" }
+            ]
           },
           {
             title: { en: "Digital Learning Designer (Intern)", de: "Digital Learning Designer (Praktikant)" },
@@ -820,7 +824,11 @@ setChatMessages([
             highlight: false,
             icon: "briefcase",
             iconBg: "bg-blue-100",
-            image: "/images/drager.png?v=2"
+            image: "/images/drager.png?v=2",
+            references: [
+              { label: { en: "Reference DE", de: "Referenz DE" }, url: "https://drive.google.com/file/d/15W9tFZRaDM4CbpP7KWVTY_ywBX3F5KZ3/view" },
+              { label: { en: "Reference EN", de: "Referenz EN" }, url: "https://drive.google.com/file/d/1XRjTGkBp7XVaQRw8PzUJkDDhObFNSRLv/view" }
+            ]
           },
           {
             title: { en: "Digital Learning Designer (Intern)", de: "Digital Learning Designer (Praktikant)" },
@@ -2224,6 +2232,23 @@ setChatMessages([
                     <h3 className={`text-xl font-bold mb-1 ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>{(item.title && item.title[language]) || ''}</h3>
                     <div className="flex items-center gap-2 mb-2 flex-wrap">
                       <p className={`font-semibold ${item.highlight ? (isDarkTheme ? 'text-blue-300' : 'text-blue-600') : (isDarkTheme ? 'text-blue-200' : 'text-gray-600')}`}>{(item.company && item.company[language]) || ''}</p>
+                      {item.references && item.references.map((ref, refIdx) => (
+                        <a
+                          key={refIdx}
+                          href={ref.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border transition-all duration-200 text-xs font-medium ${
+                            isDarkTheme
+                              ? 'bg-gradient-to-r from-blue-500/20 to-indigo-500/20 border-blue-400/40 text-blue-200 hover:from-blue-500/30 hover:to-indigo-500/30 hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/20'
+                              : 'bg-gradient-to-r from-indigo-50 to-blue-50 border-indigo-200/60 text-indigo-700 hover:from-indigo-100 hover:to-blue-100 hover:border-indigo-300 hover:shadow-sm'
+                          }`}
+                          title={(ref.label && ref.label[language]) || ''}
+                        >
+                          <Award className="w-3.5 h-3.5" />
+                          <span>{(ref.label && ref.label[language]) || ''}</span>
+                        </a>
+                      ))}
                       {item.certificate && (
                         <a
                           href={item.certificate.url}
