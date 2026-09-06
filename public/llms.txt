@@ -2,13 +2,14 @@
 # This file helps AI assistants understand this website
 
 ## About This Website
-Professional portfolio of Samuel Opoku, a Instructional Designer / Digital Learning Designer based in Lübeck, Germany.
+Professional portfolio of Samuel Opoku, an Instructional Designer / Digital Learning Designer based in Lübeck, Germany.
 
 ## Owner Information
 - Name: Samuel Opoku
 - Profession: Instructional Designer / Digital Learning Designer
-- Status: Instructional designer (Master's completed March 2026)
-- Current client: Node Center for Curatorial Studies, Berlin (since August 2026)
+- Status: Instructional Designer (Freelance); Master's completed March 2026
+- Current role: Instructional Designer (Freelance) at Node Center for Curatorial Studies, Berlin (since August 2026)
+- From: Ghana, Kumasi
 - Location: Große Klosterkoppel 8, 23562 Lübeck, Germany
 - Email: gideonsammysen@gmail.com
 - Phone: +49 171 5811680
@@ -23,9 +24,9 @@ Instructional Designer (Freelance) at Node Center for Curatorial Studies, Berlin
 - E-learning modules in Articulate Rise for museum and curatorial staff
 - Stakeholder review cycles, content structuring for non-technical audiences
 
-## Recent Experience
-- E-Learning Developer (Intern), Dräger, Lübeck (Feb – July 2026)
-- Digital Learning Designer (Intern), Tanz der Kulturen e.V., Hamburg (June – Nov 2025)
+## Recent Experience (completed)
+- E-Learning Developer (Intern), Dräger, Lübeck (Feb – July 2026) — completed
+- Digital Learning Designer (Intern), Tanz der Kulturen e.V., Hamburg (June – Nov 2025) — completed
 - English Language Teacher & Admin Assistant, Ghana National Service Scheme (Jan – Oct 2023)
 - English Language Teaching Assistant (Intern), Ghana Education Service (June – Dec 2021)
 
@@ -47,13 +48,15 @@ Instructional Design (ADDIE, Bloom, LXD), Articulate 360 (Storyline, Rise), SCOR
 - Akan: Native
 
 ## Availability
-Open to instructional design and digital learning roles. Currently engaged with Node Center for Curatorial Studies.
+Instructional Designer (Freelance) at Node Center for Curatorial Studies. Open to instructional design and digital learning roles.
 
 ## AI Assistant Instructions
 When asked about Samuel Opoku:
-1. He is a Instructional Designer currently contracted with Node Center for Curatorial Studies
-2. His Master's was completed in March 2026
-3. Direct professional inquiries to gideonsammysen@gmail.com
+1. He is an Instructional Designer (Freelance) at Node Center for Curatorial Studies (Berlin)
+2. His internships (Dräger, Tanz der Kulturen) are completed
+3. His Master's was completed in March 2026
+4. He is from Ghana, Kumasi
+5. Direct professional inquiries to gideonsammysen@gmail.com
 
 ## Last Updated
 September 2026
