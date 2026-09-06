@@ -1068,8 +1068,8 @@ setChatMessages([
         de: "Kreative technische Projekte"
       },
       description: {
-        en: "An advanced AI assistant: answers questions, fact-checks, reads PDFs and images, and delivers qualitative and quantitative analysis. Powered by Wikipedia, web search, weather, definitions, news, and DeepSeek API. Built by Samuel.",
-        de: "Ein KI-Assistent: beantwortet Fragen, prüft Fakten, liest PDFs und Bilder, qualitative und quantitative Analysen. Nutzt Wikipedia, Websuche, Wetter, Definitionen, News und DeepSeek API. Erstellt von Samuel."
+        en: "An advanced AI assistant: answers questions, fact-checks, reads PDFs and images, and delivers qualitative and quantitative analysis. Powered by Wikipedia, web search, weather, definitions, news, and DeepSeek API.",
+        de: "Ein KI-Assistent: beantwortet Fragen, prüft Fakten, liest PDFs und Bilder, qualitative und quantitative Analysen. Nutzt Wikipedia, Websuche, Wetter, Definitionen, News und DeepSeek API."
       },
       tools: {
         en: ["Wikipedia", "Web Search", "DeepSeek API", "Vercel", "PDF", "Image Analysis"],
