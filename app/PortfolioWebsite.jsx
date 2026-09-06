@@ -568,7 +568,7 @@ setChatMessages([
         eLearning: "E-Learning Modules",
         knowledge: "Knowledge Base",
         techWriting: "Technical Writing",
-        webProject: "AI Project"
+        webProject: "Creative Technical Projects"
       },
       skills: {
         title: "Skills & Technologies",
@@ -775,7 +775,7 @@ setChatMessages([
         eLearning: "E-Learning-Module",
         knowledge: "Wissensdatenbank",
         techWriting: "Technisches Schreiben",
-        webProject: "AI-Projekt"
+        webProject: "Kreative technische Projekte"
       },
       skills: {
         title: "Fähigkeiten & Technologien",
@@ -1058,8 +1058,8 @@ setChatMessages([
         de: "General"
       },
       category: {
-        en: "AI Project",
-        de: "AI-Projekt"
+        en: "Creative Technical Projects",
+        de: "Kreative technische Projekte"
       },
       description: {
         en: "An advanced AI assistant: answers questions, fact-checks, reads PDFs and images, and delivers qualitative and quantitative analysis. Powered by Wikipedia, web search, weather, definitions, news, and DeepSeek API. Built by Samuel.",
@@ -1074,6 +1074,32 @@ setChatMessages([
         de: ["Faktenprüfung", "PDF- und Bildanalyse", "Quantitative und qualitative Bewertungen", "Kurze, präzise Antworten"]
       },
       link: "https://general-ai-wheat.vercel.app",
+      image: "/images/general.png",
+      featured: true
+    },
+    {
+      title: {
+        en: "S.Studio",
+        de: "S.Studio"
+      },
+      category: {
+        en: "Creative Technical Projects",
+        de: "Kreative technische Projekte"
+      },
+      description: {
+        en: "A personalized work, job, and social media workspace. Track current projects and hours, plan the day, tailor cover letters and CVs from job descriptions, and open LinkedIn, Indeed, StepStone, Rise, and Claude from one desk.",
+        de: "Ein personalisierter Arbeits-, Job- und Social-Media-Workspace. Projekte und Stunden tracken, den Tag planen, Anschreiben und Lebensläufe aus Stellenbeschreibungen zuschneiden und LinkedIn, Indeed, StepStone, Rise und Claude von einem Schreibtisch aus öffnen."
+      },
+      tools: {
+        en: ["Next.js", "React", "Tailwind CSS", "General AI", "Netlify"],
+        de: ["Next.js", "React", "Tailwind CSS", "General AI", "Netlify"]
+      },
+      results: {
+        en: ["Project and hours tracking", "Job-tailored letters and CVs", "Social and tool board in one place"],
+        de: ["Projekt- und Stundentracking", "Stellenspezifische Anschreiben und CVs", "Social- und Tool-Board an einem Ort"]
+      },
+      link: "https://astounding-sunburst-a0cf7c.netlify.app/",
+      image: "/images/s-studio.png",
       featured: true
     },
     {
@@ -2094,7 +2120,7 @@ setChatMessages([
             </div>
           </div>
 
-          {/* AI Project. General */}
+          {/* Creative Technical Projects */}
           <div className="mb-12">
             <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
               <span className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -2103,10 +2129,18 @@ setChatMessages([
               {t[language].projects.webProject}
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.filter(p => p.title.en === "General").map((project, index) => (
+              {projects.filter(p => p.category?.en === "Creative Technical Projects").map((project, index) => (
                 <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
                   <div className="relative overflow-hidden">
-                    <img src="/images/general.png" alt={project.title[language]} width="420" height="208" loading="lazy" decoding="async" className="w-full h-52 object-contain bg-black transition-transform duration-500 group-hover:scale-105" />
+                    <img
+                      src={project.image || "/images/general.png"}
+                      alt={project.title[language]}
+                      width="420"
+                      height="208"
+                      loading="lazy"
+                      decoding="async"
+                      className={`w-full h-52 object-contain transition-transform duration-500 group-hover:scale-105 ${isDarkTheme ? 'bg-black' : 'bg-white'}`}
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   <div className="p-5 flex-1 flex flex-col">
