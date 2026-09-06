@@ -643,7 +643,10 @@ setChatMessages([
             icon: "briefcase",
             iconBg: "bg-gray-100",
             image: "/images/tdk.jpg",
-            certificate: { url: "/TDK_Intern_Cert.pdf", type: "pdf" }
+            certificate: { url: "/TDK_Intern_Cert.pdf", type: "pdf" },
+            references: [
+              { label: { en: "Reference", de: "Referenz" }, url: "https://drive.google.com/file/d/1dN1ube3X8WpiC9by4LYxR7-hC4oxdHPt/view" }
+            ]
           },
           {
             title: { en: "English Language Teacher & Administrative Assistant", de: "Englischlehrer & Verwaltungsassistent" },
@@ -850,7 +853,10 @@ setChatMessages([
             icon: "briefcase",
             iconBg: "bg-gray-100",
             image: "/images/tdk.jpg",
-            certificate: { url: "/TDK_Intern_Cert.pdf", type: "pdf" }
+            certificate: { url: "/TDK_Intern_Cert.pdf", type: "pdf" },
+            references: [
+              { label: { en: "Reference", de: "Referenz" }, url: "https://drive.google.com/file/d/1dN1ube3X8WpiC9by4LYxR7-hC4oxdHPt/view" }
+            ]
           },
           {
             title: { en: "English Language Teacher & Administrative Assistant", de: "Englischlehrer & Verwaltungsassistent" },
@@ -1054,8 +1060,8 @@ setChatMessages([
     },
     {
       title: {
-        en: "General",
-        de: "General"
+        en: "General AI",
+        de: "General AI"
       },
       category: {
         en: "Creative Technical Projects",
@@ -1075,6 +1081,7 @@ setChatMessages([
       },
       link: "https://general-ai-wheat.vercel.app",
       image: "/images/general.png",
+      imageBg: "#9EB6CC",
       featured: true
     },
     {
@@ -1100,6 +1107,7 @@ setChatMessages([
       },
       link: "https://astounding-sunburst-a0cf7c.netlify.app/",
       image: "/images/s-studio.png",
+      imageBg: "#B9A8D0",
       featured: true
     },
     {
@@ -2139,7 +2147,8 @@ setChatMessages([
                       height="208"
                       loading="lazy"
                       decoding="async"
-                      className={`w-full h-52 object-contain transition-transform duration-500 group-hover:scale-105 ${isDarkTheme ? 'bg-black' : 'bg-white'}`}
+                      className="w-full h-52 object-contain transition-transform duration-500 group-hover:scale-105"
+                      style={{ backgroundColor: project.imageBg || (isDarkTheme ? '#334155' : '#cbd5e1') }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
