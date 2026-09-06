@@ -29,6 +29,7 @@ export default function PortfolioWebsite() {
 
   const [toast, setToast] = useState(null);
   const [fabExpanded, setFabExpanded] = useState(false);
+  const [studioGalleryOpen, setStudioGalleryOpen] = useState(false);
 
   const [reducedMotion, setReducedMotion] = useState(false);
   useEffect(() => {
@@ -300,11 +301,22 @@ setChatMessages([
 
   // Escape to close modals
   useEffect(() => {
-    if (!isChatOpen) return;
-    const f = (e) => { if (e.key === 'Escape') setIsChatOpen(false); };
+    if (!isChatOpen && !studioGalleryOpen) return;
+    const f = (e) => {
+      if (e.key !== 'Escape') return;
+      if (studioGalleryOpen) setStudioGalleryOpen(false);
+      else if (isChatOpen) setIsChatOpen(false);
+    };
     document.addEventListener('keydown', f);
     return () => document.removeEventListener('keydown', f);
-  }, [isChatOpen]);
+  }, [isChatOpen, studioGalleryOpen]);
+
+  useEffect(() => {
+    if (!studioGalleryOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prev; };
+  }, [studioGalleryOpen]);
 
   // Auto-focus chat input when modal opens (for mobile keyboard)
   useEffect(() => {
@@ -1098,16 +1110,20 @@ setChatMessages([
         de: "Ein personalisierter Arbeits-, Job- und Social-Media-Workspace. Projekte und Stunden tracken, den Tag planen, Anschreiben und Lebensläufe aus Stellenbeschreibungen zuschneiden und LinkedIn, Indeed, StepStone, Rise und Claude von einem Schreibtisch aus öffnen."
       },
       tools: {
-        en: ["Next.js", "React", "Tailwind CSS", "General AI", "Netlify"],
-        de: ["Next.js", "React", "Tailwind CSS", "General AI", "Netlify"]
+        en: ["Next.js", "React", "Tailwind CSS", "General AI"],
+        de: ["Next.js", "React", "Tailwind CSS", "General AI"]
       },
       results: {
         en: ["Project and hours tracking", "Job-tailored letters and CVs", "Social and tool board in one place"],
         de: ["Projekt- und Stundentracking", "Stellenspezifische Anschreiben und CVs", "Social- und Tool-Board an einem Ort"]
       },
-      link: "https://astounding-sunburst-a0cf7c.netlify.app/",
+      link: null,
       image: "/images/s-studio.png",
       imageBg: "#B9A8D0",
+      gallery: [
+        "/images/s-studio-1.jpg",
+        "/images/s-studio-2.jpg"
+      ],
       featured: true
     },
     {
@@ -2137,8 +2153,11 @@ setChatMessages([
               {t[language].projects.webProject}
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.filter(p => p.category?.en === "Creative Technical Projects").map((project, index) => (
-                <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
+              {projects.filter(p => p.category?.en === "Creative Technical Projects").map((project, index) => {
+                const cardClass = `rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 text-left cursor-pointer ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`;
+                const cardStyle = { width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none' };
+                const cardInner = (
+                  <>
                   <div className="relative overflow-hidden">
                     <img
                       src={project.image || "/images/general.png"}
@@ -2180,8 +2199,37 @@ setChatMessages([
                       </div>
                     </div>
                   </div>
-                </a>
-              ))}
+                  </>
+                );
+
+                if (project.gallery?.length) {
+                  return (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => setStudioGalleryOpen(true)}
+                      className={cardClass}
+                      style={cardStyle}
+                      aria-label={language === 'de' ? 'S.Studio Screenshots anzeigen' : 'View S.Studio screenshots'}
+                    >
+                      {cardInner}
+                    </button>
+                  );
+                }
+
+                return (
+                  <a
+                    key={index}
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cardClass}
+                    style={cardStyle}
+                  >
+                    {cardInner}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -2924,6 +2972,44 @@ setChatMessages([
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {studioGalleryOpen && (
+        <div
+          className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/70"
+          onClick={() => setStudioGalleryOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="S.Studio"
+        >
+          <div
+            className={`relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={`sticky top-0 z-10 flex items-center justify-between px-5 py-4 border-b ${isDarkTheme ? 'border-gray-700 bg-gray-900' : 'border-gray-200 bg-white'}`}>
+              <h3 className={`text-lg font-bold ${isDarkTheme ? 'text-white' : 'text-gray-900'}`}>S.Studio</h3>
+              <button
+                type="button"
+                onClick={() => setStudioGalleryOpen(false)}
+                className={`p-2 rounded-lg transition-colors ${isDarkTheme ? 'hover:bg-gray-800 text-gray-300' : 'hover:bg-gray-100 text-gray-600'}`}
+                aria-label={language === 'de' ? 'Schließen' : 'Close'}
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-4 md:p-6 space-y-4">
+              {["/images/s-studio-1.jpg", "/images/s-studio-2.jpg"].map((src, i) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt={`S.Studio screenshot ${i + 1}`}
+                  className="w-full rounded-xl border border-black/10"
+                  loading="lazy"
+                />
+              ))}
+            </div>
           </div>
         </div>
       )}
