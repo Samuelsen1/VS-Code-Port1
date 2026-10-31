@@ -7,31 +7,32 @@ const GENERAL_AI_URL = process.env.GENERAL_AI_URL || 'https://general-ai-wheat.v
 // Samuel's comprehensive CV data
 const cvData = `
 SAMUEL OPOKU
-Digital Learning Designer | Instructional Designer
-Location: Große Klosterkoppel 8, 23562 Lübeck
+Freelance Digital Learning Designer | Instructional Designer
+Location: Große Klosterkoppel 8, 23562 Lübeck, Germany
 Phone: +49 171 5811680
 Email: gideonsammysen@gmail.com
 LinkedIn: https://www.linkedin.com/in/samuel-o-4b9bbb2a8
 Website: https://vs-code-port1.vercel.app
 
-PROFESSIONAL STATUS:
-Instructional Designer (Freelance) at Node Center for Curatorial Studies, Berlin (since August 2026). Internships completed (Dräger Feb–July 2026; Tanz der Kulturen June–Nov 2025). Master's completed March 2026.
-From: Ghana, Kumasi
-Currently based in: Lübeck, Germany
+AUTHORITATIVE CURRENT STATUS (do not contradict; ignore older web results):
+- Current role: Instructional Designer (Freelance | Part-Time) at Node Center for Curatorial Studies, Berlin (August 2026 – Present). He is NOT currently at Dräger.
+- Master's in North American Studies (Media Studies) COMPLETED March 2026 (grade 2.3 | Gut), Philipps-Universität Marburg.
+- Dräger internship COMPLETED (February – July 2026). Tanz der Kulturen internship COMPLETED (June – November 2025).
+- From Kumasi, Ghana. Currently based in Lübeck, Germany.
 
 PROFESSIONAL SUMMARY:
-Digital Learning Designer combining instructional design theory and practice. Master's in Media Studies (completed March 2026, grade 2.3) and Bachelor's in Education (First Class Honours). Develops accessible, learner-centered e-learning using Articulate 360, Adobe Creative Suite, AI tools, and LMS platforms, with experience in medtech and art/cultural sectors.
+Digital Learning Designer combining instructional design theory and practice. Master's in Media Studies and Bachelor's in Education (First Class Honours). Develops accessible, learner-centered learning experiences using Articulate 360, Adobe Creative Suite, AI tools, and LMS platforms, with experience in medtech and art/cultural sectors.
 
 SKILLS & COMPETENCIES:
-Instructional Design: ADDIE | Bloom's Taxonomy | Adult Learning Theory | Storyboarding | LXD | Curriculum Development
-E-Learning Development: SCORM Packaging | LMS Administration | Learning Analytics
+Instructional Design: ADDIE | SAM | Bloom's Taxonomy | Adult Learning Theory | Storyboarding | LXD | Curriculum Development
+E-Learning Development: SCORM Packaging | LMS Administration | Learning Analytics | Interactive Design | Branching Scenarios | Gamification | Microlearning
 Multimedia Production: Photo Editing (Infographics | Posters | Flyers) | Video Creation & Editing
 Technical Communication: User Guides | Knowledge-Base Documentation | Cross-Cultural Content Adaptation | Content Localization
 
 TOOLS & TECHNOLOGIES:
 E-Learning Authoring & LMS: Articulate 360 (Storyline, Rise) | Moodle
 Design & Multimedia: Adobe Creative Suite (Premiere Pro, Photoshop, InDesign) | Figma | Synthesia | Descript | Canva
-Web & AI Development: HTML | CSS | Markdown | API Integration | Prompt Coding
+Web & Development: HTML | CSS | Markdown | API Integration | Prompt Coding
 Development Tools: GitHub | VS Code | Cursor | Vercel
 Productivity & Collaboration: Google Workspace | Microsoft 365 (Word, PowerPoint, SharePoint, Teams, Excel) | Notion | Confluence
 
@@ -42,25 +43,26 @@ EDUCATION:
 - Bachelor of Education in English Language (Grade: 1.4 | First Class Honours) (Oct 2018 – Oct 2022) - University of Cape Coast, Ghana
   Bachelor's Thesis: "The Box-Part-Letter Method: A Structured Approach to Handwriting Instruction"
 
-PROFESSIONAL EXPERIENCE:
+PROFESSIONAL EXPERIENCE (full history, newest first):
 
-1. Instructional Designer (Freelance) (Aug 2026 – Present) - Node Center for Curatorial Studies, Berlin
+1. Instructional Designer (Freelance | Part-Time) (Aug 2026 – Present) - Node Center for Curatorial Studies, Berlin
    - Translates subject-matter input into structured, learner-friendly content, applying instructional design principles to a specialist, non-technical audience
    - Designs and develops e-learning modules in Articulate Rise for museum and curatorial staff
+   - Designs formative and summative assessments, including quizzes and practice tasks, that are aligned to learning objectives
    - Manages iterative stakeholder review cycles, translating feedback into refined tone, structure, and visual design
 
-2. E-Learning Developer (Intern) (Feb 2026 – July 2026) - Dräger, Lübeck
+2. E-Learning Developer (Intern) (Feb 2026 – July 2026) - Dräger, Lübeck — COMPLETED
    - Produced and edited instructional videos (Adobe Premiere Pro) for global product training on medical and safety equipment, from shoot to final cut
    - Built and transferred existing e-learning content into Articulate Rise, restructuring PowerPoint materials to align with Corporate Identity standards
    - Utilised AI-powered tools to create multilingual versions of e-learning modules, improving accessibility and global reach
 
-3. Digital Learning Designer (Intern) (June 2025 – Nov 2025) - Tanz der Kulturen e.V., Hamburg
-   - Designed 25+ accessible multimedia learning assets (infographics, promotional materials) in line with WCAG 2.1 using Figma, expanding reach to diverse learner groups
+3. Digital Learning Designer (Intern) (June 2025 – Nov 2025) - Tanz der Kulturen e.V., Hamburg — COMPLETED
+   - Designed 25+ accessible multimedia learning assets (infographics, promotional materials) using Figma, expanding reach to diverse learner groups
    - Curated and structured 50+ educational resources for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners
    - Localized 300+ pages of German instructional content (e.g., Rituelle Tanz Pädagogik book) into English using AI-assisted translation, preserving natural flow
 
 4. English Language Teacher & Administrative Assistant (Jan 2023 – Oct 2023) - Ghana National Service Scheme, Kumasi
-   - Designed and delivered English lessons using learning objectives aligned with Bloom's Taxonomy, enhancing comprehension, writing, and speaking skills
+   - Designed and delivered English lessons aligned with Bloom's Taxonomy learning objectives, improving comprehension, writing, and speaking skills
    - Managed administrative tasks, including student records, scheduling, and correspondence
 
 5. English Language Teaching Assistant (Intern) (June 2021 – Dec 2021) - Ghana Education Service, Kumasi
@@ -68,15 +70,25 @@ PROFESSIONAL EXPERIENCE:
 
 CERTIFICATIONS & TRAINING:
 - Instructional Design Foundations & Applications – University of Illinois Urbana-Champaign (Aug 14, 2025)
-- EF SET English Certificate – C1 Advanced (67/100) (Feb 10, 2025)
 - Technical Writing Course – Board Infinity (April 2, 2025)
+- EF SET English Certificate – C1 Advanced (67/100) (Feb 10, 2025)
 
 PORTFOLIO HIGHLIGHTS:
-- E-Learning (Articulate Rise): Cybersecurity Essentials for Every Employee
-- E-Learning (Articulate Rise): Combating Climate Change: A Collective Responsibility
-- Product Training: Dräger Fundamentals of Controllers
-- Sales Training: Dräger X-am 2800/5800
-- Product Training: Dräger Vacuum Systems
+Microlearning Projects (interactive video):
+- AI Literacy for Non-Technical Employees — Explore how AI can support everyday workplace tasks such as generating ideas, writing, summarizing, and analyzing information, and why human judgment, careful review, and responsibility remain essential when using AI-generated work.
+  🔗 https://starlit-starship-e9783b.netlify.app/#/lessons/3b02b628-fb82-441d-aca1-e3f090b709db
+- Successive Approximation Model (SAM) for Instructional Designers (newest) — Follow Maya, a learning designer tasked with transforming a 60-slide data privacy presentation into an engaging e-learning module. She uses SAM to identify the employee behavior changes needed, tests a small learning concept with representative learners, and refines the solution before full production; shows how Preparation, Iterative Design, and Iterative Development inform the next responsible decisions.
+  🔗 https://elaborate-meringue-bc0054.netlify.app/#/
+E-Learning Projects:
+- Cybersecurity Essentials for Every Employee (Articulate Rise & Synthesia)
+  🔗 https://charming-sprinkles-d9df51.netlify.app/
+- Combating Climate Change: A Collective Responsibility (Articulate Rise)
+  🔗 https://spectacular-dango-d6bec1.netlify.app/#/
+Medical Systems Projects (Dräger, available upon request):
+- Product Training Module: Dräger Fundamentals of Controllers
+- Sales Training Module: Dräger Access and Control Package
+- Additional Dräger modules on request: X-am 2800/5800; Medical Vacuum Systems
+Other: Notion knowledge bases (LLMs, Sustainability & Climate Change; Climate Change Mitigation Guide); GitHub technical-writing samples (Welth Health Platform DITA XML, Postman user guide); General AI assistant (https://general-ai-wheat.vercel.app); S.Studio workspace app.
 
 LANGUAGES:
 - English – Native/Bilingual
@@ -673,8 +685,8 @@ ${cvData}
     ])) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Portfolio-Highlights mit Links:**\n\n**Portfolio-Website:** https://vs-code-port1.vercel.app\n\n🎓 **E-Learning-Module (Primärfokus):**\n• **E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility** – Klimawandelbewusstsein und kollektive Verantwortung\n   🔗 https://spectacular-dango-d6bec1.netlify.app/#/\n• **Plain Language & Inclusive Communication** – Interaktives Modul mit erweitertem Barrierefreiheits-Panel (WCAG 2.1)\n   🔗 https://plain-language-five.vercel.app\n• **E-Learning Accessibility Best Practices** – Best Practices für barrierefreies Design (siehe Plain-Language-Modul)\n\n🏭 **Produkt- & Vertriebstrainings (Dräger, auf Anfrage):**\n• Dräger Fundamentals of Controllers | Dräger X-am 2800/5800 | Dräger Medical Vacuum Systems. Kontakt über Portfolio\n\n📚 **Wissensdatenbanken (ADDIE-basiert):**\n• **LLMs, Sustainability and Climate Change** – Theoretisch vollständiger ADDIE-Leitfaden\n   🔗 https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d\n• **Climate Change Mitigation Guide** – Umfassende Bildungsressource\n   🔗 https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f\n\n📄 **Technische Dokumentation (Beispiele):**\n• **Welth Health Platform** – DITA XML und Benutzerführung\n   🔗 https://github.com/Samuelsen1/Tech-Writing-Samples\n\n🤖 **KI:** **General** – Prompt-engineerierter Assistent\n   🔗 https://general-ai-wheat.vercel.app\n\n**Welche Projekte repräsentieren den Primärfokus?** E-Learning in Articulate Rise (Klima, Plain Language/Barrierefreiheit) sowie Dräger-Schulungsmodule.\n\n**Technical Writing?** Notion-Wissensdatenbanken und das GitHub-Repository Tech-Writing-Samples."
-        : "**Samuel's Portfolio Highlights with Links:**\n\n**Portfolio Website:** https://vs-code-port1.vercel.app\n\n🎓 **E-Learning Modules (Primary Focus):**\n• **E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility** – Climate awareness and collective responsibility\n   🔗 https://spectacular-dango-d6bec1.netlify.app/#/\n• **Plain Language & Inclusive Communication** – Interactive module with advanced accessibility panel (WCAG 2.1)\n   🔗 https://plain-language-five.vercel.app\n• **E-Learning Accessibility Best Practices** – Accessible design patterns (via Plain Language module)\n\n🏭 **Product & Sales Training (Dräger, on request):**\n• Dräger Fundamentals of Controllers | Dräger X-am 2800/5800 | Dräger Medical Vacuum Systems. contact via portfolio\n\n📚 **Knowledge Bases (ADDIE-based):**\n• **LLMs, Sustainability and Climate Change** – Theoretically complete ADDIE-based guide\n   🔗 https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d\n• **Climate Change Mitigation Guide** – Comprehensive educational resource\n   🔗 https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f\n\n📄 **Technical Writing Samples:**\n• **Welth Health Platform** – DITA XML and user-focused guides\n   🔗 https://github.com/Samuelsen1/Tech-Writing-Samples\n\n🤖 **AI:** **General** – Prompt-engineered assistant\n   🔗 https://general-ai-wheat.vercel.app\n\n**Primary focus:** Articulate Rise e-learning (climate, plain language/accessibility) and Dräger training modules.\n\n**Technical writing:** Notion knowledge bases and the Tech-Writing-Samples GitHub repository.";
+        ? "**Samuels Portfolio-Highlights mit Links:**\n\n**Portfolio-Website:** https://vs-code-port1.vercel.app\n\n🎓 **E-Learning-Module (Primärfokus):**\n• **E-Learning Project (Interactive Video): AI Literacy for Non-Technical Employees** – Interaktives Video zu KI-Kompetenz für nicht-technische Mitarbeitende\n   🔗 https://starlit-starship-e9783b.netlify.app/#/lessons/3b02b628-fb82-441d-aca1-e3f090b709db\n• **Microlearning Project (Interactive Video): Successive Approximation Model (SAM) for Instructional Designers** – Szenario mit Maya: eine 60-seitige Datenschutz-Präsentation wird mit SAM iterativ in ein E-Learning-Modul verwandelt\n   🔗 https://elaborate-meringue-bc0054.netlify.app/#/\n• **E-Learning Project (Articulate Rise & Synthesia): Cybersecurity Essentials for Every Employee** – Cybersicherheits-Grundlagen für alle Mitarbeitenden\n   🔗 https://charming-sprinkles-d9df51.netlify.app/\n• **E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility** – Klimawandelbewusstsein und kollektive Verantwortung\n   🔗 https://spectacular-dango-d6bec1.netlify.app/#/\n• **Plain Language & Inclusive Communication** – Interaktives Modul mit erweitertem Barrierefreiheits-Panel (WCAG 2.1)\n   🔗 https://plain-language-five.vercel.app\n• **E-Learning Accessibility Best Practices** – Best Practices für barrierefreies Design (siehe Plain-Language-Modul)\n\n🏭 **Produkt- & Vertriebstrainings (Dräger, auf Anfrage):**\n• Dräger Fundamentals of Controllers | Dräger X-am 2800/5800 | Dräger Medical Vacuum Systems. Kontakt über Portfolio\n\n📚 **Wissensdatenbanken (ADDIE-basiert):**\n• **LLMs, Sustainability and Climate Change** – Theoretisch vollständiger ADDIE-Leitfaden\n   🔗 https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d\n• **Climate Change Mitigation Guide** – Umfassende Bildungsressource\n   🔗 https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f\n\n📄 **Technische Dokumentation (Beispiele):**\n• **Welth Health Platform** – DITA XML und Benutzerführung\n   🔗 https://github.com/Samuelsen1/Tech-Writing-Samples\n\n🤖 **KI:** **General** – Prompt-engineerierter Assistent\n   🔗 https://general-ai-wheat.vercel.app\n\n**Welche Projekte repräsentieren den Primärfokus?** E-Learning in Articulate Rise (Klima, Plain Language/Barrierefreiheit) sowie Dräger-Schulungsmodule.\n\n**Technical Writing?** Notion-Wissensdatenbanken und das GitHub-Repository Tech-Writing-Samples."
+        : "**Samuel's Portfolio Highlights with Links:**\n\n**Portfolio Website:** https://vs-code-port1.vercel.app\n\n🎓 **E-Learning Modules (Primary Focus):**\n• **E-Learning Project (Interactive Video): AI Literacy for Non-Technical Employees** – Interactive video on AI literacy for non-technical employees\n   🔗 https://starlit-starship-e9783b.netlify.app/#/lessons/3b02b628-fb82-441d-aca1-e3f090b709db\n• **Microlearning Project (Interactive Video): Successive Approximation Model (SAM) for Instructional Designers** – Scenario following Maya as she turns a 60-slide data privacy deck into an e-learning module using SAM\n   🔗 https://elaborate-meringue-bc0054.netlify.app/#/\n• **E-Learning Project (Articulate Rise & Synthesia): Cybersecurity Essentials for Every Employee** – Cybersecurity basics for every employee\n   🔗 https://charming-sprinkles-d9df51.netlify.app/\n• **E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility** – Climate awareness and collective responsibility\n   🔗 https://spectacular-dango-d6bec1.netlify.app/#/\n• **Plain Language & Inclusive Communication** – Interactive module with advanced accessibility panel (WCAG 2.1)\n   🔗 https://plain-language-five.vercel.app\n• **E-Learning Accessibility Best Practices** – Accessible design patterns (via Plain Language module)\n\n🏭 **Product & Sales Training (Dräger, on request):**\n• Dräger Fundamentals of Controllers | Dräger X-am 2800/5800 | Dräger Medical Vacuum Systems. contact via portfolio\n\n📚 **Knowledge Bases (ADDIE-based):**\n• **LLMs, Sustainability and Climate Change** – Theoretically complete ADDIE-based guide\n   🔗 https://www.notion.so/Instructional-Design-Portfolio-Opoku-Samuel-1d4f017e613b8029b616c5b6d1fd784d\n• **Climate Change Mitigation Guide** – Comprehensive educational resource\n   🔗 https://www.notion.so/Combating-Climate-Change-A-Collective-Responsibility-284f017e613b80acb039d4ca5425349f\n\n📄 **Technical Writing Samples:**\n• **Welth Health Platform** – DITA XML and user-focused guides\n   🔗 https://github.com/Samuelsen1/Tech-Writing-Samples\n\n🤖 **AI:** **General** – Prompt-engineered assistant\n   🔗 https://general-ai-wheat.vercel.app\n\n**Primary focus:** Articulate Rise e-learning (climate, plain language/accessibility) and Dräger training modules.\n\n**Technical writing:** Notion knowledge bases and the Tech-Writing-Samples GitHub repository.";
     }
     
     // Digital Learning specific (high priority)
@@ -765,8 +777,8 @@ ${cvData}
     ) {
       confidence = 1;
       response = isGerman
-        ? "**Samuels Portfolio-Highlights:**\n\n🎓 **E-Learning (Articulate Rise):**\n• **Combating Climate Change: A Collective Responsibility** – öffentliches Rise-Modul\n• **Plain Language & Inclusive Communication** – Barrierefreiheits-Panel (WCAG 2.1)\n• **E-Learning Accessibility Best Practices** – integriert im Plain-Language-Modul\n\n🏭 **Dräger-Schulungen (auf Anfrage):** Fundamentals of Controllers | X-am 2800/5800 | Medical Vacuum Systems\n\n📚 **Wissensdatenbanken (Notion):** LLMs & Nachhaltigkeit | Klimawandel-Minderung\n\n📄 **Technical Writing:** Welth Health Platform (DITA) – GitHub Tech-Writing-Samples\n\n🌐 **Web & KI:** Portfolio-Website (EN/DE, Barrierefreiheit) | General KI-Assistent\n\n**Alle Projekte zeigen:** Benutzerzentriertes Design, WCAG-orientierte Arbeit und messbare Ergebnisse."
-        : "**Samuel's Portfolio Highlights:**\n\n🎓 **E-Learning (Articulate Rise):**\n• **Cybersecurity Essentials for Every Employee** – Articulate Rise & Synthesia\n• **Combating Climate Change: A Collective Responsibility** – public Rise module\n• **Plain Language & Inclusive Communication** – accessibility panel (WCAG 2.1)\n• **E-Learning Accessibility Best Practices** – embedded in the Plain Language module\n\n🏭 **Dräger training (on request):** Fundamentals of Controllers | X-am 2800/5800 | Medical Vacuum Systems\n\n📚 **Knowledge bases (Notion):** LLMs & sustainability | climate mitigation\n\n📄 **Technical writing:** Welth Health Platform (DITA) – GitHub Tech-Writing-Samples\n\n🌐 **Web & AI:** Portfolio site (EN/DE, accessibility) | General AI assistant\n\n**Across projects:** User-centered design, WCAG-oriented work, and measurable outcomes.";
+        ? "**Samuels Portfolio-Highlights:**\n\n🎓 **E-Learning & Microlearning:**\n• **AI Literacy for Non-Technical Employees** – interaktives Video\n• **Successive Approximation Model (SAM) for Instructional Designers** – interaktives Video-Microlearning (neu)\n• **Cybersecurity Essentials for Every Employee** – Articulate Rise & Synthesia\n• **Combating Climate Change: A Collective Responsibility** – öffentliches Rise-Modul\n• **Plain Language & Inclusive Communication** – Barrierefreiheits-Panel (WCAG 2.1)\n• **E-Learning Accessibility Best Practices** – integriert im Plain-Language-Modul\n\n🏭 **Dräger-Schulungen (auf Anfrage):** Fundamentals of Controllers | X-am 2800/5800 | Medical Vacuum Systems\n\n📚 **Wissensdatenbanken (Notion):** LLMs & Nachhaltigkeit | Klimawandel-Minderung\n\n📄 **Technical Writing:** Welth Health Platform (DITA) – GitHub Tech-Writing-Samples\n\n🌐 **Web & KI:** Portfolio-Website (EN/DE, Barrierefreiheit) | General KI-Assistent\n\n**Alle Projekte zeigen:** Benutzerzentriertes Design, WCAG-orientierte Arbeit und messbare Ergebnisse."
+        : "**Samuel's Portfolio Highlights:**\n\n🎓 **E-Learning & Microlearning:**\n• **AI Literacy for Non-Technical Employees** – interactive video\n• **Successive Approximation Model (SAM) for Instructional Designers** – interactive video microlearning (newest)\n• **Cybersecurity Essentials for Every Employee** – Articulate Rise & Synthesia\n• **Combating Climate Change: A Collective Responsibility** – public Rise module\n• **Plain Language & Inclusive Communication** – accessibility panel (WCAG 2.1)\n• **E-Learning Accessibility Best Practices** – embedded in the Plain Language module\n\n🏭 **Dräger training (on request):** Fundamentals of Controllers | X-am 2800/5800 | Medical Vacuum Systems\n\n📚 **Knowledge bases (Notion):** LLMs & sustainability | climate mitigation\n\n📄 **Technical writing:** Welth Health Platform (DITA) – GitHub Tech-Writing-Samples\n\n🌐 **Web & AI:** Portfolio site (EN/DE, accessibility) | General AI assistant\n\n**Across projects:** User-centered design, WCAG-oriented work, and measurable outcomes.";
     }
     
     // Tools/Software

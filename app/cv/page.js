@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, Linkedin, Globe, MapPin } from 'lucide-react';
+import Link from 'next/link';
+import { Mail, Phone, Linkedin, Globe, MapPin, ArrowLeft, Download, ExternalLink } from 'lucide-react';
 
 export default function DigitalLearningCV() {
   const [language, setLanguage] = useState('en');
@@ -20,7 +21,7 @@ export default function DigitalLearningCV() {
 
   const t = {
     en: {
-      subtitle: 'Digital Learning Designer | Professional Website',
+      subtitle: 'Freelance Digital Learning Designer | Professional Website',
       summary: 'PROFESSIONAL SUMMARY',
       summaryText:
         'Digital Learning Designer combining instructional design theory and practice. Master\'s in Media Studies and Bachelor\'s in Education. Develops accessible, learner-centered e-learning using Articulate 360, Adobe Creative Suite, AI tools, and LMS platforms, with experience in medtech and art/cultural sectors.',
@@ -39,10 +40,17 @@ export default function DigitalLearningCV() {
       gradeMaster: 'Grade: 2.3 | Gut',
       gradeBachelor: 'Grade: 1.4 | First Class Honours',
       linkedIn: 'LinkedIn Profile',
-      website: 'Professional Website'
+      website: 'Professional Website',
+      backToPortfolio: 'Back to portfolio',
+      downloadPdf: 'Download PDF',
+      microlearningProjects: 'Microlearning Projects',
+      eLearningProjects: 'E-Learning Projects',
+      medicalProjects: 'Medical Systems Projects',
+      onRequest: 'Available upon request',
+      openCourse: 'Open course'
     },
     de: {
-      subtitle: 'Digital Learning Designer | Professionelle Website',
+      subtitle: 'Freelance Digital Learning Designer | Professionelle Website',
       summary: 'BERUFLICHE ZUSAMMENFASSUNG',
       summaryText:
         'Digital Learning Designer mit Verbindung von Instruktionsdesign-Theorie und -Praxis. Master in Medienwissenschaften und Bachelor in Pädagogik. Entwickelt barrierefreies, lernerzentriertes E-Learning mit Articulate 360, Adobe Creative Suite, KI-Tools und LMS. mit Erfahrung in Medtech und Kunst-/Kultursektor.',
@@ -61,14 +69,55 @@ export default function DigitalLearningCV() {
       gradeMaster: 'Note: 2,3 | Gut',
       gradeBachelor: 'Note: 1,4 | First Class Honours',
       linkedIn: 'LinkedIn-Profil',
-      website: 'Professionelle Website'
+      website: 'Professionelle Website',
+      backToPortfolio: 'Zurück zum Portfolio',
+      downloadPdf: 'PDF herunterladen',
+      microlearningProjects: 'Microlearning-Projekte',
+      eLearningProjects: 'E-Learning-Projekte',
+      medicalProjects: 'Medizintechnik-Projekte',
+      onRequest: 'Auf Anfrage verfügbar',
+      openCourse: 'Kurs öffnen'
     }
+  };
+
+  const portfolio = {
+    microlearning: [
+      { title: 'AI Literacy for Non-Technical Employees (Interactive Video)', link: 'https://starlit-starship-e9783b.netlify.app/#/lessons/3b02b628-fb82-441d-aca1-e3f090b709db' },
+      { title: 'Successive Approximation Model (SAM) for Instructional Designers (Interactive Video)', link: 'https://elaborate-meringue-bc0054.netlify.app/#/' }
+    ],
+    eLearning: [
+      { title: 'Cybersecurity Essentials for Every Employee (Articulate Rise & Synthesia)', link: 'https://charming-sprinkles-d9df51.netlify.app/' },
+      { title: 'Combating Climate Change: A Collective Responsibility (Articulate Rise)', link: 'https://spectacular-dango-d6bec1.netlify.app/#/' }
+    ],
+    medical: [
+      { title: 'Product Training Module: Dräger Fundamentals of Controllers' },
+      { title: 'Sales Training Module: Dräger Access and Control Package' }
+    ]
   };
 
   const lang = t[language] || t.en;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100 py-8 px-4">
+      <div className="max-w-5xl mx-auto mb-4 flex flex-wrap items-center justify-between gap-3 print:hidden">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-indigo-700 bg-white/90 ring-1 ring-slate-200 shadow-sm hover:bg-white hover:ring-indigo-300 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          {lang.backToPortfolio}
+        </Link>
+        <a
+          href="/cv.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          download="Samuel_Opoku_CV.pdf"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 shadow-md hover:from-indigo-700 hover:to-indigo-800 transition-colors"
+        >
+          <Download className="w-4 h-4" />
+          {lang.downloadPdf}
+        </a>
+      </div>
       <div className="max-w-5xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl ring-1 ring-slate-200/80 p-6 md:p-10">
         <header className="border-b border-indigo-200/80 pb-6 mb-6">
           <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-900 via-indigo-800 to-indigo-600 bg-clip-text text-transparent mb-2">SAMUEL OPOKU</h1>
@@ -106,8 +155,8 @@ export default function DigitalLearningCV() {
         <section className="mb-6">
           <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-indigo-100 pb-1">{lang.skills}</h2>
           <div className="space-y-2 text-sm text-gray-700">
-            <p><span className="font-semibold">{language === 'de' ? 'Instruktionsdesign:' : 'Instructional Design:'}</span> ADDIE | Bloom&apos;s Taxonomy | Adult Learning Theory | Storyboarding | LXD | Curriculum Development</p>
-            <p><span className="font-semibold">{language === 'de' ? 'E-Learning-Entwicklung:' : 'E-Learning Development:'}</span> SCORM Packaging | LMS Administration | Learning Analytics</p>
+            <p><span className="font-semibold">{language === 'de' ? 'Instruktionsdesign:' : 'Instructional Design:'}</span> ADDIE | SAM | Bloom&apos;s Taxonomy | Adult Learning Theory | Storyboarding | LXD | Curriculum Development</p>
+            <p><span className="font-semibold">{language === 'de' ? 'E-Learning-Entwicklung:' : 'E-Learning Development:'}</span> SCORM Packaging | LMS Administration | Learning Analytics | Interactive Design | Branching Scenarios | Gamification | Microlearning</p>
             <p><span className="font-semibold">{language === 'de' ? 'Multimedia-Produktion:' : 'Multimedia Production:'}</span> Photo Editing (Infographics | Posters | Flyers) | Video Creation &amp; Editing</p>
             <p><span className="font-semibold">{language === 'de' ? 'Technische Kommunikation:' : 'Technical Communication:'}</span> User Guides | Knowledge-Base Documentation | Cross-Cultural Content Adaptation | Content Localization</p>
           </div>
@@ -130,7 +179,7 @@ export default function DigitalLearningCV() {
           <div className="mb-4">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
               <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Instructional Designer (Freelance)' : 'Instructional Designer (Freelance)'}</h3>
+                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Instructional Designer (Freelance | Teilzeit)' : 'Instructional Designer (Freelance | Part-Time)'}</h3>
                 <p className="text-gray-600 italic">Node Center for Curatorial Studies, Berlin</p>
               </div>
               <span className="text-sm text-gray-600 font-semibold">Aug 2026 – Present</span>
@@ -138,6 +187,7 @@ export default function DigitalLearningCV() {
             <ul className="text-sm text-gray-700 space-y-1 ml-4">
               <li>• {language === 'de' ? 'Übersetzt Fachinput in strukturierte, lernfreundliche Inhalte. Instruktionsdesign für ein spezialisiertes, nicht-technisches Publikum' : 'Translates subject-matter input into structured, learner-friendly content, applying instructional design principles to a specialist, non-technical audience'}</li>
               <li>• {language === 'de' ? 'Konzipiert und entwickelt E-Learning-Module in Articulate Rise für Museum- und Kuratoren-Teams' : 'Designs and develops e-learning modules in Articulate Rise for museum and curatorial staff'}</li>
+              <li>• {language === 'de' ? 'Entwirft formative und summative Assessments, inklusive Quizzes und Übungsaufgaben, ausgerichtet auf Lernziele' : 'Designs formative and summative assessments, including quizzes and practice tasks, that are aligned to learning objectives'}</li>
               <li>• {language === 'de' ? 'Steuert iterative Stakeholder-Review-Zyklen und verfeinert Ton, Struktur und visuelles Design anhand des Feedbacks' : 'Manages iterative stakeholder review cycles, translating feedback into refined tone, structure, and visual design'}</li>
             </ul>
           </div>
@@ -239,13 +289,40 @@ export default function DigitalLearningCV() {
 
         <section className="mb-6">
           <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-indigo-100 pb-1">{lang.portfolioHighlights}</h2>
-          <ul className="text-sm text-gray-700 space-y-1 ml-4">
-            <li>• E-Learning Project (Articulate Rise): Cybersecurity Essentials for Every Employee</li>
-            <li>• E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility</li>
-            <li>• Product Training Module: Dräger Fundamentals of Controllers</li>
-            <li>• Sales Training Module: Dräger X-am 2800/5800</li>
-            <li>• Product Training Module: Dräger Vacuum Systems</li>
-          </ul>
+          <div className="space-y-3 text-sm text-gray-700">
+            {[
+              { heading: lang.microlearningProjects, items: portfolio.microlearning },
+              { heading: lang.eLearningProjects, items: portfolio.eLearning },
+              { heading: lang.medicalProjects, items: portfolio.medical }
+            ].map((group) => (
+              <div key={group.heading}>
+                <p className="font-semibold text-gray-800">{group.heading}:</p>
+                <ul className="space-y-1 ml-4">
+                  {group.items.map((item) => (
+                    <li key={item.title}>
+                      • {item.title}
+                      {item.link ? (
+                        <>
+                          {' '}
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-indigo-600 hover:text-indigo-800 underline underline-offset-2"
+                          >
+                            {lang.openCourse}
+                            <ExternalLink className="w-3 h-3" aria-hidden="true" />
+                          </a>
+                        </>
+                      ) : (
+                        <span className="text-gray-500"> ({lang.onRequest})</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section>

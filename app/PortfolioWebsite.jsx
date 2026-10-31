@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import Link from 'next/link';
 import { Code, BookOpen, Briefcase, Mail, Linkedin, Github, ExternalLink, Zap, CheckCircle, TrendingUp, FileText, Sun, Moon, Target, Users, Sparkles, X, Eye, EyeOff, Lightbulb, Type, Square, Volume2, Image, AlignCenter, RotateCcw, Heart, MessageCircle, Send, Award, Bot, Search, Copy, Plus } from 'lucide-react';
 
 // Lightweight sanitizer: strip script/iframe/on* to prevent XSS (add DOMPurify for stricter allowlist if needed)
@@ -590,18 +591,20 @@ setChatMessages([
         title: "Professional Experience",
         items: [
           {
-            title: { en: "Instructional Designer (Freelance)", de: "Instructional Designer (Freelance)" },
+            title: { en: "Instructional Designer (Freelance | Part-Time)", de: "Instructional Designer (Freelance | Teilzeit)" },
             company: { en: "Node Center for Curatorial Studies, Berlin", de: "Node Center for Curatorial Studies, Berlin" },
             date: { en: "August 2026 – Present", de: "August 2026 – heute" },
             bullets: {
               en: [
                 "Translates subject-matter input into structured, learner-friendly content, applying instructional design principles to a specialist, non-technical audience",
                 "Designs and develops e-learning modules in Articulate Rise for museum and curatorial staff",
+                "Designs formative and summative assessments, including quizzes and practice tasks, that are aligned to learning objectives",
                 "Manages iterative stakeholder review cycles, translating feedback into refined tone, structure, and visual design"
               ],
               de: [
                 "Übersetzt Fachinput in strukturierte, lernfreundliche Inhalte. Instruktionsdesign für ein spezialisiertes, nicht-technisches Publikum",
                 "Konzipiert und entwickelt E-Learning-Module in Articulate Rise für Museum- und Kuratoren-Teams",
+                "Entwirft formative und summative Assessments, inklusive Quizzes und Übungsaufgaben, ausgerichtet auf Lernziele",
                 "Steuert iterative Stakeholder-Review-Zyklen und verfeinert Ton, Struktur und visuelles Design anhand des Feedbacks"
               ]
             },
@@ -744,11 +747,11 @@ setChatMessages([
       skillsCategories: [
         {
           title: "Instructional Design",
-          items: ["ADDIE", "Bloom's Taxonomy", "Adult Learning Theory", "Storyboarding", "LXD", "Curriculum Development"]
+          items: ["ADDIE", "SAM", "Bloom's Taxonomy", "Adult Learning Theory", "Storyboarding", "LXD", "Curriculum Development"]
         },
         {
           title: "E-Learning & Multimedia",
-          items: ["Articulate 360 (Storyline, Rise)", "SCORM", "Moodle", "Learning Analytics", "Premiere Pro", "Photoshop", "InDesign", "Figma", "Synthesia", "Descript", "Canva"]
+          items: ["Articulate 360 (Storyline, Rise)", "SCORM", "Moodle", "Learning Analytics", "Interactive Design", "Branching Scenarios", "Gamification", "Microlearning", "Premiere Pro", "Photoshop", "InDesign", "Figma", "Synthesia", "Descript", "Canva"]
         },
         {
           title: "Technical Communication",
@@ -800,18 +803,20 @@ setChatMessages([
         title: "Berufserfahrung",
         items: [
           {
-            title: { en: "Instructional Designer (Freelance)", de: "Instructional Designer (Freelance)" },
+            title: { en: "Instructional Designer (Freelance | Part-Time)", de: "Instructional Designer (Freelance | Teilzeit)" },
             company: { en: "Node Center for Curatorial Studies, Berlin", de: "Node Center for Curatorial Studies, Berlin" },
             date: { en: "August 2026 – Present", de: "August 2026 – heute" },
             bullets: {
               en: [
                 "Translates subject-matter input into structured, learner-friendly content, applying instructional design principles to a specialist, non-technical audience",
                 "Designs and develops e-learning modules in Articulate Rise for museum and curatorial staff",
+                "Designs formative and summative assessments, including quizzes and practice tasks, that are aligned to learning objectives",
                 "Manages iterative stakeholder review cycles, translating feedback into refined tone, structure, and visual design"
               ],
               de: [
                 "Übersetzt Fachinput in strukturierte, lernfreundliche Inhalte. Instruktionsdesign für ein spezialisiertes, nicht-technisches Publikum",
                 "Konzipiert und entwickelt E-Learning-Module in Articulate Rise für Museum- und Kuratoren-Teams",
+                "Entwirft formative und summative Assessments, inklusive Quizzes und Übungsaufgaben, ausgerichtet auf Lernziele",
                 "Steuert iterative Stakeholder-Review-Zyklen und verfeinert Ton, Struktur und visuelles Design anhand des Feedbacks"
               ]
             },
@@ -954,11 +959,11 @@ setChatMessages([
       skillsCategories: [
         {
           title: "Instruktionsdesign",
-          items: ["ADDIE", "Bloom's Taxonomie", "Erwachsenenlerntheorie", "Storyboarding", "LXD", "Curriculumentwicklung"]
+          items: ["ADDIE", "SAM", "Bloom's Taxonomie", "Erwachsenenlerntheorie", "Storyboarding", "LXD", "Curriculumentwicklung"]
         },
         {
           title: "E-Learning & Multimedia",
-          items: ["Articulate 360 (Storyline, Rise)", "SCORM", "Moodle", "Learning Analytics", "Premiere Pro", "Photoshop", "InDesign", "Figma", "Synthesia", "Descript", "Canva"]
+          items: ["Articulate 360 (Storyline, Rise)", "SCORM", "Moodle", "Learning Analytics", "Interaktives Design", "Branching Scenarios", "Gamification", "Microlearning", "Premiere Pro", "Photoshop", "InDesign", "Figma", "Synthesia", "Descript", "Canva"]
         },
         {
           title: "Technische Kommunikation",
@@ -974,6 +979,56 @@ setChatMessages([
 
   // Projects with translations
   const projects = [
+    {
+      title: {
+        en: "E-Learning Project (Interactive Video): AI Literacy for Non-Technical Employees",
+        de: "E-Learning-Projekt (Interaktives Video): KI-Kompetenz für nicht-technische Mitarbeitende"
+      },
+      category: {
+        en: "E-Learning Module",
+        de: "E-Learning-Modul"
+      },
+      description: {
+        en: "Explore how AI can support everyday workplace tasks such as generating ideas, writing, summarizing, and analyzing information, and why human judgment, careful review, and responsibility remain essential when using AI-generated work.",
+        de: "Erkunden Sie, wie KI alltägliche Arbeitsaufgaben wie Ideenfindung, Schreiben, Zusammenfassen und Analysieren unterstützen kann, und warum menschliches Urteilsvermögen, sorgfältige Prüfung und Verantwortung bei KI-generierter Arbeit unverzichtbar bleiben."
+      },
+      tools: {
+        en: ["Interactive Video", "Synthesia", "Articulate Rise", "Premiere Pro", "Canva"],
+        de: ["Interaktives Video", "Synthesia", "Articulate Rise", "Premiere Pro", "Canva"]
+      },
+      results: {
+        en: ["AI literacy for non-technical staff", "Interactive video learning", "Workplace-ready practice"],
+        de: ["KI-Kompetenz für nicht-technische Teams", "Interaktives Videolernen", "Praxisnahe Anwendung"]
+      },
+      link: "https://starlit-starship-e9783b.netlify.app/#/lessons/3b02b628-fb82-441d-aca1-e3f090b709db",
+      image: "/images/ai-literacy.jpg",
+      featured: true
+    },
+    {
+      title: {
+        en: "Microlearning Project (Interactive Video): Successive Approximation Model (SAM) for Instructional Designers",
+        de: "Microlearning-Projekt (Interaktives Video): Successive Approximation Model (SAM) für Instruktionsdesigner"
+      },
+      category: {
+        en: "Microlearning Module",
+        de: "Microlearning-Modul"
+      },
+      description: {
+        en: "Follow Maya, a learning designer tasked with transforming a 60-slide data privacy presentation into an engaging e-learning module. Using the SAM model, she identifies the behavior changes employees need, tests a small learning concept with representative learners, and refines the solution before full production. See how Preparation, Iterative Design, and Iterative Development inform the next responsible decisions in the project.",
+        de: "Begleiten Sie Maya, eine Learning Designerin, die eine 60-seitige Datenschutz-Präsentation in ein ansprechendes E-Learning-Modul verwandeln soll. Mit dem SAM-Modell ermittelt sie die nötigen Verhaltensänderungen, testet ein kleines Lernkonzept mit repräsentativen Lernenden und verfeinert die Lösung vor der vollständigen Produktion. Erleben Sie, wie Preparation, Iterative Design und Iterative Development die nächsten verantwortungsvollen Projektentscheidungen prägen."
+      },
+      tools: {
+        en: ["Interactive Video", "Scenario-Based Learning", "Articulate Rise", "Synthesia", "Canva"],
+        de: ["Interaktives Video", "Szenariobasiertes Lernen", "Articulate Rise", "Synthesia", "Canva"]
+      },
+      results: {
+        en: ["SAM applied to a real design brief", "Scenario-based decision practice", "Iterative prototyping mindset"],
+        de: ["SAM an einem realen Design-Briefing", "Szenariobasierte Entscheidungsübung", "Iteratives Prototyping-Mindset"]
+      },
+      link: "https://elaborate-meringue-bc0054.netlify.app/#/",
+      image: "/images/sam-microlearning.jpg",
+      featured: true
+    },
     {
       title: {
         en: "E-Learning Project (Articulate Rise & Synthesia): Cybersecurity Essentials for Every Employee",
@@ -996,6 +1051,7 @@ setChatMessages([
         de: ["Cybersicherheitsbewusstsein", "Reduzierung von Nutzer-Risiken", "Barrierefreies, modernes Training"]
       },
       link: "https://charming-sprinkles-d9df51.netlify.app/",
+      image: "/images/b1.png",
       featured: true
     },
     {
@@ -1148,6 +1204,7 @@ setChatMessages([
         de: ["Klimabewusstsein", "Nutzerbindung", "Inklusives Umweltlernen"]
       },
       link: "https://spectacular-dango-d6bec1.netlify.app/#/",
+      image: "/images/b2.png",
       featured: true
     },
     {
@@ -1805,13 +1862,14 @@ setChatMessages([
                   <Mail className="w-5 h-5" />
                   {t[language].hero.getInTouch}
                 </a>
-                <a 
+                <Link 
                   href={`/cv?lang=${language}`}
+                  prefetch
                   className={`inline-flex items-center justify-center gap-2 px-4 py-3.5 md:py-4 rounded-xl font-semibold border transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 w-[180px] ${isDarkTheme ? 'bg-gradient-to-r from-blue-500/30 to-indigo-500/30 backdrop-blur-md text-white border-blue-400/30 hover:from-blue-500/40 hover:to-indigo-500/40 shadow-blue-500/20' : 'bg-white/90 backdrop-blur-sm text-blue-700 border-blue-200 hover:bg-white hover:border-blue-300 shadow-blue-500/20'}`}
                 >
                   <FileText className="w-5 h-5" />
                   {t[language].hero.viewCV}
-                </a>
+                </Link>
               </div>
               <div className="flex justify-center md:justify-start gap-5 mt-8 md:mt-10">
                 <a href="https://www.linkedin.com/in/samuel-o-4b9bbb2a8" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className={`transition-all duration-300 hover:scale-110 ${isDarkTheme ? 'text-blue-300/80 hover:text-white' : 'text-blue-500 hover:text-blue-700'}`}>
@@ -1988,14 +2046,16 @@ setChatMessages([
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.filter(p => [
+                "E-Learning Project (Interactive Video): AI Literacy for Non-Technical Employees",
+                "Microlearning Project (Interactive Video): Successive Approximation Model (SAM) for Instructional Designers",
                 "E-Learning Project (Articulate Rise & Synthesia): Cybersecurity Essentials for Every Employee",
                 "E-Learning Project (Articulate Rise): Combating Climate Change: A Collective Responsibility"
               ].includes(p.title.en)).map((project, index) => {
-                const imgSrc = index === 0 ? "/images/b1.png" : "/images/b2.png";
+                const imgSrc = project.image;
                 return (
                   <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`rounded-2xl overflow-hidden group block flex flex-col relative hover-lift transition-all duration-300 ${isDarkTheme ? 'bg-white/10 backdrop-blur-xl border border-white/10' : 'card-light'}`} style={{width: '100%', maxWidth: '420px', minHeight: '520px', textDecoration: 'none'}}>
                     <div className="relative overflow-hidden">
-                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" decoding="async" className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <img src={imgSrc} alt={project.title[language]} width="420" height="208" loading="lazy" decoding="async" className="w-full h-52 object-cover object-top transition-transform duration-500 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
