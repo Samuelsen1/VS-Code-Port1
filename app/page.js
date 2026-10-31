@@ -1,7 +1,7 @@
 'use client'
 
-import PortfolioWebsite from './PortfolioWebsite'
+import HomePage from './components/HomePage'
 
 export default function Home() {
-  return <PortfolioWebsite />
+  return <HomePage />
 }

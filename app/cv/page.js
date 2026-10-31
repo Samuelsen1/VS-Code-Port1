@@ -98,11 +98,11 @@ export default function DigitalLearningCV() {
   const lang = t[language] || t.en;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100 py-8 px-4">
+    <div className="min-h-screen py-8 px-4">
       <div className="max-w-5xl mx-auto mb-4 flex flex-wrap items-center justify-between gap-3 print:hidden">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-indigo-700 bg-white/90 ring-1 ring-slate-200 shadow-sm hover:bg-white hover:ring-indigo-300 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#0f4c81] bg-white/90 ring-1 ring-slate-200 shadow-sm hover:bg-white hover:ring-[#1a74b8]/40 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           {lang.backToPortfolio}
@@ -112,16 +112,16 @@ export default function DigitalLearningCV() {
           target="_blank"
           rel="noopener noreferrer"
           download="Samuel_Opoku_CV.pdf"
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 shadow-md hover:from-indigo-700 hover:to-indigo-800 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#1a74b8] to-[#0b2744] shadow-md hover:from-[#0f4c81] hover:to-[#071525] transition-colors"
         >
           <Download className="w-4 h-4" />
           {lang.downloadPdf}
         </a>
       </div>
       <div className="max-w-5xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl ring-1 ring-slate-200/80 p-6 md:p-10">
-        <header className="border-b border-indigo-200/80 pb-6 mb-6">
-          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-900 via-indigo-800 to-indigo-600 bg-clip-text text-transparent mb-2">SAMUEL OPOKU</h1>
-          <p className="text-xl text-indigo-700 font-semibold mb-4">{lang.subtitle}</p>
+        <header className="border-b border-[#1a74b8]/30 pb-6 mb-6">
+          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#071525] via-[#0f4c81] to-[#1a74b8] bg-clip-text text-transparent mb-2">SAMUEL OPOKU</h1>
+          <p className="text-xl text-[#0f4c81] font-semibold mb-4">{lang.subtitle}</p>
 
           <div className="flex flex-wrap gap-3 md:gap-4 text-xs md:text-sm text-gray-700">
             <div className="flex items-center gap-1">
@@ -148,12 +148,12 @@ export default function DigitalLearningCV() {
         </header>
 
         <section className="mb-6">
-          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-gray-300 pb-1">{lang.summary}</h2>
+          <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-gray-300 pb-1">{lang.summary}</h2>
           <p className="text-gray-700 leading-relaxed text-sm md:text-base">{lang.summaryText}</p>
         </section>
 
         <section className="mb-6">
-          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-indigo-100 pb-1">{lang.skills}</h2>
+          <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-[#d6e8f6] pb-1">{lang.skills}</h2>
           <div className="space-y-2 text-sm text-gray-700">
             <p><span className="font-semibold">{language === 'de' ? 'Instruktionsdesign:' : 'Instructional Design:'}</span> ADDIE | SAM | Bloom&apos;s Taxonomy | Adult Learning Theory | Storyboarding | LXD | Curriculum Development</p>
             <p><span className="font-semibold">{language === 'de' ? 'E-Learning-Entwicklung:' : 'E-Learning Development:'}</span> SCORM Packaging | LMS Administration | Learning Analytics | Interactive Design | Branching Scenarios | Gamification | Microlearning</p>
@@ -163,7 +163,7 @@ export default function DigitalLearningCV() {
         </section>
 
         <section className="mb-6">
-          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-indigo-100 pb-1">{lang.tools}</h2>
+          <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-[#d6e8f6] pb-1">{lang.tools}</h2>
           <div className="space-y-2 text-sm text-gray-700">
             <p><span className="font-semibold">{language === 'de' ? 'E-Learning & LMS:' : 'E-Learning Authoring & LMS:'}</span> Articulate 360 (Storyline, Rise) | Moodle</p>
             <p><span className="font-semibold">{language === 'de' ? 'Design & Multimedia:' : 'Design & Multimedia:'}</span> Adobe Creative Suite (Premiere Pro, Photoshop, InDesign) | Figma | Synthesia | Descript | Canva</p>
@@ -174,7 +174,7 @@ export default function DigitalLearningCV() {
         </section>
 
         <section className="mb-6">
-          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-gray-300 pb-1">{lang.experience}</h2>
+          <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-gray-300 pb-1">{lang.experience}</h2>
 
           <div className="mb-4">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
@@ -251,7 +251,7 @@ export default function DigitalLearningCV() {
         </section>
 
         <section className="mb-6">
-          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-gray-300 pb-1">{lang.education}</h2>
+          <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-gray-300 pb-1">{lang.education}</h2>
 
           <div className="mb-4">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-1 gap-1">
@@ -279,7 +279,7 @@ export default function DigitalLearningCV() {
         </section>
 
         <section className="mb-6">
-          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-indigo-100 pb-1">{lang.certifications}</h2>
+          <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-[#d6e8f6] pb-1">{lang.certifications}</h2>
           <ul className="space-y-2 text-sm text-gray-700">
             <li>• Instructional Design Foundations &amp; Applications – University of Illinois Urbana-Champaign (Aug 14, 2025)</li>
             <li>• EF SET English Certificate – C1 Advanced (67/100) (Feb 10, 2025)</li>
@@ -288,7 +288,7 @@ export default function DigitalLearningCV() {
         </section>
 
         <section className="mb-6">
-          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-indigo-100 pb-1">{lang.portfolioHighlights}</h2>
+          <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-[#d6e8f6] pb-1">{lang.portfolioHighlights}</h2>
           <div className="space-y-3 text-sm text-gray-700">
             {[
               { heading: lang.microlearningProjects, items: portfolio.microlearning },
@@ -308,7 +308,7 @@ export default function DigitalLearningCV() {
                             href={item.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-indigo-600 hover:text-indigo-800 underline underline-offset-2"
+                            className="inline-flex items-center gap-1 text-[#0f4c81] hover:text-[#071525] underline underline-offset-2"
                           >
                             {lang.openCourse}
                             <ExternalLink className="w-3 h-3" aria-hidden="true" />
@@ -326,7 +326,7 @@ export default function DigitalLearningCV() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-indigo-600 mb-3 border-b-2 border-gray-300 pb-1">{lang.languages}</h2>
+          <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-gray-300 pb-1">{lang.languages}</h2>
           <div className="flex flex-wrap gap-6 text-sm text-gray-700">
             <span><span className="font-semibold">{lang.english}</span> – {lang.native}</span>
             <span><span className="font-semibold">{lang.german}</span> – {lang.intermediate}</span>
