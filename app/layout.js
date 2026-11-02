@@ -4,7 +4,7 @@ import Providers from './components/Providers'
 export const metadata = {
   metadataBase: new URL('https://vs-code-port1.vercel.app'),
   title: 'Samuel Opoku | Digital Learning Designer',
-  description: 'Digital Learning Designer creating engaging, accessible e-learning experiences. Instructional design, microlearning, and multimedia for medtech, museums, and modern workplaces.',
+  description: 'Digital Learning Designer creating instructional design, learning media, knowledge systems, and clear communication for medtech, museums, and modern workplaces.',
   keywords: ['Digital Learning Designer', 'Instructional Designer', 'E-Learning', 'Microlearning', 'Articulate', 'Samuel Opoku', 'Lübeck', 'Germany'],
   authors: [{ name: 'Samuel Opoku' }],
   creator: 'Samuel Opoku',
@@ -17,7 +17,7 @@ export const metadata = {
     url: 'https://vs-code-port1.vercel.app',
     siteName: 'Samuel Opoku Portfolio',
     title: 'Samuel Opoku | Digital Learning Designer',
-    description: 'Learner-centered e-learning for medtech, museums, and modern workplaces.',
+    description: 'Instructional design, learning media, and clear communication for medtech, museums, and modern workplaces.',
     images: [
       {
         url: 'https://vs-code-port1.vercel.app/images/proj-ai-literacy.jpg',
@@ -31,7 +31,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Samuel Opoku | Digital Learning Designer',
-    description: 'Learner-centered e-learning for medtech, museums, and modern workplaces.',
+    description: 'Instructional design, learning media, and clear communication for medtech, museums, and modern workplaces.',
     images: ['https://vs-code-port1.vercel.app/images/proj-ai-literacy.jpg'],
   },
   robots: {

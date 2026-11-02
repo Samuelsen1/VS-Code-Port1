@@ -45,7 +45,7 @@ export default function ProjectsPage() {
 
         <div className="projects-grid">
           {filtered.map((p, i) => (
-            <Reveal key={p.id} delay={Math.min(i * 50, 300)}>
+            <Reveal key={p.id} delay={Math.min(i * 120, 480)}>
               <ProjectCard project={p} index={i} />
             </Reveal>
           ))}

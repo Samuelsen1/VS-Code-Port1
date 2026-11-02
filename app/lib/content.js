@@ -20,7 +20,7 @@ export const copy = {
     hero: {
       brand: 'Samuel Opoku',
       role: 'Digital Learning Designer',
-      line: 'Learner-centered e-learning for medtech, museums, and modern workplaces.',
+      line: 'Instructional design, learning media, and clear communication for medtech, museums, and modern workplaces.',
       ctaWork: 'View work',
       ctaContact: 'Get in touch',
       ctaCv: 'View CV',
@@ -86,7 +86,7 @@ export const copy = {
     hero: {
       brand: 'Samuel Opoku',
       role: 'Digital Learning Designer',
-      line: 'Lernerzentriertes E-Learning für Medtech, Museen und moderne Arbeitsplätze.',
+      line: 'Instruktionsdesign, Lernmedien und klare Kommunikation für Medtech, Museen und moderne Arbeitsplätze.',
       ctaWork: 'Projekte ansehen',
       ctaContact: 'Kontakt aufnehmen',
       ctaCv: 'Lebenslauf',
@@ -167,8 +167,8 @@ export const projects = [
       de: 'Interaktives Video-Microlearning',
     },
     description: {
-      en: 'Explore how AI supports everyday workplace tasks—and why human judgment and careful review still matter.',
-      de: 'Wie KI alltägliche Arbeitsaufgaben unterstützt—und warum menschliches Urteil und Prüfung unverzichtbar bleiben.',
+      en: 'How AI can help with everyday workplace tasks, and why careful human review still matters.',
+      de: 'Wie KI bei alltäglichen Arbeitsaufgaben helfen kann und warum sorgfältige menschliche Prüfung wichtig bleibt.',
     },
     tools: ['Interactive Video', 'Synthesia', 'Articulate Rise', 'Premiere Pro', 'Canva'],
     results: {
@@ -176,7 +176,7 @@ export const projects = [
       de: ['KI-Kompetenz am Arbeitsplatz', 'Interaktives Videolernen', 'Verantwortungsvoller Umgang'],
     },
     link: 'https://starlit-starship-e9783b.netlify.app/#/lessons/3b02b628-fb82-441d-aca1-e3f090b709db',
-    image: '/images/proj-ai-literacy.jpg',
+    image: '/images/proj-ai-literacy.jpg?v=3',
   },
   {
     id: 'sam',
@@ -187,14 +187,14 @@ export const projects = [
       de: 'SAM für Instruktionsdesigner',
     },
     subtitle: {
-      en: 'Interactive video microlearning',
-      de: 'Interaktives Video-Microlearning',
+      en: 'Microlearning',
+      de: 'Microlearning',
     },
     description: {
       en: 'Follow Maya as she turns a 60-slide data privacy deck into e-learning with the SAM model.',
       de: 'Begleiten Sie Maya, wie sie eine 60-seitige Datenschutz-Präsentation mit dem SAM-Modell in E-Learning verwandelt.',
     },
-    tools: ['Interactive Video', 'Scenario-Based Learning', 'Articulate Rise', 'Synthesia'],
+    tools: ['Scenario-Based Learning', 'Articulate Rise', 'Synthesia'],
     results: {
       en: ['SAM in practice', 'Scenario decisions', 'Iterative prototyping'],
       de: ['SAM in der Praxis', 'Szenario-Entscheidungen', 'Iteratives Prototyping'],
@@ -373,30 +373,6 @@ export const projects = [
     link: null,
     gallery: ['/images/s-studio-1.jpg', '/images/s-studio-2.jpg'],
     image: '/images/proj-sstudio.jpg',
-  },
-  {
-    id: 'a11y',
-    featured: false,
-    category: 'elearning',
-    title: {
-      en: 'Accessibility Best Practices',
-      de: 'Barrierefreiheit im E-Learning',
-    },
-    subtitle: {
-      en: 'Inclusive design module',
-      de: 'Inklusives Design-Modul',
-    },
-    description: {
-      en: 'Accessibility standards and practical tips for inclusive e-learning design.',
-      de: 'Barrierefreiheitsstandards und praktische Tipps für inklusives E-Learning-Design.',
-    },
-    tools: ['Articulate Rise'],
-    results: {
-      en: ['WCAG-oriented design', 'Universal design', 'Better outcomes'],
-      de: ['WCAG-orientiertes Design', 'Universelles Design', 'Bessere Lernergebnisse'],
-    },
-    link: 'https://plain-language-five.vercel.app',
-    image: '/images/proj-a11y.jpg',
   },
   {
     id: 'kb-llm',

@@ -83,7 +83,7 @@ export default function DigitalLearningCV() {
   const portfolio = {
     microlearning: [
       { title: 'AI Literacy for Non-Technical Employees (Interactive Video)', link: 'https://starlit-starship-e9783b.netlify.app/#/lessons/3b02b628-fb82-441d-aca1-e3f090b709db' },
-      { title: 'Successive Approximation Model (SAM) for Instructional Designers (Interactive Video)', link: 'https://elaborate-meringue-bc0054.netlify.app/#/' }
+      { title: 'Successive Approximation Model (SAM) for Instructional Designers', link: 'https://elaborate-meringue-bc0054.netlify.app/#/' }
     ],
     eLearning: [
       { title: 'Cybersecurity Essentials for Every Employee (Articulate Rise & Synthesia)', link: 'https://charming-sprinkles-d9df51.netlify.app/' },

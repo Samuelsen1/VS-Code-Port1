@@ -7,6 +7,7 @@ import { useLanguage } from '../lib/LanguageContext';
 import { projects, site } from '../lib/content';
 import ProjectCard from './ProjectCard';
 import Reveal from './Reveal';
+import SkillsMarquee from './SkillsMarquee';
 
 function Metric({ value, suffix, label }) {
   const ref = useRef(null);
@@ -82,7 +83,7 @@ export default function HomePage() {
 
           <div className="hero-visual reveal reveal-in" style={{ transitionDelay: '200ms' }}>
             <div className="hero-portrait">
-              <img src="/images/profile.jpg" alt={site.name} />
+              <img src="/images/profile.jpg?v=4" alt={site.name} />
             </div>
             <div className="hero-float-card">
               <p>Node Center · Berlin</p>
@@ -90,20 +91,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="hero-marquee" aria-hidden="true">
-          <div className="marquee-track">
-            {['Articulate 360', 'SAM', 'ADDIE', 'Microlearning', 'Rise', 'Premiere Pro', 'LXD', 'WCAG'].map(
-              (item) => (
-                <span key={item}>{item}</span>
-              )
-            )}
-            {['Articulate 360', 'SAM', 'ADDIE', 'Microlearning', 'Rise', 'Premiere Pro', 'LXD', 'WCAG'].map(
-              (item) => (
-                <span key={`${item}-2`}>{item}</span>
-              )
-            )}
-          </div>
-        </div>
+        <SkillsMarquee />
       </section>
 
       <section className="section featured-section">
@@ -120,8 +108,8 @@ export default function HomePage() {
           </Reveal>
           <div className="featured-grid">
             {featured.map((p, i) => (
-              <Reveal key={p.id} delay={i * 70} className={i === 0 ? 'featured-span' : ''}>
-                <ProjectCard project={p} index={i} large={i === 0} />
+              <Reveal key={p.id} delay={i * 160}>
+                <ProjectCard project={p} index={i} />
               </Reveal>
             ))}
           </div>
