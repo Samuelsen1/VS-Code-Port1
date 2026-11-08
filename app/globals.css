@@ -1044,11 +1044,11 @@ select {
   z-index: 60;
   width: 3.55rem;
   height: 3.55rem;
-  border: 1px solid rgba(15, 76, 129, 0.18);
+  border: 1px solid rgba(15, 76, 129, 0.16);
   border-radius: 999px;
   color: var(--deep);
-  background: #071525;
-  box-shadow: 0 12px 28px rgba(15, 76, 129, 0.28);
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(15, 76, 129, 0.18);
   cursor: pointer;
   display: grid;
   place-items: center;
@@ -1059,12 +1059,12 @@ select {
 
 .chat-fab:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 32px rgba(15, 76, 129, 0.36);
+  box-shadow: 0 16px 32px rgba(15, 76, 129, 0.24);
 }
 
 .chat-fab-open {
-  background: linear-gradient(160deg, #0b2744 0%, #071525 100%);
-  color: white;
+  background: #ffffff;
+  color: var(--deep);
 }
 
 .chat-fab-logo {
@@ -1078,7 +1078,7 @@ select {
   -webkit-user-drag: none;
   user-select: none;
   pointer-events: none;
-  background: #071525;
+  background: #ffffff;
 }
 
 .chat-panel {
@@ -1119,7 +1119,7 @@ select {
   border-radius: 999px;
   object-fit: cover;
   flex-shrink: 0;
-  background: #071525;
+  background: #ffffff;
   box-shadow: 0 4px 12px rgba(15, 76, 129, 0.16);
 }
 
