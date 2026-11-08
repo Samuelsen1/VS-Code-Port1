@@ -176,7 +176,7 @@ export const projects = [
       de: ['SBI-Feedback-Übung', 'Live-KI-Szenario', 'SCORM-Paket'],
     },
     link: 'https://say-it-well-hear-it-well.vercel.app/',
-    image: '/images/proj-say-it-well.jpg',
+    image: '/images/proj-say-it-well.jpg?v=2',
   },
   {
     id: 'ai-literacy',
