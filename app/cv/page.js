@@ -1,23 +1,20 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { Mail, Phone, Linkedin, Globe, MapPin, ArrowLeft, Download, ExternalLink } from 'lucide-react';
+import { useLanguage } from '../lib/LanguageContext';
 
 export default function DigitalLearningCV() {
-  const [language, setLanguage] = useState('en');
+  const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search);
-      const langParam = urlParams.get('lang');
-      const storedLang = localStorage.getItem('language');
-      const currentLang = langParam || storedLang || 'en';
-
-      setLanguage(currentLang);
-      document.documentElement.lang = currentLang === 'de' ? 'de' : 'en';
+    if (typeof window === 'undefined') return;
+    const langParam = new URLSearchParams(window.location.search).get('lang');
+    if (langParam === 'en' || langParam === 'de') {
+      setLanguage(langParam);
     }
-  }, []);
+  }, [setLanguage]);
 
   const t = {
     en: {
@@ -81,21 +78,80 @@ export default function DigitalLearningCV() {
   };
 
   const portfolio = {
-    microlearning: [
-      { title: 'AI Literacy for Non-Technical Employees (Interactive Video)', link: 'https://starlit-starship-e9783b.netlify.app/#/lessons/3b02b628-fb82-441d-aca1-e3f090b709db' },
-      { title: 'Successive Approximation Model (SAM) for Instructional Designers (Interactive Video)', link: 'https://elaborate-meringue-bc0054.netlify.app/#/' }
-    ],
-    eLearning: [
-      { title: 'Cybersecurity Essentials for Every Employee (Articulate Rise & Synthesia)', link: 'https://charming-sprinkles-d9df51.netlify.app/' },
-      { title: 'Combating Climate Change: A Collective Responsibility (Articulate Rise)', link: 'https://spectacular-dango-d6bec1.netlify.app/#/' }
-    ],
-    medical: [
-      { title: 'Product Training Module: Dräger Fundamentals of Controllers' },
-      { title: 'Sales Training Module: Dräger Access and Control Package' }
-    ]
+    en: {
+      microlearning: [
+        {
+          title:
+            'Say It Well, Hear It Well: Feedback at Work — SCORM microlearning on SBI feedback, listening habits, and a live WhatsApp-style AI scenario',
+          link: 'https://say-it-well-hear-it-well.vercel.app/',
+        },
+        {
+          title:
+            'AI Literacy for Non-Technical Employees (Interactive Video) — How AI helps with workplace tasks (ideas, writing, summarizing, analysis), and why human review still matters',
+          link: 'https://starlit-starship-e9783b.netlify.app/#/lessons/3b02b628-fb82-441d-aca1-e3f090b709db',
+        },
+        {
+          title:
+            'SAM for Instructional Designers — Scenario-based microlearning applying SAM’s preparation, iterative design, and development phases to a data-privacy deck',
+          link: 'https://elaborate-meringue-bc0054.netlify.app/#/',
+        },
+      ],
+      eLearning: [
+        {
+          title:
+            'Cybersecurity Essentials for Every Employee (Articulate Rise & Synthesia) — Phishing, passwords, MFA, safe browsing, data handling, and incident reporting',
+          link: 'https://charming-sprinkles-d9df51.netlify.app/',
+        },
+        {
+          title:
+            'Combating Climate Change: A Collective Responsibility (Articulate Rise) — Climate causes and impacts, with actions for individuals, organisations, and citizens',
+          link: 'https://spectacular-dango-d6bec1.netlify.app/#/',
+        },
+      ],
+      medical: [
+        { title: 'Product Training Module: Dräger Fundamentals of Controllers' },
+        { title: 'Sales Training Module: Dräger Access and Control Package' },
+      ],
+    },
+    de: {
+      microlearning: [
+        {
+          title:
+            'Say It Well, Hear It Well: Feedback at Work — SCORM-Microlearning zu SBI-Feedback, Zuhören und einem Live-WhatsApp-KI-Szenario',
+          link: 'https://say-it-well-hear-it-well.vercel.app/',
+        },
+        {
+          title:
+            'KI-Kompetenz für nicht-technische Mitarbeitende (Interaktives Video) — Wie KI bei Arbeitsaufgaben hilft (Ideen, Schreiben, Zusammenfassen, Analysieren) und warum menschliche Prüfung zählt',
+          link: 'https://starlit-starship-e9783b.netlify.app/#/lessons/3b02b628-fb82-441d-aca1-e3f090b709db',
+        },
+        {
+          title:
+            'SAM für Instruktionsdesigner — Szenario-basiertes Microlearning zu SAM: Vorbereitung, iterative Gestaltung und Entwicklung anhand einer Datenschutz-Präsentation',
+          link: 'https://elaborate-meringue-bc0054.netlify.app/#/',
+        },
+      ],
+      eLearning: [
+        {
+          title:
+            'Cybersicherheit für alle Mitarbeitenden (Articulate Rise & Synthesia) — Phishing, Passwörter, MFA, sicheres Surfen, Datenumgang und Meldewege',
+          link: 'https://charming-sprinkles-d9df51.netlify.app/',
+        },
+        {
+          title:
+            'Klimawandel bekämpfen: Eine kollektive Verantwortung (Articulate Rise) — Ursachen und Auswirkungen sowie Handlungen für Einzelne, Organisationen und Bürger:innen',
+          link: 'https://spectacular-dango-d6bec1.netlify.app/#/',
+        },
+      ],
+      medical: [
+        { title: 'Produktschulung: Dräger Fundamentals of Controllers' },
+        { title: 'Vertriebsschulung: Dräger Access and Control Package' },
+      ],
+    },
   };
 
   const lang = t[language] || t.en;
+  const portfolioLang = portfolio[language] || portfolio.en;
 
   return (
     <div className="min-h-screen py-8 px-4">
@@ -291,9 +347,9 @@ export default function DigitalLearningCV() {
           <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-[#d6e8f6] pb-1">{lang.portfolioHighlights}</h2>
           <div className="space-y-3 text-sm text-gray-700">
             {[
-              { heading: lang.microlearningProjects, items: portfolio.microlearning },
-              { heading: lang.eLearningProjects, items: portfolio.eLearning },
-              { heading: lang.medicalProjects, items: portfolio.medical }
+              { heading: lang.microlearningProjects, items: portfolioLang.microlearning },
+              { heading: lang.eLearningProjects, items: portfolioLang.eLearning },
+              { heading: lang.medicalProjects, items: portfolioLang.medical }
             ].map((group) => (
               <div key={group.heading}>
                 <p className="font-semibold text-gray-800">{group.heading}:</p>

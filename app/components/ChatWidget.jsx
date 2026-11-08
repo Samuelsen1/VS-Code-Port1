@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Bot, Send, X } from 'lucide-react';
+import { Send, X } from 'lucide-react';
 import { useLanguage } from '../lib/LanguageContext';
 
 function sanitizeHtml(html) {
@@ -90,15 +90,36 @@ export default function ChatWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-label={t.chat.open}
       >
-        {open ? <X className="w-5 h-5" /> : <Bot className="w-5 h-5" />}
+        {open ? (
+          <X className="w-5 h-5" />
+        ) : (
+          <img
+            src="/images/general-fab.png?v=5"
+            alt=""
+            width="56"
+            height="56"
+            className="chat-fab-logo"
+            decoding="async"
+          />
+        )}
       </button>
 
       {open && (
         <div className="chat-panel" role="dialog" aria-label={t.chat.title}>
           <div className="chat-panel-head">
-            <div>
-              <p className="chat-panel-kicker">General</p>
-              <h3>{t.chat.title}</h3>
+            <div className="chat-panel-title">
+              <img
+                src="/images/general-fab.png?v=5"
+                alt=""
+                width="36"
+                height="36"
+                className="chat-panel-logo"
+                decoding="async"
+              />
+              <div>
+                <p className="chat-panel-kicker">General</p>
+                <h3>{t.chat.title}</h3>
+              </div>
             </div>
             <button type="button" onClick={() => setOpen(false)} aria-label="Close">
               <X className="w-4 h-4" />
