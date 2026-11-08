@@ -155,6 +155,30 @@ export const categories = [
 
 export const projects = [
   {
+    id: 'say-it-well',
+    featured: true,
+    category: 'microlearning',
+    title: {
+      en: 'Say It Well, Hear It Well: Feedback at Work',
+      de: 'Say It Well, Hear It Well: Feedback at Work',
+    },
+    subtitle: {
+      en: 'SCORM microlearning with live AI practice',
+      de: 'SCORM-Microlearning mit Live-KI-Übung',
+    },
+    description: {
+      en: 'A landscape microlearning on giving and receiving feedback—SBI, listening habits, and a live WhatsApp-style scenario with Alex.',
+      de: 'Landscape-Microlearning zu Feedback geben und annehmen—SBI, Zuhören und ein Live-WhatsApp-Szenario mit Alex.',
+    },
+    tools: ['SCORM 1.2', 'Interactive Video', 'General AI', 'Vercel'],
+    results: {
+      en: ['SBI feedback practice', 'Live AI scenario', 'SCORM-ready package'],
+      de: ['SBI-Feedback-Übung', 'Live-KI-Szenario', 'SCORM-Paket'],
+    },
+    link: 'https://say-it-well-hear-it-well.vercel.app/',
+    image: '/images/proj-say-it-well.jpg',
+  },
+  {
     id: 'ai-literacy',
     featured: true,
     category: 'microlearning',
