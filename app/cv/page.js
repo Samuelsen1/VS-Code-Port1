@@ -18,10 +18,10 @@ export default function DigitalLearningCV() {
 
   const t = {
     en: {
-      subtitle: 'Freelance Digital Learning Designer | Professional Website',
+      subtitle: 'Digital Learning Designer | Professional Website',
       summary: 'PROFESSIONAL SUMMARY',
       summaryText:
-        'Digital Learning Designer combining instructional design theory and practice. Master\'s in Media Studies and Bachelor\'s in Education. Develops accessible, learner-centered e-learning using Articulate 360, Adobe Creative Suite, AI tools, and LMS platforms, with experience in medtech and art/cultural sectors.',
+        'Digital Learning Designer combining instructional design theory and practice. Master\'s in Media Studies and Bachelor\'s in Education. Develops accessible, learner-centred learning experiences using Articulate 360, Adobe Creative Suite, AI tools, and LMS platforms, with experience in medtech and art/cultural sectors.',
       skills: 'SKILLS & COMPETENCIES',
       tools: 'TOOLS & TECHNOLOGIES',
       experience: 'PROFESSIONAL EXPERIENCE',
@@ -42,15 +42,15 @@ export default function DigitalLearningCV() {
       downloadPdf: 'Download PDF',
       microlearningProjects: 'Microlearning Projects',
       eLearningProjects: 'E-Learning Projects',
-      medicalProjects: 'Medical Systems Projects',
-      onRequest: 'Available upon request',
-      openCourse: 'Open course'
+      professionalProjects: 'Professional Projects',
+      onRequest: 'Available on request',
+      openCourse: 'Open course',
     },
     de: {
-      subtitle: 'Freelance Digital Learning Designer | Professionelle Website',
+      subtitle: 'Digital Learning Designer | Professionelle Website',
       summary: 'BERUFLICHE ZUSAMMENFASSUNG',
       summaryText:
-        'Digital Learning Designer mit Verbindung von Instruktionsdesign-Theorie und -Praxis. Master in Medienwissenschaften und Bachelor in Pädagogik. Entwickelt barrierefreies, lernerzentriertes E-Learning mit Articulate 360, Adobe Creative Suite, KI-Tools und LMS. mit Erfahrung in Medtech und Kunst-/Kultursektor.',
+        'Digital Learning Designer mit Verbindung von Instruktionsdesign-Theorie und -Praxis. Master in Medienwissenschaften und Bachelor in Pädagogik. Entwickelt barrierefreie, lernerzentrierte Lernerfahrungen mit Articulate 360, Adobe Creative Suite, KI-Tools und LMS, mit Erfahrung in Medtech und Kunst-/Kultursektor.',
       skills: 'FÄHIGKEITEN & KOMPETENZEN',
       tools: 'TOOLS & TECHNOLOGIEN',
       experience: 'BERUFSERFAHRUNG',
@@ -71,10 +71,10 @@ export default function DigitalLearningCV() {
       downloadPdf: 'PDF herunterladen',
       microlearningProjects: 'Microlearning-Projekte',
       eLearningProjects: 'E-Learning-Projekte',
-      medicalProjects: 'Medizintechnik-Projekte',
+      professionalProjects: 'Berufliche Projekte',
       onRequest: 'Auf Anfrage verfügbar',
-      openCourse: 'Kurs öffnen'
-    }
+      openCourse: 'Kurs öffnen',
+    },
   };
 
   const portfolio = {
@@ -82,70 +82,70 @@ export default function DigitalLearningCV() {
       microlearning: [
         {
           title:
-            'Say It Well, Hear It Well: Feedback at Work — SCORM microlearning on SBI feedback, listening habits, and a live WhatsApp-style AI scenario',
+            'Say It Well, Hear It Well: Feedback at Work — A custom-authored interactive module on giving and receiving feedback, with a live AI feature',
           link: 'https://say-it-well-hear-it-well.vercel.app/',
         },
         {
           title:
-            'AI Literacy for Non-Technical Employees (Interactive Video) — How AI helps with workplace tasks (ideas, writing, summarizing, analysis), and why human review still matters',
+            'AI Literacy for Non-Technical Employees — 7-minute interactive video on using AI for work tasks and reviewing outputs with human judgment',
           link: 'https://starlit-starship-e9783b.netlify.app/#/lessons/3b02b628-fb82-441d-aca1-e3f090b709db',
         },
         {
           title:
-            'SAM for Instructional Designers — Scenario-based microlearning applying SAM’s preparation, iterative design, and development phases to a data-privacy deck',
+            'Successive Approximation Model (SAM) for Instructional Designers — Scenario-based module applying SAM phases to turn a slide deck into e-learning',
           link: 'https://elaborate-meringue-bc0054.netlify.app/#/',
         },
       ],
       eLearning: [
         {
           title:
-            'Cybersecurity Essentials for Every Employee (Articulate Rise & Synthesia) — Phishing, passwords, MFA, safe browsing, data handling, and incident reporting',
+            'Cybersecurity Essentials for Every Employee — Phishing, passwords, MFA, data handling, incident reporting',
           link: 'https://charming-sprinkles-d9df51.netlify.app/',
         },
         {
           title:
-            'Combating Climate Change: A Collective Responsibility (Articulate Rise) — Climate causes and impacts, with actions for individuals, organisations, and citizens',
+            'Combating Climate Change: A Collective Responsibility — Causes, impacts, and actions for individuals, organisations, and citizens',
           link: 'https://spectacular-dango-d6bec1.netlify.app/#/',
         },
       ],
-      medical: [
-        { title: 'Product Training Module: Dräger Fundamentals of Controllers' },
-        { title: 'Sales Training Module: Dräger Access and Control Package' },
+      professional: [
+        { title: 'Dräger: Product and sales training modules for medical systems' },
+        { title: 'Node Center: E-learning modules for curatorial staff' },
       ],
     },
     de: {
       microlearning: [
         {
           title:
-            'Say It Well, Hear It Well: Feedback at Work — SCORM-Microlearning zu SBI-Feedback, Zuhören und einem Live-WhatsApp-KI-Szenario',
+            'Say It Well, Hear It Well: Feedback at Work — Eigenes interaktives Modul zu Feedback geben und annehmen, mit Live-KI-Funktion',
           link: 'https://say-it-well-hear-it-well.vercel.app/',
         },
         {
           title:
-            'KI-Kompetenz für nicht-technische Mitarbeitende (Interaktives Video) — Wie KI bei Arbeitsaufgaben hilft (Ideen, Schreiben, Zusammenfassen, Analysieren) und warum menschliche Prüfung zählt',
+            'KI-Kompetenz für nicht-technische Mitarbeitende — 7-minütiges interaktives Video zu KI bei Arbeitsaufgaben und menschlicher Prüfung',
           link: 'https://starlit-starship-e9783b.netlify.app/#/lessons/3b02b628-fb82-441d-aca1-e3f090b709db',
         },
         {
           title:
-            'SAM für Instruktionsdesigner — Szenario-basiertes Microlearning zu SAM: Vorbereitung, iterative Gestaltung und Entwicklung anhand einer Datenschutz-Präsentation',
+            'SAM für Instruktionsdesigner — Szenario-Modul zu SAM-Phasen: eine Präsentation wird zu E-Learning',
           link: 'https://elaborate-meringue-bc0054.netlify.app/#/',
         },
       ],
       eLearning: [
         {
           title:
-            'Cybersicherheit für alle Mitarbeitenden (Articulate Rise & Synthesia) — Phishing, Passwörter, MFA, sicheres Surfen, Datenumgang und Meldewege',
+            'Cybersicherheit für alle Mitarbeitenden — Phishing, Passwörter, MFA, Datenumgang, Meldewege',
           link: 'https://charming-sprinkles-d9df51.netlify.app/',
         },
         {
           title:
-            'Klimawandel bekämpfen: Eine kollektive Verantwortung (Articulate Rise) — Ursachen und Auswirkungen sowie Handlungen für Einzelne, Organisationen und Bürger:innen',
+            'Klimawandel bekämpfen: Eine kollektive Verantwortung — Ursachen, Auswirkungen und Handlungen für Einzelne, Organisationen und Bürger:innen',
           link: 'https://spectacular-dango-d6bec1.netlify.app/#/',
         },
       ],
-      medical: [
-        { title: 'Produktschulung: Dräger Fundamentals of Controllers' },
-        { title: 'Vertriebsschulung: Dräger Access and Control Package' },
+      professional: [
+        { title: 'Dräger: Produkt- und Vertriebsschulungen für Medizintechniksysteme' },
+        { title: 'Node Center: E-Learning-Module für kuratorische Teams' },
       ],
     },
   };
@@ -176,7 +176,9 @@ export default function DigitalLearningCV() {
       </div>
       <div className="max-w-5xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl ring-1 ring-slate-200/80 p-6 md:p-10">
         <header className="border-b border-[#1a74b8]/30 pb-6 mb-6">
-          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#071525] via-[#0f4c81] to-[#1a74b8] bg-clip-text text-transparent mb-2">SAMUEL OPOKU</h1>
+          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#071525] via-[#0f4c81] to-[#1a74b8] bg-clip-text text-transparent mb-2">
+            SAMUEL OPOKU
+          </h1>
           <p className="text-xl text-[#0f4c81] font-semibold mb-4">{lang.subtitle}</p>
 
           <div className="flex flex-wrap gap-3 md:gap-4 text-xs md:text-sm text-gray-700">
@@ -211,98 +213,44 @@ export default function DigitalLearningCV() {
         <section className="mb-6">
           <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-[#d6e8f6] pb-1">{lang.skills}</h2>
           <div className="space-y-2 text-sm text-gray-700">
-            <p><span className="font-semibold">{language === 'de' ? 'Instruktionsdesign:' : 'Instructional Design:'}</span> ADDIE | SAM | Bloom&apos;s Taxonomy | Adult Learning Theory | Storyboarding | LXD | Curriculum Development</p>
-            <p><span className="font-semibold">{language === 'de' ? 'E-Learning-Entwicklung:' : 'E-Learning Development:'}</span> SCORM Packaging | LMS Administration | Learning Analytics | Interactive Design | Branching Scenarios | Gamification | Microlearning</p>
-            <p><span className="font-semibold">{language === 'de' ? 'Multimedia-Produktion:' : 'Multimedia Production:'}</span> Photo Editing (Infographics | Posters | Flyers) | Video Creation &amp; Editing</p>
-            <p><span className="font-semibold">{language === 'de' ? 'Technische Kommunikation:' : 'Technical Communication:'}</span> User Guides | Knowledge-Base Documentation | Cross-Cultural Content Adaptation | Content Localization</p>
+            <p>
+              <span className="font-semibold">{language === 'de' ? 'Instruktionsdesign:' : 'Instructional Design:'}</span>{' '}
+              ADDIE | SAM | Bloom&apos;s Taxonomy | Adult Learning Theory | Storyboarding | LXD | Curriculum Development
+            </p>
+            <p>
+              <span className="font-semibold">{language === 'de' ? 'E-Learning-Entwicklung:' : 'E-Learning Development:'}</span>{' '}
+              SCORM Packaging | LMS Administration | Learning Analytics | Interactive Design | Branching Scenarios | Gamification | Microlearning
+            </p>
+            <p>
+              <span className="font-semibold">{language === 'de' ? 'Multimedia-Produktion:' : 'Multimedia Production:'}</span>{' '}
+              Photo Editing (Infographics | Posters | Flyers) | Video Creation &amp; Editing
+            </p>
+            <p>
+              <span className="font-semibold">{language === 'de' ? 'Technische Kommunikation:' : 'Technical Communication:'}</span>{' '}
+              User Guides | Knowledge-Base Documentation | Cross-Cultural Content Adaptation | Content Localisation
+            </p>
           </div>
         </section>
 
         <section className="mb-6">
           <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-[#d6e8f6] pb-1">{lang.tools}</h2>
           <div className="space-y-2 text-sm text-gray-700">
-            <p><span className="font-semibold">{language === 'de' ? 'E-Learning & LMS:' : 'E-Learning Authoring & LMS:'}</span> Articulate 360 (Storyline, Rise) | Moodle</p>
-            <p><span className="font-semibold">{language === 'de' ? 'Design & Multimedia:' : 'Design & Multimedia:'}</span> Adobe Creative Suite (Premiere Pro, Photoshop, InDesign) | Figma | Synthesia | Descript | Canva</p>
-            <p><span className="font-semibold">{language === 'de' ? 'Web & KI:' : 'Web & AI Development:'}</span> HTML | CSS | Markdown | API Integration | Prompt Coding</p>
-            <p><span className="font-semibold">{language === 'de' ? 'Entwicklung:' : 'Development Tools:'}</span> GitHub | VS Code | Cursor | Vercel</p>
-            <p><span className="font-semibold">{language === 'de' ? 'Produktivität:' : 'Productivity & Collaboration:'}</span> Google Workspace | Microsoft 365 (Word, PowerPoint, SharePoint, Teams, Excel) | Notion | Confluence</p>
-          </div>
-        </section>
-
-        <section className="mb-6">
-          <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-gray-300 pb-1">{lang.experience}</h2>
-
-          <div className="mb-4">
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
-              <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Instructional Designer (Freelance | Teilzeit)' : 'Instructional Designer (Freelance | Part-Time)'}</h3>
-                <p className="text-gray-600 italic">Node Center for Curatorial Studies, Berlin</p>
-              </div>
-              <span className="text-sm text-gray-600 font-semibold">Aug 2026 – Present</span>
-            </div>
-            <ul className="text-sm text-gray-700 space-y-1 ml-4">
-              <li>• {language === 'de' ? 'Übersetzt Fachinput in strukturierte, lernfreundliche Inhalte. Instruktionsdesign für ein spezialisiertes, nicht-technisches Publikum' : 'Translates subject-matter input into structured, learner-friendly content, applying instructional design principles to a specialist, non-technical audience'}</li>
-              <li>• {language === 'de' ? 'Konzipiert und entwickelt E-Learning-Module in Articulate Rise für Museum- und Kuratoren-Teams' : 'Designs and develops e-learning modules in Articulate Rise for museum and curatorial staff'}</li>
-              <li>• {language === 'de' ? 'Entwirft formative und summative Assessments, inklusive Quizzes und Übungsaufgaben, ausgerichtet auf Lernziele' : 'Designs formative and summative assessments, including quizzes and practice tasks, that are aligned to learning objectives'}</li>
-              <li>• {language === 'de' ? 'Steuert iterative Stakeholder-Review-Zyklen und verfeinert Ton, Struktur und visuelles Design anhand des Feedbacks' : 'Manages iterative stakeholder review cycles, translating feedback into refined tone, structure, and visual design'}</li>
-            </ul>
-          </div>
-
-          <div className="mb-4">
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
-              <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'E-Learning-Entwickler (Praktikant)' : 'E-Learning Developer (Intern)'}</h3>
-                <p className="text-gray-600 italic">Dräger, Lübeck</p>
-              </div>
-              <span className="text-sm text-gray-600">Feb 2026 – July 2026</span>
-            </div>
-            <ul className="text-sm text-gray-700 space-y-1 ml-4">
-              <li>• {language === 'de' ? 'Produzierte und schnitt Lehrvideos (Adobe Premiere Pro) für globale Produktschulungen. von Dreh bis Final Cut' : 'Produced and edited instructional videos (Adobe Premiere Pro) for global product training on medical and safety equipment, from shoot to final cut'}</li>
-              <li>• {language === 'de' ? 'Baute bestehende E-Learning-Inhalte in Articulate Rise um und strukturierte PowerPoint-Materialien nach Corporate Identity' : 'Built and transferred existing e-learning content into Articulate Rise, restructuring PowerPoint materials to align with Corporate Identity standards'}</li>
-              <li>• {language === 'de' ? 'Nutze KI-Tools für mehrsprachige E-Learning-Versionen und verbesserte globale Reichweite' : 'Utilised AI-powered tools to create multilingual versions of e-learning modules, improving accessibility and global reach'}</li>
-            </ul>
-          </div>
-
-          <div className="mb-4">
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
-              <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Digital Learning Designer (Praktikant)' : 'Digital Learning Designer (Intern)'}</h3>
-                <p className="text-gray-600 italic">Tanz der Kulturen e.V., Hamburg</p>
-              </div>
-              <span className="text-sm text-gray-600">June 2025 – Nov 2025</span>
-            </div>
-            <ul className="text-sm text-gray-700 space-y-1 ml-4">
-              <li>• {language === 'de' ? 'Gestaltete 25+ Multimedia-Lernassets (Infografiken, Werbematerialien) mit Figma für diverse Lerngruppen' : 'Designed 25+ accessible multimedia learning assets (infographics, promotional materials) using Figma, expanding reach to diverse learner groups'}</li>
-              <li>• {language === 'de' ? 'Kuratierte und strukturierte 50+ Bildungsressourcen für multikulturelle Kunstpädagogik. 200+ internationale, community- und ERASMUS-Lernende' : 'Curated and structured 50+ educational resources for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners'}</li>
-              <li>• {language === 'de' ? 'Lokalisierte 300+ Seiten deutscher Unterrichtsinhalte (z. B. Rituelle Tanz Pädagogik) ins Englische mit KI-Unterstützung' : 'Localized 300+ pages of German instructional content (e.g., Rituelle Tanz Pädagogik book) into English using AI-assisted translation, preserving natural flow'}</li>
-            </ul>
-          </div>
-
-          <div className="mb-4">
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
-              <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Englischlehrer & Verwaltungsassistent' : 'English Language Teacher & Administrative Assistant'}</h3>
-                <p className="text-gray-600 italic">Ghana National Service Scheme, Kumasi</p>
-              </div>
-              <span className="text-sm text-gray-600">Jan 2023 – Oct 2023</span>
-            </div>
-            <ul className="text-sm text-gray-700 space-y-1 ml-4">
-              <li>• {language === 'de' ? 'Entwarf und hielt Englischunterricht mit Lernzielen nach Bloom\'s Taxonomie' : 'Designed and delivered English lessons using learning objectives aligned with Bloom\'s Taxonomy, enhancing comprehension, writing, and speaking skills'}</li>
-              <li>• {language === 'de' ? 'Verwaltete administrative Aufgaben inkl. Schülerakten, Zeitplanung und Korrespondenz' : 'Managed administrative tasks, including student records, scheduling, and correspondence'}</li>
-            </ul>
-          </div>
-
-          <div className="mb-4">
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
-              <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Englisch-Lehrassistent (Praktikant)' : 'English Language Teaching Assistant (Intern)'}</h3>
-                <p className="text-gray-600 italic">Ghana Education Service, Kumasi</p>
-              </div>
-              <span className="text-sm text-gray-600">June 2021 – Dec 2021</span>
-            </div>
-            <ul className="text-sm text-gray-700 space-y-1 ml-4">
-              <li>• {language === 'de' ? 'Führte Unterricht mit Bewertungsstrategien und instructional scaffolding im Einklang mit Lernzielen durch' : 'Facilitated lessons integrating assessment strategies and instructional scaffolding aligned to learning outcomes'}</li>
-            </ul>
+            <p>
+              <span className="font-semibold">{language === 'de' ? 'E-Learning & LMS:' : 'E-Learning Authoring & LMS:'}</span>{' '}
+              Articulate 360 (Storyline, Rise) | Moodle
+            </p>
+            <p>
+              <span className="font-semibold">Design &amp; Multimedia:</span>{' '}
+              Adobe Creative Suite (Premiere Pro, Photoshop, InDesign) | Figma | Synthesia | Descript | Canva | DaVinci
+            </p>
+            <p>
+              <span className="font-semibold">{language === 'de' ? 'Web & Entwicklung:' : 'Web & Development:'}</span>{' '}
+              HTML | CSS | Markdown | API Integration | Prompt Coding
+            </p>
+            <p>
+              <span className="font-semibold">{language === 'de' ? 'Produktivität:' : 'Productivity & Collaboration:'}</span>{' '}
+              Google Workspace | Microsoft 365 (Word, PowerPoint, SharePoint, Teams, Excel) | Notion | Confluence
+            </p>
           </div>
         </section>
 
@@ -312,35 +260,180 @@ export default function DigitalLearningCV() {
           <div className="mb-4">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-1 gap-1">
               <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Master in Nordamerikastudien (Medienwissenschaften)' : "Master's in North American Studies (Media Studies)"}</h3>
-                <p className="text-gray-600">{language === 'de' ? 'Philipps-Universität Marburg, Deutschland' : 'Philipps-Universität Marburg, Germany'}</p>
+                <h3 className="font-bold text-gray-800">
+                  {language === 'de'
+                    ? 'Master in Nordamerikastudien (Medienwissenschaften)'
+                    : "Master's in North American Studies (Media Studies)"}
+                </h3>
+                <p className="text-gray-600">
+                  {language === 'de' ? 'Philipps-Universität Marburg, Deutschland' : 'Philipps-Universität Marburg, Germany'}
+                </p>
                 <p className="text-sm text-gray-600 italic">{lang.gradeMaster}</p>
               </div>
               <span className="text-sm text-gray-600">Oct 2023 – March 2026</span>
             </div>
-            <p className="text-sm text-gray-700 font-semibold ml-4">{language === 'de' ? 'Masterarbeit: „KI als Reflexion: Mensch-Technologie-Beziehungen in digitalen Narrativen"' : 'Master\'s Thesis: "AI as Reflection: Human-Technology Relationships in Digital Narratives"'}</p>
+            <p className="text-sm text-gray-700 font-semibold ml-4">
+              {language === 'de'
+                ? 'Masterarbeit: „KI als Reflexion: Mensch-Technologie-Beziehungen in digitalen Narrativen"'
+                : 'Master\'s Thesis: "AI as Reflection: Human-Technology Relationships in Digital Narratives"'}
+            </p>
           </div>
 
           <div>
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-1 gap-1">
               <div>
-                <h3 className="font-bold text-gray-800">{language === 'de' ? 'Bachelor of Education in Englischer Sprache' : 'Bachelor of Education in English Language'}</h3>
-                <p className="text-gray-600">{language === 'de' ? 'Universität Cape Coast, Ghana' : 'University of Cape Coast, Ghana'}</p>
+                <h3 className="font-bold text-gray-800">
+                  {language === 'de'
+                    ? 'Bachelor of Education in Englischer Sprache'
+                    : 'Bachelor of Education in English Language'}
+                </h3>
+                <p className="text-gray-600">
+                  {language === 'de' ? 'Universität Cape Coast, Ghana' : 'University of Cape Coast, Ghana'}
+                </p>
                 <p className="text-sm text-gray-600 italic">{lang.gradeBachelor}</p>
               </div>
               <span className="text-sm text-gray-600">Oct 2018 – Oct 2022</span>
             </div>
-            <p className="text-sm text-gray-700 ml-4">{language === 'de' ? 'Bachelorarbeit: „The Box-Part-Letter Method: A Structured Approach to Handwriting Instruction"' : 'Bachelor\'s Thesis: "The Box-Part-Letter Method: A Structured Approach to Handwriting Instruction"'}</p>
+            <p className="text-sm text-gray-700 ml-4">
+              {language === 'de'
+                ? 'Bachelorarbeit: „The Box-Part-Letter Method: A Structured Approach to Handwriting Instruction"'
+                : 'Bachelor\'s Thesis: "The Box-Part-Letter Method: A Structured Approach to Handwriting Instruction"'}
+            </p>
           </div>
         </section>
 
         <section className="mb-6">
-          <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-[#d6e8f6] pb-1">{lang.certifications}</h2>
-          <ul className="space-y-2 text-sm text-gray-700">
-            <li>• Instructional Design Foundations &amp; Applications – University of Illinois Urbana-Champaign (Aug 14, 2025)</li>
-            <li>• EF SET English Certificate – C1 Advanced (67/100) (Feb 10, 2025)</li>
-            <li>• Technical Writing Course – Board Infinity (April 2, 2025)</li>
-          </ul>
+          <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-gray-300 pb-1">{lang.experience}</h2>
+
+          <div className="mb-4">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
+              <div>
+                <h3 className="font-bold text-gray-800">
+                  {language === 'de' ? 'Instructional Designer (Freelance)' : 'Instructional Designer (Freelance)'}
+                </h3>
+                <p className="text-gray-600 italic">Node Center for Curatorial Studies, Berlin</p>
+              </div>
+              <span className="text-sm text-gray-600 font-semibold">Aug 2026 – Present</span>
+            </div>
+            <ul className="text-sm text-gray-700 space-y-1 ml-4">
+              <li>
+                •{' '}
+                {language === 'de'
+                  ? 'Übersetzt Fachinput in strukturierte, lernfreundliche Inhalte und wendet Instruktionsdesign-Prinzipien auf ein spezialisiertes, nicht-technisches Publikum an'
+                  : 'Translates subject-matter input into structured, learner-friendly content, applying instructional design principles to a specialist, non-technical audience'}
+              </li>
+              <li>
+                •{' '}
+                {language === 'de'
+                  ? 'Konzipiert und entwickelt interaktive und szenariobasierte E-Learning-Module in Articulate Rise für Museum- und Kuratoren-Teams'
+                  : 'Designs and develops interactive and scenario-based e-learning modules in Articulate Rise for museum and curatorial staff'}
+              </li>
+              <li>
+                •{' '}
+                {language === 'de'
+                  ? 'Entwirft formative und summative Assessments, inklusive Quizzes und Übungsaufgaben, ausgerichtet auf Lernziele'
+                  : 'Designs formative and summative assessments, including quizzes and practice tasks, that are aligned to learning objectives'}
+              </li>
+              <li>
+                •{' '}
+                {language === 'de'
+                  ? 'Steuert iterative Stakeholder-Review-Zyklen und übersetzt Feedback in verfeinerten Ton, Struktur und visuelles Design'
+                  : 'Manages iterative stakeholder review cycles, translating feedback into refined tone, structure, and visual design'}
+              </li>
+            </ul>
+          </div>
+
+          <div className="mb-4">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
+              <div>
+                <h3 className="font-bold text-gray-800">
+                  {language === 'de' ? 'E-Learning-Entwickler (Praktikant)' : 'E-Learning Developer (Intern)'}
+                </h3>
+                <p className="text-gray-600 italic">Dräger, Lübeck</p>
+              </div>
+              <span className="text-sm text-gray-600">Feb 2026 – July 2026</span>
+            </div>
+            <ul className="text-sm text-gray-700 space-y-1 ml-4">
+              <li>
+                •{' '}
+                {language === 'de'
+                  ? 'Lieferte 14 Projekte in 6 Monaten, davon 7 E-Learning-Module mit Video (Articulate Rise, Premiere Pro), vom Dreh bis zum Final Cut für globale Medizin- und Sicherheitstechnik-Schulungen'
+                  : 'Delivered 14 projects in 6 months, 7 of them e-learning modules with video (Articulate Rise, Premiere Pro), from shoot to final cut for global medical and safety equipment training'}
+              </li>
+              <li>
+                •{' '}
+                {language === 'de'
+                  ? 'Erstellte Storyboards für 2 PowerPoint-Schulungen, strukturierte sie nach Corporate Identity und baute Diagramme sowie Infografiken neu auf'
+                  : 'Storyboarded 2 PowerPoint trainings, restructuring them to Corporate Identity standards and rebuilding graphs and infographics'}
+              </li>
+              <li>
+                •{' '}
+                {language === 'de'
+                  ? 'Dokumentierte 5 Lehrvideo-Drehtermine mit Fachexpert:innen und strukturierte die Inhalte im Instruktionsdesign-Format'
+                  : 'Documented 5 instructional video shoots with subject-matter experts, structuring the content in instructional design format'}
+              </li>
+              <li>
+                •{' '}
+                {language === 'de'
+                  ? 'Erstellte mehrsprachige E-Learning-Versionen mit KI-Übersetzungstools, wählte das passende Tool je Inhaltstyp und prüfte die technische Genauigkeit'
+                  : 'Produced multilingual versions of e-learning modules with AI translation tools, matching the tool to the content type and reviewing technical accuracy'}
+              </li>
+            </ul>
+          </div>
+
+          <div className="mb-4">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
+              <div>
+                <h3 className="font-bold text-gray-800">
+                  {language === 'de' ? 'Digital Learning Designer (Praktikant)' : 'Digital Learning Designer (Intern)'}
+                </h3>
+                <p className="text-gray-600 italic">Tanz der Kulturen e.V., Hamburg</p>
+              </div>
+              <span className="text-sm text-gray-600">June 2025 – Nov 2025</span>
+            </div>
+            <ul className="text-sm text-gray-700 space-y-1 ml-4">
+              <li>
+                •{' '}
+                {language === 'de'
+                  ? 'Gestaltete 25+ barrierefreie Multimedia-Lernassets (Infografiken, Werbematerialien) mit Figma und erweiterte die Reichweite für diverse Lerngruppen'
+                  : 'Designed 25+ accessible multimedia learning assets (infographics, promotional materials), using Figma, expanding reach to diverse learner groups'}
+              </li>
+              <li>
+                •{' '}
+                {language === 'de'
+                  ? 'Kuratierte und strukturierte 50+ Bildungsressourcen für multikulturelle Kunstpädagogik und unterstützte 200+ internationale, Community- und ERASMUS-Lernende'
+                  : 'Curated and structured 50+ educational resources for multicultural art pedagogy, supporting 200+ international, community, and ERASMUS learners'}
+              </li>
+              <li>
+                •{' '}
+                {language === 'de'
+                  ? 'Lokalisierte 300+ Seiten deutscher Unterrichtsinhalte (z. B. Rituelle Tanz Pädagogik) ins Englische mit KI-Unterstützung und behielt den natürlichen Fluss'
+                  : 'Localised 300+ pages of German instructional content (e.g., Rituelle Tanz Pädagogik book) into English using AI-assisted translation, preserving natural flow'}
+              </li>
+            </ul>
+          </div>
+
+          <div className="mb-4">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
+              <div>
+                <h3 className="font-bold text-gray-800">
+                  {language === 'de'
+                    ? 'Englischlehrer & Verwaltungsassistent'
+                    : 'English Language Teacher & Administrative Assistant'}
+                </h3>
+                <p className="text-gray-600 italic">Ghana National Service Scheme, Kumasi</p>
+              </div>
+              <span className="text-sm text-gray-600">Jan 2023 – Oct 2023</span>
+            </div>
+            <ul className="text-sm text-gray-700 space-y-1 ml-4">
+              <li>
+                •{' '}
+                {language === 'de'
+                  ? 'Entwarf und hielt Englischunterricht und übernahm administrative Aufgaben inkl. Schülerakten, Zeitplanung und Korrespondenz'
+                  : 'Designed and delivered English lessons and managed administrative tasks, including student records, scheduling, and correspondence'}
+              </li>
+            </ul>
+          </div>
         </section>
 
         <section className="mb-6">
@@ -349,7 +442,7 @@ export default function DigitalLearningCV() {
             {[
               { heading: lang.microlearningProjects, items: portfolioLang.microlearning },
               { heading: lang.eLearningProjects, items: portfolioLang.eLearning },
-              { heading: lang.medicalProjects, items: portfolioLang.medical }
+              { heading: lang.professionalProjects, items: portfolioLang.professional },
             ].map((group) => (
               <div key={group.heading}>
                 <p className="font-semibold text-gray-800">{group.heading}:</p>
@@ -381,12 +474,26 @@ export default function DigitalLearningCV() {
           </div>
         </section>
 
+        <section className="mb-6">
+          <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-[#d6e8f6] pb-1">{lang.certifications}</h2>
+          <ul className="space-y-2 text-sm text-gray-700">
+            <li>• Instructional Design Foundations &amp; Applications – University of Illinois Urbana-Champaign (Aug 14, 2025)</li>
+            <li>• Technical Writing Course – Board Infinity (April 2, 2025)</li>
+          </ul>
+        </section>
+
         <section>
           <h2 className="text-2xl font-bold text-[#0f4c81] mb-3 border-b-2 border-gray-300 pb-1">{lang.languages}</h2>
           <div className="flex flex-wrap gap-6 text-sm text-gray-700">
-            <span><span className="font-semibold">{lang.english}</span> – {lang.native}</span>
-            <span><span className="font-semibold">{lang.german}</span> – {lang.intermediate}</span>
-            <span><span className="font-semibold">{lang.akan}</span> – {lang.native}</span>
+            <span>
+              <span className="font-semibold">{lang.english}</span> – {lang.native}
+            </span>
+            <span>
+              <span className="font-semibold">{lang.german}</span> – {lang.intermediate}
+            </span>
+            <span>
+              <span className="font-semibold">{lang.akan}</span> – {lang.native}
+            </span>
           </div>
         </section>
       </div>

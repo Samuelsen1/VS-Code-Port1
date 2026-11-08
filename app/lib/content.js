@@ -32,7 +32,7 @@ export const copy = {
     },
     about: {
       title: 'About',
-      body: 'I combine instructional design theory with hands-on production. Master’s in Media Studies, Bachelor’s in Education. Currently freelancing with Node Center for Curatorial Studies; previously at Dräger and Tanz der Kulturen.',
+      body: 'I combine instructional design theory with hands-on production. Master’s in Media Studies, Bachelor’s in Education. Currently freelancing with Node Center for Curatorial Studies; previously at Dräger and Tanz der Kulturen. Builds accessible, learner-centred learning experiences across medtech and cultural sectors.',
     },
     metrics: {
       title: 'Impact',

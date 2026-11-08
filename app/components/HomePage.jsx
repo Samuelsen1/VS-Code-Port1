@@ -50,7 +50,7 @@ function Metric({ value, suffix, label }) {
 
 export default function HomePage() {
   const { language, t } = useLanguage();
-  const featured = projects.filter((p) => p.featured).slice(0, 4);
+  const featured = projects.filter((p) => p.featured).slice(0, 5);
 
   return (
     <>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Sora:wght@500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -18,8 +18,8 @@
   --line: rgba(15, 76, 129, 0.14);
   --shadow: 0 18px 50px rgba(7, 21, 37, 0.12);
   --radius: 22px;
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Manrope', sans-serif;
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
 * {
