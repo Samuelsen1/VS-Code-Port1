@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../lib/LanguageContext';
 import { site } from '../lib/content';
 import ChatWidget from './ChatWidget';
+import AccessibilityPanel from './AccessibilityPanel';
 
 const links = [
   { href: '/projects', key: 'work' },
@@ -128,6 +129,7 @@ export default function SiteShell({ children }) {
       )}
 
       <ChatWidget />
+      <AccessibilityPanel />
     </div>
   );
 }

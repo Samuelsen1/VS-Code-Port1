@@ -94,7 +94,7 @@ export default function ChatWidget() {
           <X className="w-5 h-5" />
         ) : (
           <img
-            src="/images/general.png?v=6"
+            src="/images/general-fab.png?v=7"
             alt=""
             width="56"
             height="56"
@@ -109,7 +109,7 @@ export default function ChatWidget() {
           <div className="chat-panel-head">
             <div className="chat-panel-title">
               <img
-                src="/images/general.png?v=6"
+                src="/images/general-fab.png?v=7"
                 alt=""
                 width="36"
                 height="36"

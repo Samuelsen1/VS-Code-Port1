@@ -82,7 +82,7 @@ export default function HomePage() {
 
           <div className="hero-visual reveal reveal-in" style={{ transitionDelay: '200ms' }}>
             <div className="hero-portrait">
-              <img src="/images/profile.jpg" alt={site.name} />
+              <img src="/images/profile.jpg?v=3" alt={site.name} />
             </div>
             <div className="hero-float-card">
               <p>Node Center · Berlin</p>
