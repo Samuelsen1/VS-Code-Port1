@@ -82,7 +82,7 @@ export default function DigitalLearningCV() {
       microlearning: [
         {
           title:
-            'Say It Well, Hear It Well: Feedback at Work — A custom-authored interactive module on giving and receiving feedback, with a live AI feature',
+            'Say It Well, Hear It Well: Feedback at Work: A custom-authored SCORM microlearning on giving and receiving feedback, with switchable English/German, a live AI practice scenario, and a final assessment',
           link: 'https://say-it-well-hear-it-well.vercel.app/',
         },
         {
@@ -117,7 +117,7 @@ export default function DigitalLearningCV() {
       microlearning: [
         {
           title:
-            'Say It Well, Hear It Well: Feedback at Work — Eigenes interaktives Modul zu Feedback geben und annehmen, mit Live-KI-Funktion',
+            'Say It Well, Hear It Well: Feedback at Work: Eigenes SCORM-Microlearning zu Feedback geben und annehmen, mit umschaltbarem Englisch/Deutsch, Live-KI-Übungsszenario und abschließendem Assessment',
           link: 'https://say-it-well-hear-it-well.vercel.app/',
         },
         {
